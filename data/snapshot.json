@@ -1,15 +1,18 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 08:58:07 CT",
-  "mode": "PAPER",
-  "c_confirmed": false,
+  "generated_at_ct": "2026-09-05 09:09:24 CT",
+  "mode": "LIVE",
+  "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 08:58:07 CT",
-    "mode": "PAPER",
-    "c_confirmed": false,
+    "generated_at_ct": "2026-09-05 09:09:24 CT",
+    "mode": "LIVE",
+    "c_confirmed": true,
+    "starting_c": 200.0,
+    "capital_source": "docs/capital.json",
+    "confirmed_ct": "2026-09-05",
     "warnings": [
-      "C (starting capital) unconfirmed — all dollar fields null/N/A",
-      "Mode PAPER — no live balances",
+      "C confirmed = 200.0 (LIVE) via docs/capital.json / book-snapshot",
+      "Viability clock starts on first live fill — not funding day",
       "Empty blotter — no positions / no trade history",
       "Do not mix clean/contaminated Brier",
       "VOLGATE OOS is not live alpha",
@@ -18,52 +21,52 @@
     "date": "2026-09-05"
   },
   "portfolio": {
-    "mode": "PAPER",
-    "data_quality": "PAPER",
-    "c_confirmed": false,
-    "starting_c": null,
+    "mode": "LIVE",
+    "data_quality": "LIVE",
+    "c_confirmed": true,
+    "starting_c": 200.0,
     "starting_capital": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 200.0,
+      "label": "LIVE",
+      "display": "200.0"
     },
-    "account_value": null,
+    "account_value": 200.0,
     "account_value_money": {
-      "value": null,
-      "label": "PAPER",
-      "display": "N/A"
+      "value": 200.0,
+      "label": "LIVE",
+      "display": "200.0"
     },
     "net_pnl": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0"
     },
     "total_return_pct": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0%"
     },
     "realized_pnl": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0"
     },
     "unrealized_pnl": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0"
     },
     "cash_reserve": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 200.0,
+      "label": "LIVE",
+      "display": "200.0"
     },
     "deployed": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0"
     },
-    "note": "C unconfirmed — PAPER. Account value / P&L unavailable until starting capital is confirmed.",
+    "note": "C confirmed (200.0) mode=LIVE. Figures from latest journal/book-snapshot.csv row; no invented P&L. Book note: C=$200 funded IBKR; no positions yet; pre-first-fill",
     "sleeves": [
       {
         "id": "S-RESERVE / E3-RESERVE",
@@ -107,50 +110,49 @@
         "label": "PAPER",
         "note": "status string only; no dollar invent"
       }
-    ]
+    ],
+    "book_timestamp_ct": "2026-09-05 09:05 CT",
+    "book_source": "thomas_funding"
   },
   "performance_windows": {
-    "windows": [],
-    "today": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
-    },
-    "7d": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
-    },
-    "30d": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
-    },
-    "90d": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
-    },
-    "inception": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
-    },
-    "reason": "book-snapshot has no history rows; C unconfirmed — no invented P&L",
-    "label": "PAPER",
-    "note": "N/A until confirmed C and book history"
+    "windows": [
+      {
+        "date_ct": "2026-09-05 09:05 CT",
+        "nav": {
+          "value": 200.0,
+          "label": "LIVE",
+          "display": "200.0"
+        },
+        "cash": 200.0,
+        "deployed": 0.0,
+        "return_pct": null,
+        "notes": "C=$200 funded IBKR; no positions yet; pre-first-fill",
+        "mode": "LIVE",
+        "label": "LIVE"
+      }
+    ],
+    "reason": null,
+    "label": "LIVE",
+    "note": "raw book-snapshot rows only; no mixed LIVE/SHADOW totals"
   },
   "nav_curve": {
-    "points": [],
-    "note": "Empty blotter — no NAV curve. Shadow H5 is observation, not P&L."
+    "points": [
+      {
+        "date_ct": "2026-09-05 09:05 CT",
+        "nav": 200.0,
+        "label": "LIVE"
+      }
+    ],
+    "note": "From journal/book-snapshot.csv; Shadow artifacts are not NAV.",
+    "label": "LIVE"
   },
   "positions": {
     "event": [],
     "securities": [],
     "crypto": [],
     "empty": true,
-    "note": "No current positions. Empty blotter — not broken.",
-    "label": "PAPER"
+    "note": "No current positions (cash-only funded). Empty blotter — not broken.",
+    "label": "LIVE"
   },
   "history": {
     "blotter": [],
@@ -199,131 +201,157 @@
         "mtime_ct": "2026-09-04 11:32:06 CT"
       }
     ],
-    "label": "PAPER",
+    "label": "LIVE",
     "note": "blotter may be header-only; shadow paths are SHADOW refs without PnL"
   },
   "risk": {
-    "label": "PAPER",
-    "c_confirmed": false,
-    "framework": "policy PAPER framework (% of unconfirmed C)",
+    "label": "LIVE",
+    "c_confirmed": true,
+    "starting_c": 200.0,
+    "framework": "policy LIVE framework (% of C=200.0)",
     "pct_limits": [
       {
         "rule": "Max loss / size per position (experimental)",
         "pct_of_c": 0.02,
         "pct_display": "2%",
-        "notes": "Default new risk",
-        "label": "PAPER"
+        "notes": "$4",
+        "label": "LIVE",
+        "dollars_at_c": 4.0
       },
       {
         "rule": "Max loss / size per position (core)",
         "pct_of_c": 0.05,
         "pct_display": "5%",
-        "notes": "Core earns allocation; starts 0",
-        "label": "PAPER"
+        "notes": "$10",
+        "label": "LIVE",
+        "dollars_at_c": 10.0
       },
       {
         "rule": "Max loss per strategy (realized + open)",
         "pct_of_c": 0.04,
         "pct_display": "4%",
-        "notes": "Hit → pause + review",
-        "label": "PAPER"
+        "notes": "$8",
+        "label": "LIVE",
+        "dollars_at_c": 8.0
       },
       {
         "rule": "Max exposure per asset / ticker / event",
         "pct_of_c": 0.08,
         "pct_display": "8%",
-        "notes": "",
-        "label": "PAPER"
+        "notes": "$16",
+        "label": "LIVE",
+        "dollars_at_c": 16.0
       },
       {
         "rule": "Max correlated book",
         "pct_of_c": 0.1,
         "pct_display": "10%",
-        "notes": "Same event family / factor / coin beta",
-        "label": "PAPER"
+        "notes": "$20",
+        "label": "LIVE",
+        "dollars_at_c": 20.0
       },
       {
-        "rule": "Experimental book total",
+        "rule": "Experimental book total (simultaneous)",
         "pct_of_c": 0.1,
         "pct_display": "≤10%",
-        "notes": "Ceiling",
-        "label": "PAPER"
+        "notes": "≤$20",
+        "label": "LIVE",
+        "dollars_at_c": 20.0
       },
       {
         "rule": "Core book",
         "pct_of_c": 0.0,
         "pct_display": "0% until evidence",
-        "notes": "Then scale gradually",
-        "label": "PAPER"
+        "notes": "$0",
+        "label": "LIVE",
+        "dollars_at_c": 0.0
       },
       {
         "rule": "Sleeve ceiling: event contracts",
         "pct_of_c": 0.4,
         "pct_display": "40%",
-        "notes": "Not a target",
-        "label": "PAPER"
+        "notes": "$80",
+        "label": "LIVE",
+        "dollars_at_c": 80.0
       },
       {
         "rule": "Sleeve ceiling: risk-on securities",
         "pct_of_c": 0.4,
         "pct_display": "40%",
-        "notes": "",
-        "label": "PAPER"
+        "notes": "$80",
+        "label": "LIVE",
+        "dollars_at_c": 80.0
       },
       {
         "rule": "Sleeve ceiling: crypto spot",
         "pct_of_c": 0.1,
         "pct_display": "10%",
-        "notes": "Observe-only until hypothesis",
-        "label": "PAPER"
+        "notes": "$20",
+        "label": "LIVE",
+        "dollars_at_c": 20.0
       },
       {
         "rule": "Cash / T-bill reserve floor",
         "pct_of_c": 0.5,
         "pct_display": "≥50%",
-        "notes": "Until a strategy has 30d live + positive expectancy after costs",
-        "label": "PAPER"
+        "notes": "≥$100",
+        "label": "LIVE",
+        "dollars_at_c": 100.0
       },
       {
-        "rule": "Typical first paid idea",
+        "rule": "Typical first live idea / systems test",
         "pct_of_c": 0.01,
         "pct_display": "0.5–1%",
-        "notes": "See `tools/position_sizing.py`",
-        "label": "PAPER"
+        "notes": "$1–$2",
+        "label": "LIVE",
+        "dollars_at_c": 2.0
+      },
+      {
+        "rule": "Soft daily loss pause (exp book)",
+        "pct_of_c": null,
+        "pct_display": "—",
+        "notes": "$8 (4% C)",
+        "label": "LIVE"
       }
     ],
     "drawdown_limits": [
       {
         "threshold_pct": 0.12,
         "threshold_display": "≥12%",
-        "action": "Cut experimental book in half; no new strategies",
-        "label": "PAPER"
+        "action": "≥$24",
+        "label": "LIVE",
+        "dollars_at_c": 24.0
       },
       {
         "threshold_pct": 0.18,
         "threshold_display": "≥18%",
-        "action": "Freeze new risk; written review before any new position",
-        "label": "PAPER"
+        "action": "≥$36",
+        "label": "LIVE",
+        "dollars_at_c": 36.0
       },
       {
         "threshold_pct": 0.25,
         "threshold_display": "≥25%",
-        "action": "Halt all live trading until Thomas restarts",
-        "label": "PAPER"
+        "action": "≥$50",
+        "label": "LIVE",
+        "dollars_at_c": 50.0
       }
     ],
     "dd_thresholds": [
       {
         "pct": 12,
-        "action": "Cut experimental book in half; no new strategies"
+        "action": "Cut experimental book in half; no new strategies",
+        "dollars": 24.0
       },
       {
         "pct": 18,
-        "action": "Freeze new risk; written review before any new position"
+        "action": "Freeze new risk; written review before any new position",
+        "dollars": 36.0
       },
       {
         "pct": 25,
-        "action": "Halt all live trading until Thomas restarts"
+        "action": "Halt all live trading until Thomas restarts",
+        "dollars": 50.0
       }
     ],
     "utilization": {
@@ -332,9 +360,9 @@
       "display": "N/A"
     },
     "current_dd": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0"
     },
     "framework_constants": {
       "dd_reduce": 0.12,
@@ -345,17 +373,43 @@
       "strategy_loss": 0.04,
       "asset_exposure": 0.08,
       "correlated_book": 0.1,
-      "experimental_book": 0.1
+      "experimental_book": 0.1,
+      "sleeve_event": 0.4,
+      "sleeve_securities": 0.4,
+      "sleeve_crypto": 0.1,
+      "reserve_floor": 0.5,
+      "soft_daily_loss": 0.04,
+      "start_experiment_low": 0.005,
+      "start_experiment_high": 0.01
     },
-    "dollar_limits": null,
-    "dollar_limits_note": "TBD while C unconfirmed",
+    "dollar_limits": {
+      "C": 200.0,
+      "pos_experimental": 4.0,
+      "pos_core": 10.0,
+      "strategy_loss": 8.0,
+      "asset_exposure": 16.0,
+      "correlated_book": 20.0,
+      "experimental_book": 20.0,
+      "sleeve_event": 80.0,
+      "sleeve_securities": 80.0,
+      "sleeve_crypto": 20.0,
+      "reserve_floor": 100.0,
+      "soft_daily_loss": 8.0,
+      "start_experiment_low": 1.0,
+      "start_experiment_high": 2.0,
+      "dd_reduce": 24.0,
+      "dd_freeze": 36.0,
+      "dd_halt": 50.0
+    },
+    "dollar_limits_note": "Filled from C=200.0 × risk-architecture / position_sizing percentages",
     "no_leverage": true,
-    "note": "All limits are % of C. Dollar utilization N/A until C confirmed.",
+    "note": "Dollar limits filled for confirmed C=200.0.",
     "source": "docs/risk-architecture.md",
     "pointers": [
       "docs/risk-architecture.md",
+      "docs/capital.json",
+      "docs/live-experiment-sleeve-2026-09-05.md",
       "docs/canonical-state-2026-09-04.md",
-      "initialization-2026-09-03.md",
       "tools/risk_engine.py"
     ]
   },
@@ -1408,6 +1462,7 @@
       "dashboard_snapshot.py",
       "fee_model.py",
       "journal_io.py",
+      "live_risk_gate.py",
       "null_backtest.py",
       "position_sizing.py",
       "risk_engine.py",
@@ -1415,7 +1470,7 @@
       "smoke_test.py",
       "volgate_oos.py"
     ],
-    "tools_count": 11,
+    "tools_count": 12,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
@@ -1427,8 +1482,8 @@
     "killed": 0,
     "quinn_challenge_lessons": 8,
     "lessons_total": 9,
-    "mode": "PAPER",
-    "label": "PAPER",
+    "mode": "LIVE",
+    "label": "LIVE",
     "note": "Registry status counts + tools presence. No live probes."
   },
   "activity": {
@@ -1576,6 +1631,12 @@
     ],
     "events": [
       {
+        "ts": "2026-09-05 — Live bankroll C=$200",
+        "kind": "decision",
+        "title": "2026-09-05 — Live bankroll C=$200",
+        "summary": "Thomas funded IBKR; C set to $200. Live experimental sleeve ≤$20; reserve floor ≥$100; exp position max loss $4."
+      },
+      {
         "ts": "2026-09-04 ~11:31 CT — H4 FedWatch refre",
         "kind": "decision",
         "title": "2026-09-04 ~11:31 CT — H4 FedWatch refresh + Holt/Quinn H5 binding",
@@ -1630,12 +1691,6 @@
         "summary": "forecasts.csv verified: 9 unique IDs; F7/F8/F9 one row each (locked, market_p filled, specific tickers). Added thin_book (F8/F9=true, F7=false, others false); my_p unchanged."
       },
       {
-        "ts": "2026-09-04 — Quinn binding on F7-F9",
-        "kind": "decision",
-        "title": "2026-09-04 — Quinn binding on F7-F9",
-        "summary": "forecasts.csv deduped to 9 canonical rows."
-      },
-      {
         "ts": "2026-09-04 11:25 CT",
         "kind": "forecast",
         "title": "W1-F10 locked",
@@ -1673,84 +1728,84 @@
     "gates": [
       {
         "n": "1",
-        "gate": "Confirm starting capital C (mandate `$[STARTING_CAPITAL]` blank)",
+        "gate": "Confirm starting capital C",
         "owner": "Thomas",
-        "status": "Open",
-        "blocks": "Dollar limits, funding, live size"
+        "status": "CLEARED — C=$200",
+        "blocks": "—"
       },
       {
         "n": "2",
-        "gate": "Confirm book split vs STRATEGY.md / $300 venture budget",
+        "gate": "Book split vs $300 venture budget",
         "owner": "Thomas",
-        "status": "Open",
-        "blocks": "Org confusion / spend"
+        "status": "Cleared by mandate",
+        "blocks": "—"
       },
       {
         "n": "3",
-        "gate": "State of legal residence (+ individual vs entity)",
+        "gate": "Legal residence (Missouri)",
         "owner": "Thomas",
-        "status": "Open",
-        "blocks": "Event-contract geo (esp. sports); tax"
+        "status": "Cleared 2026-09-04",
+        "blocks": "Sports still verify in-app"
       },
       {
         "n": "4",
-        "gate": "Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal)",
+        "gate": "Entity vs personal IBKR name",
         "owner": "Thomas",
-        "status": "Open",
-        "blocks": "Account opening"
+        "status": "Open / personal for now",
+        "blocks": "Entity rename later"
       },
       {
         "n": "5",
-        "gate": "IBKR cash account KYC — margin off, event contracts on, age 21+",
+        "gate": "IBKR live account funded",
         "owner": "Thomas",
-        "status": "Trial only / unfunded",
-        "blocks": "Live + paper API path"
+        "status": "CLEARED (funded)",
+        "blocks": "—"
       },
       {
         "n": "6",
-        "gate": "Fund C from Harbor-controlled bank; set withdrawal destination",
+        "gate": "Withdrawal destination lock",
         "owner": "Thomas",
-        "status": "Blocked on 1+5",
-        "blocks": "Live capital"
+        "status": "Standing human gate",
+        "blocks": "External transfers"
       },
       {
         "n": "7",
-        "gate": "Bitwarden Harbor collection; trade-only API keys; no withdrawal keys on agents",
-        "owner": "Thomas",
-        "status": "Open (vault scoped elsewhere)",
-        "blocks": "Credential storage"
+        "gate": "Bitwarden Harbor trade-only API / Gateway session",
+        "owner": "Thomas/Holt",
+        "status": "In progress",
+        "blocks": "Programmatic execution"
       },
       {
         "n": "8",
-        "gate": "CPA / tax acknowledgment: 1099s, event-contract treatment, wash sales, lots",
+        "gate": "CPA / tax acknowledgment",
         "owner": "Thomas/CPA",
-        "status": "Open",
-        "blocks": "Live securities/events"
+        "status": "Open (recommended)",
+        "blocks": "Comfort on tax treatment; not a halt on tiny cash ETF tests"
       },
       {
         "n": "9",
-        "gate": "Explicit ban remains: no leverage, margin, options, perps",
+        "gate": "No leverage / margin / options / perps",
         "owner": "Thomas",
         "status": "Standing",
         "blocks": "Policy"
       },
       {
         "n": "10",
-        "gate": "Optional later: crypto CEX only after written hypothesis",
+        "gate": "Crypto CEX live",
         "owner": "Thomas",
-        "status": "Not requested",
+        "status": "Not requested — DEFER",
         "blocks": "Crypto sleeve"
       },
       {
         "n": "11",
-        "gate": "Optional: weekday public crypto MD observe routine (quiet unless fee gate clears; no keys)",
+        "gate": "Weekday crypto MD observe routine",
         "owner": "Thomas",
-        "status": "Skipped 2026-09-04 — deferred pending explicit OK",
-        "blocks": "Standing observe cadence"
+        "status": "Skipped — deferred",
+        "blocks": "Optional"
       }
     ],
     "count": 11,
-    "open_count": 9,
+    "open_count": 3,
     "live_blocked": true,
     "source": "docs/human-dependencies.md",
     "note": "Live trading blocked until human gates clear. Paper work can proceed."
@@ -1765,12 +1820,12 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:01:35 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -1790,7 +1845,7 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -1812,16 +1867,16 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | **5%** | Core earns allocation; starts 0 |\n| Max loss per strategy (realized + open) | **4%** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | |\n| Max correlated book | **10%** | Same event family / factor / coin beta |\n| Experimental book total | **≤10%** | Ceiling |\n| Core book | **0%** until evidence | Then scale gradually |\n| Sleeve ceiling: event contracts | **40%*…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | **$16** | |\n| Max correlated book | **10%** | **$20** | Same event family / factor |\n| Experimental book total (simultaneous) | **≤10%** | **≤$20** | Liv…"
       },
       {
         "id": "human_gates",
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:01:35 CT",
-        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-04 CT. Paper work can proceed; **live trading blocked**.\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** (mandate `$[STARTING_CAPITAL]` blank) | Thomas | **Open** | Dollar limits, funding, live size |\n| 2 | Confirm book split vs STRATEGY.md / $300 venture budget | Thomas | Open | Org confusion / spend |\n| 3 | State of legal residence (+ individual vs entity) | Thomas | Open | Event-contract geo (esp. sports); tax |\n| 4 | Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal) | Thomas | Open | Account opening |\n| 5 | **IBKR cash account KYC** — margin off, event contracts…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED — C=$200** | — |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | — |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | — |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden…"
       },
       {
         "id": "team",
@@ -1852,8 +1907,8 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | *…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2…"
       },
       {
         "id": "lifecycle",
@@ -1866,7 +1921,7 @@
     ],
     "excerpts": {
       "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| ",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   },
@@ -1880,12 +1935,12 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:01:35 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -1905,7 +1960,7 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT"
+        "mtime_ct": "2026-09-05 09:06:30 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -1927,16 +1982,16 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | **5%** | Core earns allocation; starts 0 |\n| Max loss per strategy (realized + open) | **4%** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | |\n| Max correlated book | **10%** | Same event family / factor / coin beta |\n| Experimental book total | **≤10%** | Ceiling |\n| Core book | **0%** until evidence | Then scale gradually |\n| Sleeve ceiling: event contracts | **40%*…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | **$16** | |\n| Max correlated book | **10%** | **$20** | Same event family / factor |\n| Experimental book total (simultaneous) | **≤10%** | **≤$20** | Liv…"
       },
       {
         "id": "human_gates",
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:01:35 CT",
-        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-04 CT. Paper work can proceed; **live trading blocked**.\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** (mandate `$[STARTING_CAPITAL]` blank) | Thomas | **Open** | Dollar limits, funding, live size |\n| 2 | Confirm book split vs STRATEGY.md / $300 venture budget | Thomas | Open | Org confusion / spend |\n| 3 | State of legal residence (+ individual vs entity) | Thomas | Open | Event-contract geo (esp. sports); tax |\n| 4 | Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal) | Thomas | Open | Account opening |\n| 5 | **IBKR cash account KYC** — margin off, event contracts…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED — C=$200** | — |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | — |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | — |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden…"
       },
       {
         "id": "team",
@@ -1967,8 +2022,8 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | *…"
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2…"
       },
       {
         "id": "lifecycle",
@@ -1981,7 +2036,7 @@
     ],
     "excerpts": {
       "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| ",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   }

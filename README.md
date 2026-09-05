@@ -1,13 +1,13 @@
 # Harbor Capital — Operating Desk (read-only)
 
-Paper/research dashboard for Elephant Harbor Capital Growth.
+Operating dashboard for Elephant Harbor Capital Growth.
 
-- **Mode:** PAPER (starting capital C unconfirmed — no invented NAV)
-- **No** trade, withdraw, deposit, or credential controls
-- Source of truth remains the Harbor Capital journal/registry on the ops box; this site mirrors a snapshot
+- **Mode:** LIVE · **C = $200** (funded IBKR 2026-09-05)
+- Snapshot mirrors Harbor ledger/`docs/capital.json` — no trade/withdraw UI
+- Experimental sleeve limits and full risk text live in the Harbor Capital workspace docs
 
-## Local
-Open `index.html` via any static server, or view the GitHub Pages URL for this repo.
+## Open
+https://elephantharbor.github.io/harbor-capital-desk/
 
 ## Refresh
-Rebuild `data/snapshot.json` from the Harbor Capital workspace (`tools/dashboard_snapshot.py`), then push an update to this repo.
+Rebuild `data/snapshot.json` from the Harbor Capital workspace (`python3 tools/dashboard_snapshot.py`), copy into this repo, and push `main`.
