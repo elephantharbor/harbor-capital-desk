@@ -4,7 +4,7 @@
   "description": "Capital allocation and trading.",
   "mission": "Grow a finite bankroll through disciplined market participation, controlled risk, and continuous learning.",
   "status": "Operating",
-  "statusDetail": "Await first live fill (order [order redacted] PreSubmitted) \u2014 viability clock starts on fill",
+  "statusDetail": "Await first live fill (a submitted order PreSubmitted) \u2014 viability clock starts on fill",
   "owner": "Holt (Harbor Capital - CEO)",
   "lastUpdated": "2026-09-05T10:07:00-05:00",
   "freshnessNote": "Desk snapshot generated 2026-09-05 10:07:00 CT. Funding excess above C is reserve, not trading return.",
@@ -28,7 +28,7 @@
     }
   ],
   "currentObjective": "Complete live ops plumbing and learn from the first fill under LIVE rules.",
-  "currentStatusBrief": "LIVE. Await first live fill (order [order redacted] PreSubmitted) \u2014 viability clock starts on fill",
+  "currentStatusBrief": "LIVE. Await first live fill (a submitted order PreSubmitted) \u2014 viability clock starts on fill",
   "latestLesson": {
     "experience": "Wave1 forecasts locked after looking at Kalshi mids",
     "evidence": "Contaminated rows cannot support beat-the-market claims",
