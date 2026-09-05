@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harbor Capital — Operating Desk</title>
+  <link rel="stylesheet" href="static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">HC</span>
+      <div>
+        <h1>Harbor Capital</h1>
+        <p class="sub">Operating desk · read-only V1</p>
+      </div>
+    </div>
+    <div class="top-meta" id="top-meta">
+      <span class="badge badge-paper">PAPER</span>
+      <span class="muted" id="gen-at">—</span>
+    </div>
+  </header>
+
+  <nav class="nav" id="nav" aria-label="Primary">
+    <button data-view="overview" class="active">Overview</button>
+    <button data-view="positions">Positions</button>
+    <button data-view="history">History</button>
+    <button data-view="strategies">Strategies</button>
+    <button data-view="forecasts">Forecasts</button>
+    <button data-view="risk">Risk</button>
+    <button data-view="lessons">Lessons</button>
+    <button data-view="docs">Docs</button>
+  </nav>
+
+  <main id="app">
+    <p class="loading">Loading snapshot…</p>
+  </main>
+
+  <footer class="foot">
+    <span>No trade / withdraw / deposit UI · No credentials · Source: journal + registry + docs</span>
+  </footer>
+
+  <script src="static/app.js"></script>
+</body>
+</html>

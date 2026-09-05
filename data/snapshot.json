@@ -1,0 +1,1988 @@
+{
+  "schema_version": "harbor-dashboard-snapshot-v1",
+  "generated_at_ct": "2026-09-05 08:58:07 CT",
+  "mode": "PAPER",
+  "c_confirmed": false,
+  "meta": {
+    "generated_at_ct": "2026-09-05 08:58:07 CT",
+    "mode": "PAPER",
+    "c_confirmed": false,
+    "warnings": [
+      "C (starting capital) unconfirmed — all dollar fields null/N/A",
+      "Mode PAPER — no live balances",
+      "Empty blotter — no positions / no trade history",
+      "Do not mix clean/contaminated Brier",
+      "VOLGATE OOS is not live alpha",
+      "Shadow H5 is observation not P&L"
+    ],
+    "date": "2026-09-05"
+  },
+  "portfolio": {
+    "mode": "PAPER",
+    "data_quality": "PAPER",
+    "c_confirmed": false,
+    "starting_c": null,
+    "starting_capital": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "account_value": null,
+    "account_value_money": {
+      "value": null,
+      "label": "PAPER",
+      "display": "N/A"
+    },
+    "net_pnl": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "total_return_pct": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "realized_pnl": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "unrealized_pnl": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "cash_reserve": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "deployed": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "note": "C unconfirmed — PAPER. Account value / P&L unavailable until starting capital is confirmed.",
+    "sleeves": [
+      {
+        "id": "S-RESERVE / E3-RESERVE",
+        "status": "**Shadow**; promote-when-funded (mechanical reserve)",
+        "label": "SHADOW",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "S-VOLGATE",
+        "status": "**Shadow**; OOS DD pass; **approved_experiment DENIED** (TR≈bills/S-RESERVE); not live sleeve",
+        "label": "SHADOW",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "S-PEAD",
+        "status": "**Deferred** / paused (`S-PEAD-DEFER-memo.md`)",
+        "label": "PAPER",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "S1-RELVAL",
+        "status": "**Rejected**",
+        "label": "PAPER",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "Crypto live",
+        "status": "**Deferred**; observe ids C1/C2 only",
+        "label": "PAPER",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "EM-SF-03",
+        "status": "**Killed/rejected**",
+        "label": "PAPER",
+        "note": "status string only; no dollar invent"
+      },
+      {
+        "id": "Other EM-SF + E1/E2/EV/X",
+        "status": "Idea / research — no capital",
+        "label": "PAPER",
+        "note": "status string only; no dollar invent"
+      }
+    ]
+  },
+  "performance_windows": {
+    "windows": [],
+    "today": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "7d": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "30d": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "90d": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "inception": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "reason": "book-snapshot has no history rows; C unconfirmed — no invented P&L",
+    "label": "PAPER",
+    "note": "N/A until confirmed C and book history"
+  },
+  "nav_curve": {
+    "points": [],
+    "note": "Empty blotter — no NAV curve. Shadow H5 is observation, not P&L."
+  },
+  "positions": {
+    "event": [],
+    "securities": [],
+    "crypto": [],
+    "empty": true,
+    "note": "No current positions. Empty blotter — not broken.",
+    "label": "PAPER"
+  },
+  "history": {
+    "blotter": [],
+    "blotter_count": 0,
+    "shadow_artifacts": [
+      {
+        "path": "journal/shadow-ledger-demo.csv",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 10:36:32 CT"
+      },
+      {
+        "path": "journal/shadow-h5-dual.csv",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 11:15:11 CT"
+      },
+      {
+        "path": "journal/shadow-h5-kalshi-forecastex.md",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 11:33:16 CT"
+      },
+      {
+        "path": "journal/shadow-h5.csv",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 11:15:11 CT"
+      },
+      {
+        "path": "journal/shadow-h4-fedwatch-vs-binaries.md",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 11:32:21 CT"
+      },
+      {
+        "path": "journal/shadow-h4-snapshot-2026-09-04.csv",
+        "label": "SHADOW",
+        "kind": "artifact_ref",
+        "note": "path reference only; no invented SHADOW PnL",
+        "mtime_ct": "2026-09-04 11:32:06 CT"
+      }
+    ],
+    "label": "PAPER",
+    "note": "blotter may be header-only; shadow paths are SHADOW refs without PnL"
+  },
+  "risk": {
+    "label": "PAPER",
+    "c_confirmed": false,
+    "framework": "policy PAPER framework (% of unconfirmed C)",
+    "pct_limits": [
+      {
+        "rule": "Max loss / size per position (experimental)",
+        "pct_of_c": 0.02,
+        "pct_display": "2%",
+        "notes": "Default new risk",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Max loss / size per position (core)",
+        "pct_of_c": 0.05,
+        "pct_display": "5%",
+        "notes": "Core earns allocation; starts 0",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Max loss per strategy (realized + open)",
+        "pct_of_c": 0.04,
+        "pct_display": "4%",
+        "notes": "Hit → pause + review",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Max exposure per asset / ticker / event",
+        "pct_of_c": 0.08,
+        "pct_display": "8%",
+        "notes": "",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Max correlated book",
+        "pct_of_c": 0.1,
+        "pct_display": "10%",
+        "notes": "Same event family / factor / coin beta",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Experimental book total",
+        "pct_of_c": 0.1,
+        "pct_display": "≤10%",
+        "notes": "Ceiling",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Core book",
+        "pct_of_c": 0.0,
+        "pct_display": "0% until evidence",
+        "notes": "Then scale gradually",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Sleeve ceiling: event contracts",
+        "pct_of_c": 0.4,
+        "pct_display": "40%",
+        "notes": "Not a target",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Sleeve ceiling: risk-on securities",
+        "pct_of_c": 0.4,
+        "pct_display": "40%",
+        "notes": "",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Sleeve ceiling: crypto spot",
+        "pct_of_c": 0.1,
+        "pct_display": "10%",
+        "notes": "Observe-only until hypothesis",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Cash / T-bill reserve floor",
+        "pct_of_c": 0.5,
+        "pct_display": "≥50%",
+        "notes": "Until a strategy has 30d live + positive expectancy after costs",
+        "label": "PAPER"
+      },
+      {
+        "rule": "Typical first paid idea",
+        "pct_of_c": 0.01,
+        "pct_display": "0.5–1%",
+        "notes": "See `tools/position_sizing.py`",
+        "label": "PAPER"
+      }
+    ],
+    "drawdown_limits": [
+      {
+        "threshold_pct": 0.12,
+        "threshold_display": "≥12%",
+        "action": "Cut experimental book in half; no new strategies",
+        "label": "PAPER"
+      },
+      {
+        "threshold_pct": 0.18,
+        "threshold_display": "≥18%",
+        "action": "Freeze new risk; written review before any new position",
+        "label": "PAPER"
+      },
+      {
+        "threshold_pct": 0.25,
+        "threshold_display": "≥25%",
+        "action": "Halt all live trading until Thomas restarts",
+        "label": "PAPER"
+      }
+    ],
+    "dd_thresholds": [
+      {
+        "pct": 12,
+        "action": "Cut experimental book in half; no new strategies"
+      },
+      {
+        "pct": 18,
+        "action": "Freeze new risk; written review before any new position"
+      },
+      {
+        "pct": 25,
+        "action": "Halt all live trading until Thomas restarts"
+      }
+    ],
+    "utilization": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "current_dd": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "framework_constants": {
+      "dd_reduce": 0.12,
+      "dd_freeze": 0.18,
+      "dd_halt": 0.25,
+      "pos_experimental": 0.02,
+      "pos_core": 0.05,
+      "strategy_loss": 0.04,
+      "asset_exposure": 0.08,
+      "correlated_book": 0.1,
+      "experimental_book": 0.1
+    },
+    "dollar_limits": null,
+    "dollar_limits_note": "TBD while C unconfirmed",
+    "no_leverage": true,
+    "note": "All limits are % of C. Dollar utilization N/A until C confirmed.",
+    "source": "docs/risk-architecture.md",
+    "pointers": [
+      "docs/risk-architecture.md",
+      "docs/canonical-state-2026-09-04.md",
+      "initialization-2026-09-03.md",
+      "tools/risk_engine.py"
+    ]
+  },
+  "strategies": {
+    "items": [
+      {
+        "strategy_id": "E1-CAL",
+        "name": "Event calibration log",
+        "owner": "Holt",
+        "market": "event",
+        "status": "researching",
+        "hypothesis": "Agent my_p can beat always-quote-market on Brier after ≥50 independent forecasts",
+        "edge_source": "calibration discipline vs contaminated priors",
+        "benchmark": "market-implied Brier",
+        "falsify": "After 50 scored independent rows Brier worse than market → no paid opinions",
+        "data_needs": "public Kalshi/ForecastEx mids + resolution sources",
+        "cost_notes": "paper $0; live fees only after gate",
+        "capital_alloc_pct": "0",
+        "next_decision": "2026-09-20 after independent batch",
+        "evidence_summary": "Wave1 contaminated sample locked; F3 killed F5 abstain; need looked_at_market_first=false rows",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "E2-XVEN",
+        "name": "Cross-venue event dislocation scan",
+        "owner": "Holt",
+        "market": "event",
+        "status": "idea",
+        "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
+        "edge_source": "execution/venue microstructure",
+        "benchmark": "fee+half-spread no-arb band",
+        "falsify": "If logged gaps never exceed all-in friction for 30d → retire",
+        "data_needs": "IBKR unified quotes when account live; public APIs now",
+        "cost_notes": "screenshot ≠ fill; IBKR routing cheaper than standalone Kalshi quadratic",
+        "capital_alloc_pct": "0",
+        "next_decision": "when IBKR paper quotes available",
+        "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "E3-RESERVE",
+        "name": "Idle cash → T-bill/SGOV reserve",
+        "owner": "Holt",
+        "market": "securities",
+        "status": "shadow",
+        "hypothesis": "Idle cash → SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+        "edge_source": "mechanical carry (not alpha)",
+        "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
+        "falsify": "SGOV after ER+spread <= sweep/cash for >=1 quarter",
+        "data_needs": "IBKR funding + C; SGOV/BIL quotes",
+        "cost_notes": "Lite $0 + tiny spread; SGOV ER 0.09pct; 1-2 RT/yr",
+        "capital_alloc_pct": "0",
+        "next_decision": "promote mechanical default when IBKR funded",
+        "evidence_summary": "Vera 2026-09-04 venue+S-RESERVE memo; SGOV SEC 3.63pct (2026-09-02); IBKR interest tiers 2026-08-07; Holt owns; Vera co-research",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "E4-PAIDCAL",
+        "name": "First paid event calibration",
+        "owner": "Holt",
+        "market": "event",
+        "status": "idea",
+        "hypothesis": "Small paid sizes improve calibration feedback vs paper-only",
+        "edge_source": "paid skin-in-game on economics/policy contracts",
+        "benchmark": "E1 Brier + SGOV opportunity cost",
+        "falsify": "Fees+spread consume stated edge OR 8-loss streak vs Bernoulli OR Brier worse than market",
+        "data_needs": "E1≥50 scored + IBKR live + geo clean",
+        "cost_notes": "0.5%C per idea; ≤5 concurrent; exp book ≤10%C",
+        "capital_alloc_pct": "0",
+        "next_decision": "after E1 gate + human F complete",
+        "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S1-RELVAL",
+        "name": "ETF dislocation long-cheap (relval)",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "rejected",
+        "hypothesis": "ETF premium/discount or twin-band breaks mean-revert; Phase1 long cheap only",
+        "edge_source": "creation lag / thin wrappers (episodic)",
+        "benchmark": "SGOV when flat; VTI if beta held",
+        "falsify": "long-cheap < SGOV after costs OR gaps < Harbor trade costs OR unclean NAV",
+        "data_needs": "ETF NAV/iNAV or twin pairs; daily bars",
+        "cost_notes": "low turnover; Lite $0; no short",
+        "capital_alloc_pct": "0",
+        "next_decision": "reopen only with licensed iNAV/NAV feed + pre-registered pairs + timestamp protocol + new strategy_id",
+        "evidence_summary": "REJECT Phase1: no credible free PIT NAV/iNAV publish timestamps for same-day premium without look-ahead; official NAV post-close dissemination. docs/securities-memos/S1-RELVAL-REJECT-memo.md",
+        "updated_ct": "2026-09-04 10:50 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S2-PMLEAD",
+        "name": "Event-contract lead → ETF shadow",
+        "owner": "Reed",
+        "market": "securities",
+        "status": "researching",
+        "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
+        "edge_source": "cross-market signal (unproven)",
+        "benchmark": "buy/hold ETF shadow vs SGOV",
+        "falsify": "No lead-lag after fees in paper 90d → reject",
+        "data_needs": "Kalshi mids + ETF bars when IBKR paper",
+        "cost_notes": "ETF spread+commission; cash account only",
+        "capital_alloc_pct": "0",
+        "next_decision": "paper IC only; capital abstain Phase1",
+        "evidence_summary": "Vera securities slate 2026-09-04: abstain live; cross-market note; Reed owner",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "C1-SPOTOBS",
+        "name": "Crypto spot observe-only log",
+        "owner": "Holt",
+        "market": "crypto",
+        "status": "idea",
+        "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
+        "edge_source": "none identified yet — observation",
+        "benchmark": "SGOV + do-nothing",
+        "falsify": "If 30d log shows no testable edge_source → keep deferred",
+        "data_needs": "public prices only; no API keys",
+        "cost_notes": "40–80bps RT retail; tax lots; sleeve cap 10%C if ever",
+        "capital_alloc_pct": "0",
+        "next_decision": "2026-10-04 or first written hypothesis",
+        "evidence_summary": "Init: observe only; no CEX",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "C2-BASISOBS",
+        "name": "Crypto basis/spread observe (spot venues)",
+        "owner": "Reed",
+        "market": "crypto",
+        "status": "researching",
+        "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band — measure only",
+        "edge_source": "microstructure observation not trade",
+        "benchmark": "fee+transfer friction band",
+        "falsify": "If gaps ≤ all-in friction for 30 observations → archive",
+        "data_needs": "public order books; no keys",
+        "cost_notes": "transfer risk + withdrawal delays; still no live",
+        "capital_alloc_pct": "0",
+        "next_decision": "write 10 observations then review",
+        "evidence_summary": "Researching public books; no account",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "EV-POLICY",
+        "name": "Policy/econ event specialize",
+        "owner": "Reed",
+        "market": "event",
+        "status": "researching",
+        "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
+        "edge_source": "domain focus + base rates",
+        "benchmark": "market Brier on same instruments",
+        "falsify": "No Brier lift vs generalist after 30 scored → merge back to E1",
+        "data_needs": "BLS/FOMC calendars + nowcasts",
+        "cost_notes": "paper; sports excluded until geo",
+        "capital_alloc_pct": "0",
+        "next_decision": "post Sep CPI/FOMC score",
+        "evidence_summary": "Wave1 domain start; contaminated; EM-SF-01/04 related",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "EV-NSPORT",
+        "name": "Non-sports event breadth scan",
+        "owner": "Holt",
+        "market": "event",
+        "status": "idea",
+        "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
+        "edge_source": "catalog coverage / neglected events",
+        "benchmark": "market mid + fee model",
+        "falsify": "If scan finds no fee-surviving gaps in 20 names → pause breadth",
+        "data_needs": "Kalshi/ForecastEx public catalog",
+        "cost_notes": "avoid sports until state legality confirmed",
+        "capital_alloc_pct": "0",
+        "next_decision": "complete 20-name friction screen",
+        "evidence_summary": "State residence TBD; IL sports contested",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "X-FRICTION",
+        "name": "All-in friction model library",
+        "owner": "Quinn",
+        "market": "event",
+        "status": "researching",
+        "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
+        "edge_source": "fee model correctness",
+        "benchmark": "break-even edge vs quoted mid",
+        "falsify": "If agents keep claiming edge inside fee band → process fail",
+        "data_needs": "fee_model.py + live ticket confirm",
+        "cost_notes": "stdlib tools on box",
+        "capital_alloc_pct": "0",
+        "next_decision": "smoke-test tools + ticket confirm when live",
+        "evidence_summary": "fee_model.py live on box; confirm on ticket when funded",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S2-FACTOR",
+        "name": "rules-based-factor-tilt",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "rejected",
+        "hypothesis": "Tiny value/mom/quality tilt beats VTI",
+        "edge_source": "none at Harbor size",
+        "benchmark": "VTI",
+        "falsify": "already: underspecified + cost-killed",
+        "data_needs": "n/a Phase1",
+        "cost_notes": "rebalance kills small book",
+        "capital_alloc_pct": "0",
+        "next_decision": "reopen only with locked one-pager + paper EV",
+        "evidence_summary": "Vera 2026-09-04 REJECT memo S-FACTOR-REJECT",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-COREBETA",
+        "name": "vti-spy-buyhold-vs-sgov",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "paused",
+        "hypothesis": "Equity risk premium vs SGOV (no Harbor info edge)",
+        "edge_source": "market beta not alpha",
+        "benchmark": "SGOV",
+        "falsify": "framing as Harbor alpha",
+        "data_needs": "VTI/SPY/SGOV total return",
+        "cost_notes": "near zero if held",
+        "capital_alloc_pct": "0",
+        "next_decision": "DEFER; optional pre-declared core later",
+        "evidence_summary": "Vera 2026-09-04: DEFER as alpha; not experimental book",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-PEAD",
+        "name": "post-earnings-announcement-drift",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "paused",
+        "hypothesis": "SUE drift over days-weeks; Phase1 long winners only",
+        "edge_source": "classic anomaly; Harbor must re-test",
+        "benchmark": "VTI and SGOV",
+        "falsify": "N>=100 post-fee EV<=0 vs VTI/SGOV or paid-data dependency or free proxy fails SUE",
+        "data_needs": "consensus (paid) or reject; EDGAR dates+EPS only free",
+        "cost_notes": "few trades/mo; settlement-aware; Lite $0",
+        "capital_alloc_pct": "0",
+        "next_decision": "DEFERRED — no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
+        "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
+        "updated_ct": "2026-09-04 11:00 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-VOLGATE",
+        "name": "vol-gate-sgov-vs-spy-vti",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "shadow",
+        "hypothesis": "Pre-registered VIX level gate toggles SGOV <-> VTI",
+        "edge_source": "risk regime rule (fragile)",
+        "benchmark": "VTI buyhold; SGOV",
+        "falsify": "locked OOS loses to VTI TR and fails DD vs SGOV; or threshold retune after peek",
+        "data_needs": "Cboe VIX / FRED VIXCLS + free VTI/SGOV daily",
+        "cost_notes": "weekly RT; Lite $0 + half-spread; next-open fill",
+        "capital_alloc_pct": "0",
+        "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) — prefer event-market clean locks over VOLGATE iteration",
+        "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR≈S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
+        "updated_ct": "2026-09-04 11:15 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-DAYSCALP-REJECT",
+        "name": "daytrade-scalp-levetf-earnings-lottery",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "rejected",
+        "hypothesis": "Intraday momentum / 3x ETF / earnings lottery beats benchmarks",
+        "edge_source": "none",
+        "benchmark": "SGOV/VTI",
+        "falsify": "already: freeriding + adverse selection + Phase1 bans",
+        "data_needs": "n/a",
+        "cost_notes": "turnover + levETF ban",
+        "capital_alloc_pct": "0",
+        "next_decision": "do not research",
+        "evidence_summary": "Vera 2026-09-04 explicit REJECT in candidates doc",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-RESERVE",
+        "name": "sgov-bil-reserve-alias",
+        "owner": "Vera",
+        "market": "securities",
+        "status": "shadow",
+        "hypothesis": "Alias of E3-RESERVE for S- naming in securities docs",
+        "edge_source": "opportunity cost (not alpha)",
+        "benchmark": "cash/IBKR interest",
+        "falsify": "see E3-RESERVE",
+        "data_needs": "see E3-RESERVE",
+        "cost_notes": "see E3-RESERVE",
+        "capital_alloc_pct": "0",
+        "next_decision": "use E3-RESERVE as canonical; this is doc alias",
+        "evidence_summary": "Vera 2026-09-04; points to E3-RESERVE / S-RESERVE memo",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      }
+    ],
+    "grouped": [
+      {
+        "status": "shadow",
+        "count": 3,
+        "items": [
+          {
+            "strategy_id": "E3-RESERVE",
+            "name": "Idle cash → T-bill/SGOV reserve",
+            "owner": "Holt",
+            "market": "securities",
+            "status": "shadow",
+            "hypothesis": "Idle cash → SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+            "edge_source": "mechanical carry (not alpha)",
+            "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
+            "falsify": "SGOV after ER+spread <= sweep/cash for >=1 quarter",
+            "data_needs": "IBKR funding + C; SGOV/BIL quotes",
+            "cost_notes": "Lite $0 + tiny spread; SGOV ER 0.09pct; 1-2 RT/yr",
+            "capital_alloc_pct": "0",
+            "next_decision": "promote mechanical default when IBKR funded",
+            "evidence_summary": "Vera 2026-09-04 venue+S-RESERVE memo; SGOV SEC 3.63pct (2026-09-02); IBKR interest tiers 2026-08-07; Holt owns; Vera co-research",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-VOLGATE",
+            "name": "vol-gate-sgov-vs-spy-vti",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "shadow",
+            "hypothesis": "Pre-registered VIX level gate toggles SGOV <-> VTI",
+            "edge_source": "risk regime rule (fragile)",
+            "benchmark": "VTI buyhold; SGOV",
+            "falsify": "locked OOS loses to VTI TR and fails DD vs SGOV; or threshold retune after peek",
+            "data_needs": "Cboe VIX / FRED VIXCLS + free VTI/SGOV daily",
+            "cost_notes": "weekly RT; Lite $0 + half-spread; next-open fill",
+            "capital_alloc_pct": "0",
+            "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) — prefer event-market clean locks over VOLGATE iteration",
+            "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR≈S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
+            "updated_ct": "2026-09-04 11:15 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-RESERVE",
+            "name": "sgov-bil-reserve-alias",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "shadow",
+            "hypothesis": "Alias of E3-RESERVE for S- naming in securities docs",
+            "edge_source": "opportunity cost (not alpha)",
+            "benchmark": "cash/IBKR interest",
+            "falsify": "see E3-RESERVE",
+            "data_needs": "see E3-RESERVE",
+            "cost_notes": "see E3-RESERVE",
+            "capital_alloc_pct": "0",
+            "next_decision": "use E3-RESERVE as canonical; this is doc alias",
+            "evidence_summary": "Vera 2026-09-04; points to E3-RESERVE / S-RESERVE memo",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          }
+        ]
+      },
+      {
+        "status": "researching",
+        "count": 5,
+        "items": [
+          {
+            "strategy_id": "E1-CAL",
+            "name": "Event calibration log",
+            "owner": "Holt",
+            "market": "event",
+            "status": "researching",
+            "hypothesis": "Agent my_p can beat always-quote-market on Brier after ≥50 independent forecasts",
+            "edge_source": "calibration discipline vs contaminated priors",
+            "benchmark": "market-implied Brier",
+            "falsify": "After 50 scored independent rows Brier worse than market → no paid opinions",
+            "data_needs": "public Kalshi/ForecastEx mids + resolution sources",
+            "cost_notes": "paper $0; live fees only after gate",
+            "capital_alloc_pct": "0",
+            "next_decision": "2026-09-20 after independent batch",
+            "evidence_summary": "Wave1 contaminated sample locked; F3 killed F5 abstain; need looked_at_market_first=false rows",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S2-PMLEAD",
+            "name": "Event-contract lead → ETF shadow",
+            "owner": "Reed",
+            "market": "securities",
+            "status": "researching",
+            "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
+            "edge_source": "cross-market signal (unproven)",
+            "benchmark": "buy/hold ETF shadow vs SGOV",
+            "falsify": "No lead-lag after fees in paper 90d → reject",
+            "data_needs": "Kalshi mids + ETF bars when IBKR paper",
+            "cost_notes": "ETF spread+commission; cash account only",
+            "capital_alloc_pct": "0",
+            "next_decision": "paper IC only; capital abstain Phase1",
+            "evidence_summary": "Vera securities slate 2026-09-04: abstain live; cross-market note; Reed owner",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "C2-BASISOBS",
+            "name": "Crypto basis/spread observe (spot venues)",
+            "owner": "Reed",
+            "market": "crypto",
+            "status": "researching",
+            "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band — measure only",
+            "edge_source": "microstructure observation not trade",
+            "benchmark": "fee+transfer friction band",
+            "falsify": "If gaps ≤ all-in friction for 30 observations → archive",
+            "data_needs": "public order books; no keys",
+            "cost_notes": "transfer risk + withdrawal delays; still no live",
+            "capital_alloc_pct": "0",
+            "next_decision": "write 10 observations then review",
+            "evidence_summary": "Researching public books; no account",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "EV-POLICY",
+            "name": "Policy/econ event specialize",
+            "owner": "Reed",
+            "market": "event",
+            "status": "researching",
+            "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
+            "edge_source": "domain focus + base rates",
+            "benchmark": "market Brier on same instruments",
+            "falsify": "No Brier lift vs generalist after 30 scored → merge back to E1",
+            "data_needs": "BLS/FOMC calendars + nowcasts",
+            "cost_notes": "paper; sports excluded until geo",
+            "capital_alloc_pct": "0",
+            "next_decision": "post Sep CPI/FOMC score",
+            "evidence_summary": "Wave1 domain start; contaminated; EM-SF-01/04 related",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "X-FRICTION",
+            "name": "All-in friction model library",
+            "owner": "Quinn",
+            "market": "event",
+            "status": "researching",
+            "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
+            "edge_source": "fee model correctness",
+            "benchmark": "break-even edge vs quoted mid",
+            "falsify": "If agents keep claiming edge inside fee band → process fail",
+            "data_needs": "fee_model.py + live ticket confirm",
+            "cost_notes": "stdlib tools on box",
+            "capital_alloc_pct": "0",
+            "next_decision": "smoke-test tools + ticket confirm when live",
+            "evidence_summary": "fee_model.py live on box; confirm on ticket when funded",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          }
+        ]
+      },
+      {
+        "status": "idea",
+        "count": 4,
+        "items": [
+          {
+            "strategy_id": "E2-XVEN",
+            "name": "Cross-venue event dislocation scan",
+            "owner": "Holt",
+            "market": "event",
+            "status": "idea",
+            "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
+            "edge_source": "execution/venue microstructure",
+            "benchmark": "fee+half-spread no-arb band",
+            "falsify": "If logged gaps never exceed all-in friction for 30d → retire",
+            "data_needs": "IBKR unified quotes when account live; public APIs now",
+            "cost_notes": "screenshot ≠ fill; IBKR routing cheaper than standalone Kalshi quadratic",
+            "capital_alloc_pct": "0",
+            "next_decision": "when IBKR paper quotes available",
+            "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "E4-PAIDCAL",
+            "name": "First paid event calibration",
+            "owner": "Holt",
+            "market": "event",
+            "status": "idea",
+            "hypothesis": "Small paid sizes improve calibration feedback vs paper-only",
+            "edge_source": "paid skin-in-game on economics/policy contracts",
+            "benchmark": "E1 Brier + SGOV opportunity cost",
+            "falsify": "Fees+spread consume stated edge OR 8-loss streak vs Bernoulli OR Brier worse than market",
+            "data_needs": "E1≥50 scored + IBKR live + geo clean",
+            "cost_notes": "0.5%C per idea; ≤5 concurrent; exp book ≤10%C",
+            "capital_alloc_pct": "0",
+            "next_decision": "after E1 gate + human F complete",
+            "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "C1-SPOTOBS",
+            "name": "Crypto spot observe-only log",
+            "owner": "Holt",
+            "market": "crypto",
+            "status": "idea",
+            "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
+            "edge_source": "none identified yet — observation",
+            "benchmark": "SGOV + do-nothing",
+            "falsify": "If 30d log shows no testable edge_source → keep deferred",
+            "data_needs": "public prices only; no API keys",
+            "cost_notes": "40–80bps RT retail; tax lots; sleeve cap 10%C if ever",
+            "capital_alloc_pct": "0",
+            "next_decision": "2026-10-04 or first written hypothesis",
+            "evidence_summary": "Init: observe only; no CEX",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "EV-NSPORT",
+            "name": "Non-sports event breadth scan",
+            "owner": "Holt",
+            "market": "event",
+            "status": "idea",
+            "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
+            "edge_source": "catalog coverage / neglected events",
+            "benchmark": "market mid + fee model",
+            "falsify": "If scan finds no fee-surviving gaps in 20 names → pause breadth",
+            "data_needs": "Kalshi/ForecastEx public catalog",
+            "cost_notes": "avoid sports until state legality confirmed",
+            "capital_alloc_pct": "0",
+            "next_decision": "complete 20-name friction screen",
+            "evidence_summary": "State residence TBD; IL sports contested",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          }
+        ]
+      },
+      {
+        "status": "paused",
+        "count": 2,
+        "items": [
+          {
+            "strategy_id": "S-COREBETA",
+            "name": "vti-spy-buyhold-vs-sgov",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "paused",
+            "hypothesis": "Equity risk premium vs SGOV (no Harbor info edge)",
+            "edge_source": "market beta not alpha",
+            "benchmark": "SGOV",
+            "falsify": "framing as Harbor alpha",
+            "data_needs": "VTI/SPY/SGOV total return",
+            "cost_notes": "near zero if held",
+            "capital_alloc_pct": "0",
+            "next_decision": "DEFER; optional pre-declared core later",
+            "evidence_summary": "Vera 2026-09-04: DEFER as alpha; not experimental book",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-PEAD",
+            "name": "post-earnings-announcement-drift",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "paused",
+            "hypothesis": "SUE drift over days-weeks; Phase1 long winners only",
+            "edge_source": "classic anomaly; Harbor must re-test",
+            "benchmark": "VTI and SGOV",
+            "falsify": "N>=100 post-fee EV<=0 vs VTI/SGOV or paid-data dependency or free proxy fails SUE",
+            "data_needs": "consensus (paid) or reject; EDGAR dates+EPS only free",
+            "cost_notes": "few trades/mo; settlement-aware; Lite $0",
+            "capital_alloc_pct": "0",
+            "next_decision": "DEFERRED — no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
+            "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
+            "updated_ct": "2026-09-04 11:00 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          }
+        ]
+      },
+      {
+        "status": "rejected",
+        "count": 3,
+        "items": [
+          {
+            "strategy_id": "S1-RELVAL",
+            "name": "ETF dislocation long-cheap (relval)",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "rejected",
+            "hypothesis": "ETF premium/discount or twin-band breaks mean-revert; Phase1 long cheap only",
+            "edge_source": "creation lag / thin wrappers (episodic)",
+            "benchmark": "SGOV when flat; VTI if beta held",
+            "falsify": "long-cheap < SGOV after costs OR gaps < Harbor trade costs OR unclean NAV",
+            "data_needs": "ETF NAV/iNAV or twin pairs; daily bars",
+            "cost_notes": "low turnover; Lite $0; no short",
+            "capital_alloc_pct": "0",
+            "next_decision": "reopen only with licensed iNAV/NAV feed + pre-registered pairs + timestamp protocol + new strategy_id",
+            "evidence_summary": "REJECT Phase1: no credible free PIT NAV/iNAV publish timestamps for same-day premium without look-ahead; official NAV post-close dissemination. docs/securities-memos/S1-RELVAL-REJECT-memo.md",
+            "updated_ct": "2026-09-04 10:50 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S2-FACTOR",
+            "name": "rules-based-factor-tilt",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "rejected",
+            "hypothesis": "Tiny value/mom/quality tilt beats VTI",
+            "edge_source": "none at Harbor size",
+            "benchmark": "VTI",
+            "falsify": "already: underspecified + cost-killed",
+            "data_needs": "n/a Phase1",
+            "cost_notes": "rebalance kills small book",
+            "capital_alloc_pct": "0",
+            "next_decision": "reopen only with locked one-pager + paper EV",
+            "evidence_summary": "Vera 2026-09-04 REJECT memo S-FACTOR-REJECT",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-DAYSCALP-REJECT",
+            "name": "daytrade-scalp-levetf-earnings-lottery",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "rejected",
+            "hypothesis": "Intraday momentum / 3x ETF / earnings lottery beats benchmarks",
+            "edge_source": "none",
+            "benchmark": "SGOV/VTI",
+            "falsify": "already: freeriding + adverse selection + Phase1 bans",
+            "data_needs": "n/a",
+            "cost_notes": "turnover + levETF ban",
+            "capital_alloc_pct": "0",
+            "next_decision": "do not research",
+            "evidence_summary": "Vera 2026-09-04 explicit REJECT in candidates doc",
+            "updated_ct": "2026-09-04 10:30 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          }
+        ]
+      }
+    ],
+    "counts": {
+      "shadow": 3,
+      "researching": 5,
+      "idea": 4,
+      "paused": 2,
+      "rejected": 3
+    },
+    "count": 17,
+    "source": "registry/strategies.csv",
+    "note": "all registry columns; capital_alloc_pct kept but no live allocation. VOLGATE OOS is not live alpha.",
+    "label": "PAPER"
+  },
+  "forecasts": {
+    "active": [
+      {
+        "forecast_id": "W1-F1",
+        "event": "Sep 16 2026 FOMC: hold (0bp change)",
+        "status": "locked",
+        "my_p_locked": "0.42",
+        "market_p_at_lock": "0.465",
+        "looked_at_market_first": "true",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": null,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F2",
+        "event": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map",
+        "status": "locked",
+        "my_p_locked": "0.55",
+        "market_p_at_lock": "0.535",
+        "looked_at_market_first": "true",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": null,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:25 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F4",
+        "event": "Aug 2026 CPI YoY above 3.4%",
+        "status": "locked",
+        "my_p_locked": "0.32",
+        "market_p_at_lock": "0.310",
+        "looked_at_market_first": "true",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": null,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F6",
+        "event": "Sep 16 2026 FOMC: other (not hold, not +25bp)",
+        "status": "locked",
+        "my_p_locked": "0.03",
+        "market_p_at_lock": "",
+        "looked_at_market_first": "true",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": null,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:25 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F7",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 220,000 SA",
+        "status": "locked",
+        "my_p_locked": "0.20",
+        "market_p_at_lock": "0.245",
+        "looked_at_market_first": "false",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": 0.07,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "eligible_mid_promote": true,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F8",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 210,000 SA",
+        "status": "locked",
+        "my_p_locked": "0.42",
+        "market_p_at_lock": "0.470",
+        "looked_at_market_first": "false",
+        "thin_book": "true",
+        "wide_book": "false",
+        "book_width": 0.1,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F9",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 230,000 SA",
+        "status": "locked",
+        "my_p_locked": "0.08",
+        "market_p_at_lock": "0.065",
+        "looked_at_market_first": "false",
+        "thin_book": "true",
+        "wide_book": "false",
+        "book_width": 0.03,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      },
+      {
+        "forecast_id": "W1-F10",
+        "event": "Sep 2026 CPI YoY above 3.4%",
+        "status": "locked",
+        "my_p_locked": "0.52",
+        "market_p_at_lock": "0.690",
+        "looked_at_market_first": "false",
+        "thin_book": "false",
+        "wide_book": "true",
+        "book_width": 0.28,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 11:25 CT",
+        "eligible_mid_promote": false,
+        "outcome": null,
+        "brier": null
+      }
+    ],
+    "active_count": 8,
+    "counts": {
+      "total": 10,
+      "clean": 4,
+      "contaminated": 6,
+      "pending": 10,
+      "resolved": 0,
+      "resolved_clean": 0,
+      "mid_promote_eligible": 1
+    },
+    "buckets": {
+      "mid_promote": {
+        "ids": [
+          "W1-F7"
+        ],
+        "count": 1,
+        "W_star": 0.1,
+        "rule": "looked_at_market_first=false AND vol/oi>0 AND book_width<=W* (W*=0.10)"
+      },
+      "outcome_calib_clean": {
+        "ids": [
+          "W1-F7",
+          "W1-F8",
+          "W1-F9",
+          "W1-F10"
+        ],
+        "count": 4,
+        "note": "process-clean locks (may include wide/thin); not mid-promote"
+      },
+      "thin_book": {
+        "ids": [
+          "W1-F8",
+          "W1-F9"
+        ],
+        "count": 2
+      },
+      "wide_book": {
+        "ids": [
+          "W1-F10"
+        ],
+        "count": 1
+      },
+      "contaminated": {
+        "ids": [
+          "W1-F1",
+          "W1-F2",
+          "W1-F4",
+          "W1-F6",
+          "W1-F3",
+          "W1-F5"
+        ],
+        "count": 6,
+        "note": "looked_at_market_first or contaminated_abstain"
+      }
+    },
+    "calibration_files": {
+      "clean_append_rows": 0,
+      "contaminated_append_rows": 16,
+      "note": "CSV append-only row counts — NOT sample n / distinct forecast ids",
+      "clean_path": "journal/calibration_clean.csv",
+      "contaminated_path": "journal/calibration_contaminated.csv"
+    },
+    "brier": {
+      "clean": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "contaminated": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "n_resolved_clean": 0,
+      "message": "insufficient sample for edge claim",
+      "warning": "Do not mix clean/contaminated Brier. No charts when n<5 resolved clean."
+    },
+    "W_star": 0.1,
+    "note": "do not invent outcomes/brier when blank; Shadow H5 is observation not P&L; VOLGATE OOS is not live alpha",
+    "label": "PAPER"
+  },
+  "economics": {
+    "label": "PAPER",
+    "kind": "assumptions_not_live_fees_paid",
+    "kalshi_taker_rate": 0.07,
+    "ibkr_event_per_contract": 0.02,
+    "ibkr_equity_per_share": 0.005,
+    "crypto_rt_bps_default": 50.0,
+    "event_default_half_spread": 0.01,
+    "notes": [
+      "Defaults from tools/fee_model.py — research assumptions, not ticket-confirmed.",
+      "Event friction: Kalshi quadratic taker + half-spread; IBKR event flat ~$0.02/contract.",
+      "Crypto live deferred; retail RT 40–60 bps assumption only."
+    ],
+    "source": "tools/fee_model.py",
+    "fees": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "gross": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "net": {
+      "value": null,
+      "label": "N/A",
+      "display": "N/A"
+    },
+    "fills_note": "Fees/gross/net N/A until fills exist in blotter."
+  },
+  "lessons": {
+    "items": [
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L01",
+        "what_happened": "Wave1 forecasts locked after looking at Kalshi mids",
+        "believed_beforehand": "Market-aware forecasts could seed calibration",
+        "evidence_showed": "Contaminated rows cannot support beat-the-market claims",
+        "what_we_learned": "Clean vs contaminated must be hard-split; never mix for edge claims",
+        "what_changed": "Added calibration_clean vs calibration_contaminated; looked_at_market_first required",
+        "related_ids": "W1-F1..F6",
+        "source": "quinn-org-redteam + decisions.md"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L02",
+        "what_happened": "F3 my_p=0.50 with F4 my_p=0.32 on adjacent CPI bins",
+        "believed_beforehand": "0.50 was an honest abstention",
+        "evidence_showed": "Implied P(3.3–3.4]=0.18 without a CDF — fake precision",
+        "what_we_learned": "Do not use 0.50 as cover for incomplete distributions",
+        "what_changed": "F3 killed; require written CDF or abstain",
+        "related_ids": "W1-F3 W1-F4",
+        "source": "quinn-challenge wave1"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L03",
+        "what_happened": "Triple append of F7/F8/F9 clean locks",
+        "believed_beforehand": "Append-only logging was harmless",
+        "evidence_showed": "Duplicates poison clean n and Brier aggregates",
+        "what_we_learned": "One active row per forecast_id; no CLEAN LOCK re-appends",
+        "what_changed": "journal_io supersede/dedupe + thin_book flags; mid-promote W*=0.10",
+        "related_ids": "W1-F7 F8 F9",
+        "source": "quinn-challenge-w1-f7f9"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L04",
+        "what_happened": "Claims ladder F7–F9 treated as three independent events",
+        "believed_beforehand": "More locks equal faster sample growth",
+        "evidence_showed": "One labor surprise moves all three — correlated factor",
+        "what_we_learned": "Calibration events ≠ diversified risk; do not farm correlated strikes for n",
+        "what_changed": "Next lock must be non-labor or reasoned abstain",
+        "related_ids": "W1-F7 F8 F9",
+        "source": "quinn + holt room"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L05",
+        "what_happened": "Crypto spot cross-venue gaps ~1.8 bps vs fee gates 160–220 bps",
+        "believed_beforehand": "Apparent arb might exist on public mids",
+        "evidence_showed": "Retail RT fees kill the gap; ACH holds kill transfer arb",
+        "what_we_learned": "Fee/friction first; no crypto live without post-fee paper edge",
+        "what_changed": "ARB REJECT; DEFER live crypto; public MD only",
+        "related_ids": "C-ARB crypto memos",
+        "source": "cole + fee-friction"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L06",
+        "what_happened": "S-VOLGATE OOS maxDD beat VTI but TR ≈ SGOV/BIL with leftover −23% DD",
+        "believed_beforehand": "Vol gate might earn an experimental sleeve",
+        "evidence_showed": "DD-vs-VTI pass is easy for risk-off rules; not alpha vs reserve",
+        "what_we_learned": "Regime plumbing ≠ information edge; do not allocate a second sleeve next to S-RESERVE",
+        "what_changed": "approved_experiment DENIED; S-RESERVE remains cash default; VOLGATE shadow only",
+        "related_ids": "S-VOLGATE",
+        "source": "quinn-oos-volgate"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L07",
+        "what_happened": "S-PEAD classic anomaly without free PIT consensus",
+        "believed_beforehand": "Academic PEAD might be paper-testable free",
+        "evidence_showed": "Free EPS sources are revision/look-ahead contaminated; no IBES-quality free panel",
+        "what_we_learned": "No free PIT → defer/reject rather than endless research with bad data",
+        "what_changed": "S-PEAD deferred; RELVAL rejected for NAV timestamp risk",
+        "related_ids": "S-PEAD S1-RELVAL",
+        "source": "vera + quinn securities"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L08",
+        "what_happened": "H5 Kalshi vs ForecastEx gaps all under friction on async last-print",
+        "believed_beforehand": "Cross-venue mid gaps might signal edge",
+        "evidence_showed": "Stale FX last vs Kalshi mid + incomplete FX friction inflate optimism",
+        "what_we_learned": "Promote only on simultaneous mids + full both-side friction across repeats",
+        "what_changed": "H5 observation-only binding; async_gap tagging",
+        "related_ids": "H5 shadow",
+        "source": "quinn-challenge-h5"
+      },
+      {
+        "date_ct": "2026-09-04",
+        "lesson_id": "L09",
+        "what_happened": "F10 clean lock on 28¢ wide book scored vs mid",
+        "believed_beforehand": "vol/oi>0 meant mid was usable",
+        "evidence_showed": "Mid on 0.55/0.83 is spread theater not a belief",
+        "what_we_learned": "wide_book is cousin of thin_book; lock W*=0.10 for mid-promote",
+        "what_changed": "F10 outcome-calib only; mid-promote = F7 only until tight book",
+        "related_ids": "W1-F10",
+        "source": "quinn-challenge-f10-promote-rule"
+      }
+    ],
+    "count": 9,
+    "source": "journal/lessons.csv",
+    "note": "from journal/lessons.csv"
+  },
+  "system_health": {
+    "tools_present": [
+      "brier.py",
+      "crypto_md.py",
+      "dashboard_snapshot.py",
+      "fee_model.py",
+      "journal_io.py",
+      "null_backtest.py",
+      "position_sizing.py",
+      "risk_engine.py",
+      "shadow_portfolio.py",
+      "smoke_test.py",
+      "volgate_oos.py"
+    ],
+    "tools_count": 11,
+    "smoke_test_path": "tools/smoke_test.py",
+    "smoke_test_exists": true,
+    "last_snapshot_write_ok": true,
+    "snapshot_path": "dashboard/data/snapshot.json",
+    "proposed": 9,
+    "rejected": 3,
+    "deferred": 2,
+    "shadow": 3,
+    "killed": 0,
+    "quinn_challenge_lessons": 8,
+    "lessons_total": 9,
+    "mode": "PAPER",
+    "label": "PAPER",
+    "note": "Registry status counts + tools presence. No live probes."
+  },
+  "activity": {
+    "recent_forecast_locks": [
+      {
+        "forecast_id": "W1-F10",
+        "timestamp_ct": "2026-09-04 11:25 CT",
+        "status": "locked",
+        "event": "Sep 2026 CPI YoY above 3.4%"
+      },
+      {
+        "forecast_id": "W1-F7",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "status": "locked",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 220,000 SA"
+      },
+      {
+        "forecast_id": "W1-F8",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "status": "locked",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 210,000 SA"
+      },
+      {
+        "forecast_id": "W1-F9",
+        "timestamp_ct": "2026-09-04 10:33 CT",
+        "status": "locked",
+        "event": "US initial jobless claims week ending 2026-09-05: at least 230,000 SA"
+      },
+      {
+        "forecast_id": "W1-F2",
+        "timestamp_ct": "2026-09-04 10:25 CT",
+        "status": "locked",
+        "event": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map"
+      },
+      {
+        "forecast_id": "W1-F6",
+        "timestamp_ct": "2026-09-04 10:25 CT",
+        "status": "locked",
+        "event": "Sep 16 2026 FOMC: other (not hold, not +25bp)"
+      },
+      {
+        "forecast_id": "W1-F1",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "status": "locked",
+        "event": "Sep 16 2026 FOMC: hold (0bp change)"
+      },
+      {
+        "forecast_id": "W1-F4",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "status": "locked",
+        "event": "Aug 2026 CPI YoY above 3.4%"
+      }
+    ],
+    "strategy_updated_ct_tops": [
+      {
+        "strategy_id": "S-VOLGATE",
+        "updated_ct": "2026-09-04 11:15 CT",
+        "status": "shadow",
+        "name": "vol-gate-sgov-vs-spy-vti"
+      },
+      {
+        "strategy_id": "S-PEAD",
+        "updated_ct": "2026-09-04 11:00 CT",
+        "status": "paused",
+        "name": "post-earnings-announcement-drift"
+      },
+      {
+        "strategy_id": "S1-RELVAL",
+        "updated_ct": "2026-09-04 10:50 CT",
+        "status": "rejected",
+        "name": "ETF dislocation long-cheap (relval)"
+      },
+      {
+        "strategy_id": "E1-CAL",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "researching",
+        "name": "Event calibration log"
+      },
+      {
+        "strategy_id": "E2-XVEN",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "idea",
+        "name": "Cross-venue event dislocation scan"
+      },
+      {
+        "strategy_id": "E3-RESERVE",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "shadow",
+        "name": "Idle cash → T-bill/SGOV reserve"
+      },
+      {
+        "strategy_id": "E4-PAIDCAL",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "idea",
+        "name": "First paid event calibration"
+      },
+      {
+        "strategy_id": "S2-PMLEAD",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "researching",
+        "name": "Event-contract lead → ETF shadow"
+      },
+      {
+        "strategy_id": "C1-SPOTOBS",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "idea",
+        "name": "Crypto spot observe-only log"
+      },
+      {
+        "strategy_id": "C2-BASISOBS",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "researching",
+        "name": "Crypto basis/spread observe (spot venues)"
+      },
+      {
+        "strategy_id": "EV-POLICY",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "researching",
+        "name": "Policy/econ event specialize"
+      },
+      {
+        "strategy_id": "EV-NSPORT",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "idea",
+        "name": "Non-sports event breadth scan"
+      },
+      {
+        "strategy_id": "X-FRICTION",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "researching",
+        "name": "All-in friction model library"
+      },
+      {
+        "strategy_id": "S2-FACTOR",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "rejected",
+        "name": "rules-based-factor-tilt"
+      },
+      {
+        "strategy_id": "S-COREBETA",
+        "updated_ct": "2026-09-04 10:30 CT",
+        "status": "paused",
+        "name": "vti-spy-buyhold-vs-sgov"
+      }
+    ],
+    "events": [
+      {
+        "ts": "2026-09-04 ~11:31 CT — H4 FedWatch refre",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:31 CT — H4 FedWatch refresh + Holt/Quinn H5 binding",
+        "summary": "H4: appended snapshot row under **mapping v1** (no remap). FedWatch mirror hold **40.1%** / hike **59.9%** (kryptomagazin terminal; page stamp 15:59 UTC); Kalshi live mids H0 **0.465** / H25 **0.525**"
+      },
+      {
+        "ts": "2026-09-04 ~11:32 CT — Mid-promote eligi",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:32 CT — Mid-promote eligibility rule W*=0.10 (Quinn)",
+        "summary": "F7 in (width 0.07); F10 out (0.28 wide_book); F8/F9 fail depth."
+      },
+      {
+        "ts": "2026-09-04 ~11:31 CT — Quinn F10 binding",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:31 CT — Quinn F10 binding (via Holt)",
+        "summary": "W1-F10 process clean; my_p=0.52 lock stands."
+      },
+      {
+        "ts": "2026-09-04 ~11:30 CT — F10 book_width ta",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:30 CT — F10 book_width tag",
+        "summary": "W1-F10 notes: book_width=0.28 (0.55/0.83); mid fragile; gap vs mid not beat-the-market disagreement until Quinn clears width vs thin_book cousin."
+      },
+      {
+        "ts": "2026-09-04 ~11:25 CT — W1-F10 clean non-",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:25 CT — W1-F10 clean non-labor lock",
+        "summary": "Event: Sep 2026 CPI YoY above 3.4% (`KXCPIYOY-26SEP-T3.4`). Distinct from Aug W1-F3/F4."
+      },
+      {
+        "ts": "2026-09-04 ~11:05 CT — H5 finished on pu",
+        "kind": "decision",
+        "title": "2026-09-04 ~11:05 CT — H5 finished on public FX tape",
+        "summary": "ForecastEx public CSV API reachable (`/api/download?type={pairs|prices|summary}&date=YYYYMMDD`); raw files in journal/forecastex/."
+      },
+      {
+        "ts": "2026-09-04 ~10:59 CT — Reed H5 then H4 s",
+        "kind": "decision",
+        "title": "2026-09-04 ~10:59 CT — Reed H5 then H4 shadow advance",
+        "summary": "H5: fee_model.py Kalshi taker qty=1 at P=0.465 (0.46/0.47) and P=0.535 (0.53/0.54) → all_in **0.025** (matches prior); notes updated on H0/H25 rows. Status → **kalshi_only_blocked_on_IBKR**; dual-venu"
+      },
+      {
+        "ts": "2026-09-04 — H5/H4 advance",
+        "kind": "decision",
+        "title": "2026-09-04 — H5/H4 advance",
+        "summary": "H4 mapping freeze v1. H4 snapshot CSV (secondary FedWatch). H5 fee_model note; dual-venue still IBKR-blocked."
+      },
+      {
+        "ts": "2026-09-04 10:52 CT — Reed hygiene (Holt",
+        "kind": "decision",
+        "title": "2026-09-04 10:52 CT — Reed hygiene (Holt/Quinn F7–F9 binding)",
+        "summary": "forecasts.csv verified: 9 unique IDs; F7/F8/F9 one row each (locked, market_p filled, specific tickers). Added thin_book (F8/F9=true, F7=false, others false); my_p unchanged."
+      },
+      {
+        "ts": "2026-09-04 — Quinn binding on F7-F9",
+        "kind": "decision",
+        "title": "2026-09-04 — Quinn binding on F7-F9",
+        "summary": "forecasts.csv deduped to 9 canonical rows."
+      },
+      {
+        "ts": "2026-09-04 11:25 CT",
+        "kind": "forecast",
+        "title": "W1-F10 locked",
+        "summary": "Sep 2026 CPI YoY above 3.4%"
+      },
+      {
+        "ts": "2026-09-04 10:33 CT",
+        "kind": "forecast",
+        "title": "W1-F7 locked",
+        "summary": "US initial jobless claims week ending 2026-09-05: at least 220,000 SA"
+      },
+      {
+        "ts": "2026-09-04 10:33 CT",
+        "kind": "forecast",
+        "title": "W1-F8 locked",
+        "summary": "US initial jobless claims week ending 2026-09-05: at least 210,000 SA"
+      },
+      {
+        "ts": "2026-09-04 10:33 CT",
+        "kind": "forecast",
+        "title": "W1-F9 locked",
+        "summary": "US initial jobless claims week ending 2026-09-05: at least 230,000 SA"
+      },
+      {
+        "ts": "2026-09-04 10:25 CT",
+        "kind": "forecast",
+        "title": "W1-F2 locked",
+        "summary": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map"
+      }
+    ],
+    "note": "from decisions.md + journal/registry — not chat",
+    "label": "PAPER"
+  },
+  "human_gates": {
+    "gates": [
+      {
+        "n": "1",
+        "gate": "Confirm starting capital C (mandate `$[STARTING_CAPITAL]` blank)",
+        "owner": "Thomas",
+        "status": "Open",
+        "blocks": "Dollar limits, funding, live size"
+      },
+      {
+        "n": "2",
+        "gate": "Confirm book split vs STRATEGY.md / $300 venture budget",
+        "owner": "Thomas",
+        "status": "Open",
+        "blocks": "Org confusion / spend"
+      },
+      {
+        "n": "3",
+        "gate": "State of legal residence (+ individual vs entity)",
+        "owner": "Thomas",
+        "status": "Open",
+        "blocks": "Event-contract geo (esp. sports); tax"
+      },
+      {
+        "n": "4",
+        "gate": "Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal)",
+        "owner": "Thomas",
+        "status": "Open",
+        "blocks": "Account opening"
+      },
+      {
+        "n": "5",
+        "gate": "IBKR cash account KYC — margin off, event contracts on, age 21+",
+        "owner": "Thomas",
+        "status": "Trial only / unfunded",
+        "blocks": "Live + paper API path"
+      },
+      {
+        "n": "6",
+        "gate": "Fund C from Harbor-controlled bank; set withdrawal destination",
+        "owner": "Thomas",
+        "status": "Blocked on 1+5",
+        "blocks": "Live capital"
+      },
+      {
+        "n": "7",
+        "gate": "Bitwarden Harbor collection; trade-only API keys; no withdrawal keys on agents",
+        "owner": "Thomas",
+        "status": "Open (vault scoped elsewhere)",
+        "blocks": "Credential storage"
+      },
+      {
+        "n": "8",
+        "gate": "CPA / tax acknowledgment: 1099s, event-contract treatment, wash sales, lots",
+        "owner": "Thomas/CPA",
+        "status": "Open",
+        "blocks": "Live securities/events"
+      },
+      {
+        "n": "9",
+        "gate": "Explicit ban remains: no leverage, margin, options, perps",
+        "owner": "Thomas",
+        "status": "Standing",
+        "blocks": "Policy"
+      },
+      {
+        "n": "10",
+        "gate": "Optional later: crypto CEX only after written hypothesis",
+        "owner": "Thomas",
+        "status": "Not requested",
+        "blocks": "Crypto sleeve"
+      },
+      {
+        "n": "11",
+        "gate": "Optional: weekday public crypto MD observe routine (quiet unless fee gate clears; no keys)",
+        "owner": "Thomas",
+        "status": "Skipped 2026-09-04 — deferred pending explicit OK",
+        "blocks": "Standing observe cadence"
+      }
+    ],
+    "count": 11,
+    "open_count": 9,
+    "live_blocked": true,
+    "source": "docs/human-dependencies.md",
+    "note": "Live trading blocked until human gates clear. Paper work can proceed."
+  },
+  "docs_meta": {
+    "docs": [
+      {
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:23 CT"
+      },
+      {
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "docs/human-dependencies.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:01:35 CT"
+      },
+      {
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT"
+      },
+      {
+        "path": "docs/performance-methodology.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "journal/learning-loop.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:07:02 CT"
+      },
+      {
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT"
+      }
+    ],
+    "sections": [
+      {
+        "id": "mission",
+        "title": "Mission / canonical state",
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:23 CT",
+        "text": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot | **Cole** |\n| Quant | **Pike** |\n| Channel | Harbor Capital `242cbd86-25ff-4e90-9b7a-a43147e7a97e` |\n| Wave-3 agents | **None** — do not create |\n\n## Venues\n- **Event research:** Kalshi public + ForecastEx public CSV (`journal/forecastex/`). H5 status: dual_venue_public_csv_live; gaps under friction → no promote.\n- **Live fills (later):** IBKR ca…"
+      },
+      {
+        "id": "risk",
+        "title": "Risk architecture",
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | **5%** | Core earns allocation; starts 0 |\n| Max loss per strategy (realized + open) | **4%** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | |\n| Max correlated book | **10%** | Same event family / factor / coin beta |\n| Experimental book total | **≤10%** | Ceiling |\n| Core book | **0%** until evidence | Then scale gradually |\n| Sleeve ceiling: event contracts | **40%*…"
+      },
+      {
+        "id": "human_gates",
+        "title": "Human gates",
+        "path": "docs/human-dependencies.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:01:35 CT",
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-04 CT. Paper work can proceed; **live trading blocked**.\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** (mandate `$[STARTING_CAPITAL]` blank) | Thomas | **Open** | Dollar limits, funding, live size |\n| 2 | Confirm book split vs STRATEGY.md / $300 venture budget | Thomas | Open | Org confusion / spend |\n| 3 | State of legal residence (+ individual vs entity) | Thomas | Open | Event-contract geo (esp. sports); tax |\n| 4 | Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal) | Thomas | Open | Account opening |\n| 5 | **IBKR cash account KYC** — margin off, event contracts…"
+      },
+      {
+        "id": "team",
+        "title": "Team & ops",
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-data/projects/harbor-capital-growth/` | Durable mirror + memory (copy from workspace; some docs/* jour…"
+      },
+      {
+        "id": "forecasting",
+        "title": "Performance methodology",
+        "path": "docs/performance-methodology.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse…"
+      },
+      {
+        "id": "loop",
+        "title": "Learning loop",
+        "path": "journal/learning-loop.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:07:02 CT",
+        "text": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      },
+      {
+        "id": "allocation",
+        "title": "Allocation / risk (same source)",
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | *…"
+      },
+      {
+        "id": "lifecycle",
+        "title": "Strategy lifecycle (ops index)",
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-da…"
+      }
+    ],
+    "excerpts": {
+      "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new",
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+    }
+  },
+  "docs": {
+    "docs": [
+      {
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:23 CT"
+      },
+      {
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "docs/human-dependencies.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:01:35 CT"
+      },
+      {
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT"
+      },
+      {
+        "path": "docs/performance-methodology.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "journal/learning-loop.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:07:02 CT"
+      },
+      {
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT"
+      },
+      {
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT"
+      }
+    ],
+    "sections": [
+      {
+        "id": "mission",
+        "title": "Mission / canonical state",
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:23 CT",
+        "text": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot | **Cole** |\n| Quant | **Pike** |\n| Channel | Harbor Capital `242cbd86-25ff-4e90-9b7a-a43147e7a97e` |\n| Wave-3 agents | **None** — do not create |\n\n## Venues\n- **Event research:** Kalshi public + ForecastEx public CSV (`journal/forecastex/`). H5 status: dual_venue_public_csv_live; gaps under friction → no promote.\n- **Live fills (later):** IBKR ca…"
+      },
+      {
+        "id": "risk",
+        "title": "Risk architecture",
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | **5%** | Core earns allocation; starts 0 |\n| Max loss per strategy (realized + open) | **4%** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | |\n| Max correlated book | **10%** | Same event family / factor / coin beta |\n| Experimental book total | **≤10%** | Ceiling |\n| Core book | **0%** until evidence | Then scale gradually |\n| Sleeve ceiling: event contracts | **40%*…"
+      },
+      {
+        "id": "human_gates",
+        "title": "Human gates",
+        "path": "docs/human-dependencies.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:01:35 CT",
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-04 CT. Paper work can proceed; **live trading blocked**.\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** (mandate `$[STARTING_CAPITAL]` blank) | Thomas | **Open** | Dollar limits, funding, live size |\n| 2 | Confirm book split vs STRATEGY.md / $300 venture budget | Thomas | Open | Org confusion / spend |\n| 3 | State of legal residence (+ individual vs entity) | Thomas | Open | Event-contract geo (esp. sports); tax |\n| 4 | Entity vs personal IBKR name/EIN (Harbor rule: don’t assume personal) | Thomas | Open | Account opening |\n| 5 | **IBKR cash account KYC** — margin off, event contracts…"
+      },
+      {
+        "id": "team",
+        "title": "Team & ops",
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-data/projects/harbor-capital-growth/` | Durable mirror + memory (copy from workspace; some docs/* jour…"
+      },
+      {
+        "id": "forecasting",
+        "title": "Performance methodology",
+        "path": "docs/performance-methodology.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse…"
+      },
+      {
+        "id": "loop",
+        "title": "Learning loop",
+        "path": "journal/learning-loop.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:07:02 CT",
+        "text": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      },
+      {
+        "id": "allocation",
+        "title": "Allocation / risk (same source)",
+        "path": "docs/risk-architecture.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 10:33:52 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new risk |\n| Max loss / size per position (core) | *…"
+      },
+      {
+        "id": "lifecycle",
+        "title": "Strategy lifecycle (ops index)",
+        "path": "docs/ops-index.md",
+        "exists": true,
+        "mtime_ct": "2026-09-04 11:35:01 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-da…"
+      }
+    ],
+    "excerpts": {
+      "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-04 CT  \nSource: `initialization-2026-09-03.md` §C–D. **C (starting bankroll USD) = TBD** — all limits are % of confirmed C; peak equity for drawdown.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees.\n\n## Position & book caps (% of C)\n\n| Rule | % of C | Notes |\n|---|---|---|\n| Max loss / size per position (experimental) | **2%** | Default new",
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+    }
+  }
+}
