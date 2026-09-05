@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 10:01:24 CT",
+  "generated_at_ct": "2026-09-05 10:02:50 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 10:01:24 CT",
+    "generated_at_ct": "2026-09-05 10:02:50 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -13,9 +13,9 @@
     "confirmed_ct": "2026-09-05",
     "warnings": [
       "Starting bankroll C=200.0 (LIVE) via docs/capital.json / book-snapshot",
-      "Funding excess above C is reserve — not trading performance",
-      "Viability clock starts on first live fill — not funding day",
-      "Empty blotter — no positions / no trade history yet",
+      "Funding excess above C is reserve \u2014 not trading performance",
+      "Viability clock starts on first live fill \u2014 not funding day",
+      "Empty blotter \u2014 no positions / no trade history yet",
       "Do not mix clean/contaminated Brier",
       "VOLGATE OOS is not live alpha",
       "Shadow H5 is observation not P&L"
@@ -73,8 +73,8 @@
       "label": "LIVE",
       "display": "10.0"
     },
-    "funding_excess_note": "$10.0 above C sits in reserve — not trading return",
-    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $210.0 includes $10.0 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: U28311047 confirmed; cash=NAV=210; no positions",
+    "funding_excess_note": "$10.0 above C sits in reserve \u2014 not trading return",
+    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $210.0 includes $10.0 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: [account redacted] confirmed; cash=NAV=210; no positions",
     "sleeves": [
       {
         "id": "S-RESERVE / E3-RESERVE",
@@ -84,7 +84,7 @@
       },
       {
         "id": "S-VOLGATE",
-        "status": "**Shadow**; OOS DD pass; **approved_experiment DENIED** (TR≈bills/S-RESERVE); not live sleeve",
+        "status": "**Shadow**; OOS DD pass; **approved_experiment DENIED** (TR\u2248bills/S-RESERVE); not live sleeve",
         "label": "SHADOW",
         "note": "status string only; no dollar invent"
       },
@@ -114,7 +114,7 @@
       },
       {
         "id": "Other EM-SF + E1/E2/EV/X",
-        "status": "Idea / research — no capital",
+        "status": "Idea / research \u2014 no capital",
         "label": "PAPER",
         "note": "status string only; no dollar invent"
       }
@@ -148,7 +148,7 @@
         "cash": 210.0,
         "deployed": 0.0,
         "return_pct": null,
-        "notes": "U28311047 confirmed; cash=NAV=210; no positions",
+        "notes": "[account redacted] confirmed; cash=NAV=210; no positions",
         "mode": "LIVE",
         "label": "LIVE"
       }
@@ -178,7 +178,7 @@
     "securities": [],
     "crypto": [],
     "empty": true,
-    "note": "No open risk positions — 100% cash/reserve. Empty blotter is expected until first live fill. Not broken.",
+    "note": "No open risk positions \u2014 100% cash/reserve. Empty blotter is expected until first live fill. Not broken.",
     "label": "LIVE"
   },
   "history": {
@@ -280,8 +280,8 @@
       {
         "rule": "Experimental book total (simultaneous)",
         "pct_of_c": 0.1,
-        "pct_display": "≤10%",
-        "notes": "≤$20",
+        "pct_display": "\u226410%",
+        "notes": "\u2264$20",
         "label": "LIVE",
         "dollars_at_c": 20.0
       },
@@ -320,23 +320,23 @@
       {
         "rule": "Cash / T-bill reserve floor",
         "pct_of_c": 0.5,
-        "pct_display": "≥50%",
-        "notes": "≥$100",
+        "pct_display": "\u226550%",
+        "notes": "\u2265$100",
         "label": "LIVE",
         "dollars_at_c": 100.0
       },
       {
         "rule": "Typical first live idea / systems test",
         "pct_of_c": 0.01,
-        "pct_display": "0.5–1%",
-        "notes": "$1–$2",
+        "pct_display": "0.5\u20131%",
+        "notes": "$1\u2013$2",
         "label": "LIVE",
         "dollars_at_c": 2.0
       },
       {
         "rule": "Soft daily loss pause (exp book)",
         "pct_of_c": null,
-        "pct_display": "—",
+        "pct_display": "\u2014",
         "notes": "$8 (4% C)",
         "label": "LIVE"
       }
@@ -344,22 +344,22 @@
     "drawdown_limits": [
       {
         "threshold_pct": 0.12,
-        "threshold_display": "≥12%",
-        "action": "≥$24",
+        "threshold_display": "\u226512%",
+        "action": "\u2265$24",
         "label": "LIVE",
         "dollars_at_c": 24.0
       },
       {
         "threshold_pct": 0.18,
-        "threshold_display": "≥18%",
-        "action": "≥$36",
+        "threshold_display": "\u226518%",
+        "action": "\u2265$36",
         "label": "LIVE",
         "dollars_at_c": 36.0
       },
       {
         "threshold_pct": 0.25,
-        "threshold_display": "≥25%",
-        "action": "≥$50",
+        "threshold_display": "\u226525%",
+        "action": "\u2265$50",
         "label": "LIVE",
         "dollars_at_c": 50.0
       }
@@ -435,7 +435,7 @@
       "dd_freeze": 36.0,
       "dd_halt": 50.0
     },
-    "dollar_limits_note": "Filled from C=200.0 × risk-architecture / position_sizing percentages",
+    "dollar_limits_note": "Filled from C=200.0 \u00d7 risk-architecture / position_sizing percentages",
     "no_leverage": true,
     "note": "Dollar limits filled for confirmed C=200.0.",
     "source": "docs/risk-architecture.md",
@@ -445,7 +445,7 @@
       "docs/live-experiment-sleeve-2026-09-05.md",
       "docs/exec-layer-status-2026-09-05.md",
       "docs/first-live-ops-test-2026-09-05.md",
-      "docs/canonical-state-2026-09-04.md (HISTORICAL — do not use for ops)",
+      "docs/canonical-state-2026-09-04.md (HISTORICAL \u2014 do not use for ops)",
       "tools/risk_engine.py"
     ]
   },
@@ -457,10 +457,10 @@
         "owner": "Holt",
         "market": "event",
         "status": "researching",
-        "hypothesis": "Agent my_p can beat always-quote-market on Brier after ≥50 independent forecasts",
+        "hypothesis": "Agent my_p can beat always-quote-market on Brier after \u226550 independent forecasts",
         "edge_source": "calibration discipline vs contaminated priors",
         "benchmark": "market-implied Brier",
-        "falsify": "After 50 scored independent rows Brier worse than market → no paid opinions",
+        "falsify": "After 50 scored independent rows Brier worse than market \u2192 no paid opinions",
         "data_needs": "public Kalshi/ForecastEx mids + resolution sources",
         "cost_notes": "paper $0; live fees only after gate",
         "capital_alloc_pct": "0",
@@ -479,9 +479,9 @@
         "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
         "edge_source": "execution/venue microstructure",
         "benchmark": "fee+half-spread no-arb band",
-        "falsify": "If logged gaps never exceed all-in friction for 30d → retire",
+        "falsify": "If logged gaps never exceed all-in friction for 30d \u2192 retire",
         "data_needs": "IBKR unified quotes when account live; public APIs now",
-        "cost_notes": "screenshot ≠ fill; IBKR routing cheaper than standalone Kalshi quadratic",
+        "cost_notes": "screenshot \u2260 fill; IBKR routing cheaper than standalone Kalshi quadratic",
         "capital_alloc_pct": "0",
         "next_decision": "when IBKR paper quotes available",
         "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
@@ -491,11 +491,11 @@
       },
       {
         "strategy_id": "E3-RESERVE",
-        "name": "Idle cash → T-bill/SGOV reserve",
+        "name": "Idle cash \u2192 T-bill/SGOV reserve",
         "owner": "Holt",
         "market": "securities",
         "status": "shadow",
-        "hypothesis": "Idle cash → SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+        "hypothesis": "Idle cash \u2192 SGOV/BIL beats IBKR 0pct first $10k / checking drag",
         "edge_source": "mechanical carry (not alpha)",
         "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
         "falsify": "SGOV after ER+spread <= sweep/cash for >=1 quarter",
@@ -518,8 +518,8 @@
         "edge_source": "paid skin-in-game on economics/policy contracts",
         "benchmark": "E1 Brier + SGOV opportunity cost",
         "falsify": "Fees+spread consume stated edge OR 8-loss streak vs Bernoulli OR Brier worse than market",
-        "data_needs": "E1≥50 scored + IBKR live + geo clean",
-        "cost_notes": "0.5%C per idea; ≤5 concurrent; exp book ≤10%C",
+        "data_needs": "E1\u226550 scored + IBKR live + geo clean",
+        "cost_notes": "0.5%C per idea; \u22645 concurrent; exp book \u226410%C",
         "capital_alloc_pct": "0",
         "next_decision": "after E1 gate + human F complete",
         "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
@@ -548,14 +548,14 @@
       },
       {
         "strategy_id": "S2-PMLEAD",
-        "name": "Event-contract lead → ETF shadow",
+        "name": "Event-contract lead \u2192 ETF shadow",
         "owner": "Reed",
         "market": "securities",
         "status": "researching",
         "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
         "edge_source": "cross-market signal (unproven)",
         "benchmark": "buy/hold ETF shadow vs SGOV",
-        "falsify": "No lead-lag after fees in paper 90d → reject",
+        "falsify": "No lead-lag after fees in paper 90d \u2192 reject",
         "data_needs": "Kalshi mids + ETF bars when IBKR paper",
         "cost_notes": "ETF spread+commission; cash account only",
         "capital_alloc_pct": "0",
@@ -572,11 +572,11 @@
         "market": "crypto",
         "status": "idea",
         "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
-        "edge_source": "none identified yet — observation",
+        "edge_source": "none identified yet \u2014 observation",
         "benchmark": "SGOV + do-nothing",
-        "falsify": "If 30d log shows no testable edge_source → keep deferred",
+        "falsify": "If 30d log shows no testable edge_source \u2192 keep deferred",
         "data_needs": "public prices only; no API keys",
-        "cost_notes": "40–80bps RT retail; tax lots; sleeve cap 10%C if ever",
+        "cost_notes": "40\u201380bps RT retail; tax lots; sleeve cap 10%C if ever",
         "capital_alloc_pct": "0",
         "next_decision": "2026-10-04 or first written hypothesis",
         "evidence_summary": "Init: observe only; no CEX",
@@ -590,10 +590,10 @@
         "owner": "Reed",
         "market": "crypto",
         "status": "researching",
-        "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band — measure only",
+        "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band \u2014 measure only",
         "edge_source": "microstructure observation not trade",
         "benchmark": "fee+transfer friction band",
-        "falsify": "If gaps ≤ all-in friction for 30 observations → archive",
+        "falsify": "If gaps \u2264 all-in friction for 30 observations \u2192 archive",
         "data_needs": "public order books; no keys",
         "cost_notes": "transfer risk + withdrawal delays; still no live",
         "capital_alloc_pct": "0",
@@ -612,7 +612,7 @@
         "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
         "edge_source": "domain focus + base rates",
         "benchmark": "market Brier on same instruments",
-        "falsify": "No Brier lift vs generalist after 30 scored → merge back to E1",
+        "falsify": "No Brier lift vs generalist after 30 scored \u2192 merge back to E1",
         "data_needs": "BLS/FOMC calendars + nowcasts",
         "cost_notes": "paper; sports excluded until geo",
         "capital_alloc_pct": "0",
@@ -631,7 +631,7 @@
         "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
         "edge_source": "catalog coverage / neglected events",
         "benchmark": "market mid + fee model",
-        "falsify": "If scan finds no fee-surviving gaps in 20 names → pause breadth",
+        "falsify": "If scan finds no fee-surviving gaps in 20 names \u2192 pause breadth",
         "data_needs": "Kalshi/ForecastEx public catalog",
         "cost_notes": "avoid sports until state legality confirmed",
         "capital_alloc_pct": "0",
@@ -650,7 +650,7 @@
         "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
         "edge_source": "fee model correctness",
         "benchmark": "break-even edge vs quoted mid",
-        "falsify": "If agents keep claiming edge inside fee band → process fail",
+        "falsify": "If agents keep claiming edge inside fee band \u2192 process fail",
         "data_needs": "fee_model.py + live ticket confirm",
         "cost_notes": "stdlib tools on box",
         "capital_alloc_pct": "0",
@@ -711,7 +711,7 @@
         "data_needs": "consensus (paid) or reject; EDGAR dates+EPS only free",
         "cost_notes": "few trades/mo; settlement-aware; Lite $0",
         "capital_alloc_pct": "0",
-        "next_decision": "DEFERRED — no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
+        "next_decision": "DEFERRED \u2014 no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
         "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
         "updated_ct": "2026-09-04 11:00 CT",
         "capital_alloc_pct_note": "0 / no live capital",
@@ -730,8 +730,8 @@
         "data_needs": "Cboe VIX / FRED VIXCLS + free VTI/SGOV daily",
         "cost_notes": "weekly RT; Lite $0 + half-spread; next-open fill",
         "capital_alloc_pct": "0",
-        "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) — prefer event-market clean locks over VOLGATE iteration",
-        "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR≈S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
+        "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) \u2014 prefer event-market clean locks over VOLGATE iteration",
+        "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR\u2248S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
         "updated_ct": "2026-09-04 11:15 CT",
         "capital_alloc_pct_note": "0 / no live capital",
         "label": "PAPER"
@@ -782,11 +782,11 @@
         "items": [
           {
             "strategy_id": "E3-RESERVE",
-            "name": "Idle cash → T-bill/SGOV reserve",
+            "name": "Idle cash \u2192 T-bill/SGOV reserve",
             "owner": "Holt",
             "market": "securities",
             "status": "shadow",
-            "hypothesis": "Idle cash → SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+            "hypothesis": "Idle cash \u2192 SGOV/BIL beats IBKR 0pct first $10k / checking drag",
             "edge_source": "mechanical carry (not alpha)",
             "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
             "falsify": "SGOV after ER+spread <= sweep/cash for >=1 quarter",
@@ -812,8 +812,8 @@
             "data_needs": "Cboe VIX / FRED VIXCLS + free VTI/SGOV daily",
             "cost_notes": "weekly RT; Lite $0 + half-spread; next-open fill",
             "capital_alloc_pct": "0",
-            "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) — prefer event-market clean locks over VOLGATE iteration",
-            "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR≈S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
+            "next_decision": "Holt binding 2026-09-04: shadow only; no approved_experiment/capital; optional thin DD-overlay log (FRED+SGOV-only) \u2014 prefer event-market clean locks over VOLGATE iteration",
+            "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR\u2248S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
             "updated_ct": "2026-09-04 11:15 CT",
             "capital_alloc_pct_note": "0 / no live capital",
             "label": "PAPER"
@@ -849,10 +849,10 @@
             "owner": "Holt",
             "market": "event",
             "status": "researching",
-            "hypothesis": "Agent my_p can beat always-quote-market on Brier after ≥50 independent forecasts",
+            "hypothesis": "Agent my_p can beat always-quote-market on Brier after \u226550 independent forecasts",
             "edge_source": "calibration discipline vs contaminated priors",
             "benchmark": "market-implied Brier",
-            "falsify": "After 50 scored independent rows Brier worse than market → no paid opinions",
+            "falsify": "After 50 scored independent rows Brier worse than market \u2192 no paid opinions",
             "data_needs": "public Kalshi/ForecastEx mids + resolution sources",
             "cost_notes": "paper $0; live fees only after gate",
             "capital_alloc_pct": "0",
@@ -864,14 +864,14 @@
           },
           {
             "strategy_id": "S2-PMLEAD",
-            "name": "Event-contract lead → ETF shadow",
+            "name": "Event-contract lead \u2192 ETF shadow",
             "owner": "Reed",
             "market": "securities",
             "status": "researching",
             "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
             "edge_source": "cross-market signal (unproven)",
             "benchmark": "buy/hold ETF shadow vs SGOV",
-            "falsify": "No lead-lag after fees in paper 90d → reject",
+            "falsify": "No lead-lag after fees in paper 90d \u2192 reject",
             "data_needs": "Kalshi mids + ETF bars when IBKR paper",
             "cost_notes": "ETF spread+commission; cash account only",
             "capital_alloc_pct": "0",
@@ -887,10 +887,10 @@
             "owner": "Reed",
             "market": "crypto",
             "status": "researching",
-            "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band — measure only",
+            "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band \u2014 measure only",
             "edge_source": "microstructure observation not trade",
             "benchmark": "fee+transfer friction band",
-            "falsify": "If gaps ≤ all-in friction for 30 observations → archive",
+            "falsify": "If gaps \u2264 all-in friction for 30 observations \u2192 archive",
             "data_needs": "public order books; no keys",
             "cost_notes": "transfer risk + withdrawal delays; still no live",
             "capital_alloc_pct": "0",
@@ -909,7 +909,7 @@
             "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
             "edge_source": "domain focus + base rates",
             "benchmark": "market Brier on same instruments",
-            "falsify": "No Brier lift vs generalist after 30 scored → merge back to E1",
+            "falsify": "No Brier lift vs generalist after 30 scored \u2192 merge back to E1",
             "data_needs": "BLS/FOMC calendars + nowcasts",
             "cost_notes": "paper; sports excluded until geo",
             "capital_alloc_pct": "0",
@@ -928,7 +928,7 @@
             "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
             "edge_source": "fee model correctness",
             "benchmark": "break-even edge vs quoted mid",
-            "falsify": "If agents keep claiming edge inside fee band → process fail",
+            "falsify": "If agents keep claiming edge inside fee band \u2192 process fail",
             "data_needs": "fee_model.py + live ticket confirm",
             "cost_notes": "stdlib tools on box",
             "capital_alloc_pct": "0",
@@ -953,9 +953,9 @@
             "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
             "edge_source": "execution/venue microstructure",
             "benchmark": "fee+half-spread no-arb band",
-            "falsify": "If logged gaps never exceed all-in friction for 30d → retire",
+            "falsify": "If logged gaps never exceed all-in friction for 30d \u2192 retire",
             "data_needs": "IBKR unified quotes when account live; public APIs now",
-            "cost_notes": "screenshot ≠ fill; IBKR routing cheaper than standalone Kalshi quadratic",
+            "cost_notes": "screenshot \u2260 fill; IBKR routing cheaper than standalone Kalshi quadratic",
             "capital_alloc_pct": "0",
             "next_decision": "when IBKR paper quotes available",
             "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
@@ -973,8 +973,8 @@
             "edge_source": "paid skin-in-game on economics/policy contracts",
             "benchmark": "E1 Brier + SGOV opportunity cost",
             "falsify": "Fees+spread consume stated edge OR 8-loss streak vs Bernoulli OR Brier worse than market",
-            "data_needs": "E1≥50 scored + IBKR live + geo clean",
-            "cost_notes": "0.5%C per idea; ≤5 concurrent; exp book ≤10%C",
+            "data_needs": "E1\u226550 scored + IBKR live + geo clean",
+            "cost_notes": "0.5%C per idea; \u22645 concurrent; exp book \u226410%C",
             "capital_alloc_pct": "0",
             "next_decision": "after E1 gate + human F complete",
             "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
@@ -989,11 +989,11 @@
             "market": "crypto",
             "status": "idea",
             "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
-            "edge_source": "none identified yet — observation",
+            "edge_source": "none identified yet \u2014 observation",
             "benchmark": "SGOV + do-nothing",
-            "falsify": "If 30d log shows no testable edge_source → keep deferred",
+            "falsify": "If 30d log shows no testable edge_source \u2192 keep deferred",
             "data_needs": "public prices only; no API keys",
-            "cost_notes": "40–80bps RT retail; tax lots; sleeve cap 10%C if ever",
+            "cost_notes": "40\u201380bps RT retail; tax lots; sleeve cap 10%C if ever",
             "capital_alloc_pct": "0",
             "next_decision": "2026-10-04 or first written hypothesis",
             "evidence_summary": "Init: observe only; no CEX",
@@ -1010,7 +1010,7 @@
             "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
             "edge_source": "catalog coverage / neglected events",
             "benchmark": "market mid + fee model",
-            "falsify": "If scan finds no fee-surviving gaps in 20 names → pause breadth",
+            "falsify": "If scan finds no fee-surviving gaps in 20 names \u2192 pause breadth",
             "data_needs": "Kalshi/ForecastEx public catalog",
             "cost_notes": "avoid sports until state legality confirmed",
             "capital_alloc_pct": "0",
@@ -1058,7 +1058,7 @@
             "data_needs": "consensus (paid) or reject; EDGAR dates+EPS only free",
             "cost_notes": "few trades/mo; settlement-aware; Lite $0",
             "capital_alloc_pct": "0",
-            "next_decision": "DEFERRED — no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
+            "next_decision": "DEFERRED \u2014 no RW ledger as PEAD; reopen only as S-PEAD-IBES after WRDS/IBES spend",
             "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
             "updated_ct": "2026-09-04 11:00 CT",
             "capital_alloc_pct_note": "0 / no live capital",
@@ -1162,7 +1162,7 @@
       },
       {
         "forecast_id": "W1-F2",
-        "event": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map",
+        "event": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map",
         "status": "locked",
         "my_p_locked": "0.55",
         "market_p_at_lock": "0.535",
@@ -1331,7 +1331,7 @@
     "calibration_files": {
       "clean_append_rows": 0,
       "contaminated_append_rows": 16,
-      "note": "CSV append-only row counts — NOT sample n / distinct forecast ids",
+      "note": "CSV append-only row counts \u2014 NOT sample n / distinct forecast ids",
       "clean_path": "journal/calibration_clean.csv",
       "contaminated_path": "journal/calibration_contaminated.csv"
     },
@@ -1363,9 +1363,9 @@
     "crypto_rt_bps_default": 50.0,
     "event_default_half_spread": 0.01,
     "notes": [
-      "Defaults from tools/fee_model.py — research assumptions, not ticket-confirmed.",
+      "Defaults from tools/fee_model.py \u2014 research assumptions, not ticket-confirmed.",
       "Event friction: Kalshi quadratic taker + half-spread; IBKR event flat ~$0.02/contract.",
-      "Crypto live deferred; retail RT 40–60 bps assumption only."
+      "Crypto live deferred; retail RT 40\u201360 bps assumption only."
     ],
     "source": "tools/fee_model.py",
     "fees": {
@@ -1403,7 +1403,7 @@
         "lesson_id": "L02",
         "what_happened": "F3 my_p=0.50 with F4 my_p=0.32 on adjacent CPI bins",
         "believed_beforehand": "0.50 was an honest abstention",
-        "evidence_showed": "Implied P(3.3–3.4]=0.18 without a CDF — fake precision",
+        "evidence_showed": "Implied P(3.3\u20133.4]=0.18 without a CDF \u2014 fake precision",
         "what_we_learned": "Do not use 0.50 as cover for incomplete distributions",
         "what_changed": "F3 killed; require written CDF or abstain",
         "related_ids": "W1-F3 W1-F4",
@@ -1423,10 +1423,10 @@
       {
         "date_ct": "2026-09-04",
         "lesson_id": "L04",
-        "what_happened": "Claims ladder F7–F9 treated as three independent events",
+        "what_happened": "Claims ladder F7\u2013F9 treated as three independent events",
         "believed_beforehand": "More locks equal faster sample growth",
-        "evidence_showed": "One labor surprise moves all three — correlated factor",
-        "what_we_learned": "Calibration events ≠ diversified risk; do not farm correlated strikes for n",
+        "evidence_showed": "One labor surprise moves all three \u2014 correlated factor",
+        "what_we_learned": "Calibration events \u2260 diversified risk; do not farm correlated strikes for n",
         "what_changed": "Next lock must be non-labor or reasoned abstain",
         "related_ids": "W1-F7 F8 F9",
         "source": "quinn + holt room"
@@ -1434,7 +1434,7 @@
       {
         "date_ct": "2026-09-04",
         "lesson_id": "L05",
-        "what_happened": "Crypto spot cross-venue gaps ~1.8 bps vs fee gates 160–220 bps",
+        "what_happened": "Crypto spot cross-venue gaps ~1.8 bps vs fee gates 160\u2013220 bps",
         "believed_beforehand": "Apparent arb might exist on public mids",
         "evidence_showed": "Retail RT fees kill the gap; ACH holds kill transfer arb",
         "what_we_learned": "Fee/friction first; no crypto live without post-fee paper edge",
@@ -1445,10 +1445,10 @@
       {
         "date_ct": "2026-09-04",
         "lesson_id": "L06",
-        "what_happened": "S-VOLGATE OOS maxDD beat VTI but TR ≈ SGOV/BIL with leftover −23% DD",
+        "what_happened": "S-VOLGATE OOS maxDD beat VTI but TR \u2248 SGOV/BIL with leftover \u221223% DD",
         "believed_beforehand": "Vol gate might earn an experimental sleeve",
         "evidence_showed": "DD-vs-VTI pass is easy for risk-off rules; not alpha vs reserve",
-        "what_we_learned": "Regime plumbing ≠ information edge; do not allocate a second sleeve next to S-RESERVE",
+        "what_we_learned": "Regime plumbing \u2260 information edge; do not allocate a second sleeve next to S-RESERVE",
         "what_changed": "approved_experiment DENIED; S-RESERVE remains cash default; VOLGATE shadow only",
         "related_ids": "S-VOLGATE",
         "source": "quinn-oos-volgate"
@@ -1459,7 +1459,7 @@
         "what_happened": "S-PEAD classic anomaly without free PIT consensus",
         "believed_beforehand": "Academic PEAD might be paper-testable free",
         "evidence_showed": "Free EPS sources are revision/look-ahead contaminated; no IBES-quality free panel",
-        "what_we_learned": "No free PIT → defer/reject rather than endless research with bad data",
+        "what_we_learned": "No free PIT \u2192 defer/reject rather than endless research with bad data",
         "what_changed": "S-PEAD deferred; RELVAL rejected for NAV timestamp risk",
         "related_ids": "S-PEAD S1-RELVAL",
         "source": "vera + quinn securities"
@@ -1478,7 +1478,7 @@
       {
         "date_ct": "2026-09-04",
         "lesson_id": "L09",
-        "what_happened": "F10 clean lock on 28¢ wide book scored vs mid",
+        "what_happened": "F10 clean lock on 28\u00a2 wide book scored vs mid",
         "believed_beforehand": "vol/oi>0 meant mid was usable",
         "evidence_showed": "Mid on 0.55/0.83 is spread theater not a belief",
         "what_we_learned": "wide_book is cousin of thin_book; lock W*=0.10 for mid-promote",
@@ -1554,7 +1554,7 @@
         "forecast_id": "W1-F2",
         "timestamp_ct": "2026-09-04 10:25 CT",
         "status": "locked",
-        "event": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map"
+        "event": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map"
       },
       {
         "forecast_id": "W1-F6",
@@ -1610,7 +1610,7 @@
         "strategy_id": "E3-RESERVE",
         "updated_ct": "2026-09-04 10:30 CT",
         "status": "shadow",
-        "name": "Idle cash → T-bill/SGOV reserve"
+        "name": "Idle cash \u2192 T-bill/SGOV reserve"
       },
       {
         "strategy_id": "E4-PAIDCAL",
@@ -1622,7 +1622,7 @@
         "strategy_id": "S2-PMLEAD",
         "updated_ct": "2026-09-04 10:30 CT",
         "status": "researching",
-        "name": "Event-contract lead → ETF shadow"
+        "name": "Event-contract lead \u2192 ETF shadow"
       },
       {
         "strategy_id": "C1-SPOTOBS",
@@ -1669,63 +1669,63 @@
     ],
     "events": [
       {
-        "ts": "2026-09-05 — C binding",
+        "ts": "2026-09-05 \u2014 C binding",
         "kind": "decision",
-        "title": "2026-09-05 — C binding",
+        "title": "2026-09-05 \u2014 C binding",
         "summary": "Thomas: risk math on **C=$200** (not observed $210). Bitwarden live fields updated."
       },
       {
-        "ts": "2026-09-05 — Live account confirmed",
+        "ts": "2026-09-05 \u2014 Live account confirmed",
         "kind": "decision",
-        "title": "2026-09-05 — Live account confirmed",
-        "summary": "Client Portal: **U28311047** (live). Cash/NAV **$210**. No positions."
+        "title": "2026-09-05 \u2014 Live account confirmed",
+        "summary": "Client Portal: **[account redacted]** (live). Cash/NAV **$210**. No positions."
       },
       {
-        "ts": "2026-09-05 — Live auth: event domain abs",
+        "ts": "2026-09-05 \u2014 Live auth: event domain abs",
         "kind": "decision",
-        "title": "2026-09-05 — Live auth: event domain abstain",
+        "title": "2026-09-05 \u2014 Live auth: event domain abstain",
         "summary": "C=$200 live sleeve authorized (Holt transmits). Reed analysis-only."
       },
       {
-        "ts": "2026-09-05 — Live bankroll C=$200",
+        "ts": "2026-09-05 \u2014 Live bankroll C=$200",
         "kind": "decision",
-        "title": "2026-09-05 — Live bankroll C=$200",
-        "summary": "Thomas funded IBKR; C set to $200. Live experimental sleeve ≤$20; reserve floor ≥$100; exp position max loss $4."
+        "title": "2026-09-05 \u2014 Live bankroll C=$200",
+        "summary": "Thomas funded IBKR; C set to $200. Live experimental sleeve \u2264$20; reserve floor \u2265$100; exp position max loss $4."
       },
       {
-        "ts": "2026-09-04 ~11:31 CT — H4 FedWatch refre",
+        "ts": "2026-09-04 ~11:31 CT \u2014 H4 FedWatch refre",
         "kind": "decision",
-        "title": "2026-09-04 ~11:31 CT — H4 FedWatch refresh + Holt/Quinn H5 binding",
+        "title": "2026-09-04 ~11:31 CT \u2014 H4 FedWatch refresh + Holt/Quinn H5 binding",
         "summary": "H4: appended snapshot row under **mapping v1** (no remap). FedWatch mirror hold **40.1%** / hike **59.9%** (kryptomagazin terminal; page stamp 15:59 UTC); Kalshi live mids H0 **0.465** / H25 **0.525**"
       },
       {
-        "ts": "2026-09-04 ~11:32 CT — Mid-promote eligi",
+        "ts": "2026-09-04 ~11:32 CT \u2014 Mid-promote eligi",
         "kind": "decision",
-        "title": "2026-09-04 ~11:32 CT — Mid-promote eligibility rule W*=0.10 (Quinn)",
+        "title": "2026-09-04 ~11:32 CT \u2014 Mid-promote eligibility rule W*=0.10 (Quinn)",
         "summary": "F7 in (width 0.07); F10 out (0.28 wide_book); F8/F9 fail depth."
       },
       {
-        "ts": "2026-09-04 ~11:31 CT — Quinn F10 binding",
+        "ts": "2026-09-04 ~11:31 CT \u2014 Quinn F10 binding",
         "kind": "decision",
-        "title": "2026-09-04 ~11:31 CT — Quinn F10 binding (via Holt)",
+        "title": "2026-09-04 ~11:31 CT \u2014 Quinn F10 binding (via Holt)",
         "summary": "W1-F10 process clean; my_p=0.52 lock stands."
       },
       {
-        "ts": "2026-09-04 ~11:30 CT — F10 book_width ta",
+        "ts": "2026-09-04 ~11:30 CT \u2014 F10 book_width ta",
         "kind": "decision",
-        "title": "2026-09-04 ~11:30 CT — F10 book_width tag",
+        "title": "2026-09-04 ~11:30 CT \u2014 F10 book_width tag",
         "summary": "W1-F10 notes: book_width=0.28 (0.55/0.83); mid fragile; gap vs mid not beat-the-market disagreement until Quinn clears width vs thin_book cousin."
       },
       {
-        "ts": "2026-09-04 ~11:25 CT — W1-F10 clean non-",
+        "ts": "2026-09-04 ~11:25 CT \u2014 W1-F10 clean non-",
         "kind": "decision",
-        "title": "2026-09-04 ~11:25 CT — W1-F10 clean non-labor lock",
+        "title": "2026-09-04 ~11:25 CT \u2014 W1-F10 clean non-labor lock",
         "summary": "Event: Sep 2026 CPI YoY above 3.4% (`KXCPIYOY-26SEP-T3.4`). Distinct from Aug W1-F3/F4."
       },
       {
-        "ts": "2026-09-04 ~11:05 CT — H5 finished on pu",
+        "ts": "2026-09-04 ~11:05 CT \u2014 H5 finished on pu",
         "kind": "decision",
-        "title": "2026-09-04 ~11:05 CT — H5 finished on public FX tape",
+        "title": "2026-09-04 ~11:05 CT \u2014 H5 finished on public FX tape",
         "summary": "ForecastEx public CSV API reachable (`/api/download?type={pairs|prices|summary}&date=YYYYMMDD`); raw files in journal/forecastex/."
       },
       {
@@ -1756,10 +1756,10 @@
         "ts": "2026-09-04 10:25 CT",
         "kind": "forecast",
         "title": "W1-F2 locked",
-        "summary": "Sep 16 2026 FOMC: hike 25bp — residual partition + T3.75 map"
+        "summary": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map"
       }
     ],
-    "note": "from decisions.md + journal/registry — not chat",
+    "note": "from decisions.md + journal/registry \u2014 not chat",
     "label": "PAPER"
   },
   "human_gates": {
@@ -1768,15 +1768,15 @@
         "n": "1",
         "gate": "Confirm starting capital C",
         "owner": "Thomas",
-        "status": "CLEARED — C=$200",
-        "blocks": "—"
+        "status": "CLEARED \u2014 C=$200",
+        "blocks": "\u2014"
       },
       {
         "n": "2",
         "gate": "Book split vs $300 venture budget",
         "owner": "Thomas",
         "status": "Cleared by mandate",
-        "blocks": "—"
+        "blocks": "\u2014"
       },
       {
         "n": "3",
@@ -1797,7 +1797,7 @@
         "gate": "IBKR live account funded",
         "owner": "Thomas",
         "status": "CLEARED (funded)",
-        "blocks": "—"
+        "blocks": "\u2014"
       },
       {
         "n": "6",
@@ -1831,14 +1831,14 @@
         "n": "10",
         "gate": "Crypto CEX live",
         "owner": "Thomas",
-        "status": "Not requested — DEFER",
+        "status": "Not requested \u2014 DEFER",
         "blocks": "Crypto sleeve"
       },
       {
         "n": "11",
         "gate": "Weekday crypto MD observe routine",
         "owner": "Thomas",
-        "status": "Skipped — deferred",
+        "status": "Skipped \u2014 deferred",
         "blocks": "Optional"
       }
     ],
@@ -1888,39 +1888,39 @@
         "n": "10",
         "gate": "Crypto CEX live",
         "owner": "Thomas",
-        "status": "Not requested — DEFER",
+        "status": "Not requested \u2014 DEFER",
         "blocks": "Crypto sleeve"
       },
       {
         "n": "11",
         "gate": "Weekday crypto MD observe routine",
         "owner": "Thomas",
-        "status": "Skipped — deferred",
+        "status": "Skipped \u2014 deferred",
         "blocks": "Optional"
       }
     ],
     "remaining_count": 7,
     "source": "docs/human-dependencies.md",
-    "note": "Live trading AUTHORIZED (C=$200 LIVE U28311047) within risk sleeve. automated_execution=false (Ready — Holt-gated; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
+    "note": "Live trading AUTHORIZED (C=$200 LIVE [account redacted]) within risk sleeve. automated_execution=false (Ready \u2014 Holt-gated; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
     "stale_fields_note": "Do not treat live_blocked=true or C-unconfirmed as current."
   },
   "operating_status": {
     "live_trading": true,
     "automated_execution": false,
     "withdrawal": false,
-    "account_id": "U28311047",
+    "account_id": null,
     "starting_c": 200.0,
     "notes": {
-      "live_trading": "LIVE book authorized C=$200.0 U28311047",
-      "automated_execution": "Ready — Holt-gated. Flipping automated_execution=true is deferred until the Gateway+confirm-reply path is proven in production; Holt still transmits even then. Boolean stays false.",
-      "withdrawal": "No agent withdrawal authority — standing human gate"
+      "live_trading": "LIVE book authorized C=$200.0 [account redacted]",
+      "automated_execution": "Ready \u2014 Holt-gated. Flipping automated_execution=true is deferred until the Gateway+confirm-reply path is proven in production; Holt still transmits even then. Boolean stays false.",
+      "withdrawal": "No agent withdrawal authority \u2014 standing human gate"
     },
     "labels": {
       "live_trading": "Authorized",
-      "automated_execution": "Ready — Holt-gated",
+      "automated_execution": "Ready \u2014 Holt-gated",
       "withdrawal": "Standing human gate"
     },
-    "action_needed": "Await first live fill (order 1837390339 PreSubmitted) — viability clock starts on fill",
+    "action_needed": "Await first live fill (order [order redacted] PreSubmitted) \u2014 viability clock starts on fill",
     "label": "LIVE"
   },
   "viability": {
@@ -1938,7 +1938,7 @@
       "display": "0.0"
     },
     "label": "LIVE",
-    "note": "order 1837390339 still PreSubmitted — clock not started (starts on first live fill, not funding or submit)"
+    "note": "order [order redacted] still PreSubmitted \u2014 clock not started (starts on first live fill, not funding or submit)"
   },
   "viability_period": {
     "started": false,
@@ -1946,9 +1946,9 @@
     "started_at_ct": null,
     "status": "NOT_STARTED",
     "clock_days": 30,
-    "pending_order_id": "1837390339",
+    "pending_order_id": null,
     "pending_order_status": "PreSubmitted",
-    "note": "order 1837390339 still PreSubmitted — clock not started (starts on first live fill, not funding or submit)"
+    "note": "order [order redacted] still PreSubmitted \u2014 clock not started (starts on first live fill, not funding or submit)"
   },
   "live_trading": true,
   "automated_execution": false,
@@ -2024,7 +2024,7 @@
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:41:55 CT",
-        "text": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1837390337** — Inactive |\n| Trades / positions | empty |\n| Poll CT | 2026-09-05 09:41 CT (auth green) |\n\n**30d viability clock:** starts on **first live fill**, not submit.\n\n## Exec tooling\n- Confirm-reply loop **taught** in `tools/ibkr_exec.py` (`confirm_order_replies` / o354 + MKT warn via `/iserver/reply/{id}`)\n- CLI: `--watch-order ORDER_ID`\n-…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "live_ops",
@@ -2032,7 +2032,7 @@
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:41:55 CT",
-        "text": "# First live ops test — 2026-09-05\n\n**Intent:** `ibkr/intents/INTENT_a57e9537-4586-4981-9a32-aa643febf7f6.json`\n**Thesis:** S-RESERVE plumbing (not alpha). Thomas go + Holt sign.\n**Order:** BUY 0.02 SGOV MKT DAY (~$2 @ ~$100.47) conid `424099317` account `U28311047`\n\n| Broker orderId | Status | Notes |\n| --- | --- | --- |\n| 1837390339 | PreSubmitted | Confirmed; weekend — await next session |\n| 1837390337 | Inactive / Pending Submit | First attempt before confirm path; leave/ignore |\n\n**30-day viability clock:** starts on **first live fill**, not funding or submit.\n**Follow-ups:** confirm fill Mon; cancel inactive if still present; blotter/ledger/dashboard.\n\n**Confirm-reply path (taught 202…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "sleeve",
@@ -2040,7 +2040,7 @@
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Live experiment sleeve — 2026-09-05\n\n**C = $200** · IBKR funded · Phase 1: cash only (no margin/leverage/options/perps) · No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **≥$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1–$2** notional / max loss |\n\n## A…"
+        "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: cash only (no margin/leverage/options/perps) \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **\u2265$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1\u2013$2** notional / max loss |\n\n## A\u2026"
       },
       {
         "id": "capital",
@@ -2048,7 +2048,7 @@
         "path": "docs/capital.json",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "{\n  \"C\": 200,\n  \"currency\": \"USD\",\n  \"mode\": \"LIVE\",\n  \"confirmed_ct\": \"2026-09-05\",\n  \"venue\": \"IBKR\",\n  \"account_id\": \"U28311047\",\n  \"account_type\": \"live\",\n  \"nav_observed_at_confirm\": 210.0,\n  \"cash_observed_at_confirm\": 210.0,\n  \"note\": \"Thomas: risk math on C=$200. Client Portal showed ~$210 cash/NAV at confirm \\u2014 excess sits in reserve; sleeve limits use C=200.\"\n}"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "risk",
@@ -2056,7 +2056,7 @@
         "path": "docs/risk-architecture.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event…"
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit \u2192 pause + review |\n| Max exposure per asset / ticker / event\u2026"
       },
       {
         "id": "human_gates",
@@ -2064,7 +2064,7 @@
         "path": "docs/human-dependencies.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED — C=$200** | — |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | — |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | — |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden…"
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
         "id": "team",
@@ -2072,7 +2072,7 @@
         "path": "docs/ops-index.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining ≠ halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec…"
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining \u2260 halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec\u2026"
       },
       {
         "id": "forecasting",
@@ -2080,7 +2080,7 @@
         "path": "docs/performance-methodology.md",
         "exists": true,
         "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse…"
+        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse\u2026"
       },
       {
         "id": "loop",
@@ -2088,7 +2088,7 @@
         "path": "journal/learning-loop.md",
         "exists": true,
         "mtime_ct": "2026-09-04 10:07:02 CT",
-        "text": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
       },
       {
         "id": "allocation",
@@ -2096,7 +2096,7 @@
         "path": "docs/risk-architecture.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent…"
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent\u2026"
       },
       {
         "id": "lifecycle",
@@ -2104,7 +2104,7 @@
         "path": "docs/ops-index.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho…"
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho\u2026"
       },
       {
         "id": "historical_canonical",
@@ -2112,13 +2112,13 @@
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "> **HISTORICAL — SUPERSEDED (2026-09-04 pre-funding).** Do **not** use for ops.\n> Current LIVE state: `docs/capital.json`, `docs/exec-layer-status-2026-09-05.md`, `docs/first-live-ops-test-2026-09-05.md`, `docs/live-experiment-sleeve-2026-09-05.md`, `docs/risk-architecture.md`, `docs/ops-index.md`.\n> Live: C=$200 IBKR U28311047; trading authorized within sleeve; viability clock NOT STARTED until…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
     "excerpts": {
-      "mission_short": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
-      "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      "mission_short": "[redacted for public desk \u2014 see private workspace]",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   },
   "docs": {
@@ -2191,7 +2191,7 @@
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:41:55 CT",
-        "text": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1837390337** — Inactive |\n| Trades / positions | empty |\n| Poll CT | 2026-09-05 09:41 CT (auth green) |\n\n**30d viability clock:** starts on **first live fill**, not submit.\n\n## Exec tooling\n- Confirm-reply loop **taught** in `tools/ibkr_exec.py` (`confirm_order_replies` / o354 + MKT warn via `/iserver/reply/{id}`)\n- CLI: `--watch-order ORDER_ID`\n-…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "live_ops",
@@ -2199,7 +2199,7 @@
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:41:55 CT",
-        "text": "# First live ops test — 2026-09-05\n\n**Intent:** `ibkr/intents/INTENT_a57e9537-4586-4981-9a32-aa643febf7f6.json`\n**Thesis:** S-RESERVE plumbing (not alpha). Thomas go + Holt sign.\n**Order:** BUY 0.02 SGOV MKT DAY (~$2 @ ~$100.47) conid `424099317` account `U28311047`\n\n| Broker orderId | Status | Notes |\n| --- | --- | --- |\n| 1837390339 | PreSubmitted | Confirmed; weekend — await next session |\n| 1837390337 | Inactive / Pending Submit | First attempt before confirm path; leave/ignore |\n\n**30-day viability clock:** starts on **first live fill**, not funding or submit.\n**Follow-ups:** confirm fill Mon; cancel inactive if still present; blotter/ledger/dashboard.\n\n**Confirm-reply path (taught 202…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "sleeve",
@@ -2207,7 +2207,7 @@
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Live experiment sleeve — 2026-09-05\n\n**C = $200** · IBKR funded · Phase 1: cash only (no margin/leverage/options/perps) · No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **≥$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1–$2** notional / max loss |\n\n## A…"
+        "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: cash only (no margin/leverage/options/perps) \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **\u2265$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1\u2013$2** notional / max loss |\n\n## A\u2026"
       },
       {
         "id": "capital",
@@ -2215,7 +2215,7 @@
         "path": "docs/capital.json",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "{\n  \"C\": 200,\n  \"currency\": \"USD\",\n  \"mode\": \"LIVE\",\n  \"confirmed_ct\": \"2026-09-05\",\n  \"venue\": \"IBKR\",\n  \"account_id\": \"U28311047\",\n  \"account_type\": \"live\",\n  \"nav_observed_at_confirm\": 210.0,\n  \"cash_observed_at_confirm\": 210.0,\n  \"note\": \"Thomas: risk math on C=$200. Client Portal showed ~$210 cash/NAV at confirm \\u2014 excess sits in reserve; sleeve limits use C=200.\"\n}"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
         "id": "risk",
@@ -2223,7 +2223,7 @@
         "path": "docs/risk-architecture.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event…"
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit \u2192 pause + review |\n| Max exposure per asset / ticker / event\u2026"
       },
       {
         "id": "human_gates",
@@ -2231,7 +2231,7 @@
         "path": "docs/human-dependencies.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED — C=$200** | — |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | — |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | — |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden…"
+        "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-05 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
         "id": "team",
@@ -2239,7 +2239,7 @@
         "path": "docs/ops-index.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining ≠ halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec…"
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining \u2260 halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec\u2026"
       },
       {
         "id": "forecasting",
@@ -2247,7 +2247,7 @@
         "path": "docs/performance-methodology.md",
         "exists": true,
         "mtime_ct": "2026-09-04 10:33:52 CT",
-        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse…"
+        "text": "# Performance methodology\nPaper until funded IBKR + confirmed C. Do not invent live P&L.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one line |\n\n## Weekly review fields\nUse\u2026"
       },
       {
         "id": "loop",
@@ -2255,7 +2255,7 @@
         "path": "journal/learning-loop.md",
         "exists": true,
         "mtime_ct": "2026-09-04 10:07:02 CT",
-        "text": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
       },
       {
         "id": "allocation",
@@ -2263,7 +2263,7 @@
         "path": "docs/risk-architecture.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:27:28 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent…"
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent\u2026"
       },
       {
         "id": "lifecycle",
@@ -2271,7 +2271,7 @@
         "path": "docs/ops-index.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho…"
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho\u2026"
       },
       {
         "id": "historical_canonical",
@@ -2279,13 +2279,13 @@
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
         "mtime_ct": "2026-09-05 09:59:32 CT",
-        "text": "> **HISTORICAL — SUPERSEDED (2026-09-04 pre-funding).** Do **not** use for ops.\n> Current LIVE state: `docs/capital.json`, `docs/exec-layer-status-2026-09-05.md`, `docs/first-live-ops-test-2026-09-05.md`, `docs/live-experiment-sleeve-2026-09-05.md`, `docs/risk-architecture.md`, `docs/ops-index.md`.\n> Live: C=$200 IBKR U28311047; trading authorized within sleeve; viability clock NOT STARTED until…"
+        "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
     "excerpts": {
-      "mission_short": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
-      "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      "mission_short": "[redacted for public desk \u2014 see private workspace]",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   }
 }
