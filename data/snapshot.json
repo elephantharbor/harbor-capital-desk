@@ -1,19 +1,21 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 09:09:24 CT",
+  "generated_at_ct": "2026-09-05 10:00:20 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 09:09:24 CT",
+    "generated_at_ct": "2026-09-05 10:00:20 CT",
+    "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
     "starting_c": 200.0,
     "capital_source": "docs/capital.json",
     "confirmed_ct": "2026-09-05",
     "warnings": [
-      "C confirmed = 200.0 (LIVE) via docs/capital.json / book-snapshot",
+      "Starting bankroll C=200.0 (LIVE) via docs/capital.json / book-snapshot",
+      "Funding excess above C is reserve — not trading performance",
       "Viability clock starts on first live fill — not funding day",
-      "Empty blotter — no positions / no trade history",
+      "Empty blotter — no positions / no trade history yet",
       "Do not mix clean/contaminated Brier",
       "VOLGATE OOS is not live alpha",
       "Shadow H5 is observation not P&L"
@@ -30,11 +32,11 @@
       "label": "LIVE",
       "display": "200.0"
     },
-    "account_value": 200.0,
+    "account_value": 210.0,
     "account_value_money": {
-      "value": 200.0,
+      "value": 210.0,
       "label": "LIVE",
-      "display": "200.0"
+      "display": "210.0"
     },
     "net_pnl": {
       "value": 0.0,
@@ -57,16 +59,22 @@
       "display": "0.0"
     },
     "cash_reserve": {
-      "value": 200.0,
+      "value": 210.0,
       "label": "LIVE",
-      "display": "200.0"
+      "display": "210.0"
     },
     "deployed": {
       "value": 0.0,
       "label": "LIVE",
       "display": "0.0"
     },
-    "note": "C confirmed (200.0) mode=LIVE. Figures from latest journal/book-snapshot.csv row; no invented P&L. Book note: C=$200 funded IBKR; no positions yet; pre-first-fill",
+    "funding_excess": {
+      "value": 10.0,
+      "label": "LIVE",
+      "display": "10.0"
+    },
+    "funding_excess_note": "$10.0 above C sits in reserve — not trading return",
+    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $210.0 includes $10.0 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: U28311047 confirmed; cash=NAV=210; no positions",
     "sleeves": [
       {
         "id": "S-RESERVE / E3-RESERVE",
@@ -111,8 +119,8 @@
         "note": "status string only; no dollar invent"
       }
     ],
-    "book_timestamp_ct": "2026-09-05 09:05 CT",
-    "book_source": "thomas_funding"
+    "book_timestamp_ct": "2026-09-05 09:22 CT",
+    "book_source": "ibkr_portal_confirm"
   },
   "performance_windows": {
     "windows": [
@@ -129,6 +137,20 @@
         "notes": "C=$200 funded IBKR; no positions yet; pre-first-fill",
         "mode": "LIVE",
         "label": "LIVE"
+      },
+      {
+        "date_ct": "2026-09-05 09:22 CT",
+        "nav": {
+          "value": 210.0,
+          "label": "LIVE",
+          "display": "210.0"
+        },
+        "cash": 210.0,
+        "deployed": 0.0,
+        "return_pct": null,
+        "notes": "U28311047 confirmed; cash=NAV=210; no positions",
+        "mode": "LIVE",
+        "label": "LIVE"
       }
     ],
     "reason": null,
@@ -141,6 +163,11 @@
         "date_ct": "2026-09-05 09:05 CT",
         "nav": 200.0,
         "label": "LIVE"
+      },
+      {
+        "date_ct": "2026-09-05 09:22 CT",
+        "nav": 210.0,
+        "label": "LIVE"
       }
     ],
     "note": "From journal/book-snapshot.csv; Shadow artifacts are not NAV.",
@@ -151,7 +178,7 @@
     "securities": [],
     "crypto": [],
     "empty": true,
-    "note": "No current positions (cash-only funded). Empty blotter — not broken.",
+    "note": "No open risk positions — 100% cash/reserve. Empty blotter is expected until first live fill. Not broken.",
     "label": "LIVE"
   },
   "history": {
@@ -355,9 +382,16 @@
       }
     ],
     "utilization": {
-      "value": null,
-      "label": "N/A",
-      "display": "N/A"
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0% ($0 of $20 exp book)"
+    },
+    "utilization_detail": {
+      "deployed": 0.0,
+      "exp_book_cap": 20.0,
+      "reserve_cash": 210.0,
+      "reserve_floor": 100.0,
+      "note": "Cash-only: 0% of experimental book used; reserve above floor"
     },
     "current_dd": {
       "value": 0.0,
@@ -409,7 +443,9 @@
       "docs/risk-architecture.md",
       "docs/capital.json",
       "docs/live-experiment-sleeve-2026-09-05.md",
-      "docs/canonical-state-2026-09-04.md",
+      "docs/exec-layer-status-2026-09-05.md",
+      "docs/first-live-ops-test-2026-09-05.md",
+      "docs/canonical-state-2026-09-04.md (HISTORICAL — do not use for ops)",
       "tools/risk_engine.py"
     ]
   },
@@ -1461,16 +1497,18 @@
       "crypto_md.py",
       "dashboard_snapshot.py",
       "fee_model.py",
+      "ibkr_exec.py",
       "journal_io.py",
       "live_risk_gate.py",
       "null_backtest.py",
       "position_sizing.py",
+      "publish_dashboard_snapshot.py",
       "risk_engine.py",
       "shadow_portfolio.py",
       "smoke_test.py",
       "volgate_oos.py"
     ],
-    "tools_count": 12,
+    "tools_count": 14,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
@@ -1631,6 +1669,24 @@
     ],
     "events": [
       {
+        "ts": "2026-09-05 — C binding",
+        "kind": "decision",
+        "title": "2026-09-05 — C binding",
+        "summary": "Thomas: risk math on **C=$200** (not observed $210). Bitwarden live fields updated."
+      },
+      {
+        "ts": "2026-09-05 — Live account confirmed",
+        "kind": "decision",
+        "title": "2026-09-05 — Live account confirmed",
+        "summary": "Client Portal: **U28311047** (live). Cash/NAV **$210**. No positions."
+      },
+      {
+        "ts": "2026-09-05 — Live auth: event domain abs",
+        "kind": "decision",
+        "title": "2026-09-05 — Live auth: event domain abstain",
+        "summary": "C=$200 live sleeve authorized (Holt transmits). Reed analysis-only."
+      },
+      {
         "ts": "2026-09-05 — Live bankroll C=$200",
         "kind": "decision",
         "title": "2026-09-05 — Live bankroll C=$200",
@@ -1671,24 +1727,6 @@
         "kind": "decision",
         "title": "2026-09-04 ~11:05 CT — H5 finished on public FX tape",
         "summary": "ForecastEx public CSV API reachable (`/api/download?type={pairs|prices|summary}&date=YYYYMMDD`); raw files in journal/forecastex/."
-      },
-      {
-        "ts": "2026-09-04 ~10:59 CT — Reed H5 then H4 s",
-        "kind": "decision",
-        "title": "2026-09-04 ~10:59 CT — Reed H5 then H4 shadow advance",
-        "summary": "H5: fee_model.py Kalshi taker qty=1 at P=0.465 (0.46/0.47) and P=0.535 (0.53/0.54) → all_in **0.025** (matches prior); notes updated on H0/H25 rows. Status → **kalshi_only_blocked_on_IBKR**; dual-venu"
-      },
-      {
-        "ts": "2026-09-04 — H5/H4 advance",
-        "kind": "decision",
-        "title": "2026-09-04 — H5/H4 advance",
-        "summary": "H4 mapping freeze v1. H4 snapshot CSV (secondary FedWatch). H5 fee_model note; dual-venue still IBKR-blocked."
-      },
-      {
-        "ts": "2026-09-04 10:52 CT — Reed hygiene (Holt",
-        "kind": "decision",
-        "title": "2026-09-04 10:52 CT — Reed hygiene (Holt/Quinn F7–F9 binding)",
-        "summary": "forecasts.csv verified: 9 unique IDs; F7/F8/F9 one row each (locked, market_p filled, specific tickers). Added thin_book (F8/F9=true, F7=false, others false); my_p unchanged."
       },
       {
         "ts": "2026-09-04 11:25 CT",
@@ -1806,21 +1844,137 @@
     ],
     "count": 11,
     "open_count": 3,
-    "live_blocked": true,
+    "live_blocked": false,
+    "live_trading": true,
+    "automated_execution": false,
+    "withdrawal": false,
+    "remaining_gates": [
+      {
+        "n": "4",
+        "gate": "Entity vs personal IBKR name",
+        "owner": "Thomas",
+        "status": "Open / personal for now",
+        "blocks": "Entity rename later"
+      },
+      {
+        "n": "6",
+        "gate": "Withdrawal destination lock",
+        "owner": "Thomas",
+        "status": "Standing human gate",
+        "blocks": "External transfers"
+      },
+      {
+        "n": "7",
+        "gate": "Bitwarden Harbor trade-only API / Gateway session",
+        "owner": "Thomas/Holt",
+        "status": "In progress",
+        "blocks": "Programmatic execution"
+      },
+      {
+        "n": "8",
+        "gate": "CPA / tax acknowledgment",
+        "owner": "Thomas/CPA",
+        "status": "Open (recommended)",
+        "blocks": "Comfort on tax treatment; not a halt on tiny cash ETF tests"
+      },
+      {
+        "n": "9",
+        "gate": "No leverage / margin / options / perps",
+        "owner": "Thomas",
+        "status": "Standing",
+        "blocks": "Policy"
+      },
+      {
+        "n": "10",
+        "gate": "Crypto CEX live",
+        "owner": "Thomas",
+        "status": "Not requested — DEFER",
+        "blocks": "Crypto sleeve"
+      },
+      {
+        "n": "11",
+        "gate": "Weekday crypto MD observe routine",
+        "owner": "Thomas",
+        "status": "Skipped — deferred",
+        "blocks": "Optional"
+      }
+    ],
+    "remaining_count": 7,
     "source": "docs/human-dependencies.md",
-    "note": "Live trading blocked until human gates clear. Paper work can proceed."
+    "note": "Live trading AUTHORIZED (C=$200 LIVE U28311047) within risk sleeve. automated_execution=false (Holt alone transmits; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
+    "stale_fields_note": "Do not treat live_blocked=true or C-unconfirmed as current."
   },
+  "operating_status": {
+    "live_trading": true,
+    "automated_execution": false,
+    "withdrawal": false,
+    "account_id": "U28311047",
+    "starting_c": 200.0,
+    "notes": {
+      "live_trading": "LIVE book authorized C=$200.0 U28311047",
+      "automated_execution": "Holt alone transmits; dry_run default for agents; confirm-reply taught but not auto-transmit",
+      "withdrawal": "No agent withdrawal authority — standing human gate"
+    },
+    "action_needed": "Await first live fill (order 1837390339 PreSubmitted) — viability clock starts on fill",
+    "label": "LIVE"
+  },
+  "viability": {
+    "started": false,
+    "starts_on": "first_live_fill",
+    "clock_days": 30,
+    "status": "NOT_STARTED",
+    "day": null,
+    "start_date": null,
+    "review_date": null,
+    "live_trades": 0,
+    "net_live_pnl": {
+      "value": 0.0,
+      "label": "LIVE",
+      "display": "0.0"
+    },
+    "label": "LIVE",
+    "note": "order 1837390339 still PreSubmitted — clock not started (starts on first live fill, not funding or submit)"
+  },
+  "viability_period": {
+    "started": false,
+    "starts_on": "first_live_fill",
+    "started_at_ct": null,
+    "status": "NOT_STARTED",
+    "clock_days": 30,
+    "pending_order_id": "1837390339",
+    "pending_order_status": "PreSubmitted",
+    "note": "order 1837390339 still PreSubmitted — clock not started (starts on first live fill, not funding or submit)"
+  },
+  "live_trading": true,
+  "automated_execution": false,
+  "withdrawal": false,
+  "last_reconciled_ibkr_ct": null,
   "docs_meta": {
     "docs": [
       {
-        "path": "docs/canonical-state-2026-09-04.md",
+        "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:23 CT"
+        "mtime_ct": "2026-09-05 09:41:55 CT"
+      },
+      {
+        "path": "docs/first-live-ops-test-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:41:55 CT"
+      },
+      {
+        "path": "docs/live-experiment-sleeve-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:06:30 CT"
+      },
+      {
+        "path": "docs/capital.json",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT"
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/human-dependencies.md",
@@ -1830,7 +1984,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT"
+        "mtime_ct": "2026-09-05 09:59:32 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -1845,30 +1999,59 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT"
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT"
+        "mtime_ct": "2026-09-05 09:59:32 CT"
+      },
+      {
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:59:32 CT"
       }
     ],
     "sections": [
       {
         "id": "mission",
-        "title": "Mission / canonical state",
-        "path": "docs/canonical-state-2026-09-04.md",
+        "title": "Live exec / ops state",
+        "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:23 CT",
-        "text": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot | **Cole** |\n| Quant | **Pike** |\n| Channel | Harbor Capital `242cbd86-25ff-4e90-9b7a-a43147e7a97e` |\n| Wave-3 agents | **None** — do not create |\n\n## Venues\n- **Event research:** Kalshi public + ForecastEx public CSV (`journal/forecastex/`). H5 status: dual_venue_public_csv_live; gaps under friction → no promote.\n- **Live fills (later):** IBKR ca…"
+        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "text": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1837390337** — Inactive |\n| Trades / positions | empty |\n| Poll CT | 2026-09-05 09:41 CT (auth green) |\n\n**30d viability clock:** starts on **first live fill**, not submit.\n\n## Exec tooling\n- Confirm-reply loop **taught** in `tools/ibkr_exec.py` (`confirm_order_replies` / o354 + MKT warn via `/iserver/reply/{id}`)\n- CLI: `--watch-order ORDER_ID`\n-…"
+      },
+      {
+        "id": "live_ops",
+        "title": "First live ops test",
+        "path": "docs/first-live-ops-test-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "text": "# First live ops test — 2026-09-05\n\n**Intent:** `ibkr/intents/INTENT_a57e9537-4586-4981-9a32-aa643febf7f6.json`\n**Thesis:** S-RESERVE plumbing (not alpha). Thomas go + Holt sign.\n**Order:** BUY 0.02 SGOV MKT DAY (~$2 @ ~$100.47) conid `424099317` account `U28311047`\n\n| Broker orderId | Status | Notes |\n| --- | --- | --- |\n| 1837390339 | PreSubmitted | Confirmed; weekend — await next session |\n| 1837390337 | Inactive / Pending Submit | First attempt before confirm path; leave/ignore |\n\n**30-day viability clock:** starts on **first live fill**, not funding or submit.\n**Follow-ups:** confirm fill Mon; cancel inactive if still present; blotter/ledger/dashboard.\n\n**Confirm-reply path (taught 202…"
+      },
+      {
+        "id": "sleeve",
+        "title": "Live experiment sleeve",
+        "path": "docs/live-experiment-sleeve-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Live experiment sleeve — 2026-09-05\n\n**C = $200** · IBKR funded · Phase 1: cash only (no margin/leverage/options/perps) · No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **≥$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1–$2** notional / max loss |\n\n## A…"
+      },
+      {
+        "id": "capital",
+        "title": "Capital confirmation",
+        "path": "docs/capital.json",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "{\n  \"C\": 200,\n  \"currency\": \"USD\",\n  \"mode\": \"LIVE\",\n  \"confirmed_ct\": \"2026-09-05\",\n  \"venue\": \"IBKR\",\n  \"account_id\": \"U28311047\",\n  \"account_type\": \"live\",\n  \"nav_observed_at_confirm\": 210.0,\n  \"cash_observed_at_confirm\": 210.0,\n  \"note\": \"Thomas: risk math on C=$200. Client Portal showed ~$210 cash/NAV at confirm \\u2014 excess sits in reserve; sleeve limits use C=200.\"\n}"
       },
       {
         "id": "risk",
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | **$16** | |\n| Max correlated book | **10%** | **$20** | Same event family / factor |\n| Experimental book total (simultaneous) | **≤10%** | **≤$20** | Liv…"
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event…"
       },
       {
         "id": "human_gates",
@@ -1883,8 +2066,8 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-data/projects/harbor-capital-growth/` | Durable mirror + memory (copy from workspace; some docs/* jour…"
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining ≠ halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec…"
       },
       {
         "id": "forecasting",
@@ -1907,35 +2090,58 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2…"
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent…"
       },
       {
         "id": "lifecycle",
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-da…"
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho…"
+      },
+      {
+        "id": "historical_canonical",
+        "title": "HISTORICAL canonical (2026-09-04)",
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "> **HISTORICAL — SUPERSEDED (2026-09-04 pre-funding).** Do **not** use for ops.\n> Current LIVE state: `docs/capital.json`, `docs/exec-layer-status-2026-09-05.md`, `docs/first-live-ops-test-2026-09-05.md`, `docs/live-experiment-sleeve-2026-09-05.md`, `docs/risk-architecture.md`, `docs/ops-index.md`.\n> Live: C=$200 IBKR U28311047; trading authorized within sleeve; viability clock NOT STARTED until…"
       }
     ],
     "excerpts": {
-      "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| ",
+      "mission_short": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   },
   "docs": {
     "docs": [
       {
-        "path": "docs/canonical-state-2026-09-04.md",
+        "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:23 CT"
+        "mtime_ct": "2026-09-05 09:41:55 CT"
+      },
+      {
+        "path": "docs/first-live-ops-test-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:41:55 CT"
+      },
+      {
+        "path": "docs/live-experiment-sleeve-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:06:30 CT"
+      },
+      {
+        "path": "docs/capital.json",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT"
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/human-dependencies.md",
@@ -1945,7 +2151,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT"
+        "mtime_ct": "2026-09-05 09:59:32 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -1960,30 +2166,59 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT"
+        "mtime_ct": "2026-09-05 09:27:28 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT"
+        "mtime_ct": "2026-09-05 09:59:32 CT"
+      },
+      {
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:59:32 CT"
       }
     ],
     "sections": [
       {
         "id": "mission",
-        "title": "Mission / canonical state",
-        "path": "docs/canonical-state-2026-09-04.md",
+        "title": "Live exec / ops state",
+        "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:23 CT",
-        "text": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot | **Cole** |\n| Quant | **Pike** |\n| Channel | Harbor Capital `242cbd86-25ff-4e90-9b7a-a43147e7a97e` |\n| Wave-3 agents | **None** — do not create |\n\n## Venues\n- **Event research:** Kalshi public + ForecastEx public CSV (`journal/forecastex/`). H5 status: dual_venue_public_csv_live; gaps under friction → no promote.\n- **Live fills (later):** IBKR ca…"
+        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "text": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1837390337** — Inactive |\n| Trades / positions | empty |\n| Poll CT | 2026-09-05 09:41 CT (auth green) |\n\n**30d viability clock:** starts on **first live fill**, not submit.\n\n## Exec tooling\n- Confirm-reply loop **taught** in `tools/ibkr_exec.py` (`confirm_order_replies` / o354 + MKT warn via `/iserver/reply/{id}`)\n- CLI: `--watch-order ORDER_ID`\n-…"
+      },
+      {
+        "id": "live_ops",
+        "title": "First live ops test",
+        "path": "docs/first-live-ops-test-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "text": "# First live ops test — 2026-09-05\n\n**Intent:** `ibkr/intents/INTENT_a57e9537-4586-4981-9a32-aa643febf7f6.json`\n**Thesis:** S-RESERVE plumbing (not alpha). Thomas go + Holt sign.\n**Order:** BUY 0.02 SGOV MKT DAY (~$2 @ ~$100.47) conid `424099317` account `U28311047`\n\n| Broker orderId | Status | Notes |\n| --- | --- | --- |\n| 1837390339 | PreSubmitted | Confirmed; weekend — await next session |\n| 1837390337 | Inactive / Pending Submit | First attempt before confirm path; leave/ignore |\n\n**30-day viability clock:** starts on **first live fill**, not funding or submit.\n**Follow-ups:** confirm fill Mon; cancel inactive if still present; blotter/ledger/dashboard.\n\n**Confirm-reply path (taught 202…"
+      },
+      {
+        "id": "sleeve",
+        "title": "Live experiment sleeve",
+        "path": "docs/live-experiment-sleeve-2026-09-05.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:06:30 CT",
+        "text": "# Live experiment sleeve — 2026-09-05\n\n**C = $200** · IBKR funded · Phase 1: cash only (no margin/leverage/options/perps) · No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position | **$4** |\n| Max loss per strategy | **$8** |\n| Max correlated book | **$20** |\n| Max per asset/event | **$16** |\n| Reserve floor (cash/SGOV) | **≥$100** |\n| Soft same-day new-risk pause | **$8** realized exp loss |\n| First operational test size | **~$1–$2** notional / max loss |\n\n## A…"
+      },
+      {
+        "id": "capital",
+        "title": "Capital confirmation",
+        "path": "docs/capital.json",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "{\n  \"C\": 200,\n  \"currency\": \"USD\",\n  \"mode\": \"LIVE\",\n  \"confirmed_ct\": \"2026-09-05\",\n  \"venue\": \"IBKR\",\n  \"account_id\": \"U28311047\",\n  \"account_type\": \"live\",\n  \"nav_observed_at_confirm\": 210.0,\n  \"cash_observed_at_confirm\": 210.0,\n  \"note\": \"Thomas: risk math on C=$200. Client Portal showed ~$210 cash/NAV at confirm \\u2014 excess sits in reserve; sleeve limits use C=200.\"\n}"
       },
       {
         "id": "risk",
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event | **8%** | **$16** | |\n| Max correlated book | **10%** | **$20** | Same event family / factor |\n| Experimental book total (simultaneous) | **≤10%** | **≤$20** | Liv…"
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (realized + open) | **4%** | **$8** | Hit → pause + review |\n| Max exposure per asset / ticker / event…"
       },
       {
         "id": "human_gates",
@@ -1998,8 +2233,8 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-data/projects/harbor-capital-growth/` | Durable mirror + memory (copy from workspace; some docs/* jour…"
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live authorized; remaining ≠ halt) | `docs/human-dependencies.md` |\n| Exec layer / first ops test | `docs/exec…"
       },
       {
         "id": "forecasting",
@@ -2022,21 +2257,29 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:06:30 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2…"
+        "mtime_ct": "2026-09-05 09:27:28 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agent…"
       },
       {
         "id": "lifecycle",
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 11:35:01 CT",
-        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: 2026-09-04 CT. No live trading. No credentials in-repo.\n\nCanonical current state: `docs/canonical-state-2026-09-04.md`  \nTime-gated work: `docs/time-dependent-queue-2026-09-04.md`  \nReadiness checklist: `docs/readiness-review-2026-09-04.md`\n\n## Roots\n| Path | Role |\n|---|---|\n| `/workspace/harbor-capital-growth/` | **Write-primary** working tree |\n| `/home/box/agent-da…"
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "# Ops index — Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-05 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| Starting bankroll **C=$200** | `docs/capital.json` |\n| Live experiment sleeve ($ caps) | `docs/live-experiment-sleeve-2026-09-05.md` |\n| Risk architecture (% + $ at C) | `docs/risk-architecture.md` |\n| Human gates (live autho…"
+      },
+      {
+        "id": "historical_canonical",
+        "title": "HISTORICAL canonical (2026-09-04)",
+        "path": "docs/canonical-state-2026-09-04.md",
+        "exists": true,
+        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "text": "> **HISTORICAL — SUPERSEDED (2026-09-04 pre-funding).** Do **not** use for ops.\n> Current LIVE state: `docs/capital.json`, `docs/exec-layer-status-2026-09-05.md`, `docs/first-live-ops-test-2026-09-05.md`, `docs/live-experiment-sleeve-2026-09-05.md`, `docs/risk-architecture.md`, `docs/ops-index.md`.\n> Live: C=$200 IBKR U28311047; trading authorized within sleeve; viability clock NOT STARTED until…"
       }
     ],
     "excerpts": {
-      "mission_short": "# Canonical operating state — 2026-09-04\nCURRENT STATE (not a retrospective). Paper/research only. No credentials. No invented P&L. C unconfirmed.\n\nMap: `docs/ops-index.md` · Queue: `docs/time-dependent-queue-2026-09-04.md` · Readiness: `docs/readiness-review-2026-09-04.md`\n\n## Team\n| Role | Who |\n|---|---|\n| Lead / PM | **Holt** (sizing + risk) |\n| Event | **Reed** |\n| Challenger | **Quinn** (no sizing) |\n| Securities | **Vera** |\n| Crypto spot ",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05). Peak equity for drawdown. Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary event contracts: loss capped at premium + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| ",
+      "mission_short": "# Exec layer status — 2026-09-05\n\n**Default:** dry_run for Pike. **Holt alone transmits.** No further transmit from Pike.\n\n## First live ops test (already transmitted)\n| Field | Value |\n| --- | --- |\n| Intent | `INTENT_a57e9537` (Holt-signed + Thomas go) |\n| Order | BUY **0.02** SGOV MKT (~$2) S-RESERVE |\n| Account | `U28311047` · conid `424099317` |\n| Broker orderId | **1837390339** — **PreSubmitted** (0/0.02 filled; weekend) |\n| Duplicate | **1",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm — treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo leverage, margin, options, perps, leveraged ETFs. Binary even",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis → Forecast → Challenge → Decision → Result → Attribution → Learning → Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
   }

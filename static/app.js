@@ -1,4 +1,4 @@
-/* Harbor Capital operating desk — read-only SPA (harbor-dashboard-snapshot-v1) */
+/* Harbor Capital operating desk — read-only SPA (harbor-dashboard-snapshot-v1.1) */
 (function () {
   "use strict";
 
@@ -6,12 +6,29 @@
   const app = document.getElementById("app");
   const nav = document.getElementById("nav");
 
+  const GLOSSARY = {
+    C: "Starting bankroll — the risk-math base (not necessarily current account value)",
+    DD: "Drawdown — decline from peak equity",
+    my_p: "Harbor probability — our locked forecast probability",
+    OOS: "Out-of-sample — tested on data held out from fitting",
+    "RT bps": "Round-trip cost in basis points (buy + sell friction)",
+    Falsify: "When we abandon — pre-committed kill condition",
+    "mid-promote": "Eligible for further consideration (tight clean book)",
+    "mid-promote eligible": "Eligible for further consideration (tight clean book)",
+  };
+
   function esc(s) {
     return String(s ?? "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  function tip(label, key) {
+    const t = GLOSSARY[key] || GLOSSARY[label] || "";
+    if (!t) return esc(label);
+    return `<span class="tip" title="${esc(t)}">${esc(label)}</span>`;
   }
 
   /** Money / labeled values — never invent numbers. */
@@ -26,7 +43,6 @@
           : m.value == null || m.value === undefined
             ? "N/A"
             : String(m.value);
-      // Null / N/A money: badge text N/A only (mode lives in header)
       if (m.value == null || m.value === undefined || display === "N/A") {
         return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
       }
@@ -54,29 +70,31 @@
     const s = raw.toLowerCase();
     let cls = "badge-na";
     if (s === "shadow") cls = "badge-shadow";
-    else if (s === "live") cls = "badge-live";
+    else if (s === "live" || s === "authorized" || s === "ready" || s.startsWith("ready")) cls = "badge-live";
     else if (s === "paper") cls = "badge-paper";
     else if (s === "backtest") cls = "badge-backtest";
     else if (s.includes("reject") || s.includes("kill")) cls = "badge-rejected";
-    else if (s.includes("paus") || s.includes("defer")) cls = "badge-paused";
+    else if (s.includes("paus") || s.includes("defer") || s.includes("not_started") || s.includes("not started"))
+      cls = "badge-paused";
     else if (s === "idea" || s === "researching") cls = "badge-idea";
-    else if (s.includes("open") || s.includes("blocked") || s.includes("trial") || s.includes("skip"))
+    else if (s.includes("open") || s.includes("blocked") || s.includes("trial") || s.includes("skip") || s.includes("progress"))
       cls = "badge-open";
-    else if (s.includes("standing") || s.includes("not requested")) cls = "badge-standing";
+    else if (s.includes("standing") || s.includes("not requested") || s.includes("cleared")) cls = "badge-standing";
     else if (s === "locked") cls = "badge-paper";
     return `<span class="badge ${cls}">${esc(raw)}</span>`;
   }
 
   function gateBadge(status) {
     const s = String(status || "").toLowerCase();
-    if (s.includes("standing") || s === "not requested")
+    if (s.includes("cleared") || s.includes("standing") || s === "not requested")
       return `<span class="badge badge-standing">${esc(status)}</span>`;
     if (
       s.includes("open") ||
       s.includes("blocked") ||
       s.includes("trial") ||
       s.includes("skipped") ||
-      s.includes("deferred")
+      s.includes("deferred") ||
+      s.includes("progress")
     )
       return `<span class="badge badge-open">${esc(status)}</span>`;
     return `<span class="badge badge-na">${esc(status)}</span>`;
@@ -86,8 +104,88 @@
     return `<div class="empty"><strong>${esc(title)}</strong><span>${esc(detail || "")}</span></div>`;
   }
 
-  function modeBadge() {
-    return labelBadge(SNAP.mode || SNAP.meta?.mode || SNAP.portfolio?.mode || "PAPER");
+  function freshnessStrip() {
+    const meta = SNAP.meta || {};
+    const gen = SNAP.generated_at_ct || meta.generated_at_ct || "—";
+    const topRec = SNAP.last_reconciled_ibkr_ct;
+    const rec = topRec != null && topRec !== ""
+      ? topRec
+      : meta.last_reconciled_ibkr_ct != null && meta.last_reconciled_ibkr_ct !== ""
+        ? meta.last_reconciled_ibkr_ct
+        : null;
+    const portal = meta.confirmed_ct || SNAP.portfolio?.book_timestamp_ct || null;
+    let recLabel;
+    if (rec) {
+      recLabel = esc(rec);
+    } else if (portal) {
+      recLabel = `not yet reconciled this session (last known Portal confirm ${esc(portal)})`;
+    } else {
+      recLabel = "not yet reconciled this session";
+    }
+    return `<div class="freshness muted">Last reconciled with IBKR: <strong>${recLabel}</strong> · Dashboard generated: <strong>${esc(gen)}</strong></div>`;
+  }
+
+  /** Map Pike operating_status booleans → plain-English badges (never "live blocked"). */
+  function opStatusParts() {
+    const os = SNAP.operating_status || {};
+    const notes = os.notes || {};
+    const liveOn = os.live_trading === true || (os.live_trading && os.live_trading.status);
+    const autoOn = os.automated_execution === true;
+    const wdOn = os.withdrawal === true;
+
+    let liveStatus, liveDetail;
+    if (typeof os.live_trading === "object" && os.live_trading) {
+      liveStatus = os.live_trading.status || (liveOn ? "Authorized" : "Blocked");
+      liveDetail = os.live_trading.detail || notes.live_trading || "";
+    } else {
+      liveStatus = liveOn ? "Authorized" : "Not authorized";
+      liveDetail = notes.live_trading || "";
+    }
+
+    let autoStatus, autoDetail;
+    if (typeof os.automated_execution === "object" && os.automated_execution) {
+      autoStatus = os.automated_execution.status || "—";
+      autoDetail = os.automated_execution.detail || notes.automated_execution || "";
+    } else if (autoOn) {
+      autoStatus = "Ready";
+      autoDetail = notes.automated_execution || "Automated path available";
+    } else if (liveOn) {
+      // live authorized but agents do not auto-transmit — Holt-gated
+      autoStatus = "Ready — Holt-gated";
+      autoDetail =
+        notes.automated_execution ||
+        "Gateway/API usable; Holt alone transmits (dry_run default for agents). Not a live-trading block.";
+    } else {
+      autoStatus = "Setup in progress";
+      autoDetail = notes.automated_execution || "Await live auth + Gateway";
+    }
+
+    let wdStatus, wdDetail;
+    if (typeof os.withdrawal === "object" && os.withdrawal) {
+      wdStatus = os.withdrawal.status || "Standing human gate";
+      wdDetail = os.withdrawal.detail || notes.withdrawal || "";
+    } else {
+      wdStatus = wdOn ? "Allowed" : "Standing human gate";
+      wdDetail = notes.withdrawal || "No agent withdrawal authority";
+    }
+
+    const summary =
+      os.summary ||
+      (liveOn
+        ? `Looking at a funded LIVE IBKR book (C=$${os.starting_c ?? SNAP.portfolio?.starting_c ?? "—"}, ${os.account_id || ""}). Live trading authorized within sleeve; net trading P&L from fills only. Funding excess is reserve, not performance.`
+        : "Paper/research desk — live trading not authorized.");
+
+    return {
+      summary,
+      liveStatus,
+      liveDetail,
+      autoStatus,
+      autoDetail,
+      wdStatus,
+      wdDetail,
+      action: os.action_needed || "None flagged",
+      label: os.label || SNAP.mode || "LIVE",
+    };
   }
 
   function forecastIndex() {
@@ -152,31 +250,33 @@
     return keys.map((status) => ({ status, count: map.get(status).length, items: map.get(status) }));
   }
 
+  function edgeVerdict(fc) {
+    const n = Number(fc?.brier?.n_resolved_clean ?? fc?.counts?.resolved_clean ?? 0);
+    if (n < 5) return { label: "Insufficient", cls: "badge-open", why: `Only ${n} resolved clean forecasts (need ≥5).` };
+    const clean = fc?.brier?.clean;
+    if (clean == null || clean.value == null) return { label: "Insufficient", cls: "badge-open", why: "No scored clean Brier yet." };
+    return { label: "Pending score", cls: "badge-na", why: "Sample may support a claim once Brier is computed — do not mix contaminated." };
+  }
+
   /* ---------- views ---------- */
 
   function viewOverview() {
     const p = SNAP.portfolio || {};
-    const pw = SNAP.performance_windows || {};
     const risk = SNAP.risk || {};
     const hg = SNAP.human_gates || {};
     const health = SNAP.system_health || {};
     const fc = SNAP.forecasts || {};
     const counts = fc.counts || {};
     const meta = SNAP.meta || {};
+    const via = SNAP.viability || SNAP.viability_period || {};
     const activity = buildActivityItems();
+    const op = opStatusParts();
 
     const av = p.account_value_money || { display: "N/A", label: "PAPER", value: null };
-
-    const windowKeys = ["today", "7d", "30d", "90d", "inception"];
-    const windowKpis = windowKeys
-      .map((k) => {
-        const w = pw[k];
-        return `<div class="kpi"><div class="label">${esc(k)}</div><div class="val">${moneyHtml(w)}</div></div>`;
-      })
-      .join("");
+    const startC = p.starting_capital || { display: String(p.starting_c ?? "N/A"), label: av.label };
 
     const actHtml = activity
-      .slice(0, 12)
+      .slice(0, 10)
       .map(
         (a) =>
           `<li><span class="ts">${esc(a.ts)}</span> <span class="kind">${esc(a.kind)}</span>
@@ -184,7 +284,11 @@
       )
       .join("");
 
-    const gatesRows = (hg.gates || [])
+    const remaining = hg.remaining_gates || (hg.gates || []).filter((g) => {
+      const st = String(g.status || "").toLowerCase();
+      return !st.includes("cleared");
+    });
+    const gatesRows = remaining
       .map(
         (g) =>
           `<tr>
@@ -197,42 +301,104 @@
       )
       .join("");
 
-    const sleeveRows = (p.sleeves || [])
-      .map(
-        (s) =>
-          `<tr>
-            <td><code>${esc(s.id)}</code></td>
-            <td>${labelBadge(s.label)}</td>
-            <td>${esc(s.status)}</td>
-            <td class="dim">${esc(s.note || "")}</td>
-          </tr>`
-      )
-      .join("");
-
-    const warnings = (meta.warnings || [])
-      .map((w) => `<li>${esc(w)}</li>`)
-      .join("");
-
-    const resolvedClean = counts.resolved_clean ?? fc.brier?.n_resolved_clean ?? 0;
+    const edge = edgeVerdict(fc);
     const midN = counts.mid_promote_eligible ?? fc.buckets?.mid_promote?.count ?? 0;
-    const midIds = fc.buckets?.mid_promote?.ids || [];
+    const resolvedClean = counts.resolved_clean ?? fc.brier?.n_resolved_clean ?? 0;
+    const viaStatus = via.status || (via.started ? "IN_PROGRESS" : "NOT_STARTED");
+    const viaNote = via.note || "";
 
     return `
       <div class="stack">
+        <div class="card status-panel">
+          <h2>Status — what you are looking at</h2>
+          ${freshnessStrip()}
+          <p class="plain">${esc(op.summary || p.note || "")}</p>
+          <div class="status-grid">
+            <div class="status-cell">
+              <div class="k">Live trading</div>
+              <div class="v">${statusBadge(op.liveStatus)}</div>
+              <div class="d muted">${esc(op.liveDetail)}</div>
+            </div>
+            <div class="status-cell">
+              <div class="k">Automated execution</div>
+              <div class="v">${statusBadge(op.autoStatus)}</div>
+              <div class="d muted">${esc(op.autoDetail)}</div>
+            </div>
+            <div class="status-cell">
+              <div class="k">Withdrawals</div>
+              <div class="v">${statusBadge(op.wdStatus)}</div>
+              <div class="d muted">${esc(op.wdDetail)}</div>
+            </div>
+            <div class="status-cell">
+              <div class="k">30-day viability</div>
+              <div class="v">${statusBadge(viaStatus)}</div>
+              <div class="d muted">${esc(viaNote)}</div>
+            </div>
+          </div>
+          <div class="callout info"><strong>Action needed:</strong> ${esc(op.action)}</div>
+        </div>
+
         <div class="grid grid-2">
           <div class="card">
-            <h2>Account value</h2>
-            <div class="hero-value">${esc(av.display || "N/A")} ${labelBadge(av.label || "PAPER")}</div>
-            <p class="hero-note">${esc(p.note || "C unconfirmed; no invented NAV")}</p>
-            <div class="kpi-row" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
-              <div class="kpi"><div class="label">Net P&amp;L</div><div class="val">${moneyHtml(p.net_pnl)}</div></div>
-              <div class="kpi"><div class="label">Realized</div><div class="val">${moneyHtml(p.realized_pnl)}</div></div>
+            <h2>Money</h2>
+            <div class="hero-value">${esc(av.display || "N/A")} ${labelBadge(av.label || "LIVE")}</div>
+            <p class="hero-note">Account value · ${tip("Starting bankroll (C)", "C")}: ${moneyHtml(startC)}</p>
+            ${
+              p.funding_excess && p.funding_excess.value
+                ? `<p class="muted" style="margin:6px 0 0">${esc(p.funding_excess_note || "Funding excess is reserve, not performance.")}</p>`
+                : ""
+            }
+            <div class="kpi-row" style="grid-template-columns:repeat(2,1fr);margin-top:12px">
+              <div class="kpi"><div class="label">Net trading P&amp;L</div><div class="val">${moneyHtml(p.net_pnl)}</div></div>
+              <div class="kpi"><div class="label">Trading return</div><div class="val">${moneyHtml(p.total_return_pct)}</div></div>
               <div class="kpi"><div class="label">Deployed</div><div class="val">${moneyHtml(p.deployed)}</div></div>
+              <div class="kpi"><div class="label">Cash / reserve</div><div class="val">${moneyHtml(p.cash_reserve)}</div></div>
             </div>
           </div>
           <div class="card">
-            <h2>Registry status mix</h2>
-            <p class="muted" style="margin:0 0 8px">Not a health score — status counts from strategies.csv only.</p>
+            <h2>Risk now</h2>
+            <div class="strip">
+              <div class="item"><span class="k">Positions</span><span class="v">None (100% cash)</span></div>
+              <div class="item"><span class="k">Utilization</span><span class="v">${moneyHtml(risk.utilization)}</span></div>
+              <div class="item"><span class="k">${tip("Drawdown", "DD")}</span><span class="v">${moneyHtml(risk.current_dd)}</span></div>
+            </div>
+            <p class="muted" style="margin:8px 0 0">Exp book cap ≤$20 · Reserve floor ≥$100 · ${tip("DD", "DD")} gates 12% / 18% / 25% of ${tip("C", "C")}</p>
+            <p class="dim" style="margin:4px 0 0">${esc(risk.note || "")}</p>
+          </div>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h2>Activity</h2>
+            <p class="dim" style="margin:0 0 6px">${esc(SNAP.activity?.note || "From journal / decisions — not chat")}</p>
+            <ul class="activity">${actHtml || "<li class='muted'>No activity logged</li>"}</ul>
+          </div>
+          <div class="card">
+            <h2>Learning / edge</h2>
+            <div class="kpi-row" style="grid-template-columns:repeat(2,1fr)">
+              <div class="kpi"><div class="label">Edge evidence</div><div class="val">${statusBadge(edge.label)}</div></div>
+              <div class="kpi"><div class="label">Resolved clean</div><div class="val">${esc(resolvedClean)}</div></div>
+              <div class="kpi"><div class="label">${tip("Mid-promote eligible", "mid-promote")}</div><div class="val">${esc(midN)}</div></div>
+              <div class="kpi"><div class="label">Lessons</div><div class="val">${esc(SNAP.lessons?.count ?? "—")}</div></div>
+            </div>
+            <p class="muted">${esc(edge.why)}</p>
+            <p class="dim">Independent (clean) locks vs market-informed (contaminated) are kept separate — never mixed for edge claims.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Remaining human gates <span class="muted">(not a live halt)</span></h2>
+          <p class="muted">${esc(hg.note || "")}</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th>#</th><th>Gate</th><th>Owner</th><th>Status</th><th>Blocks</th></tr></thead>
+            <tbody>${gatesRows || `<tr><td colspan="5" class="muted">No remaining gates listed</td></tr>`}</tbody>
+          </table></div>
+          <p class="dim" style="margin-top:6px">Source: ${esc(hg.source || "")}</p>
+        </div>
+
+        <details class="doc-sec">
+          <summary>Registry mix (secondary) <span class="path">status counts — not a health score</span></summary>
+          <div style="padding:10px 12px">
             <div class="kpi-row" style="grid-template-columns:repeat(2,1fr)">
               <div class="kpi"><div class="label">Shadow</div><div class="val">${esc(health.shadow ?? "—")}</div></div>
               <div class="kpi"><div class="label">Rejected</div><div class="val">${esc(health.rejected ?? "—")}</div></div>
@@ -240,74 +406,13 @@
               <div class="kpi"><div class="label">Idea / researching</div><div class="val">${esc(health.proposed ?? "—")}</div></div>
             </div>
           </div>
-        </div>
-
-        <div class="card">
-          <h2>Performance windows</h2>
-          <div class="kpi-row">${windowKpis}</div>
-          <p class="muted">${esc(pw.reason || pw.note || "")} ${labelBadge(pw.label || "PAPER")}</p>
-        </div>
-
-        <div class="card">
-          <h2>Risk strip</h2>
-          <div class="strip">
-            <div class="item"><span class="k">Utilization</span><span class="v">${moneyHtml(risk.utilization)}</span></div>
-            <div class="item"><span class="k">Current DD</span><span class="v">${moneyHtml(risk.current_dd)}</span></div>
-            <div class="item"><span class="k">DD gates</span><span class="v">12% / 18% / 25%</span></div>
-            <div class="item"><span class="k">Exp book cap</span><span class="v">≤10% C</span></div>
-            <div class="item"><span class="k">Reserve floor</span><span class="v">≥50% C</span></div>
-          </div>
-          <p class="muted" style="margin:8px 0 0">${esc(risk.note || risk.framework || "")} · ${esc(risk.dollar_limits_note || "dollar limits TBD until C")}</p>
-        </div>
-
-        <div class="card">
-          <h2>Sleeves (status only — no $ invent)</h2>
-          <div class="table-wrap"><table class="data">
-            <thead><tr><th>Sleeve</th><th>Label</th><th>Status</th><th>Note</th></tr></thead>
-            <tbody>${sleeveRows || `<tr><td colspan="4" class="muted">No sleeves</td></tr>`}</tbody>
-          </table></div>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h2>Activity stream</h2>
-            <p class="dim" style="margin:0 0 6px">${esc(SNAP.activity?.note || "From journal/registry only")}</p>
-            <ul class="activity">${actHtml || "<li class='muted'>No activity</li>"}</ul>
-          </div>
-          <div class="card">
-            <h2>Forecast quality</h2>
-            <div class="kpi-row" style="grid-template-columns:repeat(2,1fr)">
-              <div class="kpi"><div class="label">Clean</div><div class="val">${esc(counts.clean ?? "—")}</div></div>
-              <div class="kpi"><div class="label">Contaminated</div><div class="val">${esc(counts.contaminated ?? "—")}</div></div>
-              <div class="kpi"><div class="label">Mid-promote</div><div class="val">${esc(midN)}</div></div>
-              <div class="kpi"><div class="label">Resolved clean</div><div class="val">${esc(resolvedClean)}</div></div>
-            </div>
-            ${
-              Number(resolvedClean) < 5
-                ? `<div class="callout warn">${esc(fc.brier?.message || "Insufficient resolved clean sample")}. ${esc(fc.brier?.warning || "No Brier chart. Do not mix clean/contaminated.")}</div>`
-                : `<div class="callout ok">Resolved clean sample may support charts — still do not mix contaminated.</div>`
-            }
-            ${
-              midN
-                ? `<div class="callout info">Mid-promote eligible: ${midIds.map((id) => `<code>${esc(id)}</code>`).join(", ")} (W*=${esc(fc.W_star)})</div>`
-                : ""
-            }
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Human gates <span class="muted">(${esc(hg.open_count ?? "?")}/${esc(hg.count ?? (hg.gates || []).length)} open-ish)</span></h2>
-          <div class="callout warn">${esc(hg.note || "Live trading blocked until human gates clear")}${hg.live_blocked ? " · live_blocked=true" : ""}</div>
-          <div class="table-wrap"><table class="data">
-            <thead><tr><th>#</th><th>Gate</th><th>Owner</th><th>Status</th><th>Blocks</th></tr></thead>
-            <tbody>${gatesRows}</tbody>
-          </table></div>
-          <p class="dim" style="margin-top:6px">Source: ${esc(hg.source || "")}</p>
-        </div>
+        </details>
 
         ${
-          warnings
-            ? `<div class="card"><h2>Warnings</h2><ul class="warn-list">${warnings}</ul></div>`
+          (meta.warnings || []).length
+            ? `<details class="doc-sec"><summary>Warnings / honesty notes</summary>
+               <ul class="warn-list" style="padding:10px 28px">${(meta.warnings || []).map((w) => `<li>${esc(w)}</li>`).join("")}</ul>
+               </details>`
             : ""
         }
       </div>`;
@@ -316,8 +421,8 @@
   function positionTable(rows) {
     if (!rows || !rows.length) {
       return emptyState(
-        "No current positions",
-        "Empty blotter — not broken. Paper mode; no open risk."
+        "No open positions",
+        "100% cash / reserve. Empty blotter is expected until the first live fill — not broken."
       );
     }
     const cols = Object.keys(rows[0]);
@@ -344,7 +449,6 @@
 
   function viewPositions() {
     const pos = SNAP.positions;
-    // Enriched shape: {event,securities,crypto}; legacy: array
     let event = [],
       securities = [],
       crypto = [],
@@ -356,7 +460,7 @@
         else if (m.includes("crypto")) crypto.push(p);
         else securities.push(p);
       }
-      note = pos.length ? "" : "No open positions in snapshot (paper bootstrap).";
+      note = pos.length ? "" : "No open positions — 100% cash/reserve.";
     } else {
       event = pos?.event || [];
       securities = pos?.securities || [];
@@ -365,8 +469,9 @@
     }
     return `
       <div class="stack">
-        <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "PAPER")}</h2>
-        ${note ? `<div class="callout">${esc(note)}</div>` : ""}
+        <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "LIVE")}</h2>
+        ${freshnessStrip()}
+        ${note ? `<div class="callout info">${esc(note)}</div>` : ""}
         <div class="card"><h2>Event contracts</h2>${positionTable(event)}</div>
         <div class="card"><h2>Securities</h2>${positionTable(securities)}</div>
         <div class="card"><h2>Crypto spot</h2>${positionTable(crypto)}</div>
@@ -383,7 +488,7 @@
     if (!blotter.length) {
       blotterHtml = emptyState(
         "No trade history yet",
-        "blotter empty / header-only. Fills appear here when paper or live trades are logged."
+        "Blotter is empty (header-only). Fills appear here after the first live or paper fill. PreSubmitted orders are not fills."
       );
     } else {
       const cols = Object.keys(blotter[0]);
@@ -428,11 +533,12 @@
 
     return `
       <div class="stack">
-        <h2 class="section-title">History ${labelBadge(hist.label || "PAPER")}</h2>
+        <h2 class="section-title">History ${labelBadge(hist.label || SNAP.mode || "LIVE")}</h2>
+        ${freshnessStrip()}
         <p class="muted">${esc(hist.note || "")}</p>
-        <div class="card"><h2>Blotter</h2>${blotterHtml}</div>
+        <div class="card"><h2>Blotter (fills)</h2>${blotterHtml}</div>
         <div class="card">
-          <h2>Shadow artifacts (path refs — no invented PnL)</h2>
+          <h2>Shadow artifacts (path refs — not account P&amp;L)</h2>
           ${
             shadows.length
               ? `<div class="table-wrap"><table class="data">
@@ -466,27 +572,44 @@
     });
   }
 
+  function plainRejectReason(s) {
+    const ev = String(s.evidence_summary || "");
+    const st = String(s.status || "").toLowerCase();
+    if (st.includes("reject") || st.includes("kill")) {
+      return ev || String(s.falsify || "Rejected under pre-committed discipline");
+    }
+    return "";
+  }
+
   function viewStrategies() {
     const groups = strategiesGrouped();
     const groupsHtml = groups
       .map((grp) => {
+        const st = String(grp.status || "").toLowerCase();
+        const disciplineNote =
+          st.includes("reject") || st.includes("kill") || st.includes("paus") || st.includes("defer")
+            ? `<p class="muted" style="margin:0 0 6px">Shown on purpose — rejections and pauses are positive discipline, not clutter to hide.</p>`
+            : "";
         const cards = (grp.items || [])
-          .map(
-            (s) => `
+          .map((s) => {
+            const reject = plainRejectReason(s);
+            return `
           <div class="strat-card">
-            <div class="id">${esc(s.strategy_id)} ${statusBadge(s.status)}</div>
-            <div class="name">${esc(s.name)} · ${esc(s.owner)} · ${esc(s.market)}</div>
-            <div class="hyp">${esc(s.hypothesis)}</div>
-            <div class="meta" style="margin-top:6px">Falsify: ${esc(s.falsify)}</div>
-            <div class="meta">Next: ${esc(s.next_decision)}</div>
-            <div class="meta">${esc(s.evidence_summary)}</div>
-            <div class="meta" style="margin-top:4px">Alloc: ${esc(s.capital_alloc_pct_note || s.capital_alloc_pct || "0")} · ${labelBadge(s.label || "PAPER")}</div>
-          </div>`
-          )
+            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${statusBadge(s.status)}</div>
+            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)} · ${esc(s.market)}</div>
+            <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(s.hypothesis || "")}</span></div>
+            <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(s.evidence_summary || "")}</span></div>
+            <div class="row-plain"><span class="k">Next</span><span class="v">${esc(s.next_decision || "")}</span></div>
+            <div class="row-plain"><span class="k">Scale</span><span class="v">${esc(s.capital_alloc_pct_note || s.capital_alloc_pct || "0")} ${labelBadge(s.label || "PAPER")}</span></div>
+            <div class="row-plain"><span class="k">${tip("Kill / Falsify", "Falsify")}</span><span class="v">${esc(s.falsify || "")}</span></div>
+            ${reject && (st.includes("reject") || st.includes("kill")) ? `<div class="callout ok" style="margin-top:8px"><strong>Why rejected (discipline):</strong> ${esc(reject)}</div>` : ""}
+          </div>`;
+          })
           .join("");
         return `
           <div class="strategy-group">
             <div class="head">${statusBadge(grp.status)} <span class="muted">${esc(grp.count)}</span></div>
+            ${disciplineNote}
             <div class="strategy-cards">${cards}</div>
           </div>`;
       })
@@ -494,45 +617,51 @@
 
     return `
       <div class="stack">
-        <h2 class="section-title">Strategies <span class="muted">${esc(SNAP.strategies?.count ?? "")}</span> ${labelBadge(SNAP.strategies?.label || "PAPER")}</h2>
-        <div class="callout warn">VOLGATE OOS is regime plumbing / DD check — not live alpha. Do not present as a live sleeve.</div>
-        <div class="callout warn">Rejected / paused / deferred strategies are shown deliberately — do not hide kills.</div>
-        <p class="muted">${esc(SNAP.strategies?.note || "")} · source ${esc(SNAP.strategies?.source || "")}</p>
+        <h2 class="section-title">Strategies <span class="muted">${esc(SNAP.strategies?.count ?? "")}</span></h2>
+        ${freshnessStrip()}
+        <div class="callout info">VOLGATE ${tip("OOS", "OOS")} is regime plumbing / ${tip("DD", "DD")} check — not live alpha. Do not treat it as a live sleeve.</div>
+        <p class="muted">${esc(SNAP.strategies?.note || "")}</p>
         ${groupsHtml || emptyState("No strategies", "registry empty")}
       </div>`;
+  }
+
+  function forecastProcessLabel(f) {
+    const looked = String(f.looked_at_market_first) === "true" || f.looked_at_market_first === true;
+    if (looked) return { label: "Market-informed", tip: "Looked at market first — practice / contaminated for edge claims" };
+    return { label: "Independent", tip: "Locked without peeking at market first — process-clean" };
   }
 
   function forecastTable(rows) {
     if (!rows.length) return emptyState("None in this bucket", "");
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        <th>ID</th><th>Event</th><th>my_p</th><th>market</th><th>Status</th><th>Flags</th><th>Author</th><th>Locked</th><th>Outcome / Brier</th>
+        <th>Event</th><th>${tip("Harbor p (my_p)", "my_p")}</th><th>Market p</th>
+        <th>Process</th><th>Status</th><th>Flags</th><th>Author</th><th>Locked</th><th>Outcome / Brier</th><th class="dim">ID</th>
       </tr></thead>
       <tbody>
         ${rows
           .map((f) => {
+            const proc = forecastProcessLabel(f);
             const flags = [
-              f.eligible_mid_promote ? "mid-promote" : "",
-              String(f.thin_book) === "true" || f.thin_book === true ? "thin_book" : "",
-              String(f.wide_book) === "true" || f.wide_book === true ? "wide_book" : "",
-              String(f.looked_at_market_first) === "true" || f.looked_at_market_first === true
-                ? "looked_at_market_first"
-                : "clean_lock",
+              f.eligible_mid_promote ? "mid-promote eligible" : "",
+              String(f.thin_book) === "true" || f.thin_book === true ? "thin book" : "",
+              String(f.wide_book) === "true" || f.wide_book === true ? "wide book" : "",
             ]
               .filter(Boolean)
               .join(", ");
             const outcome = f.outcome == null || f.outcome === "" ? "N/A" : String(f.outcome);
             const brier = f.brier == null || f.brier === "" ? "N/A" : String(f.brier);
             return `<tr>
-              <td><code>${esc(f.forecast_id)}</code></td>
               <td>${esc(f.event)}</td>
               <td>${esc(f.my_p_locked ?? "N/A")}</td>
               <td>${esc(f.market_p_at_lock ?? "N/A")}</td>
+              <td><span class="tip" title="${esc(proc.tip)}">${esc(proc.label)}</span></td>
               <td>${statusBadge(f.status)}</td>
-              <td class="muted">${esc(flags)}</td>
+              <td class="muted">${esc(flags || "—")}</td>
               <td>${esc(f.author || "")}</td>
               <td class="dim">${esc(f.timestamp_ct || "")}</td>
               <td class="muted">${esc(outcome)} / ${esc(brier)}</td>
+              <td class="dim"><code>${esc(f.forecast_id)}</code></td>
             </tr>`;
           })
           .join("")}
@@ -549,140 +678,168 @@
     const contam = forecastsInBucket("contaminated");
     const midRows = forecastsInBucket("mid_promote");
     const resolvedClean = counts.resolved_clean ?? f.brier?.n_resolved_clean ?? 0;
+    const edge = edgeVerdict(f);
 
-    const showChartNote =
+    const sampleGate =
       Number(resolvedClean) < 5
-        ? `<div class="callout warn">Insufficient resolved clean sample (n=${esc(resolvedClean)}). No Brier chart. ${esc(f.brier?.message || "")} ${esc(f.brier?.warning || "Do not invent outcomes or mix contaminated rows.")}</div>`
-        : `<div class="callout ok">Resolved clean sample may support a chart — still do not mix contaminated. Clean Brier: ${moneyHtml(f.brier?.clean)}</div>`;
+        ? `<div class="callout warn"><strong>Sample gate:</strong> Need ≥5 resolved <em>independent</em> (clean) forecasts before claiming edge. Now n=${esc(resolvedClean)}. ${esc(f.brier?.message || "")}</div>`
+        : `<div class="callout ok"><strong>Sample gate:</strong> Resolved clean sample may support charts — still do not mix market-informed rows. Clean Brier: ${moneyHtml(f.brier?.clean)}</div>`;
 
     const midIds = (mid.ids || []).map((id) => `<code>${esc(id)}</code>`).join(", ") || "none";
 
     return `
       <div class="stack">
-        <h2 class="section-title">Forecasts ${labelBadge(f.label || "PAPER")}</h2>
+        <h2 class="section-title">Forecasts</h2>
+        ${freshnessStrip()}
+        <div class="card">
+          <h2>How to read this</h2>
+          <p><strong>Independent</strong> = we locked ${tip("Harbor probability (my_p)", "my_p")} without looking at the market first — these can support edge claims once scored.</p>
+          <p><strong>Market-informed</strong> = we peeked at the market first — useful practice, <em>not</em> proof we beat the market.</p>
+          <p><strong>Edge evidence:</strong> ${statusBadge(edge.label)} — ${esc(edge.why)}</p>
+          <p class="muted">${tip("Mid-promote", "mid-promote")}: independent lock + meaningful depth + book width ≤ W* (${esc(f.W_star)}). Thin/wide books fail that gate even if process-clean.</p>
+        </div>
         <div class="kpi-row">
           <div class="kpi"><div class="label">Active</div><div class="val">${esc(f.active_count ?? "—")}</div></div>
-          <div class="kpi"><div class="label">Clean</div><div class="val">${esc(counts.clean ?? clean.length)}</div></div>
-          <div class="kpi"><div class="label">Contaminated</div><div class="val">${esc(counts.contaminated ?? contam.length)}</div></div>
-          <div class="kpi"><div class="label">Mid-promote</div><div class="val">${esc(counts.mid_promote_eligible ?? mid.count ?? midRows.length)}</div></div>
+          <div class="kpi"><div class="label">Independent (clean)</div><div class="val">${esc(counts.clean ?? clean.length)}</div></div>
+          <div class="kpi"><div class="label">Market-informed</div><div class="val">${esc(counts.contaminated ?? contam.length)}</div></div>
+          <div class="kpi"><div class="label">${tip("Mid-promote", "mid-promote")}</div><div class="val">${esc(counts.mid_promote_eligible ?? mid.count ?? midRows.length)}</div></div>
           <div class="kpi"><div class="label">Resolved clean</div><div class="val">${esc(resolvedClean)}</div></div>
         </div>
-        ${showChartNote}
+        ${sampleGate}
         <div class="card">
-          <h2>Mid-promote callout (W*=${esc(f.W_star)})</h2>
-          <p><code>${esc(mid.rule || "looked_at_market_first=false AND vol/oi>0 AND book_width<=W*")}</code></p>
+          <h2>${tip("Mid-promote eligible", "mid-promote")} (W*=${esc(f.W_star)})</h2>
+          <p class="muted">Plain rule: independent lock, book has volume, and spread width ≤ ${esc(f.W_star)}.</p>
           <div class="callout info">Eligible now: ${midIds}</div>
           ${midRows.length ? forecastTable(midRows) : ""}
         </div>
         <div class="card">
-          <h2>Clean sample (process-clean locks)</h2>
-          <p class="muted">${esc(buckets.outcome_calib_clean?.note || "")}</p>
+          <h2>Independent sample (process-clean locks)</h2>
+          <p class="muted">${esc(buckets.outcome_calib_clean?.note || "May include thin/wide books — those are not mid-promote.")}</p>
           ${forecastTable(clean)}
         </div>
         <div class="card">
-          <h2>Contaminated</h2>
-          <p class="muted">${esc(buckets.contaminated?.note || "looked_at_market_first or contaminated_abstain — process practice only")}</p>
+          <h2>Market-informed (contaminated / practice)</h2>
+          <p class="muted">${esc(buckets.contaminated?.note || "Looked at market first — process practice only")}</p>
           ${forecastTable(contam)}
         </div>
         <div class="card">
           <h2>Calibration files (append-only CSV)</h2>
           <p class="muted">${esc(calib.note || "CSV append-only row counts — NOT sample n / distinct forecast ids")}</p>
           <div class="strip">
-            <div class="item"><span class="k">Clean path</span><span class="v"><code>${esc(calib.clean_path || "")}</code></span></div>
-            <div class="item"><span class="k">Clean append rows</span><span class="v">${esc(calib.clean_append_rows ?? calib.clean_row_count ?? 0)}</span></div>
-            <div class="item"><span class="k">Contaminated path</span><span class="v"><code>${esc(calib.contaminated_path || "")}</code></span></div>
-            <div class="item"><span class="k">Contam append rows</span><span class="v">${esc(calib.contaminated_append_rows ?? calib.contaminated_row_count ?? 0)}</span></div>
+            <div class="item"><span class="k">Clean append rows</span><span class="v">${esc(calib.clean_append_rows ?? 0)}</span></div>
+            <div class="item"><span class="k">Contam append rows</span><span class="v">${esc(calib.contaminated_append_rows ?? 0)}</span></div>
           </div>
         </div>
-        <div class="callout">${esc(f.note || "do not invent outcomes/brier when blank")}</div>
       </div>`;
   }
 
   function viewRisk() {
     const r = SNAP.risk || {};
     const econ = SNAP.economics || {};
-    const caps = (r.pct_limits || [])
-      .map(
-        (c) =>
-          `<tr>
-            <td>${esc(c.rule)}</td>
-            <td>${esc(c.pct_display || (c.pct_of_c != null ? Math.round(c.pct_of_c * 1000) / 10 + "%" : "N/A"))}</td>
-            <td class="muted">${esc(c.notes || "")}</td>
-            <td>${labelBadge(c.label || "PAPER")}</td>
-            <td class="dim">$ N/A until C</td>
-          </tr>`
-      )
-      .join("");
+    const op = opStatusParts();
+    const dl = r.dollar_limits || {};
+    const c = r.starting_c ?? SNAP.portfolio?.starting_c;
 
-    const ddSrc = r.dd_thresholds || r.drawdown_limits || [];
-    const dd = ddSrc
-      .map((d) => {
-        const thr =
-          d.threshold_display ||
-          (d.pct != null ? "≥" + d.pct + "%" : d.threshold_pct != null ? "≥" + Math.round(d.threshold_pct * 100) + "%" : "N/A");
+    const caps = (r.pct_limits || [])
+      .map((row) => {
+        const dollars =
+          row.dollars_at_c != null
+            ? `$${row.dollars_at_c}`
+            : row.notes && String(row.notes).includes("$")
+              ? String(row.notes)
+              : c != null && row.pct_of_c != null
+                ? `$${Math.round(Number(c) * Number(row.pct_of_c) * 100) / 100}`
+                : "—";
         return `<tr>
-            <td>${esc(thr)}</td>
-            <td>${esc(d.action)}</td>
-            <td>${labelBadge(d.label || "PAPER")}</td>
+            <td>${esc(row.rule)}</td>
+            <td>${esc(row.pct_display || (row.pct_of_c != null ? Math.round(row.pct_of_c * 1000) / 10 + "%" : "—"))}</td>
+            <td><strong>${esc(dollars)}</strong></td>
+            <td class="muted">${esc(row.notes || "")}</td>
           </tr>`;
       })
       .join("");
 
+    const dd = (r.dd_thresholds || [])
+      .map((d) => {
+        const dollars = d.dollars != null ? `$${d.dollars}` : "—";
+        return `<tr>
+            <td>≥${esc(d.pct)}% from peak (${esc(dollars)} at ${tip("C", "C")}=${esc(c)})</td>
+            <td>${esc(d.action)}</td>
+          </tr>`;
+      })
+      .join("");
+
+    const utilDetail = r.utilization_detail || {};
     const econNotes = (econ.notes || []).map((n) => `<li>${esc(n)}</li>`).join("");
+
+    const remaining = (SNAP.human_gates?.remaining_gates || SNAP.human_gates?.gates || []).filter((g) => {
+      const st = String(g.status || "").toLowerCase();
+      return !st.includes("cleared by mandate") && !/^cleared/.test(st);
+    });
 
     return `
       <div class="stack">
-        <h2 class="section-title">Risk framework ${labelBadge(r.label || "PAPER")}</h2>
-        <div class="callout warn">C unconfirmed → utilization and dollar caps are N/A. No leverage / margin / options / perps.${r.no_leverage ? " (policy: no_leverage)" : ""}</div>
+        <h2 class="section-title">Risk ${labelBadge(r.label || SNAP.mode || "LIVE")}</h2>
+        ${freshnessStrip()}
+        <div class="callout ok">Live trading ${esc(op.liveStatus)} within sleeve. Automated execution: ${esc(op.autoStatus)}. No leverage / margin / options / perps.${r.no_leverage ? "" : ""}</div>
         <div class="strip">
+          <div class="item"><span class="k">${tip("Starting bankroll", "C")}</span><span class="v">$${esc(c)}</span></div>
           <div class="item"><span class="k">Utilization</span><span class="v">${moneyHtml(r.utilization)}</span></div>
-          <div class="item"><span class="k">Current DD</span><span class="v">${moneyHtml(r.current_dd)}</span></div>
-          <div class="item"><span class="k">Framework</span><span class="v">${esc(r.framework || "")}</span></div>
+          <div class="item"><span class="k">${tip("Drawdown", "DD")}</span><span class="v">${moneyHtml(r.current_dd)}</span></div>
+          <div class="item"><span class="k">Exp book used</span><span class="v">$${esc(utilDetail.deployed ?? 0)} / $${esc(utilDetail.exp_book_cap ?? dl.experimental_book ?? "—")}</span></div>
         </div>
         <div class="card">
-          <h2>Position &amp; book caps (% of C)</h2>
+          <h2>Limits (human-readable $ at C=${esc(c)})</h2>
+          <p class="muted">From live-experiment-sleeve + risk-architecture. Percentages of starting bankroll, shown as dollars.</p>
           <div class="table-wrap"><table class="data">
-            <thead><tr><th>Rule</th><th>% of C</th><th>Notes</th><th>Label</th><th>$</th></tr></thead>
-            <tbody>${caps || `<tr><td colspan="5" class="muted">No caps</td></tr>`}</tbody>
+            <thead><tr><th>Rule</th><th>% of C</th><th>$ limit</th><th>Notes</th></tr></thead>
+            <tbody>${caps || `<tr><td colspan="4" class="muted">No caps</td></tr>`}</tbody>
           </table></div>
         </div>
         <div class="card">
-          <h2>Drawdown thresholds</h2>
+          <h2>${tip("Drawdown", "DD")} actions</h2>
           <div class="table-wrap"><table class="data">
-            <thead><tr><th>DD from peak</th><th>Action</th><th>Label</th></tr></thead>
+            <thead><tr><th>Threshold</th><th>Action</th></tr></thead>
             <tbody>${dd}</tbody>
           </table></div>
         </div>
         <div class="card">
-          <h2>Dollar limits</h2>
-          <p>${r.dollar_limits == null ? `<span class="dim">N/A</span> — ${esc(r.dollar_limits_note || "TBD while C unconfirmed")}` : esc(JSON.stringify(r.dollar_limits))}</p>
-          <p class="dim">Source: ${esc(r.source || "")}</p>
-          <ul class="warn-list">${(r.pointers || []).map((p) => `<li><code>${esc(p)}</code></li>`).join("")}</ul>
+          <h2>Key dollar caps (quick)</h2>
+          <div class="kpi-row" style="grid-template-columns:repeat(3,1fr)">
+            <div class="kpi"><div class="label">Exp book</div><div class="val">$${esc(dl.experimental_book ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Per exp position</div><div class="val">$${esc(dl.pos_experimental ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Reserve floor</div><div class="val">$${esc(dl.reserve_floor ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Strategy loss</div><div class="val">$${esc(dl.strategy_loss ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Soft daily pause</div><div class="val">$${esc(dl.soft_daily_loss ?? "—")}</div></div>
+            <div class="kpi"><div class="label">First ops test</div><div class="val">$${esc(dl.start_experiment_low ?? "—")}–$${esc(dl.start_experiment_high ?? "—")}</div></div>
+          </div>
+          <p class="dim">${esc(r.dollar_limits_note || "")}</p>
         </div>
         <div class="card">
-          <h2>Fee / friction assumptions ${labelBadge(econ.label || "PAPER")}</h2>
+          <h2>Fee / friction assumptions</h2>
           <p class="muted">${esc(econ.kind || "")} · ${esc(econ.source || "")}</p>
           <div class="strip">
             <div class="item"><span class="k">Kalshi taker</span><span class="v">${esc(econ.kalshi_taker_rate)}</span></div>
             <div class="item"><span class="k">IBKR event</span><span class="v">${esc(econ.ibkr_event_per_contract)}</span></div>
             <div class="item"><span class="k">IBKR equity</span><span class="v">${esc(econ.ibkr_equity_per_share)}</span></div>
-            <div class="item"><span class="k">Crypto RT bps</span><span class="v">${esc(econ.crypto_rt_bps_default)}</span></div>
+            <div class="item"><span class="k">${tip("Crypto RT bps", "RT bps")}</span><span class="v">${esc(econ.crypto_rt_bps_default)}</span></div>
             <div class="item"><span class="k">Half-spread</span><span class="v">${esc(econ.event_default_half_spread)}</span></div>
           </div>
           <ul class="warn-list">${econNotes}</ul>
         </div>
         <div class="card">
-          <h2>Human gates (live blockers)</h2>
+          <h2>Remaining human gates (not “live blocked”)</h2>
+          <p class="muted">${esc(SNAP.human_gates?.note || "")}</p>
           <div class="table-wrap"><table class="data">
             <thead><tr><th>#</th><th>Gate</th><th>Owner</th><th>Status</th><th>Blocks</th></tr></thead>
             <tbody>
-              ${(SNAP.human_gates?.gates || [])
+              ${remaining
                 .map(
                   (g) =>
                     `<tr><td>${esc(g.n ?? g.num)}</td><td>${esc(g.gate)}</td><td>${esc(g.owner)}</td>
                      <td>${gateBadge(g.status)}</td><td class="muted">${esc(g.blocks)}</td></tr>`
                 )
-                .join("")}
+                .join("") || `<tr><td colspan="5" class="muted">None</td></tr>`}
             </tbody>
           </table></div>
         </div>
@@ -695,24 +852,35 @@
       return `<div class="stack"><h2 class="section-title">Lessons</h2>${emptyState("No lessons yet", "journal/lessons.csv empty")}</div>`;
     }
     const list = items
-      .map(
-        (L) => `
+      .map((L) => {
+        const conclusion = L.what_we_learned || L.learning || L.heading || "";
+        const hasStruct = L.what_happened || L.believed_beforehand || L.evidence_showed || L.what_changed;
+        if (!hasStruct && L.heading) {
+          return `
+          <div class="lesson">
+            <div class="conclusion">${esc(L.heading)}</div>
+            <div class="dim">${esc(L.source || "")}</div>
+          </div>`;
+        }
+        return `
         <div class="lesson">
+          <div class="conclusion">${esc(conclusion)}</div>
           <div><span class="id">${esc(L.lesson_id)}</span> <span class="muted">${esc(L.date_ct)}</span>
             <span class="dim">· ${esc(L.source)}</span></div>
-          <div class="row"><div class="k">Experience</div><div class="v">${esc(L.what_happened)}</div></div>
-          <div class="row"><div class="k">Believed</div><div class="v">${esc(L.believed_beforehand)}</div></div>
-          <div class="row"><div class="k">Evidence</div><div class="v">${esc(L.evidence_showed)}</div></div>
-          <div class="row"><div class="k">Learning</div><div class="v"><strong>${esc(L.what_we_learned)}</strong></div></div>
-          <div class="row"><div class="k">Change</div><div class="v">${esc(L.what_changed)}</div></div>
-          <div class="row"><div class="k">Related</div><div class="v dim">${esc(L.related_ids)}</div></div>
-        </div>`
-      )
+          <div class="row"><div class="k">Observation</div><div class="v">${esc(L.what_happened || "")}</div></div>
+          <div class="row"><div class="k">Decision / belief</div><div class="v">${esc(L.believed_beforehand || "")}</div></div>
+          <div class="row"><div class="k">Outcome / evidence</div><div class="v">${esc(L.evidence_showed || "")}</div></div>
+          <div class="row"><div class="k">Lesson</div><div class="v"><strong>${esc(L.what_we_learned || "")}</strong></div></div>
+          <div class="row"><div class="k">System change</div><div class="v">${esc(L.what_changed || "")}</div></div>
+          <div class="row"><div class="k">Related</div><div class="v dim">${esc(L.related_ids || "")}</div></div>
+        </div>`;
+      })
       .join("");
     return `
       <div class="stack">
         <h2 class="section-title">Lessons <span class="muted">${esc(SNAP.lessons.count)}</span></h2>
-        <p class="muted">Experience → Learning → Change · ${esc(SNAP.lessons.source || "journal/lessons.csv")}</p>
+        ${freshnessStrip()}
+        <p class="muted">Plain-English conclusion first · Observation → Decision → Outcome → Lesson → System Change · ${esc(SNAP.lessons.source || "journal/lessons.csv")}</p>
         <div class="card">${list}</div>
       </div>`;
   }
@@ -752,12 +920,19 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           )
           .join("");
 
-    const banner = `Schema ${SNAP.schema_version || "v1"} · Mode ${SNAP.mode || "PAPER"} · Generated ${SNAP.generated_at_ct || SNAP.meta?.generated_at_ct || "—"} · C confirmed: ${SNAP.c_confirmed ?? SNAP.meta?.c_confirmed ?? false}`;
+    const histNote =
+      (excerpts.mission_short || "").includes("Paper/research only") ||
+      (excerpts.mission_short || "").includes("C unconfirmed")
+        ? `<div class="callout warn">Note: docs/canonical-state-2026-09-04.md is <strong>HISTORICAL</strong> (pre-funding). Current pointers: docs/capital.json, live-experiment-sleeve, risk-architecture, ops-index.</div>`
+        : "";
+
+    const banner = `Schema ${SNAP.schema_version || "v1"} · Mode ${SNAP.mode || "LIVE"} · Generated ${SNAP.generated_at_ct || SNAP.meta?.generated_at_ct || "—"} · Reconciled ${SNAP.meta?.last_reconciled_ibkr_ct || "—"} · C confirmed: ${SNAP.c_confirmed ?? SNAP.meta?.c_confirmed ?? false}`;
 
     return `
       <div class="stack">
         <h2 class="section-title">System docs</h2>
         <div class="callout info">${esc(banner)}</div>
+        ${histNote}
         ${excerpts.mission_short || excerpts.risk_short || excerpts.loop_short ? shortCards : ""}
         <div class="callout">Embeds from snapshot docs / docs_meta — paths + short excerpts only.</div>
         ${details || emptyState("No docs_meta", "")}
@@ -799,7 +974,14 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       if (!res.ok) throw new Error("HTTP " + res.status);
       SNAP = await res.json();
       const gen = SNAP.generated_at_ct || SNAP.meta?.generated_at_ct || "";
-      document.getElementById("gen-at").textContent = gen;
+      const rec = SNAP.last_reconciled_ibkr_ct || SNAP.meta?.last_reconciled_ibkr_ct || null;
+      const portal = SNAP.meta?.confirmed_ct || "";
+      const genEl = document.getElementById("gen-at");
+      if (genEl) {
+        if (rec) genEl.textContent = `reconciled ${rec} · gen ${gen}`;
+        else if (portal) genEl.textContent = `Portal confirm ${portal} · gen ${gen}`;
+        else genEl.textContent = gen;
+      }
       const modeEl = document.querySelector("#top-meta .badge");
       if (modeEl) {
         const lbl = String(SNAP.mode || SNAP.meta?.mode || "PAPER").toUpperCase();
