@@ -31,28 +31,68 @@
     return `<span class="tip" title="${esc(t)}">${esc(label)}</span>`;
   }
 
+  /** Format a number (or numeric string) as user-facing USD: $200.00 — never invent values. */
+  function formatUsd(n) {
+    if (n == null || n === "" || n === "—" || n === "N/A") return null;
+    let raw = n;
+    if (typeof raw === "string") {
+      raw = raw.trim().replace(/^[+$]/, "").replace(/,/g, "");
+      if (raw === "" || raw === "—" || raw === "N/A") return null;
+    }
+    const num = typeof raw === "number" ? raw : Number(raw);
+    if (!Number.isFinite(num)) return null;
+    const sign = num < 0 ? "-" : "";
+    return sign + "$" + Math.abs(num).toFixed(2);
+  }
+
+  /** Polish snapshot display strings: 210.0 → $210.00; keep %; rewrite $N inside mixed strings. */
+  function polishMoneyDisplay(display, value) {
+    if (display == null || display === "" || display === "N/A") {
+      if (value == null || value === undefined) return "N/A";
+      return formatUsd(value) || String(value);
+    }
+    const d = String(display).trim();
+    if (d === "N/A" || d === "—") return d;
+    // Pure percent (e.g. trading return 0.0%)
+    if (/^-?\d+(\.\d+)?%$/.test(d)) {
+      const num = Number(d.replace("%", ""));
+      return Number.isFinite(num) ? num.toFixed(2) + "%" : d;
+    }
+    // Mixed utilization-style: 0% ($0 of $20 exp book)
+    if (/%/.test(d) && /\$/.test(d)) {
+      return d.replace(/\$(\d+(?:\.\d+)?)/g, (_, n) => formatUsd(Number(n)) || "$" + n);
+    }
+    // Already $-prefixed single amount
+    if (/^\$?-?\d+(\.\d+)?$/.test(d.replace(/,/g, ""))) {
+      return formatUsd(d) || d;
+    }
+    // Plain number from snapshot display/value (210.0, 0)
+    if (/^-?\d+(\.\d+)?$/.test(d)) {
+      return formatUsd(Number(d)) || d;
+    }
+    if (value != null && value !== undefined && Number.isFinite(Number(value)) && !/%/.test(d) && !/[A-Za-z]/.test(d)) {
+      return formatUsd(Number(value)) || d;
+    }
+    return d;
+  }
+
   /** Money / labeled values — never invent numbers. */
   function moneyHtml(m) {
-    if (m == null) {
+    if (m == null || m === "" || m === "N/A") {
       return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
     }
     if (typeof m === "object") {
-      const display =
-        m.display != null && m.display !== ""
-          ? m.display
-          : m.value == null || m.value === undefined
-            ? "N/A"
-            : String(m.value);
-      if (m.value == null || m.value === undefined || display === "N/A") {
+      if (m.value == null || m.value === undefined) {
+        return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
+      }
+      const display = polishMoneyDisplay(m.display, m.value);
+      if (display === "N/A") {
         return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
       }
       const lbl = String(m.label || "PAPER").toUpperCase();
       return `<span>${esc(display)}</span> ${labelBadge(lbl)}`;
     }
-    if (m === "" || m === "N/A") {
-      return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
-    }
-    return `<span>${esc(m)}</span>`;
+    return `<span>${esc(polishMoneyDisplay(m, typeof m === "number" ? m : null))}</span>`;
   }
 
   function labelBadge(label) {
@@ -114,15 +154,22 @@
         ? meta.last_reconciled_ibkr_ct
         : null;
     const portal = meta.confirmed_ct || SNAP.portfolio?.book_timestamp_ct || null;
-    let recLabel;
     if (rec) {
-      recLabel = esc(rec);
-    } else if (portal) {
-      recLabel = `not yet reconciled this session (last known Portal confirm ${esc(portal)})`;
-    } else {
-      recLabel = "not yet reconciled this session";
+      return `<div class="freshness muted">Last reconciled with IBKR: <strong>${esc(rec)}</strong> · Dashboard generated: <strong>${esc(gen)}</strong></div>`;
     }
-    return `<div class="freshness muted">Last reconciled with IBKR: <strong>${recLabel}</strong> · Dashboard generated: <strong>${esc(gen)}</strong></div>`;
+    const portalBit = portal
+      ? ` Last known Portal confirm date: <strong>${esc(portal)}</strong>.`
+      : "";
+    // Non-alarming: missing stamp ≠ invented numbers
+    return `<div class="callout info reconcile-banner" role="status">
+      <strong>Dashboard generated:</strong> ${esc(gen)}.
+      <strong>Last reconciled with IBKR:</strong> not yet this session.${portalBit}
+      Desk figures below are from the snapshot / last known book notes; the brokerage reconcile stamp is simply missing for this session.
+    </div>`;
+  }
+
+  function sleeveBadgeCaption() {
+    return `<p class="muted sleeve-caption">Experimental sleeve: small live tests within fixed dollar limits; most capital stays in cash/reserve. Badges (PAPER / SHADOW / LIVE) describe strategy stage, not whether the brokerage account is live.</p>`;
   }
 
   /** Map Pike operating_status booleans → plain-English badges (never "live blocked"). */
@@ -169,10 +216,11 @@
       wdDetail = notes.withdrawal || "No agent withdrawal authority";
     }
 
+    const cFmt = formatUsd(os.starting_c ?? SNAP.portfolio?.starting_c) || "—";
     const summary =
       os.summary ||
       (liveOn
-        ? `Looking at a funded LIVE IBKR book (C=$${os.starting_c ?? SNAP.portfolio?.starting_c ?? "—"}, ${os.account_id || ""}). Live trading authorized within sleeve; net trading P&L from fills only. Funding excess is reserve, not performance.`
+        ? `Looking at a funded LIVE IBKR book (starting bankroll C=${cFmt}). Live trading authorized within sleeve; net trading P&L from fills only. Funding excess is reserve, not performance.`
         : "Paper/research desk — live trading not authorized.");
 
     return {
@@ -341,8 +389,9 @@
         <div class="grid grid-2">
           <div class="card">
             <h2>Money</h2>
-            <div class="hero-value">${esc(av.display || "N/A")} ${labelBadge(av.label || "LIVE")}</div>
+            <div class="hero-value">${esc(polishMoneyDisplay(av.display, av.value))} ${labelBadge(av.label || "LIVE")}</div>
             <p class="hero-note">Account value · ${tip("Starting bankroll (C)", "C")}: ${moneyHtml(startC)}</p>
+            ${sleeveBadgeCaption()}
             ${
               p.funding_excess && p.funding_excess.value
                 ? `<p class="muted" style="margin:6px 0 0">${esc(p.funding_excess_note || "Funding excess is reserve, not performance.")}</p>`
@@ -471,6 +520,7 @@
       <div class="stack">
         <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "LIVE")}</h2>
         ${freshnessStrip()}
+        ${sleeveBadgeCaption()}
         ${note ? `<div class="callout info">${esc(note)}</div>` : ""}
         <div class="card"><h2>Event contracts</h2>${positionTable(event)}</div>
         <div class="card"><h2>Securities</h2>${positionTable(securities)}</div>
@@ -619,6 +669,7 @@
       <div class="stack">
         <h2 class="section-title">Strategies <span class="muted">${esc(SNAP.strategies?.count ?? "")}</span></h2>
         ${freshnessStrip()}
+        ${sleeveBadgeCaption()}
         <div class="callout info">VOLGATE ${tip("OOS", "OOS")} is regime plumbing / ${tip("DD", "DD")} check — not live alpha. Do not treat it as a live sleeve.</div>
         <p class="muted">${esc(SNAP.strategies?.note || "")}</p>
         ${groupsHtml || emptyState("No strategies", "registry empty")}
@@ -742,14 +793,14 @@
 
     const caps = (r.pct_limits || [])
       .map((row) => {
-        const dollars =
-          row.dollars_at_c != null
-            ? `$${row.dollars_at_c}`
-            : row.notes && String(row.notes).includes("$")
-              ? String(row.notes)
-              : c != null && row.pct_of_c != null
-                ? `$${Math.round(Number(c) * Number(row.pct_of_c) * 100) / 100}`
-                : "—";
+        let dollars = "—";
+        if (row.dollars_at_c != null) {
+          dollars = formatUsd(row.dollars_at_c) || "—";
+        } else if (c != null && row.pct_of_c != null) {
+          dollars = formatUsd(Math.round(Number(c) * Number(row.pct_of_c) * 100) / 100) || "—";
+        } else if (row.notes && String(row.notes).includes("$")) {
+          dollars = String(row.notes).replace(/\$(\d+(?:\.\d+)?)/g, (_, n) => formatUsd(Number(n)) || "$" + n);
+        }
         return `<tr>
             <td>${esc(row.rule)}</td>
             <td>${esc(row.pct_display || (row.pct_of_c != null ? Math.round(row.pct_of_c * 1000) / 10 + "%" : "—"))}</td>
@@ -761,9 +812,10 @@
 
     const dd = (r.dd_thresholds || [])
       .map((d) => {
-        const dollars = d.dollars != null ? `$${d.dollars}` : "—";
+        const dollars = d.dollars != null ? formatUsd(d.dollars) || "—" : "—";
+        const cShow = formatUsd(c) || esc(c);
         return `<tr>
-            <td>≥${esc(d.pct)}% from peak (${esc(dollars)} at ${tip("C", "C")}=${esc(c)})</td>
+            <td>≥${esc(d.pct)}% from peak (${esc(dollars)} at ${tip("C", "C")}=${cShow})</td>
             <td>${esc(d.action)}</td>
           </tr>`;
       })
@@ -781,15 +833,16 @@
       <div class="stack">
         <h2 class="section-title">Risk ${labelBadge(r.label || SNAP.mode || "LIVE")}</h2>
         ${freshnessStrip()}
+        ${sleeveBadgeCaption()}
         <div class="callout ok">Live trading ${esc(op.liveStatus)} within sleeve. Automated execution: ${esc(op.autoStatus)}. No leverage / margin / options / perps.${r.no_leverage ? "" : ""}</div>
         <div class="strip">
-          <div class="item"><span class="k">${tip("Starting bankroll", "C")}</span><span class="v">$${esc(c)}</span></div>
+          <div class="item"><span class="k">${tip("Starting bankroll", "C")}</span><span class="v">${esc(formatUsd(c) || "—")}</span></div>
           <div class="item"><span class="k">Utilization</span><span class="v">${moneyHtml(r.utilization)}</span></div>
           <div class="item"><span class="k">${tip("Drawdown", "DD")}</span><span class="v">${moneyHtml(r.current_dd)}</span></div>
-          <div class="item"><span class="k">Exp book used</span><span class="v">$${esc(utilDetail.deployed ?? 0)} / $${esc(utilDetail.exp_book_cap ?? dl.experimental_book ?? "—")}</span></div>
+          <div class="item"><span class="k">Exp book used</span><span class="v">${esc(formatUsd(utilDetail.deployed ?? 0) || "$0.00")} / ${esc(formatUsd(utilDetail.exp_book_cap ?? dl.experimental_book) || "—")}</span></div>
         </div>
         <div class="card">
-          <h2>Limits (human-readable $ at C=${esc(c)})</h2>
+          <h2>Limits (human-readable $ at C=${esc(formatUsd(c) || c)})</h2>
           <p class="muted">From live-experiment-sleeve + risk-architecture. Percentages of starting bankroll, shown as dollars.</p>
           <div class="table-wrap"><table class="data">
             <thead><tr><th>Rule</th><th>% of C</th><th>$ limit</th><th>Notes</th></tr></thead>
@@ -806,12 +859,12 @@
         <div class="card">
           <h2>Key dollar caps (quick)</h2>
           <div class="kpi-row" style="grid-template-columns:repeat(3,1fr)">
-            <div class="kpi"><div class="label">Exp book</div><div class="val">$${esc(dl.experimental_book ?? "—")}</div></div>
-            <div class="kpi"><div class="label">Per exp position</div><div class="val">$${esc(dl.pos_experimental ?? "—")}</div></div>
-            <div class="kpi"><div class="label">Reserve floor</div><div class="val">$${esc(dl.reserve_floor ?? "—")}</div></div>
-            <div class="kpi"><div class="label">Strategy loss</div><div class="val">$${esc(dl.strategy_loss ?? "—")}</div></div>
-            <div class="kpi"><div class="label">Soft daily pause</div><div class="val">$${esc(dl.soft_daily_loss ?? "—")}</div></div>
-            <div class="kpi"><div class="label">First ops test</div><div class="val">$${esc(dl.start_experiment_low ?? "—")}–$${esc(dl.start_experiment_high ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Exp book</div><div class="val">${esc(formatUsd(dl.experimental_book) || "—")}</div></div>
+            <div class="kpi"><div class="label">Per exp position</div><div class="val">${esc(formatUsd(dl.pos_experimental) || "—")}</div></div>
+            <div class="kpi"><div class="label">Reserve floor</div><div class="val">${esc(formatUsd(dl.reserve_floor) || "—")}</div></div>
+            <div class="kpi"><div class="label">Strategy loss</div><div class="val">${esc(formatUsd(dl.strategy_loss) || "—")}</div></div>
+            <div class="kpi"><div class="label">Soft daily pause</div><div class="val">${esc(formatUsd(dl.soft_daily_loss) || "—")}</div></div>
+            <div class="kpi"><div class="label">First ops test</div><div class="val">${esc(formatUsd(dl.start_experiment_low) || "—")}–${esc(formatUsd(dl.start_experiment_high) || "—")}</div></div>
           </div>
           <p class="dim">${esc(r.dollar_limits_note || "")}</p>
         </div>

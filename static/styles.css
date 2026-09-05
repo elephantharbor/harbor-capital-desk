@@ -224,3 +224,8 @@ table.data tr:hover td { background: rgba(255,255,255,0.02); }
 .lesson .conclusion {
   font-size: 14px; font-weight: 650; margin-bottom: 6px; color: var(--text); line-height: 1.4;
 }
+
+/* V1.1 polish — sleeve caption + reconcile-null banner */
+.sleeve-caption { margin: 6px 0 0; font-size: 12px; line-height: 1.45; max-width: 52rem; }
+.reconcile-banner { margin: 0 0 10px; font-size: 12px; line-height: 1.5; }
+.reconcile-banner strong { color: var(--text); }
