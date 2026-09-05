@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 10:02:50 CT",
+  "generated_at_ct": "2026-09-05 10:06:19 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 10:02:50 CT",
+    "generated_at_ct": "2026-09-05 10:06:19 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -1504,11 +1504,12 @@
       "position_sizing.py",
       "publish_dashboard_snapshot.py",
       "risk_engine.py",
+      "sanitize_public_snapshot.py",
       "shadow_portfolio.py",
       "smoke_test.py",
       "volgate_oos.py"
     ],
-    "tools_count": 14,
+    "tools_count": 15,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
