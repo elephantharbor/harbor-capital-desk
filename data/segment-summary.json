@@ -4,40 +4,50 @@
   "description": "Capital allocation and trading.",
   "mission": "Grow a finite bankroll through disciplined market participation, controlled risk, and continuous learning.",
   "status": "Operating",
-  "statusDetail": "Await first live fill (a submitted order PreSubmitted) \u2014 viability clock starts on fill",
+  "statusDetail": "LIVE. Waiting on first fill to start the 30-day viability review. IBKR reconcile stamp not yet set this Gateway session (re-login before weekday fill check is optional \u2014 not blocking).",
   "owner": "Holt (Harbor Capital - CEO)",
-  "lastUpdated": "2026-09-05T10:07:00-05:00",
-  "freshnessNote": "Desk snapshot generated 2026-09-05 10:07:00 CT. Funding excess above C is reserve, not trading return.",
+  "lastUpdated": "2026-09-05T13:07:58-05:00",
   "headlineMetrics": [
     {
       "label": "Mode",
-      "value": "LIVE"
+      "value": "LIVE",
+      "hint": "Live trading authorized"
     },
     {
       "label": "Bankroll (C)",
-      "value": "$200.0"
+      "value": "$200",
+      "hint": "Funded starting bankroll for display"
     },
     {
       "label": "Net trading P&L",
-      "value": "$0.0",
-      "hint": "Funding excess above C is reserve \u2014 not performance"
+      "value": "$0.00",
+      "hint": "Funding excess above $200 sits in reserve \u2014 not performance"
     },
     {
       "label": "Open positions",
-      "value": "0"
+      "value": "0",
+      "hint": "No open risk positions"
     }
   ],
-  "currentObjective": "Complete live ops plumbing and learn from the first fill under LIVE rules.",
-  "currentStatusBrief": "LIVE. Await first live fill (a submitted order PreSubmitted) \u2014 viability clock starts on fill",
+  "currentObjective": "Complete the live ops plumbing test and learn from the first fill under LIVE rules.",
+  "currentStatusBrief": "Live ops plumbing test submitted (small SGOV reserve buy). Waiting on first fill to start the 30-day viability review. Automated execution: Ready \u2014 Holt-gated. No human action blocking capital ops right now. Freshness: lastUpdated uses dashboard generated time \u2014 Gateway auth not green for a live account poll this session.",
   "latestLesson": {
-    "experience": "Wave1 forecasts locked after looking at Kalshi mids",
-    "evidence": "Contaminated rows cannot support beat-the-market claims",
-    "learning": "Clean vs contaminated must be hard-split; never mix for edge claims",
-    "change": "Added calibration_clean vs calibration_contaminated; looked_at_market_first required"
+    "experience": "Claims ladder F7\u2013F9 treated as three independent events",
+    "evidence": "One labor surprise moves all three \u2014 correlated factor",
+    "learning": "Calibration events \u2260 diversified risk; do not farm correlated strikes for n",
+    "change": "Next lock must be non-labor or reasoned abstain"
   },
   "needsHumanAction": false,
   "humanAction": null,
   "dashboardUrl": "https://elephantharbor.github.io/harbor-capital-desk/",
   "dashboardState": "live",
-  "publicLinks": []
+  "publicLinks": [],
+  "freshness": {
+    "source": "generated_at_ct",
+    "reconcileStampPresent": false,
+    "generatedAtCt": "2026-09-05 13:07:58 CT",
+    "lastReconciledIbkrCt": null,
+    "viabilityClock": "NOT_STARTED",
+    "automatedExecution": "Ready \u2014 Holt-gated"
+  }
 }
