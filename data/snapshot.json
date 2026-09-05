@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 10:00:20 CT",
+  "generated_at_ct": "2026-09-05 10:01:24 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 10:00:20 CT",
+    "generated_at_ct": "2026-09-05 10:01:24 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -1901,7 +1901,7 @@
     ],
     "remaining_count": 7,
     "source": "docs/human-dependencies.md",
-    "note": "Live trading AUTHORIZED (C=$200 LIVE U28311047) within risk sleeve. automated_execution=false (Holt alone transmits; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
+    "note": "Live trading AUTHORIZED (C=$200 LIVE U28311047) within risk sleeve. automated_execution=false (Ready — Holt-gated; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
     "stale_fields_note": "Do not treat live_blocked=true or C-unconfirmed as current."
   },
   "operating_status": {
@@ -1912,8 +1912,13 @@
     "starting_c": 200.0,
     "notes": {
       "live_trading": "LIVE book authorized C=$200.0 U28311047",
-      "automated_execution": "Holt alone transmits; dry_run default for agents; confirm-reply taught but not auto-transmit",
+      "automated_execution": "Ready — Holt-gated. Flipping automated_execution=true is deferred until the Gateway+confirm-reply path is proven in production; Holt still transmits even then. Boolean stays false.",
       "withdrawal": "No agent withdrawal authority — standing human gate"
+    },
+    "labels": {
+      "live_trading": "Authorized",
+      "automated_execution": "Ready — Holt-gated",
+      "withdrawal": "Standing human gate"
     },
     "action_needed": "Await first live fill (order 1837390339 PreSubmitted) — viability clock starts on fill",
     "label": "LIVE"
