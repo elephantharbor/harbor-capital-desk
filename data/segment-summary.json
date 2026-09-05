@@ -1,0 +1,43 @@
+{
+  "segmentId": "capital",
+  "segmentName": "Harbor Capital",
+  "description": "Capital allocation and trading.",
+  "mission": "Grow a finite bankroll through disciplined market participation, controlled risk, and continuous learning.",
+  "status": "Operating",
+  "statusDetail": "Await first live fill (order [order redacted] PreSubmitted) \u2014 viability clock starts on fill",
+  "owner": "Holt (Harbor Capital - CEO)",
+  "lastUpdated": "2026-09-05T10:07:00-05:00",
+  "freshnessNote": "Desk snapshot generated 2026-09-05 10:07:00 CT. Funding excess above C is reserve, not trading return.",
+  "headlineMetrics": [
+    {
+      "label": "Mode",
+      "value": "LIVE"
+    },
+    {
+      "label": "Bankroll (C)",
+      "value": "$200.0"
+    },
+    {
+      "label": "Net trading P&L",
+      "value": "$0.0",
+      "hint": "Funding excess above C is reserve \u2014 not performance"
+    },
+    {
+      "label": "Open positions",
+      "value": "0"
+    }
+  ],
+  "currentObjective": "Complete live ops plumbing and learn from the first fill under LIVE rules.",
+  "currentStatusBrief": "LIVE. Await first live fill (order [order redacted] PreSubmitted) \u2014 viability clock starts on fill",
+  "latestLesson": {
+    "experience": "Wave1 forecasts locked after looking at Kalshi mids",
+    "evidence": "Contaminated rows cannot support beat-the-market claims",
+    "learning": "Clean vs contaminated must be hard-split; never mix for edge claims",
+    "change": "Added calibration_clean vs calibration_contaminated; looked_at_market_first required"
+  },
+  "needsHumanAction": false,
+  "humanAction": null,
+  "dashboardUrl": "https://elephantharbor.github.io/harbor-capital-desk/",
+  "dashboardState": "live",
+  "publicLinks": []
+}
