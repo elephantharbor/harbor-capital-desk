@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-05 13:07:58 CT",
+  "generated_at_ct": "2026-09-05 13:16:51 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-05 13:07:58 CT",
+    "generated_at_ct": "2026-09-05 13:16:51 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -566,44 +566,6 @@
         "label": "PAPER"
       },
       {
-        "strategy_id": "C1-SPOTOBS",
-        "name": "Crypto spot observe-only log",
-        "owner": "Holt",
-        "market": "crypto",
-        "status": "idea",
-        "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
-        "edge_source": "none identified yet \u2014 observation",
-        "benchmark": "SGOV + do-nothing",
-        "falsify": "If 30d log shows no testable edge_source \u2192 keep deferred",
-        "data_needs": "public prices only; no API keys",
-        "cost_notes": "40\u201380bps RT retail; tax lots; sleeve cap 10%C if ever",
-        "capital_alloc_pct": "0",
-        "next_decision": "2026-10-04 or first written hypothesis",
-        "evidence_summary": "Init: observe only; no CEX",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "capital_alloc_pct_note": "0 / no live capital",
-        "label": "PAPER"
-      },
-      {
-        "strategy_id": "C2-BASISOBS",
-        "name": "Crypto basis/spread observe (spot venues)",
-        "owner": "Reed",
-        "market": "crypto",
-        "status": "researching",
-        "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band \u2014 measure only",
-        "edge_source": "microstructure observation not trade",
-        "benchmark": "fee+transfer friction band",
-        "falsify": "If gaps \u2264 all-in friction for 30 observations \u2192 archive",
-        "data_needs": "public order books; no keys",
-        "cost_notes": "transfer risk + withdrawal delays; still no live",
-        "capital_alloc_pct": "0",
-        "next_decision": "write 10 observations then review",
-        "evidence_summary": "Researching public books; no account",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "capital_alloc_pct_note": "0 / no live capital",
-        "label": "PAPER"
-      },
-      {
         "strategy_id": "EV-POLICY",
         "name": "Policy/econ event specialize",
         "owner": "Reed",
@@ -773,6 +735,82 @@
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital",
         "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-CRYPTO-BH-001",
+        "name": "BTC/ETH spot hold vs SGOV",
+        "owner": "Cole",
+        "market": "crypto",
+        "status": "paused",
+        "hypothesis": "Infrequent BTC/ETH ownership is beta not Harbor trading edge after SGOV carry and fees",
+        "edge_source": "none \u2014 beta allocation not alpha",
+        "benchmark": "SGOV + BTC/ETH buyhold",
+        "falsify": "If thesis cannot name non-price info Harbor tracks OR paper post-fee excess vs SGOV <=0 over locked window",
+        "data_needs": "public Coinbase Advanced MD + SGOV yields; no keys",
+        "cost_notes": "CB base ~0.40/0.60%; sleeve cap 10%C if ever; tax lots",
+        "capital_alloc_pct": "0",
+        "next_decision": "DEFER live \u2014 optional pre-declared beta only after human allocation",
+        "evidence_summary": "Cole memos 2026-09-04: DEFER as alpha; docs/crypto-strategy-memos-2026-09-04.md",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-CRYPTO-ARB-001",
+        "name": "US spot cross-venue arb CB/Kraken/Gemini",
+        "owner": "Cole",
+        "market": "crypto",
+        "status": "rejected",
+        "hypothesis": "Buy cheap / sell rich across US spot books when mid gap exceeds all-in fees",
+        "edge_source": "speed + prefunded inventory (retail lacks both)",
+        "benchmark": "fee+ACH+transfer friction band",
+        "falsify": "Max gap << fee gate on public scan OR flatten path needs ACH \u2192 reject",
+        "data_needs": "tools/crypto_md.py public books; no keys",
+        "cost_notes": "RT taker 1.2\u20132.4%; ACH holds 3\u20137 BD",
+        "capital_alloc_pct": "0",
+        "next_decision": "do not open multi-venue for this thesis",
+        "evidence_summary": "REJECT: first MD snapshot max gap ~1.8 bps vs 160\u2013220 bps gates; docs/crypto-strategy-memos + tools/out/crypto_md_*.json",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-CRYPTO-GRID-001",
+        "name": "Maker-only grid / mean-reversion majors",
+        "owner": "Cole",
+        "market": "crypto",
+        "status": "rejected",
+        "hypothesis": "Harvest range noise with post-only bids/asks when band width > maker RT",
+        "edge_source": "short-horizon mean reversion (unproven after adverse selection)",
+        "benchmark": "SGOV opportunity cost while inventory sits",
+        "falsify": "Paper expectancy <=0 after 0.40% maker/side OR toxic markouts \u2192 reject",
+        "data_needs": "public L2 + offline fill simulator; no trade keys",
+        "cost_notes": "CB maker RT 0.80%+; adverse selection; lot count",
+        "capital_alloc_pct": "0",
+        "next_decision": "do not engineer beyond cheap markout study",
+        "evidence_summary": "REJECT Phase1: maker RT + adverse selection fee-hostile; docs/crypto-strategy-memos-2026-09-04.md",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
+      },
+      {
+        "strategy_id": "S-CRYPTO-BASIS-001",
+        "name": "Perp funding / futures basis capture",
+        "owner": "Cole",
+        "market": "crypto",
+        "status": "rejected",
+        "hypothesis": "Long spot short perp to collect funding \u2014 stated only to kill under mandate",
+        "edge_source": "funding premium (requires derivatives)",
+        "benchmark": "n/a Phase1",
+        "falsify": "Mandate forbids perps/futures/margin \u2014 sufficient reject",
+        "data_needs": "none \u2014 do not install futures plugins",
+        "cost_notes": "n/a",
+        "capital_alloc_pct": "0",
+        "next_decision": "do not research under Phase1",
+        "evidence_summary": "REJECT mandate kill; not spot-adjacent; docs/crypto-strategy-memos-2026-09-04.md",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "capital_alloc_pct_note": "0 / no live capital",
+        "label": "PAPER"
       }
     ],
     "grouped": [
@@ -841,7 +879,7 @@
       },
       {
         "status": "researching",
-        "count": 5,
+        "count": 4,
         "items": [
           {
             "strategy_id": "E1-CAL",
@@ -877,25 +915,6 @@
             "capital_alloc_pct": "0",
             "next_decision": "paper IC only; capital abstain Phase1",
             "evidence_summary": "Vera securities slate 2026-09-04: abstain live; cross-market note; Reed owner",
-            "updated_ct": "2026-09-04 10:30 CT",
-            "capital_alloc_pct_note": "0 / no live capital",
-            "label": "PAPER"
-          },
-          {
-            "strategy_id": "C2-BASISOBS",
-            "name": "Crypto basis/spread observe (spot venues)",
-            "owner": "Reed",
-            "market": "crypto",
-            "status": "researching",
-            "hypothesis": "CEX spot cross-venue spreads sometimes exceed fee band \u2014 measure only",
-            "edge_source": "microstructure observation not trade",
-            "benchmark": "fee+transfer friction band",
-            "falsify": "If gaps \u2264 all-in friction for 30 observations \u2192 archive",
-            "data_needs": "public order books; no keys",
-            "cost_notes": "transfer risk + withdrawal delays; still no live",
-            "capital_alloc_pct": "0",
-            "next_decision": "write 10 observations then review",
-            "evidence_summary": "Researching public books; no account",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital",
             "label": "PAPER"
@@ -942,7 +961,7 @@
       },
       {
         "status": "idea",
-        "count": 4,
+        "count": 3,
         "items": [
           {
             "strategy_id": "E2-XVEN",
@@ -983,25 +1002,6 @@
             "label": "PAPER"
           },
           {
-            "strategy_id": "C1-SPOTOBS",
-            "name": "Crypto spot observe-only log",
-            "owner": "Holt",
-            "market": "crypto",
-            "status": "idea",
-            "hypothesis": "Document whether any Harbor info edge exists in spot crypto before opening CEX",
-            "edge_source": "none identified yet \u2014 observation",
-            "benchmark": "SGOV + do-nothing",
-            "falsify": "If 30d log shows no testable edge_source \u2192 keep deferred",
-            "data_needs": "public prices only; no API keys",
-            "cost_notes": "40\u201380bps RT retail; tax lots; sleeve cap 10%C if ever",
-            "capital_alloc_pct": "0",
-            "next_decision": "2026-10-04 or first written hypothesis",
-            "evidence_summary": "Init: observe only; no CEX",
-            "updated_ct": "2026-09-04 10:30 CT",
-            "capital_alloc_pct_note": "0 / no live capital",
-            "label": "PAPER"
-          },
-          {
             "strategy_id": "EV-NSPORT",
             "name": "Non-sports event breadth scan",
             "owner": "Holt",
@@ -1024,7 +1024,7 @@
       },
       {
         "status": "paused",
-        "count": 2,
+        "count": 3,
         "items": [
           {
             "strategy_id": "S-COREBETA",
@@ -1063,12 +1063,31 @@
             "updated_ct": "2026-09-04 11:00 CT",
             "capital_alloc_pct_note": "0 / no live capital",
             "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-CRYPTO-BH-001",
+            "name": "BTC/ETH spot hold vs SGOV",
+            "owner": "Cole",
+            "market": "crypto",
+            "status": "paused",
+            "hypothesis": "Infrequent BTC/ETH ownership is beta not Harbor trading edge after SGOV carry and fees",
+            "edge_source": "none \u2014 beta allocation not alpha",
+            "benchmark": "SGOV + BTC/ETH buyhold",
+            "falsify": "If thesis cannot name non-price info Harbor tracks OR paper post-fee excess vs SGOV <=0 over locked window",
+            "data_needs": "public Coinbase Advanced MD + SGOV yields; no keys",
+            "cost_notes": "CB base ~0.40/0.60%; sleeve cap 10%C if ever; tax lots",
+            "capital_alloc_pct": "0",
+            "next_decision": "DEFER live \u2014 optional pre-declared beta only after human allocation",
+            "evidence_summary": "Cole memos 2026-09-04: DEFER as alpha; docs/crypto-strategy-memos-2026-09-04.md",
+            "updated_ct": "2026-09-05 13:16 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
           }
         ]
       },
       {
         "status": "rejected",
-        "count": 3,
+        "count": 6,
         "items": [
           {
             "strategy_id": "S1-RELVAL",
@@ -1126,18 +1145,75 @@
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital",
             "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-CRYPTO-ARB-001",
+            "name": "US spot cross-venue arb CB/Kraken/Gemini",
+            "owner": "Cole",
+            "market": "crypto",
+            "status": "rejected",
+            "hypothesis": "Buy cheap / sell rich across US spot books when mid gap exceeds all-in fees",
+            "edge_source": "speed + prefunded inventory (retail lacks both)",
+            "benchmark": "fee+ACH+transfer friction band",
+            "falsify": "Max gap << fee gate on public scan OR flatten path needs ACH \u2192 reject",
+            "data_needs": "tools/crypto_md.py public books; no keys",
+            "cost_notes": "RT taker 1.2\u20132.4%; ACH holds 3\u20137 BD",
+            "capital_alloc_pct": "0",
+            "next_decision": "do not open multi-venue for this thesis",
+            "evidence_summary": "REJECT: first MD snapshot max gap ~1.8 bps vs 160\u2013220 bps gates; docs/crypto-strategy-memos + tools/out/crypto_md_*.json",
+            "updated_ct": "2026-09-05 13:16 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-CRYPTO-GRID-001",
+            "name": "Maker-only grid / mean-reversion majors",
+            "owner": "Cole",
+            "market": "crypto",
+            "status": "rejected",
+            "hypothesis": "Harvest range noise with post-only bids/asks when band width > maker RT",
+            "edge_source": "short-horizon mean reversion (unproven after adverse selection)",
+            "benchmark": "SGOV opportunity cost while inventory sits",
+            "falsify": "Paper expectancy <=0 after 0.40% maker/side OR toxic markouts \u2192 reject",
+            "data_needs": "public L2 + offline fill simulator; no trade keys",
+            "cost_notes": "CB maker RT 0.80%+; adverse selection; lot count",
+            "capital_alloc_pct": "0",
+            "next_decision": "do not engineer beyond cheap markout study",
+            "evidence_summary": "REJECT Phase1: maker RT + adverse selection fee-hostile; docs/crypto-strategy-memos-2026-09-04.md",
+            "updated_ct": "2026-09-05 13:16 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
+          },
+          {
+            "strategy_id": "S-CRYPTO-BASIS-001",
+            "name": "Perp funding / futures basis capture",
+            "owner": "Cole",
+            "market": "crypto",
+            "status": "rejected",
+            "hypothesis": "Long spot short perp to collect funding \u2014 stated only to kill under mandate",
+            "edge_source": "funding premium (requires derivatives)",
+            "benchmark": "n/a Phase1",
+            "falsify": "Mandate forbids perps/futures/margin \u2014 sufficient reject",
+            "data_needs": "none \u2014 do not install futures plugins",
+            "cost_notes": "n/a",
+            "capital_alloc_pct": "0",
+            "next_decision": "do not research under Phase1",
+            "evidence_summary": "REJECT mandate kill; not spot-adjacent; docs/crypto-strategy-memos-2026-09-04.md",
+            "updated_ct": "2026-09-05 13:16 CT",
+            "capital_alloc_pct_note": "0 / no live capital",
+            "label": "PAPER"
           }
         ]
       }
     ],
     "counts": {
       "shadow": 3,
-      "researching": 5,
-      "idea": 4,
-      "paused": 2,
-      "rejected": 3
+      "researching": 4,
+      "idea": 3,
+      "paused": 3,
+      "rejected": 6
     },
-    "count": 17,
+    "count": 19,
     "source": "registry/strategies.csv",
     "note": "all registry columns; capital_alloc_pct kept but no live allocation. VOLGATE OOS is not live alpha.",
     "label": "PAPER"
@@ -1515,9 +1591,9 @@
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
     "snapshot_path": "dashboard/data/snapshot.json",
-    "proposed": 9,
-    "rejected": 3,
-    "deferred": 2,
+    "proposed": 7,
+    "rejected": 6,
+    "deferred": 3,
     "shadow": 3,
     "killed": 0,
     "quinn_challenge_lessons": 8,
@@ -1579,6 +1655,30 @@
     ],
     "strategy_updated_ct_tops": [
       {
+        "strategy_id": "S-CRYPTO-BH-001",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "status": "paused",
+        "name": "BTC/ETH spot hold vs SGOV"
+      },
+      {
+        "strategy_id": "S-CRYPTO-ARB-001",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "status": "rejected",
+        "name": "US spot cross-venue arb CB/Kraken/Gemini"
+      },
+      {
+        "strategy_id": "S-CRYPTO-GRID-001",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "status": "rejected",
+        "name": "Maker-only grid / mean-reversion majors"
+      },
+      {
+        "strategy_id": "S-CRYPTO-BASIS-001",
+        "updated_ct": "2026-09-05 13:16 CT",
+        "status": "rejected",
+        "name": "Perp funding / futures basis capture"
+      },
+      {
         "strategy_id": "S-VOLGATE",
         "updated_ct": "2026-09-04 11:15 CT",
         "status": "shadow",
@@ -1627,18 +1727,6 @@
         "name": "Event-contract lead \u2192 ETF shadow"
       },
       {
-        "strategy_id": "C1-SPOTOBS",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "status": "idea",
-        "name": "Crypto spot observe-only log"
-      },
-      {
-        "strategy_id": "C2-BASISOBS",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "status": "researching",
-        "name": "Crypto basis/spread observe (spot venues)"
-      },
-      {
         "strategy_id": "EV-POLICY",
         "updated_ct": "2026-09-04 10:30 CT",
         "status": "researching",
@@ -1655,18 +1743,6 @@
         "updated_ct": "2026-09-04 10:30 CT",
         "status": "researching",
         "name": "All-in friction model library"
-      },
-      {
-        "strategy_id": "S2-FACTOR",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "status": "rejected",
-        "name": "rules-based-factor-tilt"
-      },
-      {
-        "strategy_id": "S-COREBETA",
-        "updated_ct": "2026-09-04 10:30 CT",
-        "status": "paused",
-        "name": "vti-spy-buyhold-vs-sgov"
       }
     ],
     "events": [
