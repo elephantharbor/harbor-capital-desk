@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 07:15:35 CT",
+  "generated_at_ct": "2026-09-06 07:51:33 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 07:15:35 CT",
+    "generated_at_ct": "2026-09-06 07:51:33 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -457,7 +457,9 @@
         "owner": "Holt",
         "market": "event",
         "status": "researching",
+        "originated": "2026-09-04",
         "hypothesis": "Agent my_p can beat always-quote-market on Brier after \u226550 independent forecasts",
+        "human_summary": "Score Harbor's event-forecast probabilities against the market after enough independent locks \u2014 are we better than always quoting the market?",
         "edge_source": "calibration discipline vs contaminated priors",
         "return_source": "alpha_mispricing",
         "benchmark": "market-implied Brier",
@@ -469,7 +471,9 @@
         "evidence_summary": "Wave1 contaminated sample locked; F3 killed F5 abstain; need looked_at_market_first=false rows",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Score Harbor's event-forecast probabilities against the market after enough independent locks \u2014 are we better than always quoting the market?"
       },
       {
         "strategy_id": "E2-XVEN",
@@ -477,7 +481,9 @@
         "owner": "Holt",
         "market": "event",
         "status": "idea",
+        "originated": "2026-09-04",
         "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
+        "human_summary": "Scan the same event across Kalshi, ForecastEx, and CME for price gaps big enough to clear fees and spreads.",
         "edge_source": "execution/venue microstructure",
         "return_source": "arb_rv",
         "benchmark": "fee+half-spread no-arb band",
@@ -489,7 +495,9 @@
         "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Scan the same event across Kalshi, ForecastEx, and CME for price gaps big enough to clear fees and spreads."
       },
       {
         "strategy_id": "E3-RESERVE",
@@ -497,7 +505,9 @@
         "owner": "Holt",
         "market": "securities",
         "status": "shadow",
+        "originated": "2026-09-04",
         "hypothesis": "Idle cash \u2192 SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+        "human_summary": "Park idle cash in short-term Treasury ETFs (SGOV/BIL) so money earns T-bill yield instead of sitting in near-zero broker cash. Ops plumbing, not a trading edge.",
         "edge_source": "mechanical carry (not alpha)",
         "return_source": null,
         "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
@@ -509,7 +519,9 @@
         "evidence_summary": "First live ops test submitted 2026-09-05; weekend PreSubmitted. Reserve is floor for risk ideas under return-sources mandate.",
         "updated_ct": "2026-09-06 07:15 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "SHADOW"
+        "label": "SHADOW",
+        "originated_display": "Sep 4, 2026",
+        "description": "Park idle cash in short-term Treasury ETFs (SGOV/BIL) so money earns T-bill yield instead of sitting in near-zero broker cash. Ops plumbing, not a trading edge."
       },
       {
         "strategy_id": "E4-PAIDCAL",
@@ -517,7 +529,9 @@
         "owner": "Holt",
         "market": "event",
         "status": "idea",
+        "originated": "2026-09-04",
         "hypothesis": "Small paid sizes improve calibration feedback vs paper-only",
+        "human_summary": "Once calibration is clean, place tiny paid event bets so feedback costs real money \u2014 still blocked on account/geo gates.",
         "edge_source": "paid skin-in-game on economics/policy contracts",
         "return_source": "event_driven",
         "benchmark": "E1 Brier + SGOV opportunity cost",
@@ -529,7 +543,9 @@
         "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Once calibration is clean, place tiny paid event bets so feedback costs real money \u2014 still blocked on account/geo gates."
       },
       {
         "strategy_id": "S1-RELVAL",
@@ -537,7 +553,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "ETF premium/discount or twin-band breaks mean-revert; Phase1 long cheap only",
+        "human_summary": "Rejected: tried to buy cheap ETF premium/discount dislocations without clean same-day NAV timestamps (look-ahead risk).",
         "edge_source": "creation lag / thin wrappers (episodic)",
         "return_source": "arb_rv",
         "benchmark": "SGOV when flat; VTI if beta held",
@@ -549,7 +567,9 @@
         "evidence_summary": "REJECT Phase1: no credible free PIT NAV/iNAV publish timestamps for same-day premium without look-ahead; official NAV post-close dissemination. docs/securities-memos/S1-RELVAL-REJECT-memo.md",
         "updated_ct": "2026-09-04 10:50 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: tried to buy cheap ETF premium/discount dislocations without clean same-day NAV timestamps (look-ahead risk)."
       },
       {
         "strategy_id": "S2-PMLEAD",
@@ -557,7 +577,9 @@
         "owner": "Reed",
         "market": "securities",
         "status": "researching",
+        "originated": "2026-09-04",
         "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
+        "human_summary": "Paper-test whether big moves in event contracts sometimes lead related ETFs over hours to days \u2014 no live capital until that holds after fees.",
         "edge_source": "cross-market signal (unproven)",
         "return_source": "hybrid",
         "benchmark": "buy/hold ETF shadow vs SGOV",
@@ -569,7 +591,9 @@
         "evidence_summary": "Vera securities slate 2026-09-04: abstain live; cross-market note; Reed owner",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Paper-test whether big moves in event contracts sometimes lead related ETFs over hours to days \u2014 no live capital until that holds after fees."
       },
       {
         "strategy_id": "EV-POLICY",
@@ -577,7 +601,9 @@
         "owner": "Reed",
         "market": "event",
         "status": "researching",
+        "originated": "2026-09-04",
         "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
+        "human_summary": "Specialize event forecasts on CPI, FOMC, and labor prints to see if focus beats a mixed-topic book on calibration.",
         "edge_source": "domain focus + base rates",
         "return_source": "event_driven",
         "benchmark": "market Brier on same instruments",
@@ -589,7 +615,9 @@
         "evidence_summary": "Wave1 domain start; contaminated; EM-SF-01/04 related",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Specialize event forecasts on CPI, FOMC, and labor prints to see if focus beats a mixed-topic book on calibration."
       },
       {
         "strategy_id": "EV-NSPORT",
@@ -597,7 +625,9 @@
         "owner": "Holt",
         "market": "event",
         "status": "idea",
+        "originated": "2026-09-04",
         "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
+        "human_summary": "Browse non-sports prediction-market catalogs for under-covered economics/policy names with fee-surviving mispricing.",
         "edge_source": "catalog coverage / neglected events",
         "return_source": "alpha_mispricing",
         "benchmark": "market mid + fee model",
@@ -609,7 +639,9 @@
         "evidence_summary": "State residence TBD; IL sports contested",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Browse non-sports prediction-market catalogs for under-covered economics/policy names with fee-surviving mispricing."
       },
       {
         "strategy_id": "X-FRICTION",
@@ -617,7 +649,9 @@
         "owner": "Quinn",
         "market": "event",
         "status": "researching",
+        "originated": "2026-09-04",
         "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
+        "human_summary": "Shared library that subtracts all-in fees and half-spreads before anyone claims edge \u2014 process tool, not a trade.",
         "edge_source": "fee model correctness",
         "return_source": null,
         "benchmark": "break-even edge vs quoted mid",
@@ -629,7 +663,9 @@
         "evidence_summary": "fee_model.py live on box; confirm on ticket when funded",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Shared library that subtracts all-in fees and half-spreads before anyone claims edge \u2014 process tool, not a trade."
       },
       {
         "strategy_id": "S2-FACTOR",
@@ -637,7 +673,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "Tiny value/mom/quality tilt beats VTI",
+        "human_summary": "Rejected: tiny value/momentum/quality tilts vs VTI die to rebalance costs at Harbor's small size.",
         "edge_source": "none at Harbor size",
         "return_source": "directional_beta",
         "benchmark": "VTI",
@@ -649,7 +687,9 @@
         "evidence_summary": "Vera 2026-09-04 REJECT memo S-FACTOR-REJECT",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: tiny value/momentum/quality tilts vs VTI die to rebalance costs at Harbor's small size."
       },
       {
         "strategy_id": "S-COREBETA",
@@ -657,7 +697,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "idea",
+        "originated": "2026-09-04",
         "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
+        "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
         "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
         "return_source": "directional_beta",
         "benchmark": "SGOV",
@@ -669,7 +711,9 @@
         "evidence_summary": "Sized 2026-09-05 under C=$200: $10 VTI, max loss $4, 90d exit. Next-dollar stack #2. docs/securities-directional-beta-sizing-2026-09-05.md. Not live.",
         "updated_ct": "2026-09-06 07:15 CT",
         "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill."
       },
       {
         "strategy_id": "S-PEAD",
@@ -677,7 +721,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "paused",
+        "originated": "2026-09-04",
         "hypothesis": "SUE drift over days-weeks; Phase1 long winners only",
+        "human_summary": "Deferred: classic post-earnings drift needs paid consensus surprise data we don't have; free EDGAR proxies are not PEAD.",
         "edge_source": "classic anomaly; Harbor must re-test",
         "return_source": "alpha_mispricing",
         "benchmark": "VTI and SGOV",
@@ -689,7 +735,9 @@
         "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
         "updated_ct": "2026-09-04 11:00 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Deferred: classic post-earnings drift needs paid consensus surprise data we don't have; free EDGAR proxies are not PEAD."
       },
       {
         "strategy_id": "S-VOLGATE",
@@ -697,7 +745,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "shadow",
+        "originated": "2026-09-04",
         "hypothesis": "Pre-registered VIX level gate toggles SGOV <-> VTI",
+        "human_summary": "Shadow paper test: a pre-registered VIX rule that flips between T-bills and stocks. Regime/drawdown plumbing \u2014 not a live alpha sleeve.",
         "edge_source": "risk regime rule (fragile)",
         "return_source": "hybrid",
         "benchmark": "VTI buyhold; SGOV",
@@ -709,7 +759,9 @@
         "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR\u2248S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
         "updated_ct": "2026-09-05 13:40 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "SHADOW"
+        "label": "SHADOW",
+        "originated_display": "Sep 4, 2026",
+        "description": "Shadow paper test: a pre-registered VIX rule that flips between T-bills and stocks. Regime/drawdown plumbing \u2014 not a live alpha sleeve."
       },
       {
         "strategy_id": "S-DAYSCALP-REJECT",
@@ -717,7 +769,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "Intraday momentum / 3x ETF / earnings lottery beats benchmarks",
+        "human_summary": "Rejected: day-trading, leveraged ETFs, and earnings lottery bets fail Phase-1 cost and mandate rules.",
         "edge_source": "none",
         "return_source": "momentum_trend",
         "benchmark": "SGOV/VTI",
@@ -729,7 +783,9 @@
         "evidence_summary": "Vera 2026-09-04 explicit REJECT in candidates doc",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: day-trading, leveraged ETFs, and earnings lottery bets fail Phase-1 cost and mandate rules."
       },
       {
         "strategy_id": "S-RESERVE",
@@ -737,7 +793,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "shadow",
+        "originated": "2026-09-04",
         "hypothesis": "Alias of E3-RESERVE for S- naming in securities docs",
+        "human_summary": "Doc alias of E3-RESERVE \u2014 same idea: idle cash into SGOV/BIL for T-bill yield. Use E3-RESERVE as the canonical ops id.",
         "edge_source": "opportunity cost (not alpha)",
         "return_source": null,
         "benchmark": "cash/IBKR interest",
@@ -749,7 +807,9 @@
         "evidence_summary": "Vera 2026-09-04; points to E3-RESERVE / S-RESERVE memo",
         "updated_ct": "2026-09-04 10:30 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "SHADOW"
+        "label": "SHADOW",
+        "originated_display": "Sep 4, 2026",
+        "description": "Doc alias of E3-RESERVE \u2014 same idea: idle cash into SGOV/BIL for T-bill yield. Use E3-RESERVE as the canonical ops id."
       },
       {
         "strategy_id": "S-CRYPTO-BH-001",
@@ -757,7 +817,9 @@
         "owner": "Cole",
         "market": "crypto",
         "status": "idea",
+        "originated": "2026-09-04",
         "hypothesis": "Small IBIT (BTC) ownership vs SGOV is honest directional_beta \u2014 not Harbor alpha; sized candidate on IBKR",
+        "human_summary": "Own a tiny Bitcoin exposure via IBIT on IBKR and compare it to T-bill yield. Directional crypto beta, not Harbor trading alpha.",
         "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
         "return_source": "directional_beta",
         "benchmark": "SGOV; IBIT/BTC tracking secondary",
@@ -769,7 +831,9 @@
         "evidence_summary": "Sized candidate 2026-09-05: ~$4 IBIT on IBKR; same correlated book as VTI. docs/crypto-memos/S-CRYPTO-BH-001-sized-candidate-2026-09-05.md. Not live.",
         "updated_ct": "2026-09-06 07:15 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Own a tiny Bitcoin exposure via IBIT on IBKR and compare it to T-bill yield. Directional crypto beta, not Harbor trading alpha."
       },
       {
         "strategy_id": "S-CRYPTO-ARB-001",
@@ -777,7 +841,9 @@
         "owner": "Cole",
         "market": "crypto",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "Buy cheap / sell rich across US spot books when mid gap exceeds all-in fees",
+        "human_summary": "Rejected: US spot cross-venue gaps were far smaller than the fee and transfer friction needed to arb them.",
         "edge_source": "speed + prefunded inventory (retail lacks both)",
         "return_source": "arb_rv",
         "benchmark": "fee+ACH+transfer friction band",
@@ -789,7 +855,9 @@
         "evidence_summary": "REJECT: first MD snapshot max gap ~1.8 bps vs 160\u2013220 bps gates; docs/crypto-strategy-memos + tools/out/crypto_md_*.json",
         "updated_ct": "2026-09-05 13:16 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: US spot cross-venue gaps were far smaller than the fee and transfer friction needed to arb them."
       },
       {
         "strategy_id": "S-CRYPTO-GRID-001",
@@ -797,7 +865,9 @@
         "owner": "Cole",
         "market": "crypto",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "Harvest range noise with post-only bids/asks when band width > maker RT",
+        "human_summary": "Rejected: maker-only grid/mean-reversion on majors is fee-hostile once adverse selection is counted.",
         "edge_source": "short-horizon mean reversion (unproven after adverse selection)",
         "return_source": "hybrid",
         "benchmark": "SGOV opportunity cost while inventory sits",
@@ -809,7 +879,9 @@
         "evidence_summary": "REJECT Phase1: maker RT + adverse selection fee-hostile; docs/crypto-strategy-memos-2026-09-04.md",
         "updated_ct": "2026-09-05 13:16 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: maker-only grid/mean-reversion on majors is fee-hostile once adverse selection is counted."
       },
       {
         "strategy_id": "S-CRYPTO-BASIS-001",
@@ -817,7 +889,9 @@
         "owner": "Cole",
         "market": "crypto",
         "status": "rejected",
+        "originated": "2026-09-04",
         "hypothesis": "Long spot short perp to collect funding \u2014 stated only to kill under mandate",
+        "human_summary": "Rejected: perpetual/futures basis capture needs derivatives banned under Phase 1.",
         "edge_source": "funding premium (requires derivatives)",
         "return_source": "arb_rv",
         "benchmark": "n/a Phase1",
@@ -829,7 +903,9 @@
         "evidence_summary": "REJECT mandate kill; not spot-adjacent; docs/crypto-strategy-memos-2026-09-04.md",
         "updated_ct": "2026-09-05 13:16 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 4, 2026",
+        "description": "Rejected: perpetual/futures basis capture needs derivatives banned under Phase 1."
       },
       {
         "strategy_id": "S-TAA-6040",
@@ -837,7 +913,9 @@
         "owner": "Vera",
         "market": "securities",
         "status": "idea",
+        "originated": "2026-09-05",
         "hypothesis": "Fixed 60/40 VTI/SGOV on $15 sleeve bucket harvests partial equity premium with less path DD than 100% VTI",
+        "human_summary": "Keep a fixed 60/40 mix of stocks (VTI) and T-bills (SGOV) on a small sleeve \u2014 some equity premium with less path drawdown than all-stocks. Static risk budget, not timing.",
         "edge_source": "static risk budget \u2014 not timing",
         "return_source": "directional_beta",
         "benchmark": "SGOV; 100% VTI",
@@ -849,7 +927,9 @@
         "evidence_summary": "Sized 2026-09-05: $15 bucket (~$9 VTI+$6 SGOV). docs/securities-memos/S-TAA-6040-memo.md",
         "updated_ct": "2026-09-06 07:15 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 5, 2026",
+        "description": "Keep a fixed 60/40 mix of stocks (VTI) and T-bills (SGOV) on a small sleeve \u2014 some equity premium with less path drawdown than all-stocks. Static risk budget, not timing."
       },
       {
         "strategy_id": "EM-DIR-01",
@@ -857,7 +937,9 @@
         "owner": "Reed",
         "market": "event",
         "status": "researching",
+        "originated": "2026-09-05",
         "hypothesis": "Small capped-loss directional view on near-term CPI/FOMC binaries when post-fee EV vs SGOV clears from a locked thesis",
+        "human_summary": "Small, capped-loss yes/no bets on near-term Fed or inflation event contracts when a written thesis says expected payoff after fees beats cash or T-bills.",
         "edge_source": "written directional thesis + fee-aware EV (not beat-the-mid alpha)",
         "return_source": "event_driven",
         "benchmark": "SGOV / cash opportunity cost over hold",
@@ -869,7 +951,9 @@
         "evidence_summary": "One-pager + Quinn PASS WITH CONDITIONS 2026-09-05; FOMC cluster not transmit-ready. registry/EM-DIR-01 + docs/em-dir-01-onepager-2026-09-05.md. Not live.",
         "updated_ct": "2026-09-06 07:15 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
-        "label": "PAPER"
+        "label": "PAPER",
+        "originated_display": "Sep 5, 2026",
+        "description": "Small, capped-loss yes/no bets on near-term Fed or inflation event contracts when a written thesis says expected payoff after fees beats cash or T-bills."
       }
     ],
     "grouped": [
@@ -883,7 +967,9 @@
             "owner": "Holt",
             "market": "securities",
             "status": "shadow",
+            "originated": "2026-09-04",
             "hypothesis": "Idle cash \u2192 SGOV/BIL beats IBKR 0pct first $10k / checking drag",
+            "human_summary": "Park idle cash in short-term Treasury ETFs (SGOV/BIL) so money earns T-bill yield instead of sitting in near-zero broker cash. Ops plumbing, not a trading edge.",
             "edge_source": "mechanical carry (not alpha)",
             "return_source": null,
             "benchmark": "cash/IBKR interest; SGOV is floor for risk ideas",
@@ -895,7 +981,9 @@
             "evidence_summary": "First live ops test submitted 2026-09-05; weekend PreSubmitted. Reserve is floor for risk ideas under return-sources mandate.",
             "updated_ct": "2026-09-06 07:15 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "SHADOW"
+            "label": "SHADOW",
+            "originated_display": "Sep 4, 2026",
+            "description": "Park idle cash in short-term Treasury ETFs (SGOV/BIL) so money earns T-bill yield instead of sitting in near-zero broker cash. Ops plumbing, not a trading edge."
           },
           {
             "strategy_id": "S-VOLGATE",
@@ -903,7 +991,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "shadow",
+            "originated": "2026-09-04",
             "hypothesis": "Pre-registered VIX level gate toggles SGOV <-> VTI",
+            "human_summary": "Shadow paper test: a pre-registered VIX rule that flips between T-bills and stocks. Regime/drawdown plumbing \u2014 not a live alpha sleeve.",
             "edge_source": "risk regime rule (fragile)",
             "return_source": "hybrid",
             "benchmark": "VTI buyhold; SGOV",
@@ -915,7 +1005,9 @@
             "evidence_summary": "Quinn OOS: primary maxDD PASS; approved_experiment DENIED (TR\u2248S-RESERVE). Holt: not live sleeve candidate. docs/quinn-oos-volgate-2026-09-04.md",
             "updated_ct": "2026-09-05 13:40 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "SHADOW"
+            "label": "SHADOW",
+            "originated_display": "Sep 4, 2026",
+            "description": "Shadow paper test: a pre-registered VIX rule that flips between T-bills and stocks. Regime/drawdown plumbing \u2014 not a live alpha sleeve."
           },
           {
             "strategy_id": "S-RESERVE",
@@ -923,7 +1015,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "shadow",
+            "originated": "2026-09-04",
             "hypothesis": "Alias of E3-RESERVE for S- naming in securities docs",
+            "human_summary": "Doc alias of E3-RESERVE \u2014 same idea: idle cash into SGOV/BIL for T-bill yield. Use E3-RESERVE as the canonical ops id.",
             "edge_source": "opportunity cost (not alpha)",
             "return_source": null,
             "benchmark": "cash/IBKR interest",
@@ -935,7 +1029,9 @@
             "evidence_summary": "Vera 2026-09-04; points to E3-RESERVE / S-RESERVE memo",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "SHADOW"
+            "label": "SHADOW",
+            "originated_display": "Sep 4, 2026",
+            "description": "Doc alias of E3-RESERVE \u2014 same idea: idle cash into SGOV/BIL for T-bill yield. Use E3-RESERVE as the canonical ops id."
           }
         ]
       },
@@ -949,7 +1045,9 @@
             "owner": "Holt",
             "market": "event",
             "status": "researching",
+            "originated": "2026-09-04",
             "hypothesis": "Agent my_p can beat always-quote-market on Brier after \u226550 independent forecasts",
+            "human_summary": "Score Harbor's event-forecast probabilities against the market after enough independent locks \u2014 are we better than always quoting the market?",
             "edge_source": "calibration discipline vs contaminated priors",
             "return_source": "alpha_mispricing",
             "benchmark": "market-implied Brier",
@@ -961,7 +1059,9 @@
             "evidence_summary": "Wave1 contaminated sample locked; F3 killed F5 abstain; need looked_at_market_first=false rows",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Score Harbor's event-forecast probabilities against the market after enough independent locks \u2014 are we better than always quoting the market?"
           },
           {
             "strategy_id": "S2-PMLEAD",
@@ -969,7 +1069,9 @@
             "owner": "Reed",
             "market": "securities",
             "status": "researching",
+            "originated": "2026-09-04",
             "hypothesis": "Large event-contract moves sometimes lead related ETF over hours-days",
+            "human_summary": "Paper-test whether big moves in event contracts sometimes lead related ETFs over hours to days \u2014 no live capital until that holds after fees.",
             "edge_source": "cross-market signal (unproven)",
             "return_source": "hybrid",
             "benchmark": "buy/hold ETF shadow vs SGOV",
@@ -981,7 +1083,9 @@
             "evidence_summary": "Vera securities slate 2026-09-04: abstain live; cross-market note; Reed owner",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Paper-test whether big moves in event contracts sometimes lead related ETFs over hours to days \u2014 no live capital until that holds after fees."
           },
           {
             "strategy_id": "EV-POLICY",
@@ -989,7 +1093,9 @@
             "owner": "Reed",
             "market": "event",
             "status": "researching",
+            "originated": "2026-09-04",
             "hypothesis": "Specializing on CPI/FOMC/labor prints improves Brier vs mixed topics",
+            "human_summary": "Specialize event forecasts on CPI, FOMC, and labor prints to see if focus beats a mixed-topic book on calibration.",
             "edge_source": "domain focus + base rates",
             "return_source": "event_driven",
             "benchmark": "market Brier on same instruments",
@@ -1001,7 +1107,9 @@
             "evidence_summary": "Wave1 domain start; contaminated; EM-SF-01/04 related",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Specialize event forecasts on CPI, FOMC, and labor prints to see if focus beats a mixed-topic book on calibration."
           },
           {
             "strategy_id": "X-FRICTION",
@@ -1009,7 +1117,9 @@
             "owner": "Quinn",
             "market": "event",
             "status": "researching",
+            "originated": "2026-09-04",
             "hypothesis": "Pre-trade EV must subtract Kalshi quadratic + IBKR flat + half-spread or edge is fake",
+            "human_summary": "Shared library that subtracts all-in fees and half-spreads before anyone claims edge \u2014 process tool, not a trade.",
             "edge_source": "fee model correctness",
             "return_source": null,
             "benchmark": "break-even edge vs quoted mid",
@@ -1021,7 +1131,9 @@
             "evidence_summary": "fee_model.py live on box; confirm on ticket when funded",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Shared library that subtracts all-in fees and half-spreads before anyone claims edge \u2014 process tool, not a trade."
           },
           {
             "strategy_id": "EM-DIR-01",
@@ -1029,7 +1141,9 @@
             "owner": "Reed",
             "market": "event",
             "status": "researching",
+            "originated": "2026-09-05",
             "hypothesis": "Small capped-loss directional view on near-term CPI/FOMC binaries when post-fee EV vs SGOV clears from a locked thesis",
+            "human_summary": "Small, capped-loss yes/no bets on near-term Fed or inflation event contracts when a written thesis says expected payoff after fees beats cash or T-bills.",
             "edge_source": "written directional thesis + fee-aware EV (not beat-the-mid alpha)",
             "return_source": "event_driven",
             "benchmark": "SGOV / cash opportunity cost over hold",
@@ -1041,7 +1155,9 @@
             "evidence_summary": "One-pager + Quinn PASS WITH CONDITIONS 2026-09-05; FOMC cluster not transmit-ready. registry/EM-DIR-01 + docs/em-dir-01-onepager-2026-09-05.md. Not live.",
             "updated_ct": "2026-09-06 07:15 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 5, 2026",
+            "description": "Small, capped-loss yes/no bets on near-term Fed or inflation event contracts when a written thesis says expected payoff after fees beats cash or T-bills."
           }
         ]
       },
@@ -1055,7 +1171,9 @@
             "owner": "Holt",
             "market": "event",
             "status": "idea",
+            "originated": "2026-09-04",
             "hypothesis": "Kalshi vs ForecastEx vs CME same-event mids sometimes diverge > fees+spread",
+            "human_summary": "Scan the same event across Kalshi, ForecastEx, and CME for price gaps big enough to clear fees and spreads.",
             "edge_source": "execution/venue microstructure",
             "return_source": "arb_rv",
             "benchmark": "fee+half-spread no-arb band",
@@ -1067,7 +1185,9 @@
             "evidence_summary": "Init E2; nowhere-yet prior from venue fold; see also EM-SF-02",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Scan the same event across Kalshi, ForecastEx, and CME for price gaps big enough to clear fees and spreads."
           },
           {
             "strategy_id": "E4-PAIDCAL",
@@ -1075,7 +1195,9 @@
             "owner": "Holt",
             "market": "event",
             "status": "idea",
+            "originated": "2026-09-04",
             "hypothesis": "Small paid sizes improve calibration feedback vs paper-only",
+            "human_summary": "Once calibration is clean, place tiny paid event bets so feedback costs real money \u2014 still blocked on account/geo gates.",
             "edge_source": "paid skin-in-game on economics/policy contracts",
             "return_source": "event_driven",
             "benchmark": "E1 Brier + SGOV opportunity cost",
@@ -1087,7 +1209,9 @@
             "evidence_summary": "Blocked on C KYC geo; size rules pre-written",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Once calibration is clean, place tiny paid event bets so feedback costs real money \u2014 still blocked on account/geo gates."
           },
           {
             "strategy_id": "EV-NSPORT",
@@ -1095,7 +1219,9 @@
             "owner": "Holt",
             "market": "event",
             "status": "idea",
+            "originated": "2026-09-04",
             "hypothesis": "Non-sports DCM catalog has under-covered economics/policy names with mispriced tails",
+            "human_summary": "Browse non-sports prediction-market catalogs for under-covered economics/policy names with fee-surviving mispricing.",
             "edge_source": "catalog coverage / neglected events",
             "return_source": "alpha_mispricing",
             "benchmark": "market mid + fee model",
@@ -1107,7 +1233,9 @@
             "evidence_summary": "State residence TBD; IL sports contested",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Browse non-sports prediction-market catalogs for under-covered economics/policy names with fee-surviving mispricing."
           },
           {
             "strategy_id": "S-COREBETA",
@@ -1115,7 +1243,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "idea",
+            "originated": "2026-09-04",
             "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
+            "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
             "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
             "return_source": "directional_beta",
             "benchmark": "SGOV",
@@ -1127,7 +1257,9 @@
             "evidence_summary": "Sized 2026-09-05 under C=$200: $10 VTI, max loss $4, 90d exit. Next-dollar stack #2. docs/securities-directional-beta-sizing-2026-09-05.md. Not live.",
             "updated_ct": "2026-09-06 07:15 CT",
             "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill."
           },
           {
             "strategy_id": "S-CRYPTO-BH-001",
@@ -1135,7 +1267,9 @@
             "owner": "Cole",
             "market": "crypto",
             "status": "idea",
+            "originated": "2026-09-04",
             "hypothesis": "Small IBIT (BTC) ownership vs SGOV is honest directional_beta \u2014 not Harbor alpha; sized candidate on IBKR",
+            "human_summary": "Own a tiny Bitcoin exposure via IBIT on IBKR and compare it to T-bill yield. Directional crypto beta, not Harbor trading alpha.",
             "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
             "return_source": "directional_beta",
             "benchmark": "SGOV; IBIT/BTC tracking secondary",
@@ -1147,7 +1281,9 @@
             "evidence_summary": "Sized candidate 2026-09-05: ~$4 IBIT on IBKR; same correlated book as VTI. docs/crypto-memos/S-CRYPTO-BH-001-sized-candidate-2026-09-05.md. Not live.",
             "updated_ct": "2026-09-06 07:15 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Own a tiny Bitcoin exposure via IBIT on IBKR and compare it to T-bill yield. Directional crypto beta, not Harbor trading alpha."
           },
           {
             "strategy_id": "S-TAA-6040",
@@ -1155,7 +1291,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "idea",
+            "originated": "2026-09-05",
             "hypothesis": "Fixed 60/40 VTI/SGOV on $15 sleeve bucket harvests partial equity premium with less path DD than 100% VTI",
+            "human_summary": "Keep a fixed 60/40 mix of stocks (VTI) and T-bills (SGOV) on a small sleeve \u2014 some equity premium with less path drawdown than all-stocks. Static risk budget, not timing.",
             "edge_source": "static risk budget \u2014 not timing",
             "return_source": "directional_beta",
             "benchmark": "SGOV; 100% VTI",
@@ -1167,7 +1305,9 @@
             "evidence_summary": "Sized 2026-09-05: $15 bucket (~$9 VTI+$6 SGOV). docs/securities-memos/S-TAA-6040-memo.md",
             "updated_ct": "2026-09-06 07:15 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 5, 2026",
+            "description": "Keep a fixed 60/40 mix of stocks (VTI) and T-bills (SGOV) on a small sleeve \u2014 some equity premium with less path drawdown than all-stocks. Static risk budget, not timing."
           }
         ]
       },
@@ -1181,7 +1321,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "paused",
+            "originated": "2026-09-04",
             "hypothesis": "SUE drift over days-weeks; Phase1 long winners only",
+            "human_summary": "Deferred: classic post-earnings drift needs paid consensus surprise data we don't have; free EDGAR proxies are not PEAD.",
             "edge_source": "classic anomaly; Harbor must re-test",
             "return_source": "alpha_mispricing",
             "benchmark": "VTI and SGOV",
@@ -1193,7 +1335,9 @@
             "evidence_summary": "DEFERRED (Quinn-B). Not researching. No RW ledger as PEAD. docs/securities-memos/S-PEAD-DEFER-memo.md",
             "updated_ct": "2026-09-04 11:00 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Deferred: classic post-earnings drift needs paid consensus surprise data we don't have; free EDGAR proxies are not PEAD."
           }
         ]
       },
@@ -1207,7 +1351,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "ETF premium/discount or twin-band breaks mean-revert; Phase1 long cheap only",
+            "human_summary": "Rejected: tried to buy cheap ETF premium/discount dislocations without clean same-day NAV timestamps (look-ahead risk).",
             "edge_source": "creation lag / thin wrappers (episodic)",
             "return_source": "arb_rv",
             "benchmark": "SGOV when flat; VTI if beta held",
@@ -1219,7 +1365,9 @@
             "evidence_summary": "REJECT Phase1: no credible free PIT NAV/iNAV publish timestamps for same-day premium without look-ahead; official NAV post-close dissemination. docs/securities-memos/S1-RELVAL-REJECT-memo.md",
             "updated_ct": "2026-09-04 10:50 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: tried to buy cheap ETF premium/discount dislocations without clean same-day NAV timestamps (look-ahead risk)."
           },
           {
             "strategy_id": "S2-FACTOR",
@@ -1227,7 +1375,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "Tiny value/mom/quality tilt beats VTI",
+            "human_summary": "Rejected: tiny value/momentum/quality tilts vs VTI die to rebalance costs at Harbor's small size.",
             "edge_source": "none at Harbor size",
             "return_source": "directional_beta",
             "benchmark": "VTI",
@@ -1239,7 +1389,9 @@
             "evidence_summary": "Vera 2026-09-04 REJECT memo S-FACTOR-REJECT",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: tiny value/momentum/quality tilts vs VTI die to rebalance costs at Harbor's small size."
           },
           {
             "strategy_id": "S-DAYSCALP-REJECT",
@@ -1247,7 +1399,9 @@
             "owner": "Vera",
             "market": "securities",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "Intraday momentum / 3x ETF / earnings lottery beats benchmarks",
+            "human_summary": "Rejected: day-trading, leveraged ETFs, and earnings lottery bets fail Phase-1 cost and mandate rules.",
             "edge_source": "none",
             "return_source": "momentum_trend",
             "benchmark": "SGOV/VTI",
@@ -1259,7 +1413,9 @@
             "evidence_summary": "Vera 2026-09-04 explicit REJECT in candidates doc",
             "updated_ct": "2026-09-04 10:30 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: day-trading, leveraged ETFs, and earnings lottery bets fail Phase-1 cost and mandate rules."
           },
           {
             "strategy_id": "S-CRYPTO-ARB-001",
@@ -1267,7 +1423,9 @@
             "owner": "Cole",
             "market": "crypto",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "Buy cheap / sell rich across US spot books when mid gap exceeds all-in fees",
+            "human_summary": "Rejected: US spot cross-venue gaps were far smaller than the fee and transfer friction needed to arb them.",
             "edge_source": "speed + prefunded inventory (retail lacks both)",
             "return_source": "arb_rv",
             "benchmark": "fee+ACH+transfer friction band",
@@ -1279,7 +1437,9 @@
             "evidence_summary": "REJECT: first MD snapshot max gap ~1.8 bps vs 160\u2013220 bps gates; docs/crypto-strategy-memos + tools/out/crypto_md_*.json",
             "updated_ct": "2026-09-05 13:16 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: US spot cross-venue gaps were far smaller than the fee and transfer friction needed to arb them."
           },
           {
             "strategy_id": "S-CRYPTO-GRID-001",
@@ -1287,7 +1447,9 @@
             "owner": "Cole",
             "market": "crypto",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "Harvest range noise with post-only bids/asks when band width > maker RT",
+            "human_summary": "Rejected: maker-only grid/mean-reversion on majors is fee-hostile once adverse selection is counted.",
             "edge_source": "short-horizon mean reversion (unproven after adverse selection)",
             "return_source": "hybrid",
             "benchmark": "SGOV opportunity cost while inventory sits",
@@ -1299,7 +1461,9 @@
             "evidence_summary": "REJECT Phase1: maker RT + adverse selection fee-hostile; docs/crypto-strategy-memos-2026-09-04.md",
             "updated_ct": "2026-09-05 13:16 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: maker-only grid/mean-reversion on majors is fee-hostile once adverse selection is counted."
           },
           {
             "strategy_id": "S-CRYPTO-BASIS-001",
@@ -1307,7 +1471,9 @@
             "owner": "Cole",
             "market": "crypto",
             "status": "rejected",
+            "originated": "2026-09-04",
             "hypothesis": "Long spot short perp to collect funding \u2014 stated only to kill under mandate",
+            "human_summary": "Rejected: perpetual/futures basis capture needs derivatives banned under Phase 1.",
             "edge_source": "funding premium (requires derivatives)",
             "return_source": "arb_rv",
             "benchmark": "n/a Phase1",
@@ -1319,7 +1485,9 @@
             "evidence_summary": "REJECT mandate kill; not spot-adjacent; docs/crypto-strategy-memos-2026-09-04.md",
             "updated_ct": "2026-09-05 13:16 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER"
+            "label": "PAPER",
+            "originated_display": "Sep 4, 2026",
+            "description": "Rejected: perpetual/futures basis capture needs derivatives banned under Phase 1."
           }
         ]
       }
@@ -1333,7 +1501,7 @@
     },
     "count": 21,
     "source": "registry/strategies.csv",
-    "note": "Registry columns incl. return_source. Stage badges=PAPER/SHADOW/LIVE (not brokerage mode). VOLGATE OOS is not live alpha.",
+    "note": "Registry columns incl. return_source, originated, human_summary. Stage badges=PAPER/SHADOW/LIVE (not brokerage mode). VOLGATE OOS is not live alpha. Hover \u24d8 for plain-English tip.",
     "label": "PAPER"
   },
   "forecasts": {

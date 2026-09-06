@@ -31,6 +31,28 @@
     return `<span class="tip" title="${esc(t)}">${esc(label)}</span>`;
   }
 
+  /** Info tip icon (hover/focus title) — progressive disclosure for longer plain-English text. */
+  function infoTip(text, aria) {
+    const t = String(text || "").trim();
+    if (!t) return "";
+    const label = aria || "More info";
+    return `<span class="tip info-tip" title="${esc(t)}" tabindex="0" role="img" aria-label="${esc(label)}">ⓘ</span>`;
+  }
+
+  /** Format strategy origination date for cards (Sep 3, 2026). Prefer snapshot originated_display. */
+  function formatOriginated(s) {
+    if (!s) return null;
+    if (s.originated_display) return String(s.originated_display);
+    const raw = String(s.originated || s.originated_ct || s.created || s.first_seen || "").trim();
+    if (!raw) return null;
+    const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+    if (!m) return raw;
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const mi = Number(m[2]);
+    if (!(mi >= 1 && mi <= 12)) return raw;
+    return months[mi - 1] + " " + Number(m[3]) + ", " + m[1];
+  }
+
   /** Format a number (or numeric string) as user-facing USD: $200.00 — never invent values. */
   function formatUsd(n) {
     if (n == null || n === "" || n === "—" || n === "N/A") return null;
@@ -643,10 +665,14 @@
         const cards = (grp.items || [])
           .map((s) => {
             const reject = plainRejectReason(s);
+            const summary = String(s.human_summary || s.description || s.tip || "").trim();
+            const started = formatOriginated(s);
+            const startedLabel = started || "Origin unknown";
             return `
           <div class="strat-card">
-            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${statusBadge(s.status)}</div>
+            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${infoTip(summary, "What this strategy is testing")} ${statusBadge(s.status)}</div>
             <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)} · ${esc(s.market)}${s.return_source ? ` · ${esc(s.return_source)}` : ""}</div>
+            <div class="row-plain"><span class="k">Started</span><span class="v">${esc(startedLabel)}</span></div>
             <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(s.hypothesis || "")}</span></div>
             <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(s.evidence_summary || "")}</span></div>
             <div class="row-plain"><span class="k">Next</span><span class="v">${esc(s.next_decision || "")}</span></div>
