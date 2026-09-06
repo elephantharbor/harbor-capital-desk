@@ -707,7 +707,7 @@
       options: "No live options positions. Defined-risk research only — nothing invented. Columns lead with thesis / max loss / how going when live.",
       event: "No open event / prediction-market contracts.",
       crypto: "No open crypto spot (e.g. IBIT) — not transmitted yet.",
-      sports: "Sports research-only — no live wagers. At-risk = stake when live. Sportsbook never mixes with IBKR.",
+      sports: "Independent-forecast methodology (no ML). PERSONAL vs HARBOR LIVE/SHADOW tags. No live Harbor wagers invented — $0 open. At-risk = stake when live. Never mixes with IBKR.",
     };
     if (!rows || !rows.length) {
       let empty = emptyState(
@@ -722,7 +722,7 @@
       } else if (marketId === "sports") {
         empty += `<div class="table-wrap" style="margin-top:8px"><table class="data">
           <thead><tr>${sportsPositionColumns().map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
-          <tbody><tr><td colspan="9" class="dim">Empty — intentional (setting up / researching)</td></tr></tbody>
+          <tbody><tr><td colspan="9" class="dim">Empty — intentional (Ready / human execution; independent-forecast; no invented picks)</td></tr></tbody>
         </table></div>`;
       }
       return empty;
@@ -964,7 +964,7 @@
         <p class="muted">${esc(SNAP.strategies?.note || "")}</p>
         ${filterHtml}
         ${optNote && !(optNote.count > 0) ? "" : ""}
-        ${sportsNote && (sportsNote.count || 0) === 0 ? `<div class="callout info">${marketBadge("sports")} No sports strategies yet — research-only; no live wagers.</div>` : ""}
+        ${sportsNote && (sportsNote.count || 0) === 0 ? `<div class="callout info">${marketBadge("sports")} No sports strategies yet — independent-forecast process; PERSONAL vs HARBOR tags; no invented live wagers.</div>` : ""}
         ${groupsHtml || emptyState("No strategies", "registry empty")}
       </div>`;
   }
