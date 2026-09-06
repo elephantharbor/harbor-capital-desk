@@ -15,6 +15,62 @@
     Falsify: "When we abandon — pre-committed kill condition",
     "mid-promote": "Eligible for further consideration (tight clean book)",
     "mid-promote eligible": "Eligible for further consideration (tight clean book)",
+    CLV: "Closing-line value — whether our entry beat the closing market line",
+    EV: "Expected value — modeled edge after fees / vig",
+    SGOV: "iShares 0–3 Month Treasury ETF — T-bill-like cash park",
+    BIL: "SPDR 1–3 Month T-Bill ETF — short Treasury cash park",
+    COREBETA: "Core beta sleeve — broad equity exposure (e.g. VTI buy/hold)",
+    VTI: "Vanguard Total Stock Market ETF — broad US equity beta",
+    NANOS: "Cboe Nano options ($1 multiplier) — small defined-risk S&P exposure",
+    S: "Sports sleeve capital — separate DraftKings Harbor pot (not IBKR NAV)",
+    "sleeve S": "Sports sleeve (S) — separate DraftKings Harbor pot (not IBKR NAV)",
+    "Sports sleeve (S)": "Separate DraftKings Harbor sports pot — never mixed into IBKR LIVE NAV",
+    PreSubmitted: "Broker accepted the order but it is not filled yet",
+    DK: "DraftKings — Harbor sports venue for tagged tickets",
+    FD: "FanDuel — line-shop reference only for Harbor (not the stake venue)",
+    BINDING: "Agreed risk limit now in force",
+    "EM-DIR-01": "Event-markets directional research — Harbor probability vs market-implied",
+    "return_source": "How a strategy claims to make money (research tag until live P&L exists)",
+  };
+
+  const MEANINGFUL_STAGE_LABELS = new Set([
+    "LIVE",
+    "PAPER",
+    "SHADOW",
+    "BACKTEST",
+    "SPORTSBOOK",
+    "RESEARCH",
+  ]);
+
+  const STRATEGY_DISPLAY_NAMES = {
+    "long-nanos-directional": "Long NANOS directional",
+    "nanos-debit-vertical": "NANOS debit vertical",
+    "spy-cheap-otm-long": "SPY cheap OTM long",
+    "xsp-atm-long": "XSP ATM long",
+    "credit-spreads-csp": "Credit spreads / cash-secured puts",
+    "static-60-40-vti-sgov-taa": "Static 60/40 VTI–SGOV TAA",
+    "vti-spy-buyhold-vs-sgov": "VTI/SPY buy-hold vs SGOV",
+    "post-earnings-announcement-drift": "Post-earnings announcement drift",
+    "daytrade-scalp-levetf-earnings-lottery": "Daytrade / levETF / earnings lottery",
+    "rules-based-factor-tilt": "Rules-based factor tilt",
+    "sgov-bil-reserve-alias": "SGOV/BIL reserve (alias)",
+    "vol-gate-sgov-vs-spy-vti": "Vol-gate SGOV vs SPY/VTI",
+  };
+
+  const COLUMN_HEADERS = {
+    thesis: "Thesis",
+    max_loss: "Max loss",
+    how_going: "How going",
+    symbol: "Symbol",
+    qty: "Qty",
+    source: "Source",
+    status: "Status",
+    event: "Event",
+    side: "Side",
+    odds: "Odds",
+    stake: "Stake",
+    clv: "Closing-line value (CLV)",
+    return_source: "Return source",
   };
 
   function esc(s) {
@@ -37,6 +93,103 @@
     if (!t) return "";
     const label = aria || "More info";
     return `<span class="tip info-tip" title="${esc(t)}" tabindex="0" role="img" aria-label="${esc(label)}">ⓘ</span>`;
+  }
+
+  function colHeader(key) {
+    if (COLUMN_HEADERS[key]) return COLUMN_HEADERS[key];
+    return String(key || "")
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (c) => c.toUpperCase());
+  }
+
+  function strategyDisplayName(s) {
+    const raw = String((s && (s.display_name || s.name)) || "").trim();
+    if (!raw) return String((s && s.strategy_id) || "Unnamed");
+    if (STRATEGY_DISPLAY_NAMES[raw]) return STRATEGY_DISPLAY_NAMES[raw];
+    if (/^[a-z0-9]+(-[a-z0-9]+)+$/.test(raw)) {
+      const keep = new Set(["nanos", "sgov", "bil", "vti", "spy", "xsp", "etf", "atm", "otm", "taa", "csp", "clv", "ev"]);
+      return raw
+        .split("-")
+        .map((w) => (keep.has(w) ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1)))
+        .join(" ");
+    }
+    return raw;
+  }
+
+  function humanStatusLabel(st) {
+    const raw = String(st || "").trim();
+    if (!raw) return "unknown";
+    const s = raw.toLowerCase();
+    if (s.includes("ops-pending") || s === "setting up / active ops-pending") {
+      return "Ops pending — no open risk";
+    }
+    if (s.includes("ready") && s.includes("human execution")) {
+      return "Ready — you place Harbor tickets";
+    }
+    if (s === "ready") return "Ready — you place Harbor tickets";
+    if (s.includes("full reserve")) return "Full reserve — cash parked";
+    if (s === "researching") return "Researching";
+    if (s === "deferred") return "Deferred";
+    return softenThomasCopy(raw);
+  }
+
+  function softenThomasCopy(text) {
+    let t = String(text ?? "");
+    if (!t) return t;
+    t = t.replace(/Setting up \/ Active ops-pending/gi, "Ops pending — no open risk");
+    t = t.replace(/Active ops-pending/gi, "ops pending — no open risk");
+    t = t.replace(/Ready \/ human execution/gi, "Ready — you place Harbor tickets");
+    t = t.replace(/\bhuman execution\b/gi, "you place Harbor tickets");
+    t = t.replace(/Quinn-cleared/gi, "cleared for placement");
+    t = t.replace(/Quinn-accepted/gi, "desk-accepted");
+    t = t.replace(/FD shop\s*[−\-]\s*(\d+)/gi, "FanDuel line-shop −$1");
+    t = t.replace(/\bFD shop\b/gi, "FanDuel line-shop");
+    t = t.replace(/\bEM-DIR-01\b/g, "event directional research (Harbor p vs market)");
+    // First-class expansions for common desk jargon (avoid double-wrapping)
+    if (!/closing-line value \(CLV\)/i.test(t)) {
+      t = t.replace(/\bClosing line \(CLV\)/gi, "Closing-line value (CLV)");
+      t = t.replace(/\bCLV\b/g, "closing-line value (CLV)");
+    }
+    if (!/Sports sleeve \(S\)/i.test(t)) {
+      t = t.replace(/\bSleeve S\b/gi, "Sports sleeve (S)");
+      t = t.replace(/\bBINDING S=/gi, "Sports sleeve (S)=");
+    }
+    if (!/SGOV \(/i.test(t)) t = t.replace(/\bSGOV\b/g, "SGOV (T-bill ETF)");
+    if (!/COREBETA \(/i.test(t)) t = t.replace(/\bCOREBETA\b/g, "COREBETA (VTI core beta)");
+    if (!/NANOS \(/i.test(t)) t = t.replace(/\bNANOS\b/g, "NANOS (Nano options)");
+    return t;
+  }
+
+  function marketDetailLinkLabel(m) {
+    const id = String(m.id || "");
+    if (id === "cash_reserve") return "Open Overview";
+    const name = (MARKET_META[id] && MARKET_META[id].label) || m.name || id;
+    return "Open " + name + " desk";
+  }
+
+  function plainReturnSource(rs) {
+    const s = String(rs || "").trim();
+    if (!s || s === "N/A" || s === "—") return null;
+    const mixMatch = s.match(/\(mixed[^)]*\)/i);
+    const primary = s.replace(/\s*\(mixed[^)]*\)\s*/i, "").trim();
+    return {
+      primary: primary || "Research tags only — no live P&L yet",
+      mix: mixMatch ? mixMatch[0] : "",
+    };
+  }
+
+  function forecastEdgePp(f) {
+    const my = Number(f.my_p_locked);
+    const mkt = Number(f.market_p_at_lock);
+    if (!Number.isFinite(my) || !Number.isFinite(mkt)) return null;
+    return my - mkt;
+  }
+
+  function formatEdgePp(edge) {
+    if (edge == null || !Number.isFinite(edge)) return null;
+    const pp = (edge * 100).toFixed(1);
+    const sign = edge > 0 ? "+" : "";
+    return sign + pp + " pp";
   }
 
   /** Format strategy origination date for cards (Sep 3, 2026). Prefer snapshot originated_display. */
@@ -98,33 +251,37 @@
     return d;
   }
 
-  /** Money / labeled values — never invent numbers. */
+  /** Money / labeled values — never invent numbers. Real $ omits N/A badges. */
   function moneyHtml(m) {
     if (m == null || m === "" || m === "N/A") {
-      return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
+      return `<span class="dim">N/A</span>`;
     }
     if (typeof m === "object") {
-      if (m.value == null || m.value === undefined) {
-        return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
+      const hasVal = m.value != null && m.value !== undefined;
+      const display = polishMoneyDisplay(m.display, hasVal ? m.value : null);
+      if (!hasVal && (display === "N/A" || m.display == null || m.display === "" || m.display === "N/A")) {
+        return `<span class="dim">N/A</span>`;
       }
-      const display = polishMoneyDisplay(m.display, m.value);
       if (display === "N/A") {
-        return `<span class="dim">N/A</span> <span class="badge badge-na">N/A</span>`;
+        return `<span class="dim">N/A</span>`;
       }
-      const lbl = String(m.label || "PAPER").toUpperCase();
-      return `<span>${esc(display)}</span> ${labelBadge(lbl)}`;
+      const lbl = String(m.label || "").toUpperCase();
+      const badge = MEANINGFUL_STAGE_LABELS.has(lbl) ? ` ${labelBadge(lbl)}` : "";
+      return `<span>${esc(display)}</span>${badge}`;
     }
     return `<span>${esc(polishMoneyDisplay(m, typeof m === "number" ? m : null))}</span>`;
   }
 
   function labelBadge(label) {
-    const lbl = String(label || "N/A").toUpperCase();
+    const lbl = String(label || "").trim().toUpperCase();
+    if (!lbl || lbl === "N/A" || lbl === "—" || lbl === "-") return "";
     let cls = "badge-na";
     if (lbl === "PAPER") cls = "badge-paper";
     else if (lbl === "SHADOW") cls = "badge-shadow";
     else if (lbl === "LIVE") cls = "badge-live";
     else if (lbl === "BACKTEST") cls = "badge-backtest";
     else if (lbl === "SPORTSBOOK" || lbl === "RESEARCH") cls = "badge-paper";
+    else if (!MEANINGFUL_STAGE_LABELS.has(lbl)) cls = "badge-na";
     return `<span class="badge ${cls}">${esc(lbl)}</span>`;
   }
 
@@ -200,23 +357,38 @@
   }
 
   function statusBadge(st) {
-    const raw = String(st || "unknown");
-    const s = raw.toLowerCase();
+    const display = humanStatusLabel(st);
+    const s = String(st || display || "unknown").toLowerCase();
     let cls = "badge-na";
     if (s === "shadow") cls = "badge-shadow";
-    else if (s === "live" || s === "authorized" || s === "ready" || s.startsWith("ready")) cls = "badge-live";
+    else if (s === "live" || s === "authorized" || s === "ready" || s.startsWith("ready") || display.toLowerCase().startsWith("ready"))
+      cls = "badge-live";
     else if (s === "paper") cls = "badge-paper";
     else if (s === "backtest") cls = "badge-backtest";
     else if (s.includes("reject") || s.includes("kill")) cls = "badge-rejected";
-    else if (s.includes("paus") || s.includes("defer") || s.includes("not_started") || s.includes("not started"))
+    else if (
+      s.includes("paus") ||
+      s.includes("defer") ||
+      s.includes("not_started") ||
+      s.includes("not started") ||
+      s.includes("ops-pending") ||
+      display.toLowerCase().includes("ops pending")
+    )
       cls = "badge-paused";
-    else if (s === "idea" || s === "researching" || s.includes("researching") || s.includes("setting up") || s.includes("live-auth") || s.includes("full reserve"))
+    else if (
+      s === "idea" ||
+      s === "researching" ||
+      s.includes("researching") ||
+      s.includes("setting up") ||
+      s.includes("live-auth") ||
+      s.includes("full reserve")
+    )
       cls = "badge-idea";
     else if (s.includes("open") || s.includes("blocked") || s.includes("trial") || s.includes("skip") || s.includes("progress"))
       cls = "badge-open";
     else if (s.includes("standing") || s.includes("not requested") || s.includes("cleared")) cls = "badge-standing";
     else if (s === "locked") cls = "badge-paper";
-    return `<span class="badge ${cls}">${esc(raw)}</span>`;
+    return `<span class="badge ${cls}">${esc(display)}</span>`;
   }
 
   function gateBadge(status) {
@@ -469,8 +641,8 @@
             <td>${moneyHtml(m.net_pnl)}</td>
             <td>${moneyHtml(m.return_pct)}</td>
             <td class="muted">${esc(m.open ?? 0)} / ${esc(m.closed ?? 0)}</td>
-            <td class="muted">${esc(ha)}</td>
-            <td class="dim"><a href="${esc(m.detail_route || "#positions")}">${esc(m.detail_route || "")}</a></td>
+            <td class="muted">${esc(softenThomasCopy(ha))}</td>
+            <td class="dim"><a href="${esc(m.detail_route || "#positions")}">${esc(marketDetailLinkLabel(m))}</a></td>
           </tr>`;
       })
       .join("");
@@ -479,7 +651,7 @@
       .filter((m) => m.id !== "cash_reserve")
       .map(
         (m) =>
-          `<div class="item"><span class="k">${esc(m.name || m.id)}</span><span class="v">${moneyHtml(m.net_pnl)} ${labelBadge(m.label || "N/A")}</span></div>`
+          `<div class="item"><span class="k">${esc(m.name || m.id)}</span><span class="v">${moneyHtml(m.net_pnl)}</span></div>`
       )
       .join("");
 
@@ -511,7 +683,7 @@
       ? `<ul class="activity">${attentionItems
           .map(
             (m) =>
-              `<li>${marketBadge(m.id)} <strong>${esc(m.name)}</strong> — ${esc(m.human_action)}</li>`
+              `<li>${marketBadge(m.id)} <strong>${esc(m.name)}</strong> — ${esc(softenThomasCopy(m.human_action))}</li>`
           )
           .join("")}</ul>`
       : `<div class="empty"><strong>Nothing blocking</strong><span>Market human_action is none / researching — no sportsbook KYC wait claimed.</span></div>`;
@@ -716,13 +888,13 @@
       );
       if (marketId === "options") {
         empty += `<div class="table-wrap" style="margin-top:8px"><table class="data">
-          <thead><tr>${optionsPositionColumns().map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+          <thead><tr>${optionsPositionColumns().map((c) => `<th>${esc(colHeader(c))}</th>`).join("")}</tr></thead>
           <tbody><tr><td colspan="7" class="dim">Empty — intentional (researching)</td></tr></tbody>
         </table></div>`;
       } else if (marketId === "sports") {
         empty += `<div class="table-wrap" style="margin-top:8px"><table class="data">
-          <thead><tr>${sportsPositionColumns().map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
-          <tbody><tr><td colspan="9" class="dim">Empty — intentional (Ready / human execution; independent-forecast; no invented picks)</td></tr></tbody>
+          <thead><tr>${sportsPositionColumns().map((c) => `<th>${esc(colHeader(c))}</th>`).join("")}</tr></thead>
+          <tbody><tr><td colspan="9" class="dim">Empty — intentional (Ready — you place Harbor tickets; independent-forecast; no invented picks)</td></tr></tbody>
         </table></div>`;
       }
       return empty;
@@ -730,7 +902,7 @@
     if (marketId === "options" || marketId === "sports") {
       const cols = marketId === "options" ? optionsPositionColumns() : sportsPositionColumns();
       return `<div class="table-wrap"><table class="data">
-        <thead><tr>${cols.map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+        <thead><tr>${cols.map((c) => `<th>${esc(colHeader(c))}</th>`).join("")}</tr></thead>
         <tbody>
           ${rows
             .map(
@@ -741,7 +913,7 @@
                     if (typeof v === "object" && v && ("display" in v || "label" in v))
                       return `<td>${moneyHtml(v)}</td>`;
                     if (v == null || v === "") return `<td class="dim">N/A</td>`;
-                    return `<td>${esc(v)}</td>`;
+                    return `<td>${esc(softenThomasCopy(v))}</td>`;
                   })
                   .join("")}</tr>`
             )
@@ -932,8 +1104,8 @@
             const mkt = String(s.market || "").toLowerCase();
             return `
           <div class="strat-card" data-market="${esc(mkt)}">
-            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${infoTip(summary, "What this strategy is testing")} ${statusBadge(s.status)} ${marketBadge(mkt)}</div>
-            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)}${s.return_source ? ` · ${esc(s.return_source)}` : ""} · stage ${labelBadge(s.label || "PAPER")}</div>
+            <div class="name"><strong>${esc(strategyDisplayName(s))}</strong> ${infoTip(summary, "What this strategy is testing")} ${statusBadge(s.status)} ${marketBadge(mkt)}</div>
+            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)}${s.return_source ? ` · ${tip(softenThomasCopy(s.return_source), "return_source")}` : ""} · stage ${labelBadge(s.label || "PAPER")}</div>
             <div class="row-plain"><span class="k">Started</span><span class="v">${esc(startedLabel)}</span></div>
             <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(s.hypothesis || "")}</span></div>
             <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(s.evidence_summary || "")}</span></div>
@@ -977,9 +1149,11 @@
 
   function forecastTable(rows) {
     if (!rows.length) return emptyState("None in this bucket", "");
+    const anyEdge = rows.some((f) => forecastEdgePp(f) != null);
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
         <th>Event</th><th>${tip("Harbor p (my_p)", "my_p")}</th><th>Market p</th>
+        ${anyEdge ? `<th>${tip("Edge (EV vs market)", "EV")}</th>` : ""}
         <th>Process</th><th>Status</th><th>Flags</th><th>Author</th><th>Locked</th><th>Outcome / Brier</th><th class="dim">ID</th>
       </tr></thead>
       <tbody>
@@ -995,10 +1169,13 @@
               .join(", ");
             const outcome = f.outcome == null || f.outcome === "" ? "N/A" : String(f.outcome);
             const brier = f.brier == null || f.brier === "" ? "N/A" : String(f.brier);
+            const edge = forecastEdgePp(f);
+            const edgeShow = formatEdgePp(edge);
             return `<tr>
               <td>${esc(f.event)}</td>
               <td>${esc(f.my_p_locked ?? "N/A")}</td>
               <td>${esc(f.market_p_at_lock ?? "N/A")}</td>
+              ${anyEdge ? `<td><strong>${esc(edgeShow || "N/A")}</strong></td>` : ""}
               <td><span class="tip" title="${esc(proc.tip)}">${esc(proc.label)}</span></td>
               <td>${statusBadge(f.status)}</td>
               <td class="muted">${esc(flags || "—")}</td>
@@ -1316,8 +1493,522 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       </div>`;
   }
 
+
+  /* ---------- market drill-downs ---------- */
+
+  const MARKET_VIEW_IDS = ["securities", "options", "event", "crypto", "sports"];
+
+  function marketRowById(id) {
+    return marketsRows().find((m) => m.id === id) || null;
+  }
+
+  function marketDetails(id) {
+    return (SNAP.market_details && SNAP.market_details[id]) || {};
+  }
+
+  function strategiesForMarket(id) {
+    const items = SNAP.strategies?.items || [];
+    return items.filter((s) => String(s.market || "").toLowerCase() === id);
+  }
+
+  function lessonsForMarket(id) {
+    const items = SNAP.lessons?.items || [];
+    return items.filter((L) => String(L.market || "").toLowerCase() === id);
+  }
+
+  function positionsForMarket(id) {
+    const pos = SNAP.positions;
+    if (!pos) return [];
+    if (Array.isArray(pos)) {
+      return pos.filter((p) => String(p.market || p.sleeve || "").toLowerCase().includes(id === "event" ? "event" : id));
+    }
+    return pos[id] || [];
+  }
+
+  function riskForMarket(id) {
+    return (SNAP.risk && SNAP.risk.by_market && SNAP.risk.by_market[id]) || null;
+  }
+
+  function atRiskPlainLabel(m, riskRow) {
+    const def = String(m.at_risk_definition || riskRow?.at_risk_definition || "").toLowerCase();
+    if (def === "max_loss") return "Maximum possible loss";
+    if (def === "stake") return "Money at risk (stake)";
+    if (def === "none") return "At risk";
+    return "Money at risk";
+  }
+
+  function sportsTagBadge(tag) {
+    const t = String(tag || "").toUpperCase().replace(/\s+/g, "_");
+    if (t === "HARBOR_LIVE" || t === "HARBORLIVE") {
+      return `<span class="badge tag-harbor-live">HARBOR LIVE</span>`;
+    }
+    if (t === "HARBOR_SHADOW" || t === "HARBORSHADOW" || t === "SHADOW") {
+      return `<span class="badge tag-harbor-shadow">HARBOR SHADOW</span>`;
+    }
+    if (t.includes("PERSONAL")) {
+      return `<span class="badge tag-personal">PERSONAL RECOMMENDATION</span>`;
+    }
+    return labelBadge(tag || "N/A");
+  }
+
+  function strategyCardHtml(s) {
+    const summary = String(s.human_summary || s.description || "").trim();
+    const started = formatOriginated(s);
+    return `<div class="strat-card" data-market="${esc(String(s.market || "").toLowerCase())}">
+      <div class="name"><strong>${esc(strategyDisplayName(s))}</strong> ${statusBadge(s.status)} ${infoTip(softenThomasCopy(summary), "What this strategy is testing")}</div>
+      <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner || "")}${s.return_source ? ` · ${tip(softenThomasCopy(s.return_source), "return_source")}` : ""} · ${labelBadge(s.label || "PAPER")}</div>
+      <div class="row-plain"><span class="k">Started</span><span class="v">${esc(started || "Origin unknown")}</span></div>
+      <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(softenThomasCopy(s.hypothesis || summary || ""))}</span></div>
+      <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(softenThomasCopy(s.evidence_summary || ""))}</span></div>
+      <div class="row-plain"><span class="k">Next</span><span class="v">${esc(softenThomasCopy(s.next_decision || ""))}</span></div>
+      <div class="row-plain"><span class="k">${tip("Kill / Falsify", "Falsify")}</span><span class="v">${esc(softenThomasCopy(s.falsify || ""))}</span></div>
+    </div>`;
+  }
+
+  function isDeadStrategy(s) {
+    const st = String(s.status || "").toLowerCase();
+    return st.includes("reject") || st.includes("kill") || st.includes("paus") || st.includes("defer");
+  }
+
+  function strategyCardsCompact(items, emptyTitle, emptyDetail) {
+    if (!items || !items.length) {
+      return emptyState(emptyTitle || "No strategies yet", emptyDetail || "Registry empty for this market.");
+    }
+    const active = [];
+    const dead = [];
+    for (const s of items) {
+      if (isDeadStrategy(s)) dead.push(s);
+      else active.push(s);
+    }
+    const primary = active.length ? active : items;
+    const collapsed = active.length ? dead : [];
+    let html = `<div class="strategy-cards">${primary.map(strategyCardHtml).join("")}</div>`;
+    if (collapsed.length) {
+      html += `<details class="doc-sec" style="margin-top:8px"><summary>Paused / rejected (${collapsed.length}) <span class="path">secondary — discipline trail</span></summary>
+        <div class="strategy-cards" style="padding:10px 12px">${collapsed.map(strategyCardHtml).join("")}</div>
+      </details>`;
+    }
+    return html;
+  }
+
+  function lessonsCompact(items, emptyDetail) {
+    if (!items || !items.length) {
+      return emptyState("No lessons for this market yet", emptyDetail || "Nothing logged under this market id.");
+    }
+    return items
+      .map((L) => {
+        const conclusion = L.what_we_learned || L.learning || L.heading || "";
+        return `<div class="lesson" data-market="${esc(String(L.market || "").toLowerCase())}">
+          <div class="conclusion">${esc(conclusion)}</div>
+          <div><span class="id">${esc(L.lesson_id || "")}</span> <span class="muted">${esc(L.date_ct || "")}</span></div>
+          <div class="row"><div class="k">Observation</div><div class="v">${esc(L.what_happened || "")}</div></div>
+          <div class="row"><div class="k">What changed</div><div class="v">${esc(L.what_changed || "")}</div></div>
+        </div>`;
+      })
+      .join("");
+  }
+
+  function marketMoneyStrip(m, riskRow) {
+    const atLabel = atRiskPlainLabel(m, riskRow);
+    const valueLabel = m.id === "sports" ? tip("Sports sleeve (S)", "Sports sleeve (S)") : "Value / capital";
+    const openN = Number(m.open ?? 0);
+    const emptyMaxLoss =
+      (m.id === "securities" || m.id === "options") && openN === 0
+        ? `<p class="plain" style="margin:8px 0 0">Maximum possible loss on open positions: <strong>$0.00</strong></p>`
+        : "";
+    return `<div class="kpi-row" style="grid-template-columns:repeat(3,1fr)">
+      <div class="kpi"><div class="label">${valueLabel}</div><div class="val">${moneyHtml(m.value)}</div></div>
+      <div class="kpi"><div class="label">Deployed</div><div class="val">${moneyHtml(m.deployed)}</div></div>
+      <div class="kpi"><div class="label">${esc(atLabel)}</div><div class="val">${moneyHtml(m.at_risk)}</div></div>
+      <div class="kpi"><div class="label">Net P&amp;L</div><div class="val">${moneyHtml(m.net_pnl)}</div></div>
+      <div class="kpi"><div class="label">Return</div><div class="val">${moneyHtml(m.return_pct)}</div></div>
+      <div class="kpi"><div class="label">Open / closed</div><div class="val">${esc(m.open ?? 0)} / ${esc(m.closed ?? 0)}</div></div>
+    </div>${emptyMaxLoss}`;
+  }
+
+  function marketCommonHeader(m, details) {
+    const owner = details.owner ? `Owner: ${details.owner}` : "";
+    return `
+      <div class="market-page-hero">
+        <div class="title-block">
+          <h2 class="section-title">${marketBadge(m.id)} ${esc(m.name || MARKET_META[m.id]?.label || m.id)} ${statusBadge(m.status || "N/A")} ${labelBadge(m.label || "N/A")}</h2>
+          <div class="owner">${esc(owner)}</div>
+        </div>
+        <div class="muted" style="font-size:12px;max-width:28rem;text-align:right">${esc(m.data_source || "")}<br/>Updated ${esc(m.last_updated_ct || "—")}</div>
+      </div>
+      ${freshnessStrip()}
+      ${sleeveBadgeCaption()}`;
+  }
+
+  function marketQaCard(m, details, extras) {
+    const nowText = softenThomasCopy(details.desk_goal || m.objective || "");
+    const actionRaw = isHumanActionNotable(m.human_action)
+      ? m.human_action
+      : m.human_action && String(m.human_action).toLowerCase() !== "none"
+        ? m.human_action
+        : "Nothing required right now.";
+    const action = softenThomasCopy(actionRaw);
+    const rs = plainReturnSource(m.return_source);
+    const rsPrimary = rs ? softenThomasCopy(rs.primary) : "N/A";
+    const mixText = (rs && rs.mix) || m.return_source_registry_mix || "";
+    const rsMix = mixText
+      ? `<details class="doc-sec" style="margin-top:6px"><summary>Registry tag mix <span class="path">secondary — not live P&amp;L evidence</span></summary>
+          <div style="padding:8px 12px" class="muted">${esc(mixText)}</div></details>`
+      : "";
+    return `<div class="card market-qa market-accent-${esc(m.id)}">
+      <h2>In plain English</h2>
+      <div class="row-plain"><span class="k">Desk goal</span><span class="v">${esc(nowText)}</span></div>
+      <div class="row-plain"><span class="k">Doing now</span><span class="v">${statusBadge(m.status || "N/A")} — ${esc(softenThomasCopy(m.objective || ""))}</span></div>
+      <div class="row-plain"><span class="k">Benchmark</span><span class="v">${esc(softenThomasCopy(m.benchmark || "N/A"))}</span></div>
+      <div class="row-plain"><span class="k">Return source</span><span class="v">${esc(rsPrimary)}</span></div>
+      ${rsMix}
+      <div class="row-plain"><span class="k">Latest lesson</span><span class="v">${esc(softenThomasCopy(m.latest_lesson || "N/A"))}</span></div>
+      <div class="row-plain"><span class="k">Thomas action</span><span class="v"><strong>${esc(action)}</strong></span></div>
+      ${extras || ""}
+      ${m.note ? `<div class="callout info" style="margin-top:8px">${esc(softenThomasCopy(m.note))}</div>` : ""}
+    </div>`;
+  }
+
+  function viewMarketsIndex() {
+    const mkts = marketsRows().filter((m) => m.id !== "cash_reserve");
+    const cards = mkts
+      .map((m) => {
+        const route = (m.detail_route || `#market-${m.id}`).replace(/^#/, "");
+        return `<a class="card mkt-card" href="#${esc(route)}" data-nav-market="${esc(route)}">
+          <h2>${marketBadge(m.id)} ${esc(m.name)}</h2>
+          <p style="margin:0 0 8px">${statusBadge(m.status || "N/A")} ${labelBadge(m.label || "N/A")}</p>
+          <div class="strip">
+            <div class="item"><span class="k">Deployed</span><span class="v">${moneyHtml(m.deployed)}</span></div>
+            <div class="item"><span class="k">At risk</span><span class="v">${moneyHtml(m.at_risk)}</span></div>
+            <div class="item"><span class="k">Net P&amp;L</span><span class="v">${moneyHtml(m.net_pnl)}</span></div>
+          </div>
+          <p class="muted" style="margin:8px 0 0">${esc(softenThomasCopy(m.objective || ""))}</p>
+        </a>`;
+      })
+      .join("");
+    return `
+      <div class="stack markets-index">
+        <h2 class="section-title">Markets</h2>
+        ${freshnessStrip()}
+        <p class="muted">Operating views per market. Cash / reserve stays on Overview (aggregate only).</p>
+        <div class="grid grid-2">${cards}</div>
+      </div>`;
+  }
+
+  function viewMarketSecurities() {
+    const id = "securities";
+    const m = marketRowById(id);
+    if (!m) return emptyState("Missing securities row", "markets[] incomplete — regen snapshot.");
+    const details = marketDetails(id);
+    const pos = positionsForMarket(id);
+    const strats = strategiesForMarket(id);
+    const lessons = lessonsForMarket(id);
+    const riskRow = riskForMarket(id);
+    const nextStack = (details.next_stack || [])
+      .map((x) => `<li>${esc(x)}</li>`)
+      .join("");
+    return `
+      <div class="stack">
+        ${marketCommonHeader(m, details)}
+        ${marketQaCard(m, details)}
+        <div class="card"><h2>Money &amp; risk</h2>${marketMoneyStrip(m, riskRow)}
+          <p class="dim" style="margin-top:6px">${esc(riskRow?.note || details.empty_positions_reason || "")}</p>
+        </div>
+        <div class="card">
+          <h2>Holdings / positions</h2>
+          ${positionTableForMarket(pos, id)}
+        </div>
+        <div class="card">
+          <h2>Next stack / opportunities</h2>
+          ${nextStack ? `<ul class="warn-list">${nextStack}</ul>` : emptyState("No sequenced next stack listed", details.empty_positions_reason || "")}
+        </div>
+        <div class="card">
+          <h2>Strategies &amp; why selected</h2>
+          ${strategyCardsCompact(strats, "No securities strategies", "Registry empty for securities.")}
+        </div>
+        <div class="card">
+          <h2>Lessons</h2>
+          ${lessonsCompact(lessons)}
+        </div>
+      </div>`;
+  }
+
+  function viewMarketOptions() {
+    const id = "options";
+    const m = marketRowById(id);
+    if (!m) return emptyState("Missing options row", "markets[] incomplete — regen snapshot.");
+    const details = marketDetails(id);
+    const pos = positionsForMarket(id);
+    const strats = strategiesForMarket(id);
+    const lessons = lessonsForMarket(id);
+    const riskRow = riskForMarket(id);
+    const extras = `<div class="row-plain"><span class="k">At-risk means</span><span class="v"><strong>Maximum possible loss</strong> (not notional). Greeks stay secondary.</span></div>`;
+    return `
+      <div class="stack">
+        ${marketCommonHeader(m, details)}
+        ${marketQaCard(m, details, extras)}
+        <div class="card">
+          <h2>Lead with the bet</h2>
+          <p class="muted" style="margin:0 0 8px">When live: thesis → max loss → how going. Contract / Greeks below that.</p>
+          ${positionTableForMarket(pos, id)}
+          ${details.candidate_note ? `<div class="callout info">${esc(details.candidate_note)}</div>` : ""}
+        </div>
+        <div class="card"><h2>Money &amp; max loss</h2>${marketMoneyStrip(m, riskRow)}
+          <p class="dim" style="margin-top:6px">${esc(riskRow?.note || details.empty_positions_reason || "")}</p>
+        </div>
+        <div class="card">
+          <h2>Candidates (research — not LIVE)</h2>
+          ${strategyCardsCompact(strats, "No options candidates", "Defined-risk memos not yet in registry.")}
+        </div>
+        <div class="card">
+          <h2>Lessons</h2>
+          ${lessonsCompact(lessons, "No options-tagged lessons yet — researching.")}
+        </div>
+        <details class="doc-sec">
+          <summary>Greeks / contract detail <span class="path">secondary — empty until live fills</span></summary>
+          <div style="padding:10px 12px">${emptyState("No live Greeks", "No options positions to mark. When live, delta/theta/vega appear here after the max-loss line.")}</div>
+        </details>
+      </div>`;
+  }
+
+  function viewMarketEvent() {
+    const id = "event";
+    const m = marketRowById(id);
+    if (!m) return emptyState("Missing event row", "markets[] incomplete — regen snapshot.");
+    const details = marketDetails(id);
+    const pos = positionsForMarket(id);
+    const strats = strategiesForMarket(id);
+    const lessons = lessonsForMarket(id);
+    const riskRow = riskForMarket(id);
+    const fc = SNAP.forecasts || {};
+    const counts = fc.counts || {};
+    const active = fc.active || [];
+    const edge = edgeVerdict(fc);
+    const extras = `<div class="row-plain"><span class="k">Forecast book</span><span class="v">${esc(fc.active_count ?? active.length)} active · Independent ${esc(counts.clean ?? "—")} · Market-informed ${esc(counts.contaminated ?? "—")} · Edge ${esc(edge.label)}</span></div>
+      <div class="row-plain"><span class="k">${tip("Expected value (EV)", "EV")}</span><span class="v">Shown as Harbor p − market p (percentage points) on the forecast table when both probabilities exist.</span></div>`;
+    return `
+      <div class="stack">
+        ${marketCommonHeader(m, details)}
+        ${marketQaCard(m, details, extras)}
+        <div class="card"><h2>Money &amp; risk</h2>${marketMoneyStrip(m, riskRow)}
+          <p class="dim" style="margin-top:6px">${esc(riskRow?.note || details.empty_positions_reason || "")}</p>
+        </div>
+        <div class="card">
+          <h2>Live / paid contracts</h2>
+          ${positionTableForMarket(pos, id)}
+        </div>
+        <div class="card">
+          <h2>Forecasts (Harbor p vs market)</h2>
+          <p class="muted" style="margin:0 0 8px"><strong>Independent</strong> locks can support edge claims once scored. <strong>Market-informed</strong> = practice only. Paper process — not account P&amp;L.</p>
+          <div class="kpi-row" style="grid-template-columns:repeat(4,1fr)">
+            <div class="kpi"><div class="label">Active</div><div class="val">${esc(fc.active_count ?? active.length)}</div></div>
+            <div class="kpi"><div class="label">Independent</div><div class="val">${esc(counts.clean ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Market-informed</div><div class="val">${esc(counts.contaminated ?? "—")}</div></div>
+            <div class="kpi"><div class="label">Resolved clean</div><div class="val">${esc(counts.resolved_clean ?? 0)}</div></div>
+          </div>
+          ${forecastTable(active.slice(0, 12))}
+          <p class="muted" style="margin-top:8px"><a href="#forecasts">Open full Forecasts view</a> (calibration buckets + mid-promote).</p>
+        </div>
+        <div class="card">
+          <h2>Strategies / why selected</h2>
+          ${strategyCardsCompact(strats, "No event strategies", "")}
+        </div>
+        <div class="card">
+          <h2>Lessons / calibration</h2>
+          ${lessonsCompact(lessons)}
+        </div>
+      </div>`;
+  }
+
+  function viewMarketCrypto() {
+    const id = "crypto";
+    const m = marketRowById(id);
+    if (!m) return emptyState("Missing crypto row", "markets[] incomplete — regen snapshot.");
+    const details = marketDetails(id);
+    const pos = positionsForMarket(id);
+    const strats = strategiesForMarket(id);
+    const lessons = lessonsForMarket(id);
+    const riskRow = riskForMarket(id);
+    const cands = details.candidates || [];
+    let candHtml;
+    if (cands.length) {
+      candHtml = `<div class="table-wrap"><table class="data">
+        <thead><tr><th>Economic exposure</th><th>Instrument</th><th>Venue</th><th>Status</th><th>Note</th><th class="dim">ID</th></tr></thead>
+        <tbody>${cands
+          .map(
+            (c) => `<tr>
+              <td><strong>${esc(c.economic_exposure || "N/A")}</strong></td>
+              <td>${esc(c.instrument || "N/A")}</td>
+              <td>${esc(c.venue || "N/A")}</td>
+              <td>${statusBadge(c.status || "idea")}</td>
+              <td class="muted">${esc(c.note || "")}</td>
+              <td class="dim"><code>${esc(c.strategy_id || "")}</code></td>
+            </tr>`
+          )
+          .join("")}</tbody></table></div>`;
+    } else {
+      candHtml = emptyState("No crypto candidates listed", details.empty_positions_reason || "");
+    }
+    const extras = `<div class="row-plain"><span class="k">Exposure rule</span><span class="v">Show <strong>economic</strong> exposure (e.g. BTC) <em>and</em> instrument/venue (e.g. IBIT on IBKR) when applicable.</span></div>`;
+    return `
+      <div class="stack">
+        ${marketCommonHeader(m, details)}
+        ${marketQaCard(m, details, extras)}
+        <div class="card"><h2>Money &amp; risk</h2>${marketMoneyStrip(m, riskRow)}
+          <p class="dim" style="margin-top:6px">${esc(riskRow?.note || details.empty_positions_reason || "")}</p>
+        </div>
+        <div class="card">
+          <h2>Open positions</h2>
+          ${positionTableForMarket(pos, id)}
+        </div>
+        <div class="card">
+          <h2>Candidates (economic exposure + instrument)</h2>
+          ${candHtml}
+        </div>
+        <div class="card">
+          <h2>Strategies / decisions</h2>
+          ${strategyCardsCompact(strats, "No crypto strategies", "CEX deferred; registry may still hold rejected ideas.")}
+        </div>
+        <div class="card">
+          <h2>Lessons</h2>
+          ${lessonsCompact(lessons)}
+        </div>
+      </div>`;
+  }
+
+  function sportsTicketTable(rows, emptyTitle, emptyDetail) {
+    if (!rows || !rows.length) {
+      return emptyState(emptyTitle, softenThomasCopy(emptyDetail || ""));
+    }
+    const anyConf = rows.some((r) => r.confidence != null && r.confidence !== "");
+    const anyEdgeType = rows.some((r) => (r.edge_type != null && r.edge_type !== "") || (r.forecast_class != null && r.forecast_class !== ""));
+    return `<div class="table-wrap"><table class="data">
+      <thead><tr>
+        <th>Tag</th><th>League</th><th>Event / side</th><th>Odds</th><th>Stake / max loss</th>
+        <th>Harbor p / fair</th><th>${tip("Expected value (EV)", "EV")}</th><th>${tip("Closing-line value (CLV)", "CLV")}</th>
+        ${anyConf ? "<th>Confidence</th>" : ""}
+        ${anyEdgeType ? "<th>Edge type</th>" : ""}
+        <th>Why</th><th>Result</th>
+      </tr></thead>
+      <tbody>
+        ${rows
+          .map((r) => {
+            const stake = r.stake_shadow_usd != null ? r.stake_shadow_usd : r.stake_usd;
+            const maxL = r.max_loss_usd != null ? r.max_loss_usd : stake;
+            const stakeShow = formatUsd(stake) || "N/A";
+            const maxShow = formatUsd(maxL) || "N/A";
+            const hp = r.harbor_fair_prob != null && r.harbor_fair_prob !== "" ? r.harbor_fair_prob : "N/A";
+            const fl = r.fair_line != null && r.fair_line !== "" ? r.fair_line : "N/A";
+            const edgeType = r.edge_type || (
+              String(r.forecast_class || "").toLowerCase() === "market_informed"
+                ? "Market-informed (practice)"
+                : String(r.forecast_class || "").toLowerCase() === "independent"
+                  ? "Independent"
+                  : r.forecast_class || ""
+            );
+            return `<tr>
+              <td>${sportsTagBadge(r.tag || r.personal_vs_harbor)}</td>
+              <td>${esc(r.league || r.sport_league || "")}</td>
+              <td><strong>${esc(r.event || r.event_id || "")}</strong><br/><span class="muted">${esc(r.side || "")}</span></td>
+              <td>${esc(r.odds || r.entry_odds_american || "N/A")}</td>
+              <td>${esc(stakeShow)} / ${esc(maxShow)}</td>
+              <td class="muted">${esc(hp)} / ${esc(fl)}</td>
+              <td><strong>${esc(softenThomasCopy(r.ev || r.post_vig_ev_usd || "N/A"))}</strong></td>
+              <td class="muted">${esc(softenThomasCopy(r.clv || r.clv_pp || "N/A"))}</td>
+              ${anyConf ? `<td class="muted">${esc(r.confidence || "N/A")}</td>` : ""}
+              ${anyEdgeType ? `<td class="muted">${esc(edgeType || "N/A")}</td>` : ""}
+              <td class="muted">${esc(softenThomasCopy(r.rationale || r.notes || ""))}</td>
+              <td>${esc(r.result || "N/A")}</td>
+            </tr>`;
+          })
+          .join("")}
+      </tbody>
+    </table></div>`;
+  }
+
+  function viewMarketSports() {
+    const id = "sports";
+    const m = marketRowById(id);
+    if (!m) return emptyState("Missing sports row", "markets[] incomplete — regen snapshot.");
+    const details = marketDetails(id);
+    const lessons = lessonsForMarket(id);
+    const strats = strategiesForMarket(id);
+    const riskRow = riskForMarket(id);
+    const sleeve = details.sleeve || {};
+    const legend = details.tag_legend || {};
+    const leagues = details.leagues || ["NFL", "CFB", "MLB"];
+    const live = details.harbor_live || [];
+    const shadow = details.harbor_shadow || [];
+    const personal = details.personal_recommendations || [];
+    const extras = `
+      <div class="row-plain"><span class="k">Leagues</span><span class="v">${esc(leagues.join(" · "))} only</span></div>
+      <div class="row-plain"><span class="k">${tip("Sports sleeve (S)", "Sports sleeve (S)")}</span><span class="v">${esc(formatUsd(sleeve.S ?? m.sleeve_s ?? 200) || "$200.00")} DraftKings Harbor-tagged · unit ${esc(formatUsd(sleeve.unit) || "$4.00")} / max ${esc(formatUsd(sleeve.max_ticket) || "$10.00")}</span></div>
+      <div class="row-plain"><span class="k">At-risk means</span><span class="v"><strong>Stake</strong> when live — never totals into IBKR LIVE NAV</span></div>`;
+    return `
+      <div class="stack">
+        ${marketCommonHeader(m, details)}
+        ${marketQaCard(m, details, extras)}
+        <div class="card">
+          <h2>Tag legend (read this)</h2>
+          <div class="strip" style="flex-direction:column;align-items:stretch;gap:6px">
+            <div>${sportsTagBadge("HARBOR_LIVE")} — ${esc(softenThomasCopy(legend.HARBOR_LIVE || "Harbor-tagged live ticket on the sports sleeve (S)."))}</div>
+            <div>${sportsTagBadge("HARBOR_SHADOW")} — ${esc(softenThomasCopy(legend.HARBOR_SHADOW || "Shadow / process only — not P&L."))}</div>
+            <div>${sportsTagBadge("PERSONAL_RECOMMENDATION")} — ${esc(softenThomasCopy(legend.PERSONAL_RECOMMENDATION || "Personal never in Harbor P&L."))}</div>
+          </div>
+        </div>
+        <div class="card"><h2>Money &amp; sleeve</h2>${marketMoneyStrip(m, riskRow)}
+          <p class="dim" style="margin-top:6px">${esc(riskRow?.note || details.empty_live_reason || "")}</p>
+          <div class="strip" style="margin-top:8px">
+            <div class="item"><span class="k">Daily / event / corr</span><span class="v">${esc(formatUsd(sleeve.daily) || "$20")} / ${esc(formatUsd(sleeve.event) || "$10")} / ${esc(formatUsd(sleeve.correlated) || "$20")}</span></div>
+            <div class="item"><span class="k">Pause</span><span class="v">${esc(formatUsd(sleeve.pause_loss) || "-$40")}</span></div>
+            <div class="item"><span class="k">Venue</span><span class="v">${esc(sleeve.venue || m.venue || "DraftKings")}</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h2>${sportsTagBadge("HARBOR_LIVE")} open tickets</h2>
+          ${sportsTicketTable(live, "No Harbor LIVE tickets", details.empty_live_reason || "Ready — you place Harbor tickets — $0 open. Do not invent picks.")}
+        </div>
+        <div class="card">
+          <h2>${sportsTagBadge("HARBOR_SHADOW")} slate / learning</h2>
+          <p class="muted" style="margin:0 0 8px">Shadow rows are process / ${tip("closing-line value (CLV)", "CLV")} learning — <strong>not</strong> Harbor P&amp;L and not live stakes.</p>
+          ${sportsTicketTable(shadow, "No Harbor SHADOW rows", "Shadow ledger empty — independent-forecast methodology still applies.")}
+        </div>
+        <div class="card">
+          <h2>${sportsTagBadge("PERSONAL_RECOMMENDATION")}</h2>
+          ${sportsTicketTable(personal, "No personal recommendations on desk", "Personal bets are excluded from Harbor P&L and sleeve utilization by design.")}
+        </div>
+        <div class="card">
+          <h2>Performance / ROI</h2>
+          ${emptyState("No Harbor LIVE results yet", details.roi_note || "ROI and by-sport / by-edge breakdowns appear after first Harbor-tagged settle.")}
+        </div>
+        <div class="card">
+          <h2>Strategies</h2>
+          ${strategyCardsCompact(strats, "No sports strategies in registry yet", "Independent-forecast process; PERSONAL vs HARBOR tags; no invented live wagers.")}
+        </div>
+        <div class="card">
+          <h2>Lessons</h2>
+          ${lessonsCompact(lessons, "No sports-tagged lessons yet.")}
+        </div>
+      </div>`;
+  }
+
+  function viewMarketPage(id) {
+    if (id === "securities") return viewMarketSecurities();
+    if (id === "options") return viewMarketOptions();
+    if (id === "event") return viewMarketEvent();
+    if (id === "crypto") return viewMarketCrypto();
+    if (id === "sports") return viewMarketSports();
+    return viewMarketsIndex();
+  }
+
   const VIEWS = {
     overview: viewOverview,
+    markets: viewMarketsIndex,
+    "market-securities": () => viewMarketPage("securities"),
+    "market-options": () => viewMarketPage("options"),
+    "market-event": () => viewMarketPage("event"),
+    "market-crypto": () => viewMarketPage("crypto"),
+    "market-sports": () => viewMarketPage("sports"),
     positions: viewPositions,
     history: viewHistory,
     strategies: viewStrategies,
@@ -1327,18 +2018,50 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     docs: viewDocs,
   };
 
-  function show(name) {
-    const fn = VIEWS[name] || viewOverview;
-    app.innerHTML = fn();
-    nav.querySelectorAll("button").forEach((b) => {
+  function isMarketView(name) {
+    return name === "markets" || String(name || "").startsWith("market-");
+  }
+
+  function syncMarketsSubnav(name) {
+    const sub = document.getElementById("markets-subnav");
+    if (!sub) return;
+    const showSub = isMarketView(name);
+    sub.hidden = !showSub;
+    sub.querySelectorAll("button[data-view]").forEach((b) => {
       b.classList.toggle("active", b.dataset.view === name);
     });
-    if (name === "history") bindHistoryFilter();
-    if (name === "strategies") bindStrategyMarketFilter();
-    bindMarketFilterBars(name);
+  }
+
+  function show(name) {
+    const key = VIEWS[name] ? name : "overview";
+    const fn = VIEWS[key];
+    app.innerHTML = typeof fn === "function" ? fn() : viewOverview();
+    nav.querySelectorAll("button[data-view]").forEach((b) => {
+      const isMarketsBtn = b.hasAttribute("data-markets-root");
+      if (isMarketsBtn) {
+        b.classList.toggle("active", isMarketView(key));
+      } else {
+        b.classList.toggle("active", b.dataset.view === key);
+      }
+    });
+    syncMarketsSubnav(key);
+    if (key === "history") bindHistoryFilter();
+    if (key === "strategies") bindStrategyMarketFilter();
+    bindMarketFilterBars(key);
+    bindMarketsIndexCards();
     try {
-      history.replaceState(null, "", "#" + name);
+      history.replaceState(null, "", "#" + key);
     } catch (_) {}
+  }
+
+  function bindMarketsIndexCards() {
+    document.querySelectorAll("[data-nav-market]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const v = el.getAttribute("data-nav-market");
+        if (v && VIEWS[v]) show(v);
+      });
+    });
   }
 
   function applyMarketFilter(m) {
@@ -1391,8 +2114,33 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
 
   nav.addEventListener("click", (e) => {
     const btn = e.target.closest("button[data-view]");
-    if (!btn) return;
+    if (!btn || !nav.contains(btn)) return;
     show(btn.dataset.view);
+  });
+
+  const marketsSubnav = document.getElementById("markets-subnav");
+  if (marketsSubnav) {
+    marketsSubnav.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-view]");
+      if (!btn) return;
+      show(btn.dataset.view);
+    });
+  }
+
+  window.addEventListener("hashchange", () => {
+    const hash = (location.hash || "#overview").replace(/^#/, "") || "overview";
+    if (VIEWS[hash]) show(hash);
+  });
+
+  // Overview By Market detail_route links
+  app.addEventListener("click", (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a || !app.contains(a)) return;
+    const hash = (a.getAttribute("href") || "").replace(/^#/, "");
+    if (hash && VIEWS[hash]) {
+      e.preventDefault();
+      show(hash);
+    }
   });
 
   async function boot() {
@@ -1423,7 +2171,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
                 ? "badge-backtest"
                 : "badge-paper");
       }
-      const hash = (location.hash || "#overview").replace("#", "") || "overview";
+      const hash = (location.hash || "#overview").replace(/^#/, "") || "overview";
       show(VIEWS[hash] ? hash : "overview");
     } catch (err) {
       app.innerHTML = `<div class="card"><h2>Snapshot load failed</h2>

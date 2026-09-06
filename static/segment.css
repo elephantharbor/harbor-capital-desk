@@ -259,3 +259,40 @@ table.data tr:hover td { background: rgba(255,255,255,0.02); }
 .filters .mkt-filter.active {
   color: var(--text); border-color: var(--accent); background: #152028;
 }
+
+/* Markets secondary nav + drill-down identity (subtle) */
+.markets-subnav {
+  display: flex; flex-wrap: wrap; gap: 2px; padding: 4px 12px 6px;
+  border-bottom: 1px solid var(--border); background: var(--bg2);
+  position: sticky; top: 37px; z-index: 9;
+}
+.markets-subnav[hidden] { display: none !important; }
+.markets-subnav button {
+  background: transparent; border: 1px solid transparent; color: var(--muted);
+  padding: 5px 10px; border-radius: 4px; font-size: 12px;
+}
+.markets-subnav button:hover { color: var(--text); background: var(--bg3); }
+.markets-subnav button.active {
+  color: var(--text); background: var(--bg3); border-color: var(--border);
+}
+.market-page-hero {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-start;
+  justify-content: space-between; margin-bottom: 4px;
+}
+.market-page-hero .title-block h2.section-title { margin: 0; }
+.market-page-hero .owner { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.market-qa .row-plain { display: grid; grid-template-columns: 140px 1fr; gap: 6px 10px; margin: 4px 0; }
+.market-qa .row-plain .k { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; }
+.market-qa .row-plain .v { font-size: 13px; }
+.tag-harbor-live { background: #102818; color: var(--live); border-color: #2a5a40; }
+.tag-harbor-shadow { background: #1a222a; color: var(--shadow); border-color: #3a4550; }
+.tag-personal { background: #2a2410; color: var(--paper); border-color: #5a4a18; }
+.market-accent-securities { border-top: 2px solid #2a4558; }
+.market-accent-options { border-top: 2px solid #503860; }
+.market-accent-event { border-top: 2px solid #3a553a; }
+.market-accent-crypto { border-top: 2px solid #5a4030; }
+.market-accent-sports { border-top: 2px solid #304860; }
+.markets-index .mkt-card {
+  cursor: pointer; text-decoration: none; color: inherit; display: block;
+}
+.markets-index .mkt-card:hover { border-color: var(--accent); }
