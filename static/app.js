@@ -484,14 +484,27 @@
       .join("");
 
     const attrib = SNAP.return_source_attribution || [];
-    const attribHtml = attrib.length
-      ? attrib
-          .map(
-            (a) =>
-              `<span class="mkt-chip"><strong>${esc(a.return_source)}</strong> ×${esc(a.strategy_count ?? 0)} <span class="dim">LIVE P&amp;L ${esc(a.live_net_pnl?.display ?? "N/A")}</span></span>`
-          )
-          .join("")
-      : `<span class="dim">No return_source tags yet</span>`;
+    // Quinn 2026-09-06: hide count chips when zero opens / no live P&L — don't imply attribution evidence.
+    const attribHasLive = attrib.some(
+      (a) =>
+        !a.empty &&
+        a.live_net_pnl &&
+        a.live_net_pnl.value != null &&
+        Number(a.live_net_pnl.value) !== 0
+    );
+    const attribHtml =
+      attribHasLive
+        ? attrib
+            .filter((a) => !a.empty)
+            .map(
+              (a) =>
+                `<span class="mkt-chip"><strong>${esc(a.return_source)}</strong> ×${esc(a.strategy_count ?? 0)} <span class="dim">LIVE P&amp;L ${esc(a.live_net_pnl?.display ?? "N/A")}</span></span>`
+            )
+            .join("")
+        : `<div class="empty"><strong>No live attribution yet</strong><span>${esc(
+            (attrib[0] && attrib[0].note) ||
+              "Research registry tags only — not live P&L evidence while all markets have zero opens."
+          )}</span></div>`;
 
     const attentionItems = mkts.filter((m) => isHumanActionNotable(m.human_action));
     const attentionHtml = attentionItems.length
@@ -581,7 +594,7 @@
           <div class="card">
             <h2>P&amp;L by market</h2>
             <div class="strip">${pnlByMarket || `<span class="dim">N/A</span>`}</div>
-            <p class="dim" style="margin-top:6px">LIVE totals only where the book has activity. Research markets stay N/A — no hypo P&amp;L.</p>
+            <p class="dim" style="margin-top:6px">LIVE totals only where a market has activity. Empty securities / research markets stay N/A — funded account ≠ live securities exposure.</p>
           </div>
           <div class="card">
             <h2>Needs Your Attention</h2>
@@ -591,7 +604,11 @@
 
         <div class="card">
           <h2>Return source attribution</h2>
-          <p class="muted" style="margin:0 0 8px">Registry strategy counts by return_source. LIVE P&amp;L attribution N/A until fills exist.</p>
+          <p class="muted" style="margin:0 0 8px">${
+            attribHasLive
+              ? "LIVE P&amp;L by return_source where fills exist."
+              : "Hidden while open positions = 0 — registry research tags are not live attribution evidence."
+          }</p>
           <div class="mkt-chip-row">${attribHtml}</div>
         </div>
 

@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 09:05:10 CT",
+  "generated_at_ct": "2026-09-06 09:09:13 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 09:05:10 CT",
+    "generated_at_ct": "2026-09-06 09:09:13 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -405,7 +405,7 @@
     "utilization": {
       "value": 0.0,
       "label": "LIVE",
-      "display": "0% ($0 of $20 exp book)"
+      "display": "Experimental room used: $0 of $20"
     },
     "utilization_detail": {
       "deployed": 0.0,
@@ -474,19 +474,19 @@
     "by_market": {
       "securities": {
         "at_risk": {
-          "value": 0.0,
-          "label": "LIVE",
-          "display": "0.0"
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
         },
         "at_risk_definition": "position_risk_usd",
         "deployed": {
-          "value": 0.0,
-          "label": "LIVE",
-          "display": "0.0"
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
         },
-        "cap": 80.0,
-        "label": "LIVE",
-        "note": "No open LIVE equity/ETF risk"
+        "cap": 20.0,
+        "label": "N/A",
+        "note": "LIVE account funded; no open securities positions \u2014 not live securities exposure"
       },
       "options": {
         "at_risk": {
@@ -3804,7 +3804,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-06 09:05:26 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3824,7 +3824,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-06 09:05:26 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -3886,7 +3886,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-06 09:05:26 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -3918,7 +3918,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-06 09:05:26 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -3971,7 +3971,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-06 09:05:26 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3991,7 +3991,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-06 09:05:26 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -4053,7 +4053,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-06 09:05:26 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -4085,7 +4085,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-06 09:05:26 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -4107,7 +4107,7 @@
     {
       "id": "securities",
       "name": "Securities",
-      "status": "Researching / live-auth",
+      "status": "Researching \u2014 live account, no positions",
       "status_code": "researching_live_auth",
       "value": {
         "value": null,
@@ -4115,58 +4115,58 @@
         "display": "N/A"
       },
       "exposure": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "deployed": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "at_risk": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "realized_pnl": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "unrealized_pnl": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "net_pnl": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0.0"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "return_pct": {
-        "value": 0.0,
-        "label": "LIVE",
-        "display": "0%"
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
       },
       "open": 0,
       "closed": 0,
       "risk_util": {
         "value": 0.0,
-        "label": "LIVE",
-        "display": "0% ($0 of $80)"
+        "label": "N/A",
+        "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "SGOV / cash floor; VTI for COREBETA when live",
-      "return_source": "mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71)",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))",
       "objective": "Finish SGOV ops fill \u2192 COREBETA VTI; empty risk until Holt transmits",
       "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
-      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_updated_ct": "2026-09-06 09:09:13 CT",
       "last_reconciled_ct": null,
       "detail_route": "#positions",
-      "label": "LIVE",
-      "note": "LIVE book funded; no open equity/ETF risk \u2014 cash/reserve. Do not invent positions."
+      "label": "N/A",
+      "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions."
     },
     {
       "id": "options",
@@ -4217,16 +4217,16 @@
       "closed": 0,
       "risk_util": {
         "value": 0.0,
-        "label": "LIVE",
-        "display": "0% ($0 of $20)"
+        "label": "N/A",
+        "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
-      "return_source": "mixed (directional_beta\u00d76, hybrid\u00d73)",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d76, hybrid\u00d73))",
       "objective": "Defined-risk memos only; no live options until permissions + Holt green-light",
       "latest_lesson": "N/A",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_updated_ct": "2026-09-06 09:09:13 CT",
       "last_reconciled_ct": null,
       "detail_route": "#strategies",
       "label": "N/A",
@@ -4282,16 +4282,16 @@
       "closed": 0,
       "risk_util": {
         "value": 0.0,
-        "label": "LIVE",
-        "display": "0% ($0 of $80)"
+        "label": "N/A",
+        "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "Market-implied Brier / SGOV opportunity cost",
-      "return_source": "mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71)",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))",
       "objective": "EM-DIR-01 + calibration research; no paid live until cushion + Holt",
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_updated_ct": "2026-09-06 09:09:13 CT",
       "last_reconciled_ct": null,
       "detail_route": "#forecasts",
       "label": "N/A",
@@ -4346,16 +4346,16 @@
       "closed": 0,
       "risk_util": {
         "value": 0.0,
-        "label": "LIVE",
-        "display": "0% ($0 of $20)"
+        "label": "N/A",
+        "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "SGOV; IBIT candidate when sequenced",
-      "return_source": "mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71)",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))",
       "objective": "CEX deferred; IBIT BH candidate after VTI \u2014 not transmitted",
       "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_updated_ct": "2026-09-06 09:09:13 CT",
       "last_reconciled_ct": null,
       "detail_route": "#strategies",
       "label": "N/A",
@@ -4419,7 +4419,7 @@
       "latest_lesson": "N/A",
       "human_action": "none \u2014 researching / setting up",
       "data_source": "docs/sports-markets-mandate-2026-09-06.md + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_updated_ct": "2026-09-06 09:09:13 CT",
       "last_reconciled_ct": null,
       "detail_route": "#positions",
       "label": "N/A",
@@ -4493,74 +4493,45 @@
   ],
   "return_source_attribution": [
     {
-      "return_source": "directional_beta",
-      "strategy_count": 10,
+      "return_source": "N/A",
+      "strategy_count": 0,
       "live_net_pnl": {
         "value": null,
         "label": "N/A",
         "display": "N/A"
       },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "hybrid",
-      "strategy_count": 6,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "arb_rv",
-      "strategy_count": 4,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "(unset)",
-      "strategy_count": 3,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "alpha_mispricing",
-      "strategy_count": 3,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "event_driven",
-      "strategy_count": 3,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
-    },
-    {
-      "return_source": "momentum_trend",
-      "strategy_count": 1,
-      "live_net_pnl": {
-        "value": null,
-        "label": "N/A",
-        "display": "N/A"
-      },
-      "note": "No live fills to attribute yet \u2014 counts only"
+      "note": "No live P&L to attribute yet \u2014 research registry tags only (not evidence)",
+      "empty": true,
+      "registry_tag_counts": [
+        {
+          "return_source": "directional_beta",
+          "strategy_count": 10
+        },
+        {
+          "return_source": "hybrid",
+          "strategy_count": 6
+        },
+        {
+          "return_source": "arb_rv",
+          "strategy_count": 4
+        },
+        {
+          "return_source": "(unset)",
+          "strategy_count": 3
+        },
+        {
+          "return_source": "alpha_mispricing",
+          "strategy_count": 3
+        },
+        {
+          "return_source": "event_driven",
+          "strategy_count": 3
+        },
+        {
+          "return_source": "momentum_trend",
+          "strategy_count": 1
+        }
+      ]
     }
   ]
 }
