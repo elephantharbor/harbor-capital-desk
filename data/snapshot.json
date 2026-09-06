@@ -21,7 +21,7 @@
       "Shadow H5 is observation not P&L",
       "Do not mix PAPER/SHADOW/sportsbook with LIVE IBKR totals",
       "Options markets: research-first; no invented live options positions",
-      "Sports BINDING S=$200 DK \u2014 independent-forecast methodology; PERSONAL vs HARBOR; Ready / $0 open; never mix with IBKR LIVE"
+      "Sports sleeve (S)=$200 DraftKings \u2014 independent-forecast methodology; PERSONAL vs HARBOR; Ready / $0 open; never mix with IBKR LIVE"
     ],
     "date": "2026-09-06"
   },
@@ -183,7 +183,7 @@
     "crypto": [],
     "sports": [],
     "empty": true,
-    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options remain research-first. Sports: BINDING S=$200 DK sleeve (separate pot) \u2014 $0 open Harbor wagers; never mix with IBKR LIVE.",
+    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options remain research-first. Sports: Sports sleeve (S)=$200 DraftKings pot (separate pot) \u2014 $0 open Harbor wagers; never mix with IBKR LIVE.",
     "label": "LIVE",
     "source": "ibkr_live_book",
     "source_status": "LIVE",
@@ -192,7 +192,7 @@
       "options": "Defined-risk options research only \u2014 no live options positions invented.",
       "event": "Event / prediction-market contracts \u2014 empty until paid/live fills.",
       "crypto": "Crypto spot (e.g. IBIT) \u2014 empty until Holt transmits.",
-      "sports": "Sports: independent-forecast methodology; BINDING S=$200 DK; PERSONAL vs HARBOR tags; Ready / human execution; $0 open \u2014 no invented picks; never mix with IBKR LIVE."
+      "sports": "Sports: independent-forecast methodology; Sports sleeve (S)=$200 DraftKings; PERSONAL vs HARBOR tags; Ready \u2014 you place Harbor tickets; $0 open \u2014 no invented picks; never mix with IBKR LIVE."
     },
     "separation_note": "Label every row by source+status. PAPER / SHADOW / sportsbook research must never silently total with LIVE IBKR."
   },
@@ -552,7 +552,7 @@
         "cap": 200.0,
         "available": 200.0,
         "label": "N/A",
-        "note": "BINDING S=$200 DK; independent-forecast process; PERSONAL vs HARBOR; $0 open stake; at-risk when live = stake"
+        "note": "Sports sleeve (S)=$200 DraftKings; independent-forecast process; PERSONAL vs HARBOR; $0 open stake; at-risk when live = stake"
       },
       "cash_reserve": {
         "at_risk": {
@@ -4109,7 +4109,7 @@
     {
       "id": "securities",
       "name": "Securities",
-      "status": "Setting up / Active ops-pending",
+      "status": "Ops pending \u2014 no open risk",
       "status_code": "setting_up_ops_pending",
       "value": {
         "value": null,
@@ -4158,9 +4158,9 @@
         "label": "N/A",
         "display": "Experimental room used: $0 of $20"
       },
-      "benchmark": "SGOV / cash floor; VTI for COREBETA when live",
-      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))",
-      "objective": "Finish SGOV ops fill \u2192 COREBETA VTI; empty risk until Holt transmits",
+      "benchmark": "SGOV (T-bill ETF) / cash floor; VTI for COREBETA (VTI core beta) when live",
+      "return_source": "Research tags only \u2014 no live P&L yet",
+      "objective": "Finish SGOV (T-bill ETF) ops fill \u2192 COREBETA (VTI core beta); empty risk until Holt transmits",
       "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
@@ -4169,7 +4169,8 @@
       "detail_route": "#market-securities",
       "label": "N/A",
       "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions.",
-      "market_id": "securities"
+      "market_id": "securities",
+      "return_source_registry_mix": "(mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))"
     },
     {
       "id": "options",
@@ -4223,8 +4224,8 @@
         "label": "N/A",
         "display": "Experimental room used: $0 of $20"
       },
-      "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
-      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d76, hybrid\u00d73))",
+      "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS (Nano options) preferred at C=$200",
+      "return_source": "Research tags only \u2014 no live P&L yet",
       "objective": "Defined-risk memos only; no live options until permissions + Holt green-light",
       "latest_lesson": "N/A",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
@@ -4235,7 +4236,8 @@
       "label": "N/A",
       "note": "At-risk when live = max loss, not notional. No live options invented.",
       "at_risk_definition": "max_loss",
-      "market_id": "options"
+      "market_id": "options",
+      "return_source_registry_mix": "(mixed (directional_beta\u00d76, hybrid\u00d73))"
     },
     {
       "id": "event",
@@ -4290,8 +4292,8 @@
         "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "Market-implied Brier / SGOV opportunity cost",
-      "return_source": "Research tags only \u2014 no live P&L (mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))",
-      "objective": "EM-DIR-01 + calibration research; no paid live until cushion + Holt",
+      "return_source": "Research tags only \u2014 no live P&L yet",
+      "objective": "Event directional research (Harbor p vs market) + calibration; no paid live until cushion + Holt",
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
@@ -4300,7 +4302,8 @@
       "detail_route": "#market-event",
       "label": "N/A",
       "note": "Researching \u2014 empty live event book is intentional.",
-      "market_id": "event"
+      "market_id": "event",
+      "return_source_registry_mix": "(mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))"
     },
     {
       "id": "crypto",
@@ -4355,7 +4358,7 @@
         "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "SGOV; IBIT candidate when sequenced",
-      "return_source": "Research tags only \u2014 no live P&L (mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))",
+      "return_source": "Research tags only \u2014 no live P&L yet",
       "objective": "CEX deferred; IBIT BH candidate after VTI \u2014 not transmitted",
       "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
       "human_action": "none",
@@ -4365,16 +4368,17 @@
       "detail_route": "#market-crypto",
       "label": "N/A",
       "note": "Deferred / not live \u2014 empty is intentional.",
-      "market_id": "crypto"
+      "market_id": "crypto",
+      "return_source_registry_mix": "(mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))"
     },
     {
       "id": "sports",
       "name": "Sports Markets",
-      "status": "Ready / human execution",
+      "status": "Ready \u2014 you place Harbor tickets",
       "status_code": "human_execution",
       "value": {
         "value": 200.0,
-        "label": "N/A",
+        "label": "",
         "display": "200"
       },
       "capital_available": {
@@ -4389,12 +4393,12 @@
       },
       "deployed": {
         "value": 0.0,
-        "label": "N/A",
+        "label": "",
         "display": "0.0"
       },
       "at_risk": {
         "value": 0.0,
-        "label": "N/A",
+        "label": "",
         "display": "0.0"
       },
       "realized_pnl": {
@@ -4424,9 +4428,9 @@
         "label": "N/A",
         "display": "$0 of $200 sleeve deployed"
       },
-      "benchmark": "Closing line (CLV); post-vig EV",
+      "benchmark": "Closing-line value (CLV); post-vig expected value (EV)",
       "return_source": "N/A",
-      "objective": "Independent-first forecast methodology; BINDING S=$200 DK; $0 open until Quinn-cleared; PERSONAL vs HARBOR tagged",
+      "objective": "Independent-first forecast methodology; Sports sleeve (S)=$200 on DraftKings; $0 open until cleared for placement; PERSONAL vs HARBOR tagged",
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
@@ -4434,7 +4438,7 @@
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
-      "note": "Independent-first sports forecasting (no ML) \u2014 see docs/sports-forecasting-methodology-2026-09-06.md. BINDING separate DK pot S=$200 (Harbor-tagged only). PERSONAL vs HARBOR LIVE/SHADOW tags \u2014 personal bets excluded. FD line-shop only; human execution; MO geo. At-risk when live = stake. $0 open Harbor wagers \u2014 do not invent tickets. Never totals into IBKR LIVE NAV.",
+      "note": "Independent-first sports forecasting (no ML) \u2014 see docs/sports-forecasting-methodology-2026-09-06.md. Sports sleeve (S)=$200 separate DraftKings pot (Harbor-tagged only). PERSONAL vs HARBOR LIVE/SHADOW tags \u2014 personal bets excluded. FanDuel line-shop only; you place Harbor tickets; MO geo. At-risk when live = stake. $0 open Harbor wagers \u2014 do not invent tickets. Never totals into IBKR LIVE NAV.",
       "at_risk_definition": "stake",
       "sleeve_s": 200.0,
       "venue": "DraftKings (existing; Harbor-tagged)",
@@ -4561,7 +4565,7 @@
   ],
   "market_details": {
     "securities": {
-      "desk_goal": "Finish SGOV ops fill, then COREBETA (VTI) as next risk-on \u2014 empty LIVE risk until Holt transmits.",
+      "desk_goal": "Finish SGOV (T-bill ETF) ops fill, then COREBETA (VTI core beta) as next risk-on \u2014 empty LIVE risk until Holt transmits.",
       "owner": "Vera",
       "emphasis": [
         "holdings",
@@ -4596,10 +4600,10 @@
       "greeks_secondary": true,
       "at_risk_definition": "max_loss",
       "empty_positions_reason": "No live options. Permissions (Level \u22652) needed before any transmit; researching memos only.",
-      "candidate_note": "NANOS preferred at C=$200; credit spreads / CSP rejected under phase-1 risk boundary."
+      "candidate_note": "NANOS (Nano options) preferred at C=$200; credit spreads / CSP rejected under phase-1 risk boundary."
     },
     "event": {
-      "desk_goal": "EM-DIR-01 + calibration: independent Harbor p vs market-implied. No paid live until cushion + Holt.",
+      "desk_goal": "Event directional research (Harbor p vs market) + calibration: independent Harbor p vs market-implied. No paid live until cushion + Holt.",
       "owner": "Reed",
       "emphasis": [
         "contracts",
@@ -4640,7 +4644,7 @@
       ]
     },
     "sports": {
-      "desk_goal": "Independent-first sports forecasting (NFL / CFB / MLB only). Harbor-tagged DK sleeve S=$200 separate from IBKR.",
+      "desk_goal": "Independent-first sports forecasting (NFL / CFB / MLB only). Harbor-tagged DraftKings Sports sleeve (S)=$200 separate from IBKR.",
       "owner": "Sloan",
       "leagues": [
         "NFL",
@@ -4648,8 +4652,8 @@
         "MLB"
       ],
       "tag_legend": {
-        "HARBOR_LIVE": "Harbor-tagged live ticket on the BINDING S=$200 DK pot \u2014 counts in Harbor sports P&L only (never IBKR NAV).",
-        "HARBOR_SHADOW": "Process / CLV learning row \u2014 not a live wager; not Harbor P&L.",
+        "HARBOR_LIVE": "Harbor-tagged live ticket on the Sports sleeve (S)=$200 DraftKings pot \u2014 counts in Harbor sports P&L only (never IBKR NAV).",
+        "HARBOR_SHADOW": "Process / closing-line value (CLV) learning row \u2014 not a live wager; not Harbor P&L.",
         "PERSONAL_RECOMMENDATION": "Personal / non-Harbor \u2014 never included in Harbor P&L or sleeve utilization."
       },
       "sleeve": {
@@ -4662,7 +4666,7 @@
         "pause_loss": -40,
         "venue": "DraftKings (Harbor-tagged); FanDuel line-shop only"
       },
-      "empty_live_reason": "Ready / human execution \u2014 $0 open Harbor wagers until Quinn-cleared ticket is placed. Do not invent picks.",
+      "empty_live_reason": "Ready \u2014 you place Harbor tickets \u2014 $0 open Harbor wagers until a ticket is cleared for placement. Do not invent picks.",
       "harbor_live": [],
       "harbor_shadow": [
         {
@@ -4681,7 +4685,7 @@
           "forecast_class": "market_informed",
           "clv": "TBD at kick",
           "tag": "HARBOR_SHADOW",
-          "rationale": "Shadow-only process build (Quinn-accepted). FD shop \u2212112. No independent Harbor probability locked \u2014 learning row, not a live bet.",
+          "rationale": "Shadow-only process build (desk-accepted). FanDuel line-shop \u2212112. No independent Harbor probability locked \u2014 learning row, not a live bet.",
           "result": "pending",
           "source": "journal/sports-shadow/clv-ledger.csv"
         }
