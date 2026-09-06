@@ -124,7 +124,48 @@
     else if (lbl === "SHADOW") cls = "badge-shadow";
     else if (lbl === "LIVE") cls = "badge-live";
     else if (lbl === "BACKTEST") cls = "badge-backtest";
+    else if (lbl === "SPORTSBOOK" || lbl === "RESEARCH") cls = "badge-paper";
     return `<span class="badge ${cls}">${esc(lbl)}</span>`;
+  }
+
+  /** Canonical market taxonomy badges (Securities | Options | Event Markets | Crypto | Sports Markets). */
+  const MARKET_META = {
+    securities: { id: "securities", label: "Securities", cls: "badge-mkt-securities" },
+    options: { id: "options", label: "Options", cls: "badge-mkt-options" },
+    event: { id: "event", label: "Event Markets", cls: "badge-mkt-event" },
+    crypto: { id: "crypto", label: "Crypto", cls: "badge-mkt-crypto" },
+    sports: { id: "sports", label: "Sports Markets", cls: "badge-mkt-sports" },
+  };
+
+  function marketBadge(market) {
+    const raw = String(market || "").trim().toLowerCase();
+    const meta = MARKET_META[raw];
+    if (!meta) {
+      if (!raw) return "";
+      return `<span class="badge badge-mkt-na">${esc(raw)}</span>`;
+    }
+    return `<span class="badge ${meta.cls}">${esc(meta.label)}</span>`;
+  }
+
+  function marketCategories() {
+    const fromSnap = SNAP.strategies?.market_categories;
+    if (Array.isArray(fromSnap) && fromSnap.length) return fromSnap;
+    return Object.values(MARKET_META).map((m) => ({
+      id: m.id,
+      label: m.label,
+      count: SNAP.strategies?.market_counts?.[m.id] ?? 0,
+    }));
+  }
+
+  /** Source + status chip — keep PAPER/SHADOW/sportsbook visually distinct from LIVE IBKR. */
+  function sourceStatusHtml(source, status) {
+    const src = String(source || "").trim();
+    const st = String(status || "").trim();
+    if (!src && !st) return "";
+    const bits = [];
+    if (src) bits.push(`<span class="src-chip">${esc(src)}</span>`);
+    if (st) bits.push(labelBadge(st));
+    return `<span class="source-status">${bits.join(" ")}</span>`;
   }
 
   function statusBadge(st) {
@@ -438,6 +479,19 @@
           </div>
         </div>
 
+        <div class="card">
+          <h2>Market categories</h2>
+          <p class="muted" style="margin:0 0 8px">Securities · Options · Event Markets · Crypto · Sports Markets — registry taxonomy. Options/sports research-first; empty live OK.</p>
+          <div class="mkt-chip-row">
+            ${marketCategories()
+              .map(
+                (c) =>
+                  `<span class="mkt-chip">${marketBadge(c.id)} <strong>${esc(c.count ?? 0)}</strong>${c.note ? ` <span class="dim">${esc(c.note)}</span>` : ""}</span>`
+              )
+              .join("")}
+          </div>
+        </div>
+
         <div class="grid grid-2">
           <div class="card">
             <h2>Activity</h2>
@@ -518,35 +572,70 @@
     </table></div>`;
   }
 
+  function positionTableForMarket(rows, marketId) {
+    const notes = SNAP.positions?.category_notes || {};
+    const emptyDetail = {
+      securities: "No open LIVE IBKR equity/ETF risk — cash/reserve.",
+      options: "No live options positions. Defined-risk research only — nothing invented.",
+      event: "No open event / prediction-market contracts.",
+      crypto: "No open crypto spot (e.g. IBIT) — not transmitted yet.",
+      sports: "Sports research-only — no live wagers. Sportsbook results never mix with IBKR.",
+    };
+    if (!rows || !rows.length) {
+      return emptyState(
+        "No open positions",
+        notes[marketId] || emptyDetail[marketId] || "Empty — not broken."
+      );
+    }
+    return positionTable(rows);
+  }
+
   function viewPositions() {
     const pos = SNAP.positions;
-    let event = [],
-      securities = [],
-      crypto = [],
-      note = "";
+    const buckets = {
+      securities: [],
+      options: [],
+      event: [],
+      crypto: [],
+      sports: [],
+    };
+    let note = "";
     if (Array.isArray(pos)) {
       for (const p of pos) {
         const m = String(p.market || p.sleeve || "").toLowerCase();
-        if (m.includes("event")) event.push(p);
-        else if (m.includes("crypto")) crypto.push(p);
-        else securities.push(p);
+        if (m.includes("option")) buckets.options.push(p);
+        else if (m.includes("sport")) buckets.sports.push(p);
+        else if (m.includes("event")) buckets.event.push(p);
+        else if (m.includes("crypto")) buckets.crypto.push(p);
+        else buckets.securities.push(p);
       }
       note = pos.length ? "" : "No open positions — 100% cash/reserve.";
     } else {
-      event = pos?.event || [];
-      securities = pos?.securities || [];
-      crypto = pos?.crypto || [];
+      buckets.securities = pos?.securities || [];
+      buckets.options = pos?.options || [];
+      buckets.event = pos?.event || [];
+      buckets.crypto = pos?.crypto || [];
+      buckets.sports = pos?.sports || [];
       note = pos?.note || "";
     }
+    const src = pos?.source || (String(pos?.label || SNAP.mode || "").toUpperCase() === "LIVE" ? "ibkr_live_book" : "paper_desk");
+    const sep = pos?.separation_note || "PAPER / SHADOW / sportsbook research must never silently total with LIVE IBKR.";
+    const cats = marketCategories()
+      .map((c) => `${marketBadge(c.id)} <span class="muted">${esc(c.count ?? 0)} strat</span>`)
+      .join(" · ");
     return `
       <div class="stack">
-        <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "LIVE")}</h2>
+        <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "LIVE")} ${sourceStatusHtml(src, pos?.source_status || pos?.label)}</h2>
         ${freshnessStrip()}
         ${sleeveBadgeCaption()}
+        <p class="muted market-cat-strip">Markets: ${cats}</p>
         ${note ? `<div class="callout info">${esc(note)}</div>` : ""}
-        <div class="card"><h2>Event contracts</h2>${positionTable(event)}</div>
-        <div class="card"><h2>Securities</h2>${positionTable(securities)}</div>
-        <div class="card"><h2>Crypto spot</h2>${positionTable(crypto)}</div>
+        <div class="callout warn">${esc(sep)}</div>
+        <div class="card"><h2>${marketBadge("securities")} Securities</h2>${positionTableForMarket(buckets.securities, "securities")}</div>
+        <div class="card"><h2>${marketBadge("options")} Options</h2>${positionTableForMarket(buckets.options, "options")}</div>
+        <div class="card"><h2>${marketBadge("event")} Event Markets</h2>${positionTableForMarket(buckets.event, "event")}</div>
+        <div class="card"><h2>${marketBadge("crypto")} Crypto</h2>${positionTableForMarket(buckets.crypto, "crypto")}</div>
+        <div class="card"><h2>${marketBadge("sports")} Sports Markets</h2>${positionTableForMarket(buckets.sports, "sports")}</div>
       </div>`;
   }
 
@@ -655,6 +744,17 @@
 
   function viewStrategies() {
     const groups = strategiesGrouped();
+    const cats = marketCategories();
+    const filterHtml = `
+      <div class="filters" id="strat-filters">
+        <button type="button" class="mkt-filter active" data-market="all">All</button>
+        ${cats
+          .map(
+            (c) =>
+              `<button type="button" class="mkt-filter" data-market="${esc(c.id)}">${esc(c.label)} <span class="muted">${esc(c.count ?? 0)}</span></button>`
+          )
+          .join("")}
+      </div>`;
     const groupsHtml = groups
       .map((grp) => {
         const st = String(grp.status || "").toLowerCase();
@@ -668,15 +768,16 @@
             const summary = String(s.human_summary || s.description || s.tip || "").trim();
             const started = formatOriginated(s);
             const startedLabel = started || "Origin unknown";
+            const mkt = String(s.market || "").toLowerCase();
             return `
-          <div class="strat-card">
-            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${infoTip(summary, "What this strategy is testing")} ${statusBadge(s.status)}</div>
-            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)} · ${esc(s.market)}${s.return_source ? ` · ${esc(s.return_source)}` : ""}</div>
+          <div class="strat-card" data-market="${esc(mkt)}">
+            <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${infoTip(summary, "What this strategy is testing")} ${statusBadge(s.status)} ${marketBadge(mkt)}</div>
+            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)}${s.return_source ? ` · ${esc(s.return_source)}` : ""} · stage ${labelBadge(s.label || "PAPER")}</div>
             <div class="row-plain"><span class="k">Started</span><span class="v">${esc(startedLabel)}</span></div>
             <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(s.hypothesis || "")}</span></div>
             <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(s.evidence_summary || "")}</span></div>
             <div class="row-plain"><span class="k">Next</span><span class="v">${esc(s.next_decision || "")}</span></div>
-            <div class="row-plain"><span class="k">Scale</span><span class="v">${esc(s.capital_alloc_pct_note || s.capital_alloc_pct || "0")} ${labelBadge(s.label || "PAPER")}</span></div>
+            <div class="row-plain"><span class="k">Scale</span><span class="v">${esc(s.capital_alloc_pct_note || s.capital_alloc_pct || "0")}</span></div>
             <div class="row-plain"><span class="k">${tip("Kill / Falsify", "Falsify")}</span><span class="v">${esc(s.falsify || "")}</span></div>
             ${reject && (st.includes("reject") || st.includes("kill")) ? `<div class="callout ok" style="margin-top:8px"><strong>Why rejected (discipline):</strong> ${esc(reject)}</div>` : ""}
           </div>`;
@@ -691,13 +792,18 @@
       })
       .join("");
 
+    const sportsNote = cats.find((c) => c.id === "sports");
+    const optNote = cats.find((c) => c.id === "options");
     return `
       <div class="stack">
         <h2 class="section-title">Strategies <span class="muted">${esc(SNAP.strategies?.count ?? "")}</span></h2>
         ${freshnessStrip()}
         ${sleeveBadgeCaption()}
-        <div class="callout info">VOLGATE ${tip("OOS", "OOS")} is regime plumbing / ${tip("DD", "DD")} check — not live alpha. Do not treat it as a live sleeve.</div>
+        <div class="callout info">VOLGATE ${tip("OOS", "OOS")} is regime plumbing / ${tip("DD", "DD")} check — not live alpha. Do not treat it as a live sleeve. Options/sports: research-first — stage badges are not LIVE IBKR fills.</div>
         <p class="muted">${esc(SNAP.strategies?.note || "")}</p>
+        ${filterHtml}
+        ${optNote && !(optNote.count > 0) ? "" : ""}
+        ${sportsNote && (sportsNote.count || 0) === 0 ? `<div class="callout info">${marketBadge("sports")} No sports strategies yet — research-only; no live wagers.</div>` : ""}
         ${groupsHtml || emptyState("No strategies", "registry empty")}
       </div>`;
   }
@@ -860,7 +966,7 @@
         <h2 class="section-title">Risk ${labelBadge(r.label || SNAP.mode || "LIVE")}</h2>
         ${freshnessStrip()}
         ${sleeveBadgeCaption()}
-        <div class="callout ok">Live trading ${esc(op.liveStatus)} within sleeve. Automated execution: ${esc(op.autoStatus)}. No leverage / margin / options / perps.${r.no_leverage ? "" : ""}</div>
+        <div class="callout ok">Live trading ${esc(op.liveStatus)} within sleeve. Automated execution: ${esc(op.autoStatus)}. Phase-1 live: no leverage / margin / naked options / perps. Options + sports markets are research-first (defined-risk memos only; no live wagers).${r.no_leverage ? "" : ""}</div>
         <div class="strip">
           <div class="item"><span class="k">${tip("Starting bankroll", "C")}</span><span class="v">${esc(formatUsd(c) || "—")}</span></div>
           <div class="item"><span class="k">Utilization</span><span class="v">${moneyHtml(r.utilization)}</span></div>
@@ -1036,9 +1142,29 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       b.classList.toggle("active", b.dataset.view === name);
     });
     if (name === "history") bindHistoryFilter();
+    if (name === "strategies") bindStrategyMarketFilter();
     try {
       history.replaceState(null, "", "#" + name);
     } catch (_) {}
+  }
+
+  function bindStrategyMarketFilter() {
+    const bar = document.getElementById("strat-filters");
+    if (!bar) return;
+    bar.addEventListener("click", (e) => {
+      const btn = e.target.closest("button.mkt-filter");
+      if (!btn) return;
+      const m = btn.dataset.market || "all";
+      bar.querySelectorAll("button.mkt-filter").forEach((b) => b.classList.toggle("active", b === btn));
+      document.querySelectorAll(".strat-card").forEach((card) => {
+        const cm = card.getAttribute("data-market") || "";
+        card.style.display = m === "all" || cm === m ? "" : "none";
+      });
+      document.querySelectorAll(".strategy-group").forEach((grp) => {
+        const visible = [...grp.querySelectorAll(".strat-card")].some((c) => c.style.display !== "none");
+        grp.style.display = visible ? "" : "none";
+      });
+    });
   }
 
   nav.addEventListener("click", (e) => {
