@@ -135,7 +135,10 @@
     event: { id: "event", label: "Event Markets", cls: "badge-mkt-event" },
     crypto: { id: "crypto", label: "Crypto", cls: "badge-mkt-crypto" },
     sports: { id: "sports", label: "Sports Markets", cls: "badge-mkt-sports" },
+    cash_reserve: { id: "cash_reserve", label: "Cash / Reserve", cls: "badge-mkt-na" },
   };
+
+  const MARKET_FILTER_IDS = ["securities", "options", "event", "crypto", "sports"];
 
   function marketBadge(market) {
     const raw = String(market || "").trim().toLowerCase();
@@ -150,11 +153,39 @@
   function marketCategories() {
     const fromSnap = SNAP.strategies?.market_categories;
     if (Array.isArray(fromSnap) && fromSnap.length) return fromSnap;
-    return Object.values(MARKET_META).map((m) => ({
-      id: m.id,
-      label: m.label,
-      count: SNAP.strategies?.market_counts?.[m.id] ?? 0,
+    return MARKET_FILTER_IDS.map((id) => ({
+      id,
+      label: MARKET_META[id].label,
+      count: SNAP.strategies?.market_counts?.[id] ?? 0,
     }));
+  }
+
+  function marketsRows() {
+    return Array.isArray(SNAP.markets) ? SNAP.markets : [];
+  }
+
+  function marketFilterBar(activeId, extraClass) {
+    const cats = [
+      { id: "all", label: "All Markets" },
+      ...MARKET_FILTER_IDS.map((id) => ({ id, label: MARKET_META[id].label })),
+    ];
+    return `<div class="filters mkt-filter-bar ${esc(extraClass || "")}" data-mkt-filter-bar="1">
+      ${cats
+        .map(
+          (c) =>
+            `<button type="button" class="mkt-filter${c.id === (activeId || "all") ? " active" : ""}" data-market="${esc(c.id)}">${esc(c.label)}</button>`
+        )
+        .join("")}
+    </div>`;
+  }
+
+  function isHumanActionNotable(ha) {
+    const s = String(ha || "").trim().toLowerCase();
+    if (!s || s === "none" || s === "n/a") return false;
+    // Still surface "none — researching…" lightly? Mandate allows none/researching.
+    // Only highlight actionable / named gates (permissions, KYC, waiting).
+    if (s.startsWith("none")) return false;
+    return true;
   }
 
   /** Source + status chip — keep PAPER/SHADOW/sportsbook visually distinct from LIVE IBKR. */
@@ -179,7 +210,8 @@
     else if (s.includes("reject") || s.includes("kill")) cls = "badge-rejected";
     else if (s.includes("paus") || s.includes("defer") || s.includes("not_started") || s.includes("not started"))
       cls = "badge-paused";
-    else if (s === "idea" || s === "researching") cls = "badge-idea";
+    else if (s === "idea" || s === "researching" || s.includes("researching") || s.includes("setting up") || s.includes("live-auth") || s.includes("full reserve"))
+      cls = "badge-idea";
     else if (s.includes("open") || s.includes("blocked") || s.includes("trial") || s.includes("skip") || s.includes("progress"))
       cls = "badge-open";
     else if (s.includes("standing") || s.includes("not requested") || s.includes("cleared")) cls = "badge-standing";
@@ -217,14 +249,20 @@
         ? meta.last_reconciled_ibkr_ct
         : null;
     const portal = meta.confirmed_ct || SNAP.portfolio?.book_timestamp_ct || null;
+    const src =
+      SNAP.portfolio?.book_source ||
+      SNAP.positions?.source ||
+      meta.capital_source ||
+      "journal + registry + docs";
     if (rec) {
-      return `<div class="freshness muted">Last reconciled with IBKR: <strong>${esc(rec)}</strong> · Dashboard generated: <strong>${esc(gen)}</strong></div>`;
+      return `<div class="freshness muted">Data source: <strong>${esc(src)}</strong> · Last reconciled with IBKR: <strong>${esc(rec)}</strong> · Dashboard generated: <strong>${esc(gen)}</strong></div>`;
     }
     const portalBit = portal
       ? ` Last known Portal confirm date: <strong>${esc(portal)}</strong>.`
       : "";
     // Non-alarming: missing stamp ≠ invented numbers
     return `<div class="callout info reconcile-banner" role="status">
+      <strong>Data source:</strong> ${esc(src)}.
       <strong>Dashboard generated:</strong> ${esc(gen)}.
       <strong>Last reconciled with IBKR:</strong> not yet this session.${portalBit}
       Desk figures below are from the snapshot / last known book notes; the brokerage reconcile stamp is simply missing for this session.
@@ -418,6 +456,53 @@
     const viaStatus = via.status || (via.started ? "IN_PROGRESS" : "NOT_STARTED");
     const viaNote = via.note || "";
 
+    const mkts = marketsRows();
+    const byMarketRows = mkts
+      .map((m) => {
+        const ha = m.human_action || "none";
+        return `<tr>
+            <td>${marketBadge(m.id)} <span class="muted">${esc(m.name || "")}</span></td>
+            <td>${statusBadge(m.status || "N/A")}</td>
+            <td>${moneyHtml(m.value)}</td>
+            <td>${moneyHtml(m.deployed)}</td>
+            <td>${moneyHtml(m.at_risk)}</td>
+            <td>${moneyHtml(m.net_pnl)}</td>
+            <td>${moneyHtml(m.return_pct)}</td>
+            <td class="muted">${esc(m.open ?? 0)} / ${esc(m.closed ?? 0)}</td>
+            <td class="muted">${esc(ha)}</td>
+            <td class="dim"><a href="${esc(m.detail_route || "#positions")}">${esc(m.detail_route || "")}</a></td>
+          </tr>`;
+      })
+      .join("");
+
+    const pnlByMarket = mkts
+      .filter((m) => m.id !== "cash_reserve")
+      .map(
+        (m) =>
+          `<div class="item"><span class="k">${esc(m.name || m.id)}</span><span class="v">${moneyHtml(m.net_pnl)} ${labelBadge(m.label || "N/A")}</span></div>`
+      )
+      .join("");
+
+    const attrib = SNAP.return_source_attribution || [];
+    const attribHtml = attrib.length
+      ? attrib
+          .map(
+            (a) =>
+              `<span class="mkt-chip"><strong>${esc(a.return_source)}</strong> ×${esc(a.strategy_count ?? 0)} <span class="dim">LIVE P&amp;L ${esc(a.live_net_pnl?.display ?? "N/A")}</span></span>`
+          )
+          .join("")
+      : `<span class="dim">No return_source tags yet</span>`;
+
+    const attentionItems = mkts.filter((m) => isHumanActionNotable(m.human_action));
+    const attentionHtml = attentionItems.length
+      ? `<ul class="activity">${attentionItems
+          .map(
+            (m) =>
+              `<li>${marketBadge(m.id)} <strong>${esc(m.name)}</strong> — ${esc(m.human_action)}</li>`
+          )
+          .join("")}</ul>`
+      : `<div class="empty"><strong>Nothing blocking</strong><span>Market human_action is none / researching — no sportsbook KYC wait claimed.</span></div>`;
+
     return `
       <div class="stack">
         <div class="card status-panel">
@@ -480,16 +565,34 @@
         </div>
 
         <div class="card">
-          <h2>Market categories</h2>
-          <p class="muted" style="margin:0 0 8px">Securities · Options · Event Markets · Crypto · Sports Markets — registry taxonomy. Options/sports research-first; empty live OK.</p>
-          <div class="mkt-chip-row">
-            ${marketCategories()
-              .map(
-                (c) =>
-                  `<span class="mkt-chip">${marketBadge(c.id)} <strong>${esc(c.count ?? 0)}</strong>${c.note ? ` <span class="dim">${esc(c.note)}</span>` : ""}</span>`
-              )
-              .join("")}
+          <h2>By Market</h2>
+          <p class="muted" style="margin:0 0 8px">Aggregate LIVE money is in Money above. Empty researching markets use N/A for P&amp;L — intentional, not broken.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr>
+              <th>Market</th><th>Status</th><th>Value</th><th>Deployed</th><th>At risk</th>
+              <th>Net P&amp;L</th><th>Return</th><th>Open/Closed</th><th>Human action</th><th>Detail</th>
+            </tr></thead>
+            <tbody>${byMarketRows || `<tr><td colspan="10" class="muted">No markets[] in snapshot — regen dashboard_snapshot.py</td></tr>`}</tbody>
+          </table></div>
+          <p class="dim" style="margin-top:6px">Freshness: data_source + last reconciled on each row · generated ${esc(SNAP.generated_at_ct || meta.generated_at_ct || "")}</p>
+        </div>
+
+        <div class="grid grid-2">
+          <div class="card">
+            <h2>P&amp;L by market</h2>
+            <div class="strip">${pnlByMarket || `<span class="dim">N/A</span>`}</div>
+            <p class="dim" style="margin-top:6px">LIVE totals only where the book has activity. Research markets stay N/A — no hypo P&amp;L.</p>
           </div>
+          <div class="card">
+            <h2>Needs Your Attention</h2>
+            ${attentionHtml}
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Return source attribution</h2>
+          <p class="muted" style="margin:0 0 8px">Registry strategy counts by return_source. LIVE P&amp;L attribution N/A until fills exist.</p>
+          <div class="mkt-chip-row">${attribHtml}</div>
         </div>
 
         <div class="grid grid-2">
@@ -572,20 +675,62 @@
     </table></div>`;
   }
 
+  function optionsPositionColumns() {
+    return ["thesis", "max_loss", "how_going", "symbol", "qty", "source", "status"];
+  }
+
+  function sportsPositionColumns() {
+    return ["event", "side", "odds", "stake", "max_loss", "clv", "thesis", "return_source", "status"];
+  }
+
   function positionTableForMarket(rows, marketId) {
     const notes = SNAP.positions?.category_notes || {};
     const emptyDetail = {
       securities: "No open LIVE IBKR equity/ETF risk — cash/reserve.",
-      options: "No live options positions. Defined-risk research only — nothing invented.",
+      options: "No live options positions. Defined-risk research only — nothing invented. Columns lead with thesis / max loss / how going when live.",
       event: "No open event / prediction-market contracts.",
       crypto: "No open crypto spot (e.g. IBIT) — not transmitted yet.",
-      sports: "Sports research-only — no live wagers. Sportsbook results never mix with IBKR.",
+      sports: "Sports research-only — no live wagers. At-risk = stake when live. Sportsbook never mixes with IBKR.",
     };
     if (!rows || !rows.length) {
-      return emptyState(
+      let empty = emptyState(
         "No open positions",
         notes[marketId] || emptyDetail[marketId] || "Empty — not broken."
       );
+      if (marketId === "options") {
+        empty += `<div class="table-wrap" style="margin-top:8px"><table class="data">
+          <thead><tr>${optionsPositionColumns().map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+          <tbody><tr><td colspan="7" class="dim">Empty — intentional (researching)</td></tr></tbody>
+        </table></div>`;
+      } else if (marketId === "sports") {
+        empty += `<div class="table-wrap" style="margin-top:8px"><table class="data">
+          <thead><tr>${sportsPositionColumns().map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+          <tbody><tr><td colspan="9" class="dim">Empty — intentional (setting up / researching)</td></tr></tbody>
+        </table></div>`;
+      }
+      return empty;
+    }
+    if (marketId === "options" || marketId === "sports") {
+      const cols = marketId === "options" ? optionsPositionColumns() : sportsPositionColumns();
+      return `<div class="table-wrap"><table class="data">
+        <thead><tr>${cols.map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
+        <tbody>
+          ${rows
+            .map(
+              (r) =>
+                `<tr>${cols
+                  .map((c) => {
+                    const v = r[c];
+                    if (typeof v === "object" && v && ("display" in v || "label" in v))
+                      return `<td>${moneyHtml(v)}</td>`;
+                    if (v == null || v === "") return `<td class="dim">N/A</td>`;
+                    return `<td>${esc(v)}</td>`;
+                  })
+                  .join("")}</tr>`
+            )
+            .join("")}
+        </tbody>
+      </table></div>`;
     }
     return positionTable(rows);
   }
@@ -620,22 +765,19 @@
     }
     const src = pos?.source || (String(pos?.label || SNAP.mode || "").toUpperCase() === "LIVE" ? "ibkr_live_book" : "paper_desk");
     const sep = pos?.separation_note || "PAPER / SHADOW / sportsbook research must never silently total with LIVE IBKR.";
-    const cats = marketCategories()
-      .map((c) => `${marketBadge(c.id)} <span class="muted">${esc(c.count ?? 0)} strat</span>`)
-      .join(" · ");
+    const sections = MARKET_FILTER_IDS.map(
+      (id) =>
+        `<div class="card mkt-section" data-market="${esc(id)}"><h2>${marketBadge(id)} ${esc(MARKET_META[id].label)}</h2>${positionTableForMarket(buckets[id], id)}</div>`
+    ).join("");
     return `
       <div class="stack">
         <h2 class="section-title">Positions ${labelBadge(pos?.label || SNAP.mode || "LIVE")} ${sourceStatusHtml(src, pos?.source_status || pos?.label)}</h2>
         ${freshnessStrip()}
         ${sleeveBadgeCaption()}
-        <p class="muted market-cat-strip">Markets: ${cats}</p>
+        ${marketFilterBar("all", "pos-filters")}
         ${note ? `<div class="callout info">${esc(note)}</div>` : ""}
         <div class="callout warn">${esc(sep)}</div>
-        <div class="card"><h2>${marketBadge("securities")} Securities</h2>${positionTableForMarket(buckets.securities, "securities")}</div>
-        <div class="card"><h2>${marketBadge("options")} Options</h2>${positionTableForMarket(buckets.options, "options")}</div>
-        <div class="card"><h2>${marketBadge("event")} Event Markets</h2>${positionTableForMarket(buckets.event, "event")}</div>
-        <div class="card"><h2>${marketBadge("crypto")} Crypto</h2>${positionTableForMarket(buckets.crypto, "crypto")}</div>
-        <div class="card"><h2>${marketBadge("sports")} Sports Markets</h2>${positionTableForMarket(buckets.sports, "sports")}</div>
+        ${sections}
       </div>`;
   }
 
@@ -649,7 +791,7 @@
     if (!blotter.length) {
       blotterHtml = emptyState(
         "No trade history yet",
-        "Blotter is empty (header-only). Fills appear here after the first live or paper fill. PreSubmitted orders are not fills."
+        "Blotter is empty (header-only). Fills appear here after the first live or paper fill. PreSubmitted orders are not fills. Filter chips ready for when rows exist."
       );
     } else {
       const cols = Object.keys(blotter[0]);
@@ -663,16 +805,16 @@
             <thead><tr>${cols.map((c) => `<th>${esc(c)}</th>`).join("")}</tr></thead>
             <tbody>
               ${blotter
-                .map(
-                  (r) =>
-                    `<tr>${cols
-                      .map((c) => {
-                        const v = r[c];
-                        if (v == null || v === "") return `<td class="dim">N/A</td>`;
-                        return `<td>${esc(v)}</td>`;
-                      })
-                      .join("")}</tr>`
-                )
+                .map((r) => {
+                  const mk = String(r.market || "").toLowerCase();
+                  return `<tr data-market="${esc(mk)}">${cols
+                    .map((c) => {
+                      const v = r[c];
+                      if (v == null || v === "") return `<td class="dim">N/A</td>`;
+                      return `<td>${esc(v)}</td>`;
+                    })
+                    .join("")}</tr>`;
+                })
                 .join("")}
             </tbody>
           </table>
@@ -696,7 +838,9 @@
       <div class="stack">
         <h2 class="section-title">History ${labelBadge(hist.label || SNAP.mode || "LIVE")}</h2>
         ${freshnessStrip()}
+        ${marketFilterBar("all", "hist-filters")}
         <p class="muted">${esc(hist.note || "")}</p>
+        <div class="callout info">LIVE fills stay separate from PAPER/SHADOW/sportsbook refs below.</div>
         <div class="card"><h2>Blotter (fills)</h2>${blotterHtml}</div>
         <div class="card">
           <h2>Shadow artifacts (path refs — not account P&amp;L)</h2>
@@ -747,7 +891,7 @@
     const cats = marketCategories();
     const filterHtml = `
       <div class="filters" id="strat-filters">
-        <button type="button" class="mkt-filter active" data-market="all">All</button>
+        <button type="button" class="mkt-filter active" data-market="all">All Markets</button>
         ${cats
           .map(
             (c) =>
@@ -1000,6 +1144,35 @@
           </div>
           <p class="dim">${esc(r.dollar_limits_note || "")}</p>
         </div>
+        ${marketFilterBar("all", "risk-filters")}
+        <div class="card mkt-section" data-market="all">
+          <h2>Risk by market</h2>
+          <p class="muted">Options at-risk = max loss (not notional). Sports at-risk = stake. LIVE vs paper/shadow separated.</p>
+          <div class="table-wrap"><table class="data">
+            <thead><tr><th>Market</th><th>At risk</th><th>Definition</th><th>Deployed</th><th>Cap</th><th>Label</th><th>Note</th></tr></thead>
+            <tbody>
+              ${Object.entries(r.by_market || {})
+                .map(([id, row]) => {
+                  const cap =
+                    row.cap != null ? formatUsd(row.cap) || String(row.cap) : "N/A";
+                  return `<tr class="mkt-section" data-market="${esc(id)}">
+                    <td>${marketBadge(id)} ${esc(MARKET_META[id]?.label || id)}</td>
+                    <td>${moneyHtml(row.at_risk)}</td>
+                    <td class="muted">${esc(row.at_risk_definition || "")}</td>
+                    <td>${moneyHtml(row.deployed)}</td>
+                    <td>${esc(cap)}</td>
+                    <td>${labelBadge(row.label || "N/A")}</td>
+                    <td class="dim">${esc(row.note || "")}</td>
+                  </tr>`;
+                })
+                .join("") || `<tr><td colspan="7" class="muted">No by_market — regen snapshot</td></tr>`}
+            </tbody>
+          </table></div>
+          <div class="strip" style="margin-top:8px">
+            <div class="item"><span class="k">LIVE</span><span class="v">${moneyHtml(r.live_vs_paper?.live?.at_risk)} at risk · ${moneyHtml(r.live_vs_paper?.live?.deployed)} deployed</span></div>
+            <div class="item"><span class="k">Paper/Shadow</span><span class="v">${esc(r.live_vs_paper?.paper_shadow?.note || "N/A")}</span></div>
+          </div>
+        </div>
         <div class="card">
           <h2>Fee / friction assumptions</h2>
           <p class="muted">${esc(econ.kind || "")} · ${esc(econ.source || "")}</p>
@@ -1034,22 +1207,23 @@
   function viewLessons() {
     const items = SNAP.lessons?.items || [];
     if (!items.length) {
-      return `<div class="stack"><h2 class="section-title">Lessons</h2>${emptyState("No lessons yet", "journal/lessons.csv empty")}</div>`;
+      return `<div class="stack"><h2 class="section-title">Lessons</h2>${marketFilterBar("all")}${emptyState("No lessons yet", "journal/lessons.csv empty")}</div>`;
     }
     const list = items
       .map((L) => {
         const conclusion = L.what_we_learned || L.learning || L.heading || "";
+        const mkt = String(L.market || "").toLowerCase();
         const hasStruct = L.what_happened || L.believed_beforehand || L.evidence_showed || L.what_changed;
         if (!hasStruct && L.heading) {
           return `
-          <div class="lesson">
-            <div class="conclusion">${esc(L.heading)}</div>
+          <div class="lesson" data-market="${esc(mkt)}">
+            <div class="conclusion">${esc(L.heading)} ${mkt ? marketBadge(mkt) : ""}</div>
             <div class="dim">${esc(L.source || "")}</div>
           </div>`;
         }
         return `
-        <div class="lesson">
-          <div class="conclusion">${esc(conclusion)}</div>
+        <div class="lesson" data-market="${esc(mkt)}">
+          <div class="conclusion">${esc(conclusion)} ${mkt ? marketBadge(mkt) : ""}</div>
           <div><span class="id">${esc(L.lesson_id)}</span> <span class="muted">${esc(L.date_ct)}</span>
             <span class="dim">· ${esc(L.source)}</span></div>
           <div class="row"><div class="k">Observation</div><div class="v">${esc(L.what_happened || "")}</div></div>
@@ -1065,6 +1239,7 @@
       <div class="stack">
         <h2 class="section-title">Lessons <span class="muted">${esc(SNAP.lessons.count)}</span></h2>
         ${freshnessStrip()}
+        ${marketFilterBar("all", "lesson-filters")}
         <p class="muted">Plain-English conclusion first · Observation → Decision → Outcome → Lesson → System Change · ${esc(SNAP.lessons.source || "journal/lessons.csv")}</p>
         <div class="card">${list}</div>
       </div>`;
@@ -1143,28 +1318,58 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     });
     if (name === "history") bindHistoryFilter();
     if (name === "strategies") bindStrategyMarketFilter();
+    bindMarketFilterBars(name);
     try {
       history.replaceState(null, "", "#" + name);
     } catch (_) {}
   }
 
+  function applyMarketFilter(m) {
+    // Generic sections / rows / lessons / blotter rows
+    document.querySelectorAll(".mkt-section, .lesson, #hist-table tbody tr").forEach((el) => {
+      const cm = el.getAttribute("data-market") || "";
+      if (m === "all") {
+        el.style.display = "";
+        return;
+      }
+      // rows without market stay visible only on All
+      if (!cm) {
+        el.style.display = "none";
+        return;
+      }
+      el.style.display = cm === m || cm === "all" ? "" : "none";
+    });
+    // Strategy cards (also used by strat-filters)
+    document.querySelectorAll(".strat-card").forEach((card) => {
+      const cm = card.getAttribute("data-market") || "";
+      card.style.display = m === "all" || cm === m ? "" : "none";
+    });
+    document.querySelectorAll(".strategy-group").forEach((grp) => {
+      const visible = [...grp.querySelectorAll(".strat-card")].some((c) => c.style.display !== "none");
+      grp.style.display = visible ? "" : "none";
+    });
+  }
+
+  function bindMarketFilterBars(viewName) {
+    document.querySelectorAll("[data-mkt-filter-bar]").forEach((bar) => {
+      bar.addEventListener("click", (e) => {
+        const btn = e.target.closest("button.mkt-filter");
+        if (!btn) return;
+        const m = btn.dataset.market || "all";
+        // sync all bars on page
+        document.querySelectorAll("[data-mkt-filter-bar] button.mkt-filter").forEach((b) => {
+          b.classList.toggle("active", b.dataset.market === m);
+        });
+        applyMarketFilter(m);
+      });
+    });
+  }
+
   function bindStrategyMarketFilter() {
     const bar = document.getElementById("strat-filters");
     if (!bar) return;
-    bar.addEventListener("click", (e) => {
-      const btn = e.target.closest("button.mkt-filter");
-      if (!btn) return;
-      const m = btn.dataset.market || "all";
-      bar.querySelectorAll("button.mkt-filter").forEach((b) => b.classList.toggle("active", b === btn));
-      document.querySelectorAll(".strat-card").forEach((card) => {
-        const cm = card.getAttribute("data-market") || "";
-        card.style.display = m === "all" || cm === m ? "" : "none";
-      });
-      document.querySelectorAll(".strategy-group").forEach((grp) => {
-        const visible = [...grp.querySelectorAll(".strat-card")].some((c) => c.style.display !== "none");
-        grp.style.display = visible ? "" : "none";
-      });
-    });
+    bar.setAttribute("data-mkt-filter-bar", "1");
+    // click handled by bindMarketFilterBars
   }
 
   nav.addEventListener("click", (e) => {

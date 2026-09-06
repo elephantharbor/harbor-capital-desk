@@ -230,3 +230,32 @@ table.data tr:hover td { background: rgba(255,255,255,0.02); }
 .sleeve-caption { margin: 6px 0 0; font-size: 12px; line-height: 1.45; max-width: 52rem; }
 .reconcile-banner { margin: 0 0 10px; font-size: 12px; line-height: 1.5; }
 .reconcile-banner strong { color: var(--text); }
+/* Market taxonomy badges (lean) */
+.badge-mkt-securities { background: #152028; color: #8ab4d4; border-color: #2a4558; }
+.badge-mkt-options { background: #241828; color: #c49ad4; border-color: #503860; }
+.badge-mkt-event { background: #182418; color: #8aba8a; border-color: #3a553a; }
+.badge-mkt-crypto { background: #241810; color: #d4a86a; border-color: #5a4030; }
+.badge-mkt-sports { background: #101828; color: #6a9ad4; border-color: #304860; }
+.badge-mkt-na { background: #1a1e24; color: var(--muted); border-color: var(--border); }
+.mkt-chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.mkt-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--bg3); border: 1px solid var(--border); border-radius: 5px;
+  padding: 6px 8px; font-size: 12px;
+}
+.mkt-chip strong { font-variant-numeric: tabular-nums; }
+.market-cat-strip { margin: 0 0 8px; font-size: 12px; line-height: 1.5; }
+.source-status { display: inline-flex; gap: 6px; align-items: center; margin-left: 6px; }
+.src-chip {
+  display: inline-block; font-size: 10px; font-family: var(--mono);
+  color: var(--muted); background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 3px; padding: 1px 6px;
+}
+.filters .mkt-filter {
+  background: var(--bg3); border: 1px solid var(--border); color: var(--muted);
+  padding: 5px 9px; border-radius: 4px;
+}
+.filters .mkt-filter:hover { color: var(--text); }
+.filters .mkt-filter.active {
+  color: var(--text); border-color: var(--accent); background: #152028;
+}

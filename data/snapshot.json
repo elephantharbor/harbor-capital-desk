@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 08:54:33 CT",
+  "generated_at_ct": "2026-09-06 09:05:10 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 08:54:33 CT",
+    "generated_at_ct": "2026-09-06 09:05:10 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -242,8 +242,15 @@
         "mtime_ct": "2026-09-04 11:32:06 CT"
       }
     ],
+    "by_market_counts": {
+      "securities": 0,
+      "options": 0,
+      "event": 0,
+      "crypto": 0,
+      "sports": 0
+    },
     "label": "LIVE",
-    "note": "blotter may be header-only; shadow paths are SHADOW refs without PnL"
+    "note": "blotter may be header-only; shadow paths are SHADOW refs without PnL; LIVE vs paper/shadow never mixed"
   },
   "risk": {
     "label": "LIVE",
@@ -460,8 +467,136 @@
       "docs/exec-layer-status-2026-09-05.md",
       "docs/first-live-ops-test-2026-09-05.md",
       "docs/canonical-state-2026-09-04.md (HISTORICAL \u2014 do not use for ops)",
+      "docs/options-risk-boundary-2026-09-06.md",
+      "docs/sports-risk-sleeve-2026-09-06.md",
       "tools/risk_engine.py"
-    ]
+    ],
+    "by_market": {
+      "securities": {
+        "at_risk": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "at_risk_definition": "position_risk_usd",
+        "deployed": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "cap": 80.0,
+        "label": "LIVE",
+        "note": "No open LIVE equity/ETF risk"
+      },
+      "options": {
+        "at_risk": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "at_risk_definition": "max_loss",
+        "deployed": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "cap": 20.0,
+        "label": "N/A",
+        "note": "Researching \u2014 at-risk when live = max loss, not notional"
+      },
+      "event": {
+        "at_risk": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "at_risk_definition": "position_risk_usd",
+        "deployed": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "cap": 80.0,
+        "label": "N/A",
+        "note": "Researching \u2014 no paid live event risk"
+      },
+      "crypto": {
+        "at_risk": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "at_risk_definition": "position_risk_usd",
+        "deployed": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "cap": 20.0,
+        "label": "N/A",
+        "note": "Deferred \u2014 no live crypto risk"
+      },
+      "sports": {
+        "at_risk": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "at_risk_definition": "stake",
+        "deployed": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "cap": null,
+        "label": "N/A",
+        "note": "Phase A $0 live \u2014 at-risk when live = stake"
+      },
+      "cash_reserve": {
+        "at_risk": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "at_risk_definition": "none",
+        "deployed": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "cap": 100.0,
+        "label": "LIVE",
+        "note": "Full reserve \u2014 not at risk"
+      }
+    },
+    "live_vs_paper": {
+      "live": {
+        "at_risk": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "deployed": {
+          "value": 0.0,
+          "label": "LIVE",
+          "display": "0.0"
+        },
+        "note": "LIVE IBKR book only \u2014 cash/reserve; no open risk"
+      },
+      "paper_shadow": {
+        "at_risk": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "deployed": {
+          "value": null,
+          "label": "N/A",
+          "display": "N/A"
+        },
+        "note": "PAPER/SHADOW/sportsbook research must never total with LIVE"
+      }
+    }
   },
   "strategies": {
     "items": [
@@ -1006,9 +1141,9 @@
         "data_needs": "NANOS NBBO; Options Level 2",
         "cost_notes": "~$0.065/contract + spread",
         "capital_alloc_pct": "0",
-        "next_decision": "paper NBBO watch; live only after Level2+Holt+Quinn ticket",
-        "evidence_summary": "2026-09-06 Vera candidates; product map Holt NANOS-first. docs/options-strategy-candidates-2026-09-06.md",
-        "updated_ct": "2026-09-06 09:00 CT",
+        "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+        "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+        "updated_ct": "2026-09-06 09:05 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
         "label": "PAPER",
         "originated_display": null,
@@ -1031,9 +1166,9 @@
         "data_needs": "NANOS chain NBBO both wings",
         "cost_notes": "2x commission + spreads",
         "capital_alloc_pct": "0",
-        "next_decision": "secondary to DIR-001; paper first",
-        "evidence_summary": "2026-09-06 Vera; docs/securities-memos/OPT-NANOS-DEB-001-memo.md",
-        "updated_ct": "2026-09-06 09:00 CT",
+        "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+        "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+        "updated_ct": "2026-09-06 09:05 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
         "label": "PAPER",
         "originated_display": null,
@@ -1599,9 +1734,9 @@
             "data_needs": "NANOS NBBO; Options Level 2",
             "cost_notes": "~$0.065/contract + spread",
             "capital_alloc_pct": "0",
-            "next_decision": "paper NBBO watch; live only after Level2+Holt+Quinn ticket",
-            "evidence_summary": "2026-09-06 Vera candidates; product map Holt NANOS-first. docs/options-strategy-candidates-2026-09-06.md",
-            "updated_ct": "2026-09-06 09:00 CT",
+            "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+            "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+            "updated_ct": "2026-09-06 09:05 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
             "label": "PAPER",
             "originated_display": null,
@@ -1624,9 +1759,9 @@
             "data_needs": "NANOS chain NBBO both wings",
             "cost_notes": "2x commission + spreads",
             "capital_alloc_pct": "0",
-            "next_decision": "secondary to DIR-001; paper first",
-            "evidence_summary": "2026-09-06 Vera; docs/securities-memos/OPT-NANOS-DEB-001-memo.md",
-            "updated_ct": "2026-09-06 09:00 CT",
+            "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+            "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+            "updated_ct": "2026-09-06 09:05 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
             "label": "PAPER",
             "originated_display": null,
@@ -2275,9 +2410,9 @@
           "data_needs": "NANOS NBBO; Options Level 2",
           "cost_notes": "~$0.065/contract + spread",
           "capital_alloc_pct": "0",
-          "next_decision": "paper NBBO watch; live only after Level2+Holt+Quinn ticket",
-          "evidence_summary": "2026-09-06 Vera candidates; product map Holt NANOS-first. docs/options-strategy-candidates-2026-09-06.md",
-          "updated_ct": "2026-09-06 09:00 CT",
+          "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+          "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+          "updated_ct": "2026-09-06 09:05 CT",
           "capital_alloc_pct_note": "0 / no live capital allocated",
           "label": "PAPER",
           "originated_display": null,
@@ -2300,9 +2435,9 @@
           "data_needs": "NANOS chain NBBO both wings",
           "cost_notes": "2x commission + spreads",
           "capital_alloc_pct": "0",
-          "next_decision": "secondary to DIR-001; paper first",
-          "evidence_summary": "2026-09-06 Vera; docs/securities-memos/OPT-NANOS-DEB-001-memo.md",
-          "updated_ct": "2026-09-06 09:00 CT",
+          "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+          "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
+          "updated_ct": "2026-09-06 09:05 CT",
           "capital_alloc_pct_note": "0 / no live capital allocated",
           "label": "PAPER",
           "originated_display": null,
@@ -3064,7 +3199,8 @@
         "what_we_learned": "Clean vs contaminated must be hard-split; never mix for edge claims",
         "what_changed": "Added calibration_clean vs calibration_contaminated; looked_at_market_first required",
         "related_ids": "W1-F1..F6",
-        "source": "quinn-org-redteam + decisions.md"
+        "source": "quinn-org-redteam + decisions.md",
+        "market": "event"
       },
       {
         "date_ct": "2026-09-04",
@@ -3075,7 +3211,8 @@
         "what_we_learned": "Do not use 0.50 as cover for incomplete distributions",
         "what_changed": "F3 killed; require written CDF or abstain",
         "related_ids": "W1-F3 W1-F4",
-        "source": "quinn-challenge wave1"
+        "source": "quinn-challenge wave1",
+        "market": "event"
       },
       {
         "date_ct": "2026-09-04",
@@ -3086,7 +3223,8 @@
         "what_we_learned": "One active row per forecast_id; no CLEAN LOCK re-appends",
         "what_changed": "journal_io supersede/dedupe + thin_book flags; mid-promote W*=0.10",
         "related_ids": "W1-F7 F8 F9",
-        "source": "quinn-challenge-w1-f7f9"
+        "source": "quinn-challenge-w1-f7f9",
+        "market": "event"
       },
       {
         "date_ct": "2026-09-04",
@@ -3097,7 +3235,8 @@
         "what_we_learned": "Calibration events \u2260 diversified risk; do not farm correlated strikes for n",
         "what_changed": "Next lock must be non-labor or reasoned abstain",
         "related_ids": "W1-F7 F8 F9",
-        "source": "quinn + holt room"
+        "source": "quinn + holt room",
+        "market": "event"
       },
       {
         "date_ct": "2026-09-04",
@@ -3108,7 +3247,8 @@
         "what_we_learned": "Fee/friction first; no crypto live without post-fee paper edge",
         "what_changed": "ARB REJECT; DEFER live crypto; public MD only",
         "related_ids": "C-ARB crypto memos",
-        "source": "cole + fee-friction"
+        "source": "cole + fee-friction",
+        "market": "crypto"
       },
       {
         "date_ct": "2026-09-04",
@@ -3119,7 +3259,8 @@
         "what_we_learned": "Regime plumbing \u2260 information edge; do not allocate a second sleeve next to S-RESERVE",
         "what_changed": "approved_experiment DENIED; S-RESERVE remains cash default; VOLGATE shadow only",
         "related_ids": "S-VOLGATE",
-        "source": "quinn-oos-volgate"
+        "source": "quinn-oos-volgate",
+        "market": "securities"
       },
       {
         "date_ct": "2026-09-04",
@@ -3130,7 +3271,8 @@
         "what_we_learned": "No free PIT \u2192 defer/reject rather than endless research with bad data",
         "what_changed": "S-PEAD deferred; RELVAL rejected for NAV timestamp risk",
         "related_ids": "S-PEAD S1-RELVAL",
-        "source": "vera + quinn securities"
+        "source": "vera + quinn securities",
+        "market": "securities"
       },
       {
         "date_ct": "2026-09-04",
@@ -3141,7 +3283,8 @@
         "what_we_learned": "Promote only on simultaneous mids + full both-side friction across repeats",
         "what_changed": "H5 observation-only binding; async_gap tagging",
         "related_ids": "H5 shadow",
-        "source": "quinn-challenge-h5"
+        "source": "quinn-challenge-h5",
+        "market": "event"
       },
       {
         "date_ct": "2026-09-04",
@@ -3157,7 +3300,7 @@
     ],
     "count": 9,
     "source": "journal/lessons.csv",
-    "note": "from journal/lessons.csv"
+    "note": "from journal/lessons.csv (market inferred when missing)"
   },
   "system_health": {
     "tools_present": [
@@ -3249,13 +3392,13 @@
     "strategy_updated_ct_tops": [
       {
         "strategy_id": "OPT-NANOS-DIR-001",
-        "updated_ct": "2026-09-06 09:00 CT",
+        "updated_ct": "2026-09-06 09:05 CT",
         "status": "idea",
         "name": "long-nanos-directional"
       },
       {
         "strategy_id": "OPT-NANOS-DEB-001",
-        "updated_ct": "2026-09-06 09:00 CT",
+        "updated_ct": "2026-09-06 09:05 CT",
         "status": "idea",
         "name": "nanos-debit-vertical"
       },
@@ -3959,5 +4102,465 @@
       "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, le",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
     }
-  }
+  },
+  "markets": [
+    {
+      "id": "securities",
+      "name": "Securities",
+      "status": "Researching / live-auth",
+      "status_code": "researching_live_auth",
+      "value": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "exposure": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "deployed": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "at_risk": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "realized_pnl": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "unrealized_pnl": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "net_pnl": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "return_pct": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0%"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0% ($0 of $80)"
+      },
+      "benchmark": "SGOV / cash floor; VTI for COREBETA when live",
+      "return_source": "mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71)",
+      "objective": "Finish SGOV ops fill \u2192 COREBETA VTI; empty risk until Holt transmits",
+      "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
+      "human_action": "none",
+      "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
+      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#positions",
+      "label": "LIVE",
+      "note": "LIVE book funded; no open equity/ETF risk \u2014 cash/reserve. Do not invent positions."
+    },
+    {
+      "id": "options",
+      "name": "Options",
+      "status": "Researching",
+      "status_code": "researching",
+      "value": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "exposure": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "deployed": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "at_risk": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "realized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "unrealized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "return_pct": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0% ($0 of $20)"
+      },
+      "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
+      "return_source": "mixed (directional_beta\u00d76, hybrid\u00d73)",
+      "objective": "Defined-risk memos only; no live options until permissions + Holt green-light",
+      "latest_lesson": "N/A",
+      "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
+      "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
+      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#strategies",
+      "label": "N/A",
+      "note": "At-risk when live = max loss, not notional. No live options invented.",
+      "at_risk_definition": "max_loss"
+    },
+    {
+      "id": "event",
+      "name": "Event Markets",
+      "status": "Researching",
+      "status_code": "researching",
+      "value": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "exposure": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "deployed": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "at_risk": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "realized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "unrealized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "return_pct": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0% ($0 of $80)"
+      },
+      "benchmark": "Market-implied Brier / SGOV opportunity cost",
+      "return_source": "mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71)",
+      "objective": "EM-DIR-01 + calibration research; no paid live until cushion + Holt",
+      "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
+      "human_action": "none",
+      "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
+      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#forecasts",
+      "label": "N/A",
+      "note": "Researching \u2014 empty live event book is intentional."
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto",
+      "status": "Deferred",
+      "status_code": "deferred",
+      "value": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "exposure": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "deployed": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "at_risk": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "realized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "unrealized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "return_pct": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0% ($0 of $20)"
+      },
+      "benchmark": "SGOV; IBIT candidate when sequenced",
+      "return_source": "mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71)",
+      "objective": "CEX deferred; IBIT BH candidate after VTI \u2014 not transmitted",
+      "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
+      "human_action": "none",
+      "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
+      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#strategies",
+      "label": "N/A",
+      "note": "Deferred / not live \u2014 empty is intentional."
+    },
+    {
+      "id": "sports",
+      "name": "Sports Markets",
+      "status": "Setting up / Researching",
+      "status_code": "setting_up_researching",
+      "value": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "exposure": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "deployed": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "at_risk": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "realized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "unrealized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "return_pct": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A \u2014 Phase A $0 live"
+      },
+      "benchmark": "Closing line (CLV); post-vig EV",
+      "return_source": "N/A",
+      "objective": "Shadow CLV ledger + venue research; no live wagers; not in next-dollar stack",
+      "latest_lesson": "N/A",
+      "human_action": "none \u2014 researching / setting up",
+      "data_source": "docs/sports-markets-mandate-2026-09-06.md + journal/sports-shadow/",
+      "last_updated_ct": "2026-09-06 09:05:10 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#positions",
+      "label": "N/A",
+      "note": "At-risk when live = stake. Not claiming sportsbook KYC wait \u2014 setup/research only.",
+      "at_risk_definition": "stake"
+    },
+    {
+      "id": "cash_reserve",
+      "name": "Cash / Reserve",
+      "status": "Full reserve",
+      "status_code": "full_reserve",
+      "value": {
+        "value": 210.0,
+        "label": "LIVE",
+        "display": "210.0"
+      },
+      "exposure": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "deployed": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "at_risk": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0.0"
+      },
+      "realized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "unrealized_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "return_pct": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "open": 0,
+      "closed": 0,
+      "risk_util": {
+        "value": 0.0,
+        "label": "LIVE",
+        "display": "0% risk"
+      },
+      "benchmark": "SGOV / T-bill floor when reserve deployed to ops ETF",
+      "return_source": "N/A",
+      "objective": "Hold undeployed C (+ funding excess) until next-dollar stack transmits",
+      "latest_lesson": "N/A",
+      "human_action": "none",
+      "data_source": "journal/book-snapshot.csv",
+      "last_updated_ct": "2026-09-05 09:22 CT",
+      "last_reconciled_ct": null,
+      "detail_route": "#overview",
+      "label": "LIVE",
+      "note": "Account cash $210; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed."
+    }
+  ],
+  "return_source_attribution": [
+    {
+      "return_source": "directional_beta",
+      "strategy_count": 10,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "hybrid",
+      "strategy_count": 6,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "arb_rv",
+      "strategy_count": 4,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "(unset)",
+      "strategy_count": 3,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "alpha_mispricing",
+      "strategy_count": 3,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "event_driven",
+      "strategy_count": 3,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    },
+    {
+      "return_source": "momentum_trend",
+      "strategy_count": 1,
+      "live_net_pnl": {
+        "value": null,
+        "label": "N/A",
+        "display": "N/A"
+      },
+      "note": "No live fills to attribute yet \u2014 counts only"
+    }
+  ]
 }
