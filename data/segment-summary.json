@@ -6,7 +6,7 @@
   "status": "Operating",
   "statusDetail": "LIVE. Waiting on first fill to start the 30-day viability review. IBKR reconcile stamp not yet set this Gateway session (re-login before weekday fill check is optional \u2014 not blocking).",
   "owner": "Holt (Harbor Capital - CEO)",
-  "lastUpdated": "2026-09-05T13:16:51-05:00",
+  "lastUpdated": "2026-09-06T07:15:35-05:00",
   "headlineMetrics": [
     {
       "label": "Mode",
@@ -45,7 +45,7 @@
   "freshness": {
     "source": "generated_at_ct",
     "reconcileStampPresent": false,
-    "generatedAtCt": "2026-09-05 13:16:51 CT",
+    "generatedAtCt": "2026-09-06 07:15:35 CT",
     "lastReconciledIbkrCt": null,
     "viabilityClock": "NOT_STARTED",
     "automatedExecution": "Ready \u2014 Holt-gated"

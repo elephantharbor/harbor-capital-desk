@@ -646,7 +646,7 @@
             return `
           <div class="strat-card">
             <div class="name"><strong>${esc(s.name || "Unnamed")}</strong> ${statusBadge(s.status)}</div>
-            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)} · ${esc(s.market)}</div>
+            <div class="id dim">${esc(s.strategy_id)} · ${esc(s.owner)} · ${esc(s.market)}${s.return_source ? ` · ${esc(s.return_source)}` : ""}</div>
             <div class="row-plain"><span class="k">What testing</span><span class="v">${esc(s.hypothesis || "")}</span></div>
             <div class="row-plain"><span class="k">Evidence</span><span class="v">${esc(s.evidence_summary || "")}</span></div>
             <div class="row-plain"><span class="k">Next</span><span class="v">${esc(s.next_decision || "")}</span></div>
