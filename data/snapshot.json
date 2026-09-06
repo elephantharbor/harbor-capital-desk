@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 09:09:13 CT",
+  "generated_at_ct": "2026-09-06 10:41:16 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 09:09:13 CT",
+    "generated_at_ct": "2026-09-06 10:41:16 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -20,7 +20,8 @@
       "VOLGATE OOS is not live alpha",
       "Shadow H5 is observation not P&L",
       "Do not mix PAPER/SHADOW/sportsbook with LIVE IBKR totals",
-      "Options + sports markets: research-first; no invented live positions/wagers"
+      "Options markets: research-first; no invented live options positions",
+      "Sports sleeve BINDING S=$200 DK (separate pot) \u2014 Ready / human execution; $0 open; never mix with IBKR LIVE"
     ],
     "date": "2026-09-06"
   },
@@ -182,7 +183,7 @@
     "crypto": [],
     "sports": [],
     "empty": true,
-    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options and sports markets are research-first \u2014 no live options positions or sportsbook wagers.",
+    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options remain research-first. Sports: BINDING S=$200 DK sleeve (separate pot) \u2014 $0 open Harbor wagers; never mix with IBKR LIVE.",
     "label": "LIVE",
     "source": "ibkr_live_book",
     "source_status": "LIVE",
@@ -191,7 +192,7 @@
       "options": "Defined-risk options research only \u2014 no live options positions invented.",
       "event": "Event / prediction-market contracts \u2014 empty until paid/live fills.",
       "crypto": "Crypto spot (e.g. IBIT) \u2014 empty until Holt transmits.",
-      "sports": "Sports markets research-only \u2014 no live wagers; sportsbook results never mix with IBKR."
+      "sports": "Sports sleeve BINDING S=$200 (DK Harbor-tagged; personal excluded) \u2014 Ready / human execution; $0 open; never mix with IBKR LIVE."
     },
     "separation_note": "Label every row by source+status. PAPER / SHADOW / sportsbook research must never silently total with LIVE IBKR."
   },
@@ -516,9 +517,9 @@
           "label": "N/A",
           "display": "N/A"
         },
-        "cap": 80.0,
+        "cap": 20.0,
         "label": "N/A",
-        "note": "Researching \u2014 no paid live event risk"
+        "note": "Researching \u2014 no paid live event risk; util vs experimental room $20"
       },
       "crypto": {
         "at_risk": {
@@ -538,19 +539,20 @@
       },
       "sports": {
         "at_risk": {
-          "value": null,
+          "value": 0.0,
           "label": "N/A",
-          "display": "N/A"
+          "display": "0.0"
         },
         "at_risk_definition": "stake",
         "deployed": {
-          "value": null,
+          "value": 0.0,
           "label": "N/A",
-          "display": "N/A"
+          "display": "0.0"
         },
-        "cap": null,
+        "cap": 200.0,
+        "available": 200.0,
         "label": "N/A",
-        "note": "Phase A $0 live \u2014 at-risk when live = stake"
+        "note": "BINDING S=$200 DK Harbor sleeve (separate from IBKR C) \u2014 $0 open stake; at-risk when live = stake; personal bets excluded"
       },
       "cash_reserve": {
         "at_risk": {
@@ -2942,7 +2944,7 @@
     ],
     "count": 30,
     "source": "registry/strategies.csv",
-    "note": "Registry columns incl. market, return_source, originated, human_summary. Markets: Securities | Options | Event Markets | Crypto | Sports Markets. Stage badges=PAPER/SHADOW/LIVE (not brokerage mode). Options/sports research-first \u2014 empty live OK. VOLGATE OOS is not live alpha.",
+    "note": "Registry columns incl. market, return_source, originated, human_summary. Markets: Securities | Options | Event Markets | Crypto | Sports Markets. Stage badges=PAPER/SHADOW/LIVE (not brokerage mode). Options research-first; sports BINDING sleeve $0 open OK. VOLGATE OOS is not live alpha.",
     "label": "PAPER"
   },
   "forecasts": {
@@ -3639,7 +3641,7 @@
         "gate": "No uncapped leverage / margin / naked options / perps; defined-risk options OK",
         "owner": "Thomas",
         "status": "Amended 2026-09-06",
-        "blocks": "See options mandate; sports geo still verify"
+        "blocks": "See options mandate; sports sleeve BINDING (MO geo / human DK exec)"
       },
       {
         "n": "10",
@@ -3696,7 +3698,7 @@
         "gate": "No uncapped leverage / margin / naked options / perps; defined-risk options OK",
         "owner": "Thomas",
         "status": "Amended 2026-09-06",
-        "blocks": "See options mandate; sports geo still verify"
+        "blocks": "See options mandate; sports sleeve BINDING (MO geo / human DK exec)"
       },
       {
         "n": "10",
@@ -3799,12 +3801,12 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-06 10:41:11 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT"
+        "mtime_ct": "2026-09-06 10:40:47 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3824,7 +3826,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT"
+        "mtime_ct": "2026-09-06 10:40:47 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -3878,7 +3880,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-06 10:41:11 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -3886,7 +3888,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT",
+        "mtime_ct": "2026-09-06 10:40:47 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -3918,7 +3920,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT",
+        "mtime_ct": "2026-09-06 10:40:47 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -3966,12 +3968,12 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-06 10:41:11 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT"
+        "mtime_ct": "2026-09-06 10:40:47 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3991,7 +3993,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT"
+        "mtime_ct": "2026-09-06 10:40:47 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -4045,7 +4047,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-06 10:41:11 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -4053,7 +4055,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT",
+        "mtime_ct": "2026-09-06 10:40:47 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -4085,7 +4087,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 09:05:26 CT",
+        "mtime_ct": "2026-09-06 10:40:47 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -4107,8 +4109,8 @@
     {
       "id": "securities",
       "name": "Securities",
-      "status": "Researching \u2014 live account, no positions",
-      "status_code": "researching_live_auth",
+      "status": "Setting up / Active ops-pending",
+      "status_code": "setting_up_ops_pending",
       "value": {
         "value": null,
         "label": "N/A",
@@ -4162,11 +4164,12 @@
       "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
-      "last_updated_ct": "2026-09-06 09:09:13 CT",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
       "last_reconciled_ct": null,
       "detail_route": "#positions",
       "label": "N/A",
-      "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions."
+      "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions.",
+      "market_id": "securities"
     },
     {
       "id": "options",
@@ -4226,12 +4229,13 @@
       "latest_lesson": "N/A",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-06 09:09:13 CT",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
       "last_reconciled_ct": null,
       "detail_route": "#strategies",
       "label": "N/A",
       "note": "At-risk when live = max loss, not notional. No live options invented.",
-      "at_risk_definition": "max_loss"
+      "at_risk_definition": "max_loss",
+      "market_id": "options"
     },
     {
       "id": "event",
@@ -4291,11 +4295,12 @@
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-06 09:09:13 CT",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
       "last_reconciled_ct": null,
       "detail_route": "#forecasts",
       "label": "N/A",
-      "note": "Researching \u2014 empty live event book is intentional."
+      "note": "Researching \u2014 empty live event book is intentional.",
+      "market_id": "event"
     },
     {
       "id": "crypto",
@@ -4355,36 +4360,42 @@
       "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-06 09:09:13 CT",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
       "last_reconciled_ct": null,
       "detail_route": "#strategies",
       "label": "N/A",
-      "note": "Deferred / not live \u2014 empty is intentional."
+      "note": "Deferred / not live \u2014 empty is intentional.",
+      "market_id": "crypto"
     },
     {
       "id": "sports",
       "name": "Sports Markets",
-      "status": "Setting up / Researching",
-      "status_code": "setting_up_researching",
+      "status": "Ready / human execution",
+      "status_code": "human_execution",
       "value": {
-        "value": null,
+        "value": 200.0,
         "label": "N/A",
-        "display": "N/A"
+        "display": "200"
+      },
+      "capital_available": {
+        "value": 200.0,
+        "label": "N/A",
+        "display": "200"
       },
       "exposure": {
-        "value": null,
+        "value": 0.0,
         "label": "N/A",
-        "display": "N/A"
+        "display": "0.0"
       },
       "deployed": {
-        "value": null,
+        "value": 0.0,
         "label": "N/A",
-        "display": "N/A"
+        "display": "0.0"
       },
       "at_risk": {
-        "value": null,
+        "value": 0.0,
         "label": "N/A",
-        "display": "N/A"
+        "display": "0.0"
       },
       "realized_pnl": {
         "value": null,
@@ -4409,22 +4420,25 @@
       "open": 0,
       "closed": 0,
       "risk_util": {
-        "value": null,
+        "value": 0.0,
         "label": "N/A",
-        "display": "N/A \u2014 Phase A $0 live"
+        "display": "$0 of $200 sleeve deployed"
       },
       "benchmark": "Closing line (CLV); post-vig EV",
       "return_source": "N/A",
-      "objective": "Shadow CLV ledger + venue research; no live wagers; not in next-dollar stack",
+      "objective": "BINDING S=$200 DK Harbor sleeve; Ready / human execution; $0 open until Quinn-cleared ticket",
       "latest_lesson": "N/A",
-      "human_action": "none \u2014 researching / setting up",
-      "data_source": "docs/sports-markets-mandate-2026-09-06.md + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-06 09:09:13 CT",
+      "human_action": "none",
+      "data_source": "docs/sports-risk-sleeve-2026-09-06.md + journal/sports-shadow/",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
       "last_reconciled_ct": null,
       "detail_route": "#positions",
       "label": "N/A",
-      "note": "At-risk when live = stake. Not claiming sportsbook KYC wait \u2014 setup/research only.",
-      "at_risk_definition": "stake"
+      "note": "BINDING separate DK pot S=$200 (Harbor-tagged only; personal bets excluded). FD line-shop only; human execution; MO geo. At-risk when live = stake. $0 open Harbor wagers \u2014 do not invent tickets. Never totals into IBKR LIVE NAV. Supersedes nest-inside-IBKR-$20 for sports stake $.",
+      "at_risk_definition": "stake",
+      "sleeve_s": 200.0,
+      "venue": "DraftKings (existing; Harbor-tagged)",
+      "market_id": "sports"
     },
     {
       "id": "cash_reserve",
@@ -4484,11 +4498,22 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-05 09:22 CT",
+      "last_updated_ct": "2026-09-06 10:41:16 CT",
+      "book_timestamp_ct": "2026-09-05 09:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#overview",
       "label": "LIVE",
-      "note": "Account cash $210; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed."
+      "note": "Account cash $210; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
+      "market_id": "cash_reserve"
+    }
+  ],
+  "human_actions": [
+    {
+      "market_id": "options",
+      "name": "Options",
+      "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
+      "status": "Researching",
+      "detail_route": "#strategies"
     }
   ],
   "return_source_attribution": [
