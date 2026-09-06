@@ -74,7 +74,34 @@
   };
 
   
+  function areaNextUpFromSnap(areaId) {
+    if (!SNAP) return null;
+    const nu = SNAP.next_up || SNAP.nextUp || SNAP.nextUpByArea || null;
+    if (nu) {
+      const areas = nu.areas || nu;
+      if (areas && areas[areaId] && Array.isArray(areas[areaId].items)) {
+        return areas[areaId];
+      }
+    }
+    // market_details[id].next_up for market pages
+    const md = SNAP.market_details || {};
+    const marketMap = {
+      "capital-securities": "securities",
+      "capital-options": "options",
+      "capital-event": "event",
+      "capital-crypto": "crypto",
+      "capital-sports": "sports",
+    };
+    const mid = marketMap[areaId];
+    if (mid && md[mid] && md[mid].next_up && Array.isArray(md[mid].next_up.items)) {
+      return md[mid].next_up;
+    }
+    return null;
+  }
+
   async function loadAreaNextUp(areaId) {
+    const fromSnap = areaNextUpFromSnap(areaId);
+    if (fromSnap) return fromSnap;
     try {
       const res = await fetch(`data/next-up/${areaId}.json`, { cache: "no-store" });
       if (!res.ok) return { areaId, items: [] };

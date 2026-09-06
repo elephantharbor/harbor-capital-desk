@@ -1,6 +1,28 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-06T13:00:00-05:00",
-  "items": []
+  "lastUpdated": "2026-09-06T14:34:15-05:00",
+  "items": [
+    {
+      "id": "gateway-health",
+      "title": "Gateway health check",
+      "nextRunAt": "2026-09-07T09:00:00-05:00",
+      "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
+      "owner": "Holt"
+    },
+    {
+      "id": "sgov-ops-fill-check",
+      "title": "SGOV ops fill check",
+      "nextRunAt": "2026-09-07T09:00:00-05:00",
+      "scheduleLabel": "Mondays 9:00 AM CT",
+      "owner": "Holt"
+    },
+    {
+      "id": "ibg-cutover-nudge",
+      "title": "IB Gateway cutover nudge",
+      "nextRunAt": "2026-09-07T10:00:00-05:00",
+      "scheduleLabel": "Mon\u2013Tue 10:00 AM CT",
+      "owner": "Holt"
+    }
+  ]
 }

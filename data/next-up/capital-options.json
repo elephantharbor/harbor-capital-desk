@@ -1,6 +1,28 @@
 {
   "areaId": "capital-options",
-  "areaName": "Capital \u2014 Options",
-  "lastUpdated": "2026-09-06T13:00:00-05:00",
-  "items": []
+  "areaName": "Options",
+  "lastUpdated": "2026-09-06T14:34:15-05:00",
+  "items": [
+    {
+      "id": "options-am-ride",
+      "title": "Securities morning scan (options ride)",
+      "nextRunAt": "2026-09-07T08:00:00-05:00",
+      "scheduleLabel": "Weekdays 8:00 AM CT",
+      "owner": "Vera"
+    },
+    {
+      "id": "options-pm-ride",
+      "title": "Securities afternoon scan (options ride)",
+      "nextRunAt": "2026-09-07T13:30:00-05:00",
+      "scheduleLabel": "Weekdays 1:30 PM CT",
+      "owner": "Vera"
+    },
+    {
+      "id": "weekly-portfolio-review",
+      "title": "Weekly portfolio review",
+      "nextRunAt": "2026-09-11T17:00:00-05:00",
+      "scheduleLabel": "Fridays 5:00 PM CT",
+      "owner": "Holt"
+    }
+  ]
 }

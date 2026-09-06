@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 12:52:46 CT",
+  "generated_at_ct": "2026-09-06 14:34:15 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 12:52:46 CT",
+    "generated_at_ct": "2026-09-06 14:34:15 CT",
     "last_reconciled_ibkr_ct": null,
     "mode": "LIVE",
     "c_confirmed": true,
@@ -21,7 +21,7 @@
       "Shadow H5 is observation not P&L",
       "Do not mix PAPER/SHADOW/sportsbook with LIVE IBKR totals",
       "Options markets: research-first; no invented live options positions",
-      "Sports sleeve (S)=$200 DraftKings \u2014 independent-forecast methodology; PERSONAL vs HARBOR; Ready / $0 open; never mix with IBKR LIVE"
+      "Sports BINDING S=$200 DK \u2014 independent-forecast methodology; PERSONAL vs HARBOR; Ready / $0 open; never mix with IBKR LIVE"
     ],
     "date": "2026-09-06"
   },
@@ -183,7 +183,7 @@
     "crypto": [],
     "sports": [],
     "empty": true,
-    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options remain research-first. Sports: Sports sleeve (S)=$200 DraftKings pot (separate pot) \u2014 $0 open Harbor wagers; never mix with IBKR LIVE.",
+    "note": "No open risk positions \u2014 100% cash/reserve (LIVE IBKR book). Empty blotter expected until SGOV ops fill; next risk-on is VTI COREBETA (not live yet). Options remain research-first. Sports: BINDING S=$200 DK sleeve (separate pot) \u2014 $0 open Harbor wagers; never mix with IBKR LIVE.",
     "label": "LIVE",
     "source": "ibkr_live_book",
     "source_status": "LIVE",
@@ -192,7 +192,7 @@
       "options": "Defined-risk options research only \u2014 no live options positions invented.",
       "event": "Event / prediction-market contracts \u2014 empty until paid/live fills.",
       "crypto": "Crypto spot (e.g. IBIT) \u2014 empty until Holt transmits.",
-      "sports": "Sports: independent-forecast methodology; Sports sleeve (S)=$200 DraftKings; PERSONAL vs HARBOR tags; Ready \u2014 you place Harbor tickets; $0 open \u2014 no invented picks; never mix with IBKR LIVE."
+      "sports": "Sports: independent-forecast methodology; BINDING S=$200 DK; PERSONAL vs HARBOR tags; Ready / human execution; $0 open \u2014 no invented picks; never mix with IBKR LIVE."
     },
     "separation_note": "Label every row by source+status. PAPER / SHADOW / sportsbook research must never silently total with LIVE IBKR."
   },
@@ -552,7 +552,7 @@
         "cap": 200.0,
         "available": 200.0,
         "label": "N/A",
-        "note": "Sports sleeve (S)=$200 DraftKings; independent-forecast process; PERSONAL vs HARBOR; $0 open stake; at-risk when live = stake"
+        "note": "BINDING S=$200 DK; independent-forecast process; PERSONAL vs HARBOR; $0 open stake; at-risk when live = stake"
       },
       "cash_reserve": {
         "at_risk": {
@@ -3485,6 +3485,18 @@
     ],
     "events": [
       {
+        "ts": "2026-09-06 \u2014 Event Markets `#market-even",
+        "kind": "decision",
+        "title": "2026-09-06 \u2014 Event Markets `#market-event` PR validation (PR #1)",
+        "summary": "Route `#market-event` + Markets subnav; `markets[].detail_route` = `#market-event`."
+      },
+      {
+        "ts": "2026-09-06 \u2014 Event Markets drill-down va",
+        "kind": "decision",
+        "title": "2026-09-06 \u2014 Event Markets drill-down validation standing by",
+        "summary": "2026-09-06 \u2014 Event Markets drill-down validation standing by"
+      },
+      {
         "ts": "2026-09-06 \u2014 Event Markets cadence rebui",
         "kind": "decision",
         "title": "2026-09-06 \u2014 Event Markets cadence rebuild",
@@ -3531,18 +3543,6 @@
         "kind": "decision",
         "title": "2026-09-05 \u2014 Live bankroll C=$200",
         "summary": "Thomas funded IBKR; C set to $200. Live experimental sleeve \u2264$20; reserve floor \u2265$100; exp position max loss $4."
-      },
-      {
-        "ts": "2026-09-04 ~11:31 CT \u2014 H4 FedWatch refre",
-        "kind": "decision",
-        "title": "2026-09-04 ~11:31 CT \u2014 H4 FedWatch refresh + Holt/Quinn H5 binding",
-        "summary": "H4: appended snapshot row under **mapping v1** (no remap). FedWatch mirror hold **40.1%** / hike **59.9%** (kryptomagazin terminal; page stamp 15:59 UTC); Kalshi live mids H0 **0.465** / H25 **0.525**"
-      },
-      {
-        "ts": "2026-09-04 ~11:32 CT \u2014 Mid-promote eligi",
-        "kind": "decision",
-        "title": "2026-09-04 ~11:32 CT \u2014 Mid-promote eligibility rule W*=0.10 (Quinn)",
-        "summary": "F7 in (width 0.07); F10 out (0.28 wide_book); F8/F9 fail depth."
       },
       {
         "ts": "2026-09-04 11:25 CT",
@@ -3806,7 +3806,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT"
+        "mtime_ct": "2026-09-06 13:20:29 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3826,7 +3826,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT"
+        "mtime_ct": "2026-09-06 13:20:29 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -3888,7 +3888,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT",
+        "mtime_ct": "2026-09-06 13:20:29 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -3920,7 +3920,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT",
+        "mtime_ct": "2026-09-06 13:20:29 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -3973,7 +3973,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT"
+        "mtime_ct": "2026-09-06 13:20:29 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -3993,7 +3993,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT"
+        "mtime_ct": "2026-09-06 13:20:29 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -4055,7 +4055,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT",
+        "mtime_ct": "2026-09-06 13:20:29 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -4087,7 +4087,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 11:41:01 CT",
+        "mtime_ct": "2026-09-06 13:20:29 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -4109,7 +4109,7 @@
     {
       "id": "securities",
       "name": "Securities",
-      "status": "Ops pending \u2014 no open risk",
+      "status": "Setting up / Active ops-pending",
       "status_code": "setting_up_ops_pending",
       "value": {
         "value": null,
@@ -4158,19 +4158,18 @@
         "label": "N/A",
         "display": "Experimental room used: $0 of $20"
       },
-      "benchmark": "SGOV (T-bill ETF) / cash floor; VTI for COREBETA (VTI core beta) when live",
-      "return_source": "Research tags only \u2014 no live P&L yet",
-      "objective": "Finish SGOV (T-bill ETF) ops fill \u2192 COREBETA (VTI core beta); empty risk until Holt transmits",
+      "benchmark": "SGOV / cash floor; VTI for COREBETA when live",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))",
+      "objective": "Finish SGOV ops fill \u2192 COREBETA VTI; empty risk until Holt transmits",
       "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-securities",
       "label": "N/A",
       "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions.",
-      "market_id": "securities",
-      "return_source_registry_mix": "(mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))"
+      "market_id": "securities"
     },
     {
       "id": "options",
@@ -4224,20 +4223,19 @@
         "label": "N/A",
         "display": "Experimental room used: $0 of $20"
       },
-      "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS (Nano options) preferred at C=$200",
-      "return_source": "Research tags only \u2014 no live P&L yet",
+      "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d76, hybrid\u00d73))",
       "objective": "Defined-risk memos only; no live options until permissions + Holt green-light",
       "latest_lesson": "N/A",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
       "note": "At-risk when live = max loss, not notional. No live options invented.",
       "at_risk_definition": "max_loss",
-      "market_id": "options",
-      "return_source_registry_mix": "(mixed (directional_beta\u00d76, hybrid\u00d73))"
+      "market_id": "options"
     },
     {
       "id": "event",
@@ -4292,18 +4290,17 @@
         "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "Market-implied Brier / SGOV opportunity cost",
-      "return_source": "Research tags only \u2014 no live P&L yet",
-      "objective": "Event directional research (Harbor p vs market) + calibration; no paid live until cushion + Holt",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))",
+      "objective": "EM-DIR-01 + calibration research; no paid live until cushion + Holt",
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
       "note": "Researching \u2014 empty live event book is intentional.",
-      "market_id": "event",
-      "return_source_registry_mix": "(mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))"
+      "market_id": "event"
     },
     {
       "id": "crypto",
@@ -4358,27 +4355,26 @@
         "display": "Experimental room used: $0 of $20"
       },
       "benchmark": "SGOV; IBIT candidate when sequenced",
-      "return_source": "Research tags only \u2014 no live P&L yet",
+      "return_source": "Research tags only \u2014 no live P&L (mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))",
       "objective": "CEX deferred; IBIT BH candidate after VTI \u2014 not transmitted",
       "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
       "note": "Deferred / not live \u2014 empty is intentional.",
-      "market_id": "crypto",
-      "return_source_registry_mix": "(mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))"
+      "market_id": "crypto"
     },
     {
       "id": "sports",
       "name": "Sports Markets",
-      "status": "Ready \u2014 you place Harbor tickets",
+      "status": "Ready / human execution",
       "status_code": "human_execution",
       "value": {
         "value": 200.0,
-        "label": "",
+        "label": "N/A",
         "display": "200"
       },
       "capital_available": {
@@ -4393,12 +4389,12 @@
       },
       "deployed": {
         "value": 0.0,
-        "label": "",
+        "label": "N/A",
         "display": "0.0"
       },
       "at_risk": {
         "value": 0.0,
-        "label": "",
+        "label": "N/A",
         "display": "0.0"
       },
       "realized_pnl": {
@@ -4428,17 +4424,17 @@
         "label": "N/A",
         "display": "$0 of $200 sleeve deployed"
       },
-      "benchmark": "Closing-line value (CLV); post-vig expected value (EV)",
+      "benchmark": "Closing line (CLV); post-vig EV",
       "return_source": "N/A",
-      "objective": "Independent-first forecast methodology; Sports sleeve (S)=$200 on DraftKings; $0 open until cleared for placement; PERSONAL vs HARBOR tagged",
+      "objective": "Independent-first forecast methodology; BINDING S=$200 DK; $0 open until Quinn-cleared; PERSONAL vs HARBOR tagged",
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
-      "note": "Independent-first sports forecasting (no ML) \u2014 see docs/sports-forecasting-methodology-2026-09-06.md. Sports sleeve (S)=$200 separate DraftKings pot (Harbor-tagged only). PERSONAL vs HARBOR LIVE/SHADOW tags \u2014 personal bets excluded. FanDuel line-shop only; you place Harbor tickets; MO geo. At-risk when live = stake. $0 open Harbor wagers \u2014 do not invent tickets. Never totals into IBKR LIVE NAV.",
+      "note": "Independent-first sports forecasting (no ML) \u2014 see docs/sports-forecasting-methodology-2026-09-06.md. BINDING separate DK pot S=$200 (Harbor-tagged only). PERSONAL vs HARBOR LIVE/SHADOW tags \u2014 personal bets excluded. FD line-shop only; human execution; MO geo. At-risk when live = stake. $0 open Harbor wagers \u2014 do not invent tickets. Never totals into IBKR LIVE NAV.",
       "at_risk_definition": "stake",
       "sleeve_s": 200.0,
       "venue": "DraftKings (existing; Harbor-tagged)",
@@ -4502,7 +4498,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-06 12:52:46 CT",
+      "last_updated_ct": "2026-09-06 14:34:15 CT",
       "book_timestamp_ct": "2026-09-05 09:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#overview",
@@ -4511,6 +4507,277 @@
       "market_id": "cash_reserve"
     }
   ],
+  "market_details": {
+    "securities": {
+      "desk_goal": "Finish SGOV ops fill, then COREBETA (VTI) as next risk-on \u2014 empty LIVE risk until Holt transmits.",
+      "owner": "Vera",
+      "emphasis": [
+        "holdings",
+        "entry_current",
+        "pnl",
+        "benchmark",
+        "thesis",
+        "return_source",
+        "opportunities",
+        "risk",
+        "decisions",
+        "lessons"
+      ],
+      "next_stack": [
+        "SGOV ops (PreSubmitted / pending fill)",
+        "COREBETA VTI buy-hold vs SGOV"
+      ],
+      "empty_positions_reason": "LIVE IBKR funded; no open equity/ETF risk. Cash sits in Cash / Reserve.",
+      "next_up": {
+        "areaId": "capital-securities",
+        "areaName": "Securities",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "securities-am",
+            "title": "Securities morning scan",
+            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      }
+    },
+    "options": {
+      "desk_goal": "Defined-risk options research only. Lead with the bet, maximum possible loss, and how it is going \u2014 Greeks secondary.",
+      "owner": "Vera",
+      "emphasis": [
+        "thesis",
+        "max_loss",
+        "how_going",
+        "underlying",
+        "expiration",
+        "strikes",
+        "premium"
+      ],
+      "greeks_secondary": true,
+      "at_risk_definition": "max_loss",
+      "empty_positions_reason": "No live options. Permissions (Level \u22652) needed before any transmit; researching memos only.",
+      "candidate_note": "NANOS preferred at C=$200; credit spreads / CSP rejected under phase-1 risk boundary.",
+      "next_up": {
+        "areaId": "capital-options",
+        "areaName": "Options",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "options-am-ride",
+            "title": "Securities morning scan (options ride)",
+            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      }
+    },
+    "event": {
+      "desk_goal": "EM-DIR-01 + calibration: independent Harbor p vs market-implied. No paid live until cushion + Holt.",
+      "owner": "Reed",
+      "emphasis": [
+        "contracts",
+        "harbor_p_vs_market",
+        "capital_at_risk",
+        "ev",
+        "resolution",
+        "forecast_class",
+        "calibration",
+        "thesis",
+        "lessons"
+      ],
+      "empty_positions_reason": "Researching \u2014 no paid live event contracts. Forecast book is paper/process, not account P&L.",
+      "next_up": {
+        "areaId": "capital-event",
+        "areaName": "Event Markets",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "event-markets-weekday-triage",
+            "title": "Event markets weekday triage",
+            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "scheduleLabel": "Weekdays 9:00 AM CT",
+            "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      }
+    },
+    "crypto": {
+      "desk_goal": "CEX deferred. When sequenced: show economic exposure (e.g. BTC) and instrument/venue (e.g. IBIT on IBKR).",
+      "owner": "Cole",
+      "emphasis": [
+        "economic_exposure",
+        "instrument_venue",
+        "entry_current",
+        "pnl",
+        "return_source",
+        "regime_thesis",
+        "candidates",
+        "lessons"
+      ],
+      "empty_positions_reason": "Deferred \u2014 no live crypto/IBIT. Candidate S-CRYPTO-BH-001 (BTC via IBIT) not transmitted.",
+      "candidates": [
+        {
+          "strategy_id": "S-CRYPTO-BH-001",
+          "economic_exposure": "BTC",
+          "instrument": "IBIT",
+          "venue": "IBKR",
+          "status": "idea",
+          "note": "Directional beta hold vs SGOV \u2014 after VTI in next-dollar stack; not live."
+        }
+      ],
+      "next_up": {
+        "areaId": "capital-crypto",
+        "areaName": "Crypto",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-09-07T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-pm",
+            "title": "Crypto evening scan",
+            "nextRunAt": "2026-09-07T19:00:00-05:00",
+            "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      }
+    },
+    "sports": {
+      "desk_goal": "Independent-first sports forecasting (NFL / CFB / MLB only). Harbor-tagged DK sleeve S=$200 separate from IBKR.",
+      "owner": "Sloan",
+      "leagues": [
+        "NFL",
+        "CFB",
+        "MLB"
+      ],
+      "tag_legend": {
+        "HARBOR_LIVE": "Harbor-tagged live ticket on the BINDING S=$200 DK pot \u2014 counts in Harbor sports P&L only (never IBKR NAV).",
+        "HARBOR_SHADOW": "Process / CLV learning row \u2014 not a live wager; not Harbor P&L.",
+        "PERSONAL_RECOMMENDATION": "Personal / non-Harbor \u2014 never included in Harbor P&L or sleeve utilization."
+      },
+      "sleeve": {
+        "S": 200,
+        "unit": 4,
+        "max_ticket": 10,
+        "daily": 20,
+        "event": 10,
+        "correlated": 20,
+        "pause_loss": -40,
+        "venue": "DraftKings (Harbor-tagged); FanDuel line-shop only"
+      },
+      "empty_live_reason": "Ready / human execution \u2014 $0 open Harbor wagers until Quinn-cleared ticket is placed. Do not invent picks.",
+      "harbor_live": [],
+      "harbor_shadow": [
+        {
+          "ticket_id": "SP-SH-20260906-01",
+          "logged_ct": "2026-09-06 10:44 CT",
+          "league": "NFL",
+          "event": "NFL W1 NE @ SEA (2026-09-09)",
+          "side": "SEA -3.5",
+          "odds": "-105",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": null,
+          "ev": "\u22640 (no independent my_p)",
+          "confidence": "Low",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "shadow_only Quinn-accepted; FD shop -112; close TBD at kick; forecast_class=market_informed no independent my_p",
+          "result": "pending",
+          "source": "journal/sports-shadow/clv-ledger.csv"
+        }
+      ],
+      "personal_recommendations": [],
+      "roi_note": "No Harbor LIVE results yet \u2014 ROI / by-sport / by-edge empty until first Harbor-tagged settle.",
+      "next_up": {
+        "areaId": "capital-sports",
+        "areaName": "Sports",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "mlb-daily-board",
+            "title": "MLB daily screen",
+            "nextRunAt": "2026-09-07T09:30:00-05:00",
+            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "cfb-monday-board",
+            "title": "CFB Monday slate",
+            "nextRunAt": "2026-09-07T10:00:00-05:00",
+            "scheduleLabel": "Mondays 10:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "nfl-tuesday-board",
+            "title": "NFL Tuesday slate",
+            "nextRunAt": "2026-09-08T09:00:00-05:00",
+            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          }
+        ]
+      }
+    }
+  },
   "human_actions": [
     {
       "market_id": "options",
@@ -4563,135 +4830,177 @@
       ]
     }
   ],
-  "market_details": {
-    "securities": {
-      "desk_goal": "Finish SGOV (T-bill ETF) ops fill, then COREBETA (VTI core beta) as next risk-on \u2014 empty LIVE risk until Holt transmits.",
-      "owner": "Vera",
-      "emphasis": [
-        "holdings",
-        "entry_current",
-        "pnl",
-        "benchmark",
-        "thesis",
-        "return_source",
-        "opportunities",
-        "risk",
-        "decisions",
-        "lessons"
-      ],
-      "next_stack": [
-        "SGOV ops (PreSubmitted / pending fill)",
-        "COREBETA VTI buy-hold vs SGOV"
-      ],
-      "empty_positions_reason": "LIVE IBKR funded; no open equity/ETF risk. Cash sits in Cash / Reserve."
-    },
-    "options": {
-      "desk_goal": "Defined-risk options research only. Lead with the bet, maximum possible loss, and how it is going \u2014 Greeks secondary.",
-      "owner": "Vera",
-      "emphasis": [
-        "thesis",
-        "max_loss",
-        "how_going",
-        "underlying",
-        "expiration",
-        "strikes",
-        "premium"
-      ],
-      "greeks_secondary": true,
-      "at_risk_definition": "max_loss",
-      "empty_positions_reason": "No live options. Permissions (Level \u22652) needed before any transmit; researching memos only.",
-      "candidate_note": "NANOS (Nano options) preferred at C=$200; credit spreads / CSP rejected under phase-1 risk boundary."
-    },
-    "event": {
-      "desk_goal": "Event directional research (Harbor p vs market) + calibration: independent Harbor p vs market-implied. No paid live until cushion + Holt.",
-      "owner": "Reed",
-      "emphasis": [
-        "contracts",
-        "harbor_p_vs_market",
-        "capital_at_risk",
-        "ev",
-        "resolution",
-        "forecast_class",
-        "calibration",
-        "thesis",
-        "lessons"
-      ],
-      "empty_positions_reason": "Researching \u2014 no paid live event contracts. Forecast book is paper/process, not account P&L."
-    },
-    "crypto": {
-      "desk_goal": "CEX deferred. When sequenced: show economic exposure (e.g. BTC) and instrument/venue (e.g. IBIT on IBKR).",
-      "owner": "Cole",
-      "emphasis": [
-        "economic_exposure",
-        "instrument_venue",
-        "entry_current",
-        "pnl",
-        "return_source",
-        "regime_thesis",
-        "candidates",
-        "lessons"
-      ],
-      "empty_positions_reason": "Deferred \u2014 no live crypto/IBIT. Candidate S-CRYPTO-BH-001 (BTC via IBIT) not transmitted.",
-      "candidates": [
-        {
-          "strategy_id": "S-CRYPTO-BH-001",
-          "economic_exposure": "BTC",
-          "instrument": "IBIT",
-          "venue": "IBKR",
-          "status": "idea",
-          "note": "Directional beta hold vs SGOV \u2014 after VTI in next-dollar stack; not live."
-        }
-      ]
-    },
-    "sports": {
-      "desk_goal": "Independent-first sports forecasting (NFL / CFB / MLB only). Harbor-tagged DraftKings Sports sleeve (S)=$200 separate from IBKR.",
-      "owner": "Sloan",
-      "leagues": [
-        "NFL",
-        "CFB",
-        "MLB"
-      ],
-      "tag_legend": {
-        "HARBOR_LIVE": "Harbor-tagged live ticket on the Sports sleeve (S)=$200 DraftKings pot \u2014 counts in Harbor sports P&L only (never IBKR NAV).",
-        "HARBOR_SHADOW": "Process / closing-line value (CLV) learning row \u2014 not a live wager; not Harbor P&L.",
-        "PERSONAL_RECOMMENDATION": "Personal / non-Harbor \u2014 never included in Harbor P&L or sleeve utilization."
+  "next_up": {
+    "areas": {
+      "capital": {
+        "areaId": "capital",
+        "areaName": "Harbor Capital",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "gateway-health",
+            "title": "Gateway health check",
+            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
+            "owner": "Holt"
+          },
+          {
+            "id": "sgov-ops-fill-check",
+            "title": "SGOV ops fill check",
+            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "scheduleLabel": "Mondays 9:00 AM CT",
+            "owner": "Holt"
+          },
+          {
+            "id": "ibg-cutover-nudge",
+            "title": "IB Gateway cutover nudge",
+            "nextRunAt": "2026-09-07T10:00:00-05:00",
+            "scheduleLabel": "Mon\u2013Tue 10:00 AM CT",
+            "owner": "Holt"
+          }
+        ]
       },
-      "sleeve": {
-        "S": 200,
-        "unit": 4,
-        "max_ticket": 10,
-        "daily": 20,
-        "event": 10,
-        "correlated": 20,
-        "pause_loss": -40,
-        "venue": "DraftKings (Harbor-tagged); FanDuel line-shop only"
+      "capital-securities": {
+        "areaId": "capital-securities",
+        "areaName": "Securities",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "securities-am",
+            "title": "Securities morning scan",
+            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
       },
-      "empty_live_reason": "Ready \u2014 you place Harbor tickets \u2014 $0 open Harbor wagers until a ticket is cleared for placement. Do not invent picks.",
-      "harbor_live": [],
-      "harbor_shadow": [
-        {
-          "ticket_id": "SP-SH-20260906-01",
-          "logged_ct": "2026-09-06 10:44 CT",
-          "league": "NFL",
-          "event": "NFL W1 NE @ SEA (2026-09-09)",
-          "side": "SEA -3.5",
-          "odds": "-105",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": null,
-          "ev": "\u22640 (no independent my_p)",
-          "confidence": "Low",
-          "forecast_class": "market_informed",
-          "clv": "TBD at kick",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Shadow-only process build (desk-accepted). FanDuel line-shop \u2212112. No independent Harbor probability locked \u2014 learning row, not a live bet.",
-          "result": "pending",
-          "source": "journal/sports-shadow/clv-ledger.csv"
-        }
-      ],
-      "personal_recommendations": [],
-      "roi_note": "No Harbor LIVE results yet \u2014 ROI / by-sport / by-edge empty until first Harbor-tagged settle."
-    }
+      "capital-options": {
+        "areaId": "capital-options",
+        "areaName": "Options",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "options-am-ride",
+            "title": "Securities morning scan (options ride)",
+            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      },
+      "capital-event": {
+        "areaId": "capital-event",
+        "areaName": "Event Markets",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "event-markets-weekday-triage",
+            "title": "Event markets weekday triage",
+            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "scheduleLabel": "Weekdays 9:00 AM CT",
+            "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      },
+      "capital-crypto": {
+        "areaId": "capital-crypto",
+        "areaName": "Crypto",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-09-07T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-pm",
+            "title": "Crypto evening scan",
+            "nextRunAt": "2026-09-07T19:00:00-05:00",
+            "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
+            "owner": "Holt"
+          }
+        ]
+      },
+      "capital-sports": {
+        "areaId": "capital-sports",
+        "areaName": "Sports",
+        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "items": [
+          {
+            "id": "mlb-daily-board",
+            "title": "MLB daily screen",
+            "nextRunAt": "2026-09-07T09:30:00-05:00",
+            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "cfb-monday-board",
+            "title": "CFB Monday slate",
+            "nextRunAt": "2026-09-07T10:00:00-05:00",
+            "scheduleLabel": "Mondays 10:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "nfl-tuesday-board",
+            "title": "NFL Tuesday slate",
+            "nextRunAt": "2026-09-08T09:00:00-05:00",
+            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          }
+        ]
+      }
+    },
+    "generated_at_ct": "2026-09-06T14:34:15-05:00"
   }
 }
