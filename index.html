@@ -32,13 +32,20 @@
   </nav>
   <nav class="nav" id="nav" aria-label="Primary">
     <button data-view="overview" class="active">Overview</button>
+    <button data-view="markets" data-markets-root="1">Markets</button>
     <button data-view="positions">Positions</button>
     <button data-view="history">History</button>
     <button data-view="strategies">Strategies</button>
-    <button data-view="forecasts">Forecasts</button>
     <button data-view="risk">Risk</button>
     <button data-view="lessons">Lessons</button>
     <button data-view="docs">Docs</button>
+  </nav>
+  <nav class="nav markets-subnav" id="markets-subnav" aria-label="Markets" hidden>
+    <button type="button" data-view="market-securities">Securities</button>
+    <button type="button" data-view="market-options">Options</button>
+    <button type="button" data-view="market-event">Event Markets</button>
+    <button type="button" data-view="market-crypto">Crypto</button>
+    <button type="button" data-view="market-sports">Sports</button>
   </nav>
 
   <main id="app">
