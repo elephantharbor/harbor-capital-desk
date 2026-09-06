@@ -73,6 +73,50 @@
     return_source: "Return source",
   };
 
+  
+  async function loadAreaNextUp(areaId) {
+    try {
+      const res = await fetch(`data/next-up/${areaId}.json`, { cache: "no-store" });
+      if (!res.ok) return { areaId, items: [] };
+      return await res.json();
+    } catch (_) {
+      return { areaId, items: [] };
+    }
+  }
+
+  function fmtNextRunCt(iso) {
+    if (!iso) return "—";
+    try {
+      return new Date(iso).toLocaleString("en-US", {
+        timeZone: "America/Chicago",
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        timeZoneName: "short",
+      });
+    } catch {
+      return iso;
+    }
+  }
+
+  function renderAreaNextUpHtml(data) {
+    const items = (data && data.items) || [];
+    if (!items.length) {
+      return `<div class="next-up empty"><div class="next-up-title">Next up</div><p class="next-up-empty">Nothing scheduled.</p></div>`;
+    }
+    const lis = items.slice(0, 3).map((it) => {
+      const meta = [it.scheduleLabel, it.owner].filter(Boolean).map(esc).join(" · ");
+      return `<li>
+        <div class="nu-title">${esc(it.title || "—")}</div>
+        <div class="nu-when">${esc(fmtNextRunCt(it.nextRunAt))}</div>
+        ${meta ? `<div class="nu-meta">${meta}</div>` : ""}
+      </li>`;
+    }).join("");
+    return `<div class="next-up"><div class="next-up-title">Next up</div><ol>${lis}</ol></div>`;
+  }
+
   function esc(s) {
     return String(s ?? "")
       .replace(/&/g, "&amp;")
@@ -718,6 +762,8 @@
           </div>
           <div class="callout info"><strong>Action needed:</strong> ${esc(op.action)}</div>
         </div>
+
+        <div data-next-up="capital"></div>
 
         <div class="grid grid-2">
           <div class="card">
@@ -1993,12 +2039,28 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   }
 
   function viewMarketPage(id) {
-    if (id === "securities") return viewMarketSecurities();
-    if (id === "options") return viewMarketOptions();
-    if (id === "event") return viewMarketEvent();
-    if (id === "crypto") return viewMarketCrypto();
-    if (id === "sports") return viewMarketSports();
-    return viewMarketsIndex();
+    const areaMap = {
+      securities: "capital-securities",
+      options: "capital-options",
+      event: "capital-event",
+      crypto: "capital-crypto",
+      sports: "capital-sports",
+    };
+    let html;
+    if (id === "securities") html = viewMarketSecurities();
+    else if (id === "options") html = viewMarketOptions();
+    else if (id === "event") html = viewMarketEvent();
+    else if (id === "crypto") html = viewMarketCrypto();
+    else if (id === "sports") html = viewMarketSports();
+    else return viewMarketsIndex();
+    const area = areaMap[id];
+    if (!area || html.includes("data-next-up=")) return html;
+    // Insert Next Up after opening stack / first card if possible
+    return html.replace(
+      '<div class="stack">',
+      `<div class="stack"><div data-next-up="${area}"></div>`,
+      1
+    );
   }
 
   const VIEWS = {
@@ -2032,6 +2094,16 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     });
   }
 
+
+  async function hydrateNextUpSlots() {
+    const slots = document.querySelectorAll("[data-next-up]");
+    for (const el of slots) {
+      const areaId = el.getAttribute("data-next-up");
+      const data = await loadAreaNextUp(areaId);
+      el.outerHTML = renderAreaNextUpHtml(data);
+    }
+  }
+
   function show(name) {
     const key = VIEWS[name] ? name : "overview";
     const fn = VIEWS[key];
@@ -2052,6 +2124,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     try {
       history.replaceState(null, "", "#" + key);
     } catch (_) {}
+    hydrateNextUpSlots();
   }
 
   function bindMarketsIndexCards() {
