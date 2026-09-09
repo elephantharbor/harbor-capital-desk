@@ -1,0 +1,13 @@
+{
+  "areaId": "capital",
+  "areaName": "Harbor Capital",
+  "lastUpdated": "2026-09-09T17:00:00-05:00",
+  "entries": [
+    {
+      "at": "2026-09-09T17:00:00-05:00",
+      "actor": "Wells (Portfolio - Systems)",
+      "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas’s standard. Holt owns ongoing entries after material runs.",
+      "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
+    }
+  ]
+}

@@ -1491,8 +1491,9 @@
         return `
         <div class="lesson" data-market="${esc(mkt)}">
           <div class="conclusion">${esc(conclusion)} ${mkt ? marketBadge(mkt) : ""}</div>
-          <div><span class="id">${esc(L.lesson_id)}</span> <span class="muted">${esc(L.date_ct)}</span>
-            <span class="dim">· ${esc(L.source)}</span></div>
+          <div class="lesson-origination">Originated ${esc(L.originationDate || L.date_ct || "—")}</div>
+          <div><span class="id">${esc(L.lesson_id)}</span>
+            <span class="dim">· ${esc(L.source || "")}</span></div>
           <div class="row"><div class="k">Observation</div><div class="v">${esc(L.what_happened || "")}</div></div>
           <div class="row"><div class="k">Decision / belief</div><div class="v">${esc(L.believed_beforehand || "")}</div></div>
           <div class="row"><div class="k">Outcome / evidence</div><div class="v">${esc(L.evidence_showed || "")}</div></div>
@@ -1510,6 +1511,37 @@
         <p class="muted">Plain-English conclusion first · Observation → Decision → Outcome → Lesson → System Change · ${esc(SNAP.lessons.source || "journal/lessons.csv")}</p>
         <div class="card">${list}</div>
       </div>`;
+  }
+
+
+  function viewLog() {
+    const mount = `<div class="stack" id="session-log-root"><p class="muted">Loading session log…</p></div>`;
+    // async fill after paint
+    queueMicrotask(async () => {
+      const root = document.getElementById("session-log-root");
+      if (!root) return;
+      try {
+        const res = await fetch("data/session-log/capital.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        const data = await res.json();
+        if (window.EH && EH.renderSessionLog) {
+          root.outerHTML = EH.renderSessionLog(data, { title: "Session Log" });
+        } else {
+          const entries = (data.entries || []).slice().sort((a, b) => String(b.at || "").localeCompare(String(a.at || "")));
+          root.innerHTML = entries.length
+            ? `<h2 class="section-title">Session Log</h2><ol class="session-log-fallback">${entries
+                .map(
+                  (e) =>
+                    `<li><strong>${esc(e.at)}</strong> · ${esc(e.actor)} — ${esc(e.summary)} <span class="muted">Desk: ${esc(e.deskChanges || "—")}</span></li>`
+                )
+                .join("")}</ol>`
+            : `<h2 class="section-title">Session Log</h2><p class="muted">No sessions logged yet.</p>`;
+        }
+      } catch (err) {
+        root.innerHTML = `<h2 class="section-title">Session Log</h2><p class="muted">Could not load log (${esc(err.message)}).</p>`;
+      }
+    });
+    return mount;
   }
 
   function viewDocs() {
@@ -2104,6 +2136,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     forecasts: viewForecasts,
     risk: viewRisk,
     lessons: viewLessons,
+    log: viewLog,
     docs: viewDocs,
   };
 
