@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harbor Capital — Operating Desk</title>
   <link rel="stylesheet" href="https://elephantharbor.github.io/shared/eh-console.css" />
+  <script>(function(){try{var t=localStorage.getItem('eh-console-theme');document.documentElement.setAttribute('data-theme',(t==='light'||t==='dark')?t:'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
   <link rel="stylesheet" href="static/segment.css" />
 </head>
 <body class="eh-capital">
@@ -24,11 +25,11 @@
 
     <a class="skip-link" href="#app">Skip to content</a>
   <nav class="wayhome" aria-label="Elephant Harbor">
-    <a href="https://elephantharbor.github.io/">Elephant Harbor / Portfolio</a>
+    <a data-segment="portfolio" href="https://elephantharbor.github.io/">Elephant Harbor / Portfolio</a>
     <span class="sep" aria-hidden="true">/</span>
-    <a class="active" href="./" aria-current="page">Capital</a>
-    <a href="https://elephantharbor.github.io/harbor-presence/">Presence</a>
-    <a href="https://elephantharbor.github.io/harbor-foundry/">Foundry</a>
+    <a class="active" data-segment="capital" href="./" aria-current="page">Capital</a>
+    <a href="https://elephantharbor.github.io/harbor-presence/" data-segment="presence">Presence</a>
+    <a href="https://elephantharbor.github.io/harbor-foundry/" data-segment="foundry">Foundry</a>
   </nav>
   <nav class="nav" id="nav" aria-label="Primary">
     <button data-view="overview" class="active">Overview</button>
@@ -57,6 +58,7 @@
     <span>No trade / withdraw / deposit UI · No credentials · Source: journal + registry + docs</span>
   </footer>
 
+  <script src="https://elephantharbor.github.io/shared/eh-theme.js"></script>
   <script src="https://elephantharbor.github.io/shared/eh-session-log.js"></script>
   <script src="static/app.js"></script>
 </body>

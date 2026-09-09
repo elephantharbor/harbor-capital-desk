@@ -2165,7 +2165,25 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     }
   }
 
-  function show(name) {
+  
+  function setMarketAtmosphere(viewName) {
+    const markets = ["securities", "options", "event", "crypto", "sports", "cash"];
+    for (const m of markets) document.body.classList.remove("eh-market-" + m);
+    const map = {
+      "market-securities": "securities",
+      "market-options": "options",
+      "market-event": "event",
+      "market-crypto": "crypto",
+      "market-sports": "sports",
+      "market-cash": "cash",
+    };
+    const key = map[viewName];
+    if (key) document.body.classList.add("eh-market-" + key);
+  }
+
+function show(name) {
+    setMarketAtmosphere(name);
+
     const key = VIEWS[name] ? name : "overview";
     const fn = VIEWS[key];
     app.innerHTML = typeof fn === "function" ? fn() : viewOverview();
