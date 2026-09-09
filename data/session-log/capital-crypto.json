@@ -1,0 +1,42 @@
+{
+  "areaId": "capital-crypto",
+  "areaName": "Capital \u2014 Crypto",
+  "lastUpdated": "2026-09-09T17:05:31-05:00",
+  "entries": [
+    {
+      "at": "2026-09-09T17:05:31-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Adopted Session Log & Lessons standard for Crypto: L05 already dated 2026-09-04; added L13 (prefer IBIT on IBKR over CEX for small directional beta). Desk stays Deferred/empty.",
+      "deskChanges": "journal/lessons.csv +L13; opened capital-crypto session log.",
+      "lessonId": "L13"
+    },
+    {
+      "at": "2026-09-06T14:33:00-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Filled empty capital-crypto Next Up with weekday AM/PM observe and Friday portfolio review.",
+      "deskChanges": "data/next-up/capital-crypto.json",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-06T12:56:00-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Validated #market-crypto PR #1 PASS \u2014 BTC via IBIT candidate only; Deferred/empty; no fake LIVE.",
+      "deskChanges": "Validation only",
+      "lessonId": "L05"
+    },
+    {
+      "at": "2026-09-05T13:40:00-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Sized S-CRYPTO-BH-001 ~$4 IBIT on IBKR as directional_beta vs SGOV; CEX deferred.",
+      "deskChanges": "docs/crypto-memos/S-CRYPTO-BH-001-sized-candidate-2026-09-05.md",
+      "lessonId": "L13"
+    },
+    {
+      "at": "2026-09-04T10:42:00-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Public MD: max cross-venue gap ~1.8 bps vs 160-220 bps fee gates \u2192 arb REJECT.",
+      "deskChanges": "tools/crypto_md.py + memos",
+      "lessonId": "L05"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "areaId": "capital-securities",
+  "areaName": "Capital — Securities",
+  "lastUpdated": "2026-09-09T17:05:00-05:00",
+  "entries": [
+    {
+      "at": "2026-09-09T17:05:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "SGOV Pro SMART replacement intent still held for next open. No transmit today (gateway re-auth / outside regular hours). Lesson L10 recorded on Capital lessons.",
+      "deskChanges": "Securities Session Log opened; L10 visible on desk Lessons.",
+      "lessonId": "L10"
+    },
+    {
+      "at": "2026-09-07T12:15:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "First live tiny SGOV buy cancelled — Lite/ZERO routing is illegal on this Pro account. Forced SMART; prepared new intent; did not retransmit the cancelled ticket.",
+      "deskChanges": "ibkr_exec routing lock; sgov-pro-routing-lock doc.",
+      "lessonId": "L10"
+    }
+  ]
+}

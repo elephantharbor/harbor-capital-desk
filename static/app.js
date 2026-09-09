@@ -1705,6 +1705,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
         const conclusion = L.what_we_learned || L.learning || L.heading || "";
         return `<div class="lesson" data-market="${esc(String(L.market || "").toLowerCase())}">
           <div class="conclusion">${esc(conclusion)}</div>
+          <div class="lesson-origination">Originated ${esc(L.originationDate || L.origination_date || L.date_ct || "—")}</div>
           <div><span class="id">${esc(L.lesson_id || "")}</span> <span class="muted">${esc(L.date_ct || "")}</span></div>
           <div class="row"><div class="k">Observation</div><div class="v">${esc(L.what_happened || "")}</div></div>
           <div class="row"><div class="k">What changed</div><div class="v">${esc(L.what_changed || "")}</div></div>

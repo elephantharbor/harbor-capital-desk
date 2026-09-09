@@ -1,20 +1,20 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Crypto",
-  "lastUpdated": "2026-09-06T14:34:15-05:00",
+  "lastUpdated": "2026-09-09T17:08:12-05:00",
   "items": [
-    {
-      "id": "crypto-am",
-      "title": "Crypto morning scan",
-      "nextRunAt": "2026-09-07T07:30:00-05:00",
-      "scheduleLabel": "Weekdays 7:30 AM CT",
-      "owner": "Cole"
-    },
     {
       "id": "crypto-pm",
       "title": "Crypto evening scan",
-      "nextRunAt": "2026-09-07T19:00:00-05:00",
+      "nextRunAt": "2026-09-09T19:00:00-05:00",
       "scheduleLabel": "Weekdays 7:00 PM CT",
+      "owner": "Cole"
+    },
+    {
+      "id": "crypto-am",
+      "title": "Crypto morning scan",
+      "nextRunAt": "2026-09-10T07:30:00-05:00",
+      "scheduleLabel": "Weekdays 7:30 AM CT",
       "owner": "Cole"
     },
     {

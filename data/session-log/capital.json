@@ -1,13 +1,60 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-09T17:00:00-05:00",
+  "lastUpdated": "2026-09-09T17:07:03-05:00",
   "entries": [
+    {
+      "at": "2026-09-09T17:07:03-05:00",
+      "actor": "Pike (Harbor Capital - Quant)",
+      "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated — no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
+      "deskChanges": "docs/session-log/capital-quant.json (+ dashboard mirror). Desk truth unchanged.",
+      "lessonId": "L10"
+    },
+    {
+      "at": "2026-09-09T17:05:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open — no transmit while auth is stale or the market is closed.",
+      "deskChanges": "lessons.csv origination_date + L10; snapshot lessons emit originationDate; Capital Session Log entries appended; desk republished.",
+      "lessonId": "L10"
+    },
+    {
+      "at": "2026-09-09T17:02:31-05:00",
+      "actor": "Vera (Harbor Capital - Securities & Options)",
+      "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn ≤$4 gate). No LIVE securities/options positions — desk empty/researching unchanged.",
+      "deskChanges": "docs/session-log/capital-securities-options.json (+ dashboard mirror); lessons.csv L12.",
+      "lessonId": "L12"
+    },
     {
       "at": "2026-09-09T17:00:00-05:00",
       "actor": "Wells (Portfolio - Systems)",
       "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas’s standard. Holt owns ongoing entries after material runs.",
       "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
+    },
+    {
+      "at": "2026-09-09T16:59:34-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags ≠ live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
+      "deskChanges": "lessons.csv L11; data/session-log/capital-event.json; Event Markets researching empty unchanged.",
+      "lessonId": "L11"
+    },
+    {
+      "at": "2026-09-08T20:30:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Restarted Client Portal Gateway after the process died (Java missing after a machine refresh). Login succeeded after hours. Tiny SGOV reserve buy still held for the next regular trading session. hcgtrade1 account work remains pending.",
+      "deskChanges": "Ops notes and Next Up refreshed for gateway recovery; no fill."
+    },
+    {
+      "at": "2026-09-07T12:15:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Diagnosed the first live tiny SGOV buy cancel: Interactive Brokers rejected Lite/ZERO routing on this Pro account. Locked Pro orders to SMART only and prepared a replacement intent. Markets were closed for Labor Day.",
+      "deskChanges": "Routing lock documented; lesson L10 originated; old Lite intent cancelled and not retransmitted.",
+      "lessonId": "L10"
+    },
+    {
+      "at": "2026-09-06T16:00:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
+      "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ]
 }

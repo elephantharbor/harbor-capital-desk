@@ -1,11 +1,11 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-06 14:34:15 CT",
+  "generated_at_ct": "2026-09-09 17:08:12 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-06 14:34:15 CT",
-    "last_reconciled_ibkr_ct": null,
+    "generated_at_ct": "2026-09-09 17:08:12 CT",
+    "last_reconciled_ibkr_ct": "2026-09-09 16:37 CT",
     "mode": "LIVE",
     "c_confirmed": true,
     "starting_c": 200.0,
@@ -205,42 +205,42 @@
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 10:36:32 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/shadow-h5-dual.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 11:15:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/shadow-h5-kalshi-forecastex.md",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 11:33:16 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/shadow-h5.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 11:15:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/shadow-h4-fedwatch-vs-binaries.md",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 11:32:21 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/shadow-h4-snapshot-2026-09-04.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-09-04 11:32:06 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       }
     ],
     "by_market_counts": {
@@ -3194,6 +3194,7 @@
     "items": [
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L01",
         "what_happened": "Wave1 forecasts locked after looking at Kalshi mids",
         "believed_beforehand": "Market-aware forecasts could seed calibration",
@@ -3202,10 +3203,13 @@
         "what_changed": "Added calibration_clean vs calibration_contaminated; looked_at_market_first required",
         "related_ids": "W1-F1..F6",
         "source": "quinn-org-redteam + decisions.md",
-        "market": "event"
+        "market": "event",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L02",
         "what_happened": "F3 my_p=0.50 with F4 my_p=0.32 on adjacent CPI bins",
         "believed_beforehand": "0.50 was an honest abstention",
@@ -3214,10 +3218,13 @@
         "what_changed": "F3 killed; require written CDF or abstain",
         "related_ids": "W1-F3 W1-F4",
         "source": "quinn-challenge wave1",
-        "market": "event"
+        "market": "event",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L03",
         "what_happened": "Triple append of F7/F8/F9 clean locks",
         "believed_beforehand": "Append-only logging was harmless",
@@ -3226,10 +3233,13 @@
         "what_changed": "journal_io supersede/dedupe + thin_book flags; mid-promote W*=0.10",
         "related_ids": "W1-F7 F8 F9",
         "source": "quinn-challenge-w1-f7f9",
-        "market": "event"
+        "market": "event",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L04",
         "what_happened": "Claims ladder F7\u2013F9 treated as three independent events",
         "believed_beforehand": "More locks equal faster sample growth",
@@ -3238,10 +3248,13 @@
         "what_changed": "Next lock must be non-labor or reasoned abstain",
         "related_ids": "W1-F7 F8 F9",
         "source": "quinn + holt room",
-        "market": "event"
+        "market": "event",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L05",
         "what_happened": "Crypto spot cross-venue gaps ~1.8 bps vs fee gates 160\u2013220 bps",
         "believed_beforehand": "Apparent arb might exist on public mids",
@@ -3250,10 +3263,13 @@
         "what_changed": "ARB REJECT; DEFER live crypto; public MD only",
         "related_ids": "C-ARB crypto memos",
         "source": "cole + fee-friction",
-        "market": "crypto"
+        "market": "crypto",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L06",
         "what_happened": "S-VOLGATE OOS maxDD beat VTI but TR \u2248 SGOV/BIL with leftover \u221223% DD",
         "believed_beforehand": "Vol gate might earn an experimental sleeve",
@@ -3262,10 +3278,13 @@
         "what_changed": "approved_experiment DENIED; S-RESERVE remains cash default; VOLGATE shadow only",
         "related_ids": "S-VOLGATE",
         "source": "quinn-oos-volgate",
-        "market": "securities"
+        "market": "securities",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L07",
         "what_happened": "S-PEAD classic anomaly without free PIT consensus",
         "believed_beforehand": "Academic PEAD might be paper-testable free",
@@ -3274,10 +3293,13 @@
         "what_changed": "S-PEAD deferred; RELVAL rejected for NAV timestamp risk",
         "related_ids": "S-PEAD S1-RELVAL",
         "source": "vera + quinn securities",
-        "market": "securities"
+        "market": "securities",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L08",
         "what_happened": "H5 Kalshi vs ForecastEx gaps all under friction on async last-print",
         "believed_beforehand": "Cross-venue mid gaps might signal edge",
@@ -3286,10 +3308,13 @@
         "what_changed": "H5 observation-only binding; async_gap tagging",
         "related_ids": "H5 shadow",
         "source": "quinn-challenge-h5",
-        "market": "event"
+        "market": "event",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
       },
       {
         "date_ct": "2026-09-04",
+        "origination_date": "2026-09-04",
         "lesson_id": "L09",
         "what_happened": "F10 clean lock on 28\u00a2 wide book scored vs mid",
         "believed_beforehand": "vol/oi>0 meant mid was usable",
@@ -3297,12 +3322,195 @@
         "what_we_learned": "wide_book is cousin of thin_book; lock W*=0.10 for mid-promote",
         "what_changed": "F10 outcome-calib only; mid-promote = F7 only until tight book",
         "related_ids": "W1-F10",
-        "source": "quinn-challenge-f10-promote-rule"
+        "source": "quinn-challenge-f10-promote-rule",
+        "originationDate": "2026-09-04",
+        "origination_date_display": "Logged Sep 4, 2026"
+      },
+      {
+        "date_ct": "2026-09-07",
+        "origination_date": "2026-09-07",
+        "lesson_id": "L10",
+        "what_happened": "First live tiny SGOV buy cancelled by IBKR on Pro",
+        "believed_beforehand": "Fractional MKT DAY would work on Pro via Client Portal Gateway",
+        "evidence_showed": "System cancel: IBKR Lite orders are not allowed for non-Lite accounts (ZERO Lite routing)",
+        "what_we_learned": "Pro must force SMART routing; never emit ZERO or Lite on this account",
+        "what_changed": "ibkr_exec forbid_lite_zero + SMART lock; INTENT_ca55 Pro SMART path prepared; old INTENT_a57e cancelled and not retransmitted",
+        "related_ids": "INTENT_a57e9537 INTENT_ca55d0e9 S-RESERVE",
+        "source": "first-live-ops + sgov-pro-routing-lock docs",
+        "market": "securities",
+        "originationDate": "2026-09-07",
+        "origination_date_display": "Logged Sep 7, 2026"
+      },
+      {
+        "date_ct": "2026-09-08",
+        "origination_date": "2026-09-08",
+        "lesson_id": "L11",
+        "what_happened": "Claims ladder (F7\u2013F9) heavily repriced after Wave-1 lock; F8 live width flipped Mon 0.12 to Tue 0.06 while CSV still had thin_book=true from lock",
+        "believed_beforehand": "Lock-time thin_book/wide_book tags still describe the live book for mid-promote checks",
+        "evidence_showed": "Live books diverged from lock tags within days; F8 became LIVE mid-promote width-eligible (w\u22640.10 + depth) without any my_p change; F7 mid fell under locked my_p 0.20",
+        "what_we_learned": "Freeze lock-time book flags; evaluate live mid-promote eligibility separately; a gap under locked my_p is observation not a trade or a reason to rewrite my_p",
+        "what_changed": "Filed claims-ladder-refresh / F8 / T-24 tape notes; forecasts.csv left unchanged; recommend optional live_* columns later",
+        "related_ids": "W1-F7 W1-F8 W1-F9",
+        "source": "claims tape 2026-09-07..09 + Holt AM wakes",
+        "originationDate": "2026-09-08",
+        "origination_date_display": "Logged Sep 8, 2026"
+      },
+      {
+        "date_ct": "2026-09-06",
+        "origination_date": "2026-09-06",
+        "lesson_id": "L12",
+        "what_happened": "Defined-risk options mandate at C=$200; standard equity/XSP ATM premiums too large for \u2264$4 max-loss",
+        "believed_beforehand": "Any liquid listed option might size into the experimental sleeve",
+        "evidence_showed": "Only NANOS ($1 multiplier) routinely fits \u2264$4; Quinn requires hard all-in gate (ask+fees+spread), no add-on size, debit=combo only",
+        "what_we_learned": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
+        "what_changed": "OPT-NANOS-DIR/DEB idea with Quinn conditions; XSP/SPY/credit reject or defer; stays behind SGOV\u2192VTI\u2192IBIT",
+        "related_ids": "OPT-NANOS-DIR-001 OPT-NANOS-DEB-001",
+        "source": "options mandate + quinn-challenge-options-nanos",
+        "market": "options",
+        "originationDate": "2026-09-06",
+        "origination_date_display": "Logged Sep 6, 2026"
+      },
+      {
+        "date_ct": "2026-09-05",
+        "origination_date": "2026-09-05",
+        "lesson_id": "L13",
+        "what_happened": "Sized crypto beta candidate as ~$4 IBIT on IBKR vs opening a CEX",
+        "believed_beforehand": "Spot crypto beta might need Coinbase/Kraken/Gemini KYC",
+        "evidence_showed": "IBIT 0.25pct ER + often $0 Lite ETF commission beats CEX 40-60bps/side + ACH holds; one funded IBKR account",
+        "what_we_learned": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
+        "what_changed": "S-CRYPTO-BH-001 sized via IBIT; ARB/GRID/BASIS stay REJECT; stack SGOV then VTI then IBIT correlated book",
+        "related_ids": "S-CRYPTO-BH-001 IBIT",
+        "source": "cole sized candidate + return-sources mandate",
+        "market": "crypto",
+        "originationDate": "2026-09-05",
+        "origination_date_display": "Logged Sep 5, 2026"
       }
     ],
-    "count": 9,
+    "count": 13,
     "source": "journal/lessons.csv",
-    "note": "from journal/lessons.csv (market inferred when missing)"
+    "note": "from journal/lessons.csv (market inferred when missing; originationDate required)"
+  },
+  "session_log": {
+    "areaId": "capital",
+    "areaName": "Harbor Capital",
+    "lastUpdated": "2026-09-09T17:07:03-05:00",
+    "entries": [
+      {
+        "at": "2026-09-09T17:07:03-05:00",
+        "actor": "Pike (Harbor Capital - Quant)",
+        "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated \u2014 no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
+        "deskChanges": "docs/session-log/capital-quant.json (+ dashboard mirror). Desk truth unchanged.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-09T17:05:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open \u2014 no transmit while auth is stale or the market is closed.",
+        "deskChanges": "lessons.csv origination_date + L10; snapshot lessons emit originationDate; Capital Session Log entries appended; desk republished.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-09T17:02:31-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn \u2264$4 gate). No LIVE securities/options positions \u2014 desk empty/researching unchanged.",
+        "deskChanges": "docs/session-log/capital-securities-options.json (+ dashboard mirror); lessons.csv L12.",
+        "lessonId": "L12"
+      },
+      {
+        "at": "2026-09-09T17:00:00-05:00",
+        "actor": "Wells (Portfolio - Systems)",
+        "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas\u2019s standard. Holt owns ongoing entries after material runs.",
+        "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
+      },
+      {
+        "at": "2026-09-09T16:59:34-05:00",
+        "actor": "Reed (Harbor Capital - Event Markets)",
+        "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags \u2260 live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
+        "deskChanges": "lessons.csv L11; data/session-log/capital-event.json; Event Markets researching empty unchanged.",
+        "lessonId": "L11"
+      },
+      {
+        "at": "2026-09-08T20:30:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Restarted Client Portal Gateway after the process died (Java missing after a machine refresh). Login succeeded after hours. Tiny SGOV reserve buy still held for the next regular trading session. hcgtrade1 account work remains pending.",
+        "deskChanges": "Ops notes and Next Up refreshed for gateway recovery; no fill."
+      },
+      {
+        "at": "2026-09-07T12:15:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Diagnosed the first live tiny SGOV buy cancel: Interactive Brokers rejected Lite/ZERO routing on this Pro account. Locked Pro orders to SMART only and prepared a replacement intent. Markets were closed for Labor Day.",
+        "deskChanges": "Routing lock documented; lesson L10 originated; old Lite intent cancelled and not retransmitted.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-06T16:00:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
+        "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
+      }
+    ],
+    "source": "dashboard/data/session-log/capital.json"
+  },
+  "sessionLog": {
+    "areaId": "capital",
+    "areaName": "Harbor Capital",
+    "lastUpdated": "2026-09-09T17:07:03-05:00",
+    "entries": [
+      {
+        "at": "2026-09-09T17:07:03-05:00",
+        "actor": "Pike (Harbor Capital - Quant)",
+        "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated \u2014 no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
+        "deskChanges": "docs/session-log/capital-quant.json (+ dashboard mirror). Desk truth unchanged.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-09T17:05:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open \u2014 no transmit while auth is stale or the market is closed.",
+        "deskChanges": "lessons.csv origination_date + L10; snapshot lessons emit originationDate; Capital Session Log entries appended; desk republished.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-09T17:02:31-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn \u2264$4 gate). No LIVE securities/options positions \u2014 desk empty/researching unchanged.",
+        "deskChanges": "docs/session-log/capital-securities-options.json (+ dashboard mirror); lessons.csv L12.",
+        "lessonId": "L12"
+      },
+      {
+        "at": "2026-09-09T17:00:00-05:00",
+        "actor": "Wells (Portfolio - Systems)",
+        "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas\u2019s standard. Holt owns ongoing entries after material runs.",
+        "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
+      },
+      {
+        "at": "2026-09-09T16:59:34-05:00",
+        "actor": "Reed (Harbor Capital - Event Markets)",
+        "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags \u2260 live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
+        "deskChanges": "lessons.csv L11; data/session-log/capital-event.json; Event Markets researching empty unchanged.",
+        "lessonId": "L11"
+      },
+      {
+        "at": "2026-09-08T20:30:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Restarted Client Portal Gateway after the process died (Java missing after a machine refresh). Login succeeded after hours. Tiny SGOV reserve buy still held for the next regular trading session. hcgtrade1 account work remains pending.",
+        "deskChanges": "Ops notes and Next Up refreshed for gateway recovery; no fill."
+      },
+      {
+        "at": "2026-09-07T12:15:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Diagnosed the first live tiny SGOV buy cancel: Interactive Brokers rejected Lite/ZERO routing on this Pro account. Locked Pro orders to SMART only and prepared a replacement intent. Markets were closed for Labor Day.",
+        "deskChanges": "Routing lock documented; lesson L10 originated; old Lite intent cancelled and not retransmitted.",
+        "lessonId": "L10"
+      },
+      {
+        "at": "2026-09-06T16:00:00-05:00",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
+        "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
+      }
+    ],
+    "source": "dashboard/data/session-log/capital.json"
   },
   "system_health": {
     "tools_present": [
@@ -3334,8 +3542,8 @@
     "deferred": 4,
     "shadow": 3,
     "killed": 0,
-    "quinn_challenge_lessons": 8,
-    "lessons_total": 9,
+    "quinn_challenge_lessons": 9,
+    "lessons_total": 13,
     "mode": "LIVE",
     "label": "LIVE",
     "note": "Registry status counts + tools presence. No live probes."
@@ -3485,6 +3693,30 @@
     ],
     "events": [
       {
+        "ts": "2026-09-09 \u2014 Session Log & Lessons (Even",
+        "kind": "decision",
+        "title": "2026-09-09 \u2014 Session Log & Lessons (Event Markets)",
+        "summary": "Confirmed lessons L01\u2013L10 already have `origination_date`."
+      },
+      {
+        "ts": "2026-09-09 ~09:02 CT \u2014 Claims T-24 tape ",
+        "kind": "decision",
+        "title": "2026-09-09 ~09:02 CT \u2014 Claims T-24 tape (Reed, analysis only)",
+        "summary": "Doc: `journal/claims-t24-tape-2026-09-09.md`. **`forecasts.csv` unchanged.**"
+      },
+      {
+        "ts": "2026-09-08 ~09:42 CT \u2014 Claims F8 width f",
+        "kind": "decision",
+        "title": "2026-09-08 ~09:42 CT \u2014 Claims F8 width flip (Reed, analysis only)",
+        "summary": "Doc: `journal/claims-f8-tape-2026-09-08.md`. **`forecasts.csv` unchanged.**"
+      },
+      {
+        "ts": "2026-09-07 ~09:45 CT \u2014 Claims ladder ref",
+        "kind": "decision",
+        "title": "2026-09-07 ~09:45 CT \u2014 Claims ladder refresh (Reed, analysis only)",
+        "summary": "Live Kalshi vs Wave-1 locked my_p after material claims move. Doc: `journal/claims-ladder-refresh-2026-09-07.md`."
+      },
+      {
         "ts": "2026-09-06 \u2014 Event Markets `#market-even",
         "kind": "decision",
         "title": "2026-09-06 \u2014 Event Markets `#market-event` PR validation (PR #1)",
@@ -3519,30 +3751,6 @@
         "kind": "decision",
         "title": "2026-09-05 \u2014 Event queue under return_source mandate",
         "summary": "Thomas/Holt: grow capital intelligently; event_driven allowed without waiting for proprietary alpha."
-      },
-      {
-        "ts": "2026-09-05 \u2014 C binding",
-        "kind": "decision",
-        "title": "2026-09-05 \u2014 C binding",
-        "summary": "Thomas: risk math on **C=$200** (not observed $210). Bitwarden live fields updated."
-      },
-      {
-        "ts": "2026-09-05 \u2014 Live account confirmed",
-        "kind": "decision",
-        "title": "2026-09-05 \u2014 Live account confirmed",
-        "summary": "Client Portal: **[account redacted]** (live). Cash/NAV **$210**. No positions."
-      },
-      {
-        "ts": "2026-09-05 \u2014 Live auth: event domain abs",
-        "kind": "decision",
-        "title": "2026-09-05 \u2014 Live auth: event domain abstain",
-        "summary": "C=$200 live sleeve authorized (Holt transmits). Reed analysis-only."
-      },
-      {
-        "ts": "2026-09-05 \u2014 Live bankroll C=$200",
-        "kind": "decision",
-        "title": "2026-09-05 \u2014 Live bankroll C=$200",
-        "summary": "Thomas funded IBKR; C set to $200. Live experimental sleeve \u2264$20; reserve floor \u2265$100; exp position max loss $4."
       },
       {
         "ts": "2026-09-04 11:25 CT",
@@ -3770,68 +3978,68 @@
   "live_trading": true,
   "automated_execution": false,
   "withdrawal": false,
-  "last_reconciled_ibkr_ct": null,
+  "last_reconciled_ibkr_ct": "2026-09-09 16:37 CT",
   "docs_meta": {
     "docs": [
       {
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-06 07:15:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 10:41:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:20 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:07:02 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:59:32 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       }
     ],
     "sections": [
@@ -3840,7 +4048,7 @@
         "title": "Live exec / ops state",
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -3848,7 +4056,7 @@
         "title": "First live ops test",
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -3856,7 +4064,7 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear the mandate decision question.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position\u2026"
       },
       {
@@ -3864,7 +4072,7 @@
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-06 07:15:11 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -3872,7 +4080,7 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (re\u2026"
       },
       {
@@ -3880,7 +4088,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 10:41:11 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -3888,7 +4096,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -3896,7 +4104,7 @@
         "title": "Performance methodology",
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:20 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Performance methodology\nLive within sleeve (C confirmed). Do not invent live P&L. Attribute honestly by return_source.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one lin\u2026"
       },
       {
@@ -3904,7 +4112,7 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:07:02 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
       },
       {
@@ -3912,7 +4120,7 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max lo\u2026"
       },
       {
@@ -3920,7 +4128,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -3928,7 +4136,7 @@
         "title": "HISTORICAL canonical (2026-09-04)",
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
@@ -3943,62 +4151,62 @@
       {
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-06 07:15:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 10:41:11 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:20 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:07:02 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:59:32 CT"
+        "mtime_ct": "2026-09-08 12:01:32 CT"
       }
     ],
     "sections": [
@@ -4007,7 +4215,7 @@
         "title": "Live exec / ops state",
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -4015,7 +4223,7 @@
         "title": "First live ops test",
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:41:55 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -4023,7 +4231,7 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:47 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear the mandate decision question.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position\u2026"
       },
       {
@@ -4031,7 +4239,7 @@
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-06 07:15:11 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -4039,7 +4247,7 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (re\u2026"
       },
       {
@@ -4047,7 +4255,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 10:41:11 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -4055,7 +4263,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
       },
       {
@@ -4063,7 +4271,7 @@
         "title": "Performance methodology",
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:20 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Performance methodology\nLive within sleeve (C confirmed). Do not invent live P&L. Attribute honestly by return_source.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one lin\u2026"
       },
       {
@@ -4071,7 +4279,7 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-04 10:07:02 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
       },
       {
@@ -4079,7 +4287,7 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 08:51:04 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max lo\u2026"
       },
       {
@@ -4087,7 +4295,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-06 13:20:29 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
       },
       {
@@ -4095,7 +4303,7 @@
         "title": "HISTORICAL canonical (2026-09-04)",
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-09-05 09:59:32 CT",
+        "mtime_ct": "2026-09-08 12:01:32 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
@@ -4161,11 +4369,11 @@
       "benchmark": "SGOV / cash floor; VTI for COREBETA when live",
       "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71))",
       "objective": "Finish SGOV ops fill \u2192 COREBETA VTI; empty risk until Holt transmits",
-      "latest_lesson": "No free PIT \u2192 defer/reject rather than endless research with bad data",
+      "latest_lesson": "Pro must force SMART routing; never emit ZERO or Lite on this account",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv + registry/strategies.csv + ibkr live book (empty positions)",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
-      "last_reconciled_ct": null,
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
+      "last_reconciled_ct": "2026-09-09 16:37 CT",
       "detail_route": "#market-securities",
       "label": "N/A",
       "note": "LIVE IBKR account is funded, but there are no open securities positions \u2014 not live securities trading. Cash sits in Cash / Reserve. Do not invent positions.",
@@ -4226,10 +4434,10 @@
       "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
       "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d76, hybrid\u00d73))",
       "objective": "Defined-risk memos only; no live options until permissions + Holt green-light",
-      "latest_lesson": "N/A",
+      "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -4295,7 +4503,7 @@
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -4357,10 +4565,10 @@
       "benchmark": "SGOV; IBIT candidate when sequenced",
       "return_source": "Research tags only \u2014 no live P&L (mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))",
       "objective": "CEX deferred; IBIT BH candidate after VTI \u2014 not transmitted",
-      "latest_lesson": "Fee/friction first; no crypto live without post-fee paper edge",
+      "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -4430,7 +4638,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -4498,9 +4706,9 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-06 14:34:15 CT",
+      "last_updated_ct": "2026-09-09 17:08:12 CT",
       "book_timestamp_ct": "2026-09-05 09:22 CT",
-      "last_reconciled_ct": null,
+      "last_reconciled_ct": "2026-09-09 16:37 CT",
       "detail_route": "#overview",
       "label": "LIVE",
       "note": "Account cash $210; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
@@ -4531,26 +4739,26 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "nextRunAt": "2026-09-10T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "nextRunAt": "2026-09-10T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "nextRunAt": "2026-09-10T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           }
@@ -4576,19 +4784,19 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "nextRunAt": "2026-09-10T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "nextRunAt": "2026-09-10T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
@@ -4620,19 +4828,19 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "nextRunAt": "2026-09-10T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "nextRunAt": "2026-09-10T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
@@ -4673,20 +4881,20 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-07T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
-            "owner": "Cole"
-          },
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-07T19:00:00-05:00",
+            "nextRunAt": "2026-09-09T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-09-10T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           },
           {
@@ -4751,27 +4959,27 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-07T09:30:00-05:00",
+            "nextRunAt": "2026-09-10T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "cfb-monday-board",
-            "title": "CFB Monday slate",
-            "nextRunAt": "2026-09-07T10:00:00-05:00",
-            "scheduleLabel": "Mondays 10:00 AM CT",
+            "id": "nfl-thursday-board",
+            "title": "NFL Thursday slate",
+            "nextRunAt": "2026-09-10T10:00:00-05:00",
+            "scheduleLabel": "Thursdays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "nfl-tuesday-board",
-            "title": "NFL Tuesday slate",
-            "nextRunAt": "2026-09-08T09:00:00-05:00",
-            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "id": "cfb-friday-board",
+            "title": "CFB Friday slate",
+            "nextRunAt": "2026-09-11T10:00:00-05:00",
+            "scheduleLabel": "Fridays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
@@ -4835,27 +5043,27 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "gateway-health",
             "title": "Gateway health check",
-            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "nextRunAt": "2026-09-10T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
             "owner": "Holt"
           },
           {
-            "id": "sgov-ops-fill-check",
-            "title": "SGOV ops fill check",
-            "nextRunAt": "2026-09-07T09:00:00-05:00",
-            "scheduleLabel": "Mondays 9:00 AM CT",
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
           {
-            "id": "ibg-cutover-nudge",
-            "title": "IB Gateway cutover nudge",
-            "nextRunAt": "2026-09-07T10:00:00-05:00",
-            "scheduleLabel": "Mon\u2013Tue 10:00 AM CT",
+            "id": "weekly-portfolio-review",
+            "title": "Weekly portfolio review",
+            "nextRunAt": "2026-09-11T17:00:00-05:00",
+            "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
           }
         ]
@@ -4863,26 +5071,26 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "nextRunAt": "2026-09-10T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "nextRunAt": "2026-09-10T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "nextRunAt": "2026-09-10T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           }
@@ -4891,19 +5099,19 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-07T08:00:00-05:00",
+            "nextRunAt": "2026-09-10T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-07T13:30:00-05:00",
+            "nextRunAt": "2026-09-10T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
@@ -4919,19 +5127,19 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-07T09:00:00-05:00",
+            "nextRunAt": "2026-09-10T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-07T16:00:00-05:00",
+            "nextRunAt": "2026-09-10T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
@@ -4947,20 +5155,20 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-07T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
-            "owner": "Cole"
-          },
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-07T19:00:00-05:00",
+            "nextRunAt": "2026-09-09T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-09-10T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           },
           {
@@ -4975,32 +5183,32 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-06T14:34:15-05:00",
+        "lastUpdated": "2026-09-09T17:08:12-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-07T09:30:00-05:00",
+            "nextRunAt": "2026-09-10T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "cfb-monday-board",
-            "title": "CFB Monday slate",
-            "nextRunAt": "2026-09-07T10:00:00-05:00",
-            "scheduleLabel": "Mondays 10:00 AM CT",
+            "id": "nfl-thursday-board",
+            "title": "NFL Thursday slate",
+            "nextRunAt": "2026-09-10T10:00:00-05:00",
+            "scheduleLabel": "Thursdays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "nfl-tuesday-board",
-            "title": "NFL Tuesday slate",
-            "nextRunAt": "2026-09-08T09:00:00-05:00",
-            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "id": "cfb-friday-board",
+            "title": "CFB Friday slate",
+            "nextRunAt": "2026-09-11T10:00:00-05:00",
+            "scheduleLabel": "Fridays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
       }
     },
-    "generated_at_ct": "2026-09-06T14:34:15-05:00"
+    "generated_at_ct": "2026-09-09T17:08:12-05:00"
   }
 }

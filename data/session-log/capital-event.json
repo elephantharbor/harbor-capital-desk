@@ -1,0 +1,35 @@
+{
+  "areaId": "capital-event",
+  "areaName": "Capital \u2014 Event Markets",
+  "lastUpdated": "2026-09-09T16:59:34-05:00",
+  "entries": [
+    {
+      "at": "2026-09-09T16:59:34-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Adopted Session Log & Lessons standard for Event Markets: backfill check (lessons already have origination dates); added L11 (lock-time book tags \u2260 live books); will append Session Log after material claims/CPI runs.",
+      "deskChanges": "lessons.csv +L11; opened capital-event session log; desk Next Up / tape notes already current for T-24 claims.",
+      "lessonId": "L11"
+    },
+    {
+      "at": "2026-09-09T09:02:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Weekday triage inside T-24 of claims settle (Thu 9/10 ~07:25 CT). No resolutions. Live F7/F8 still tight-width; F9 thin; Aug CPI T-24 next. Analysis-only tape note filed.",
+      "deskChanges": "journal/claims-t24-tape-2026-09-09.md + decisions append; forecasts.csv unchanged.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-08T09:42:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Filed Tue F8 tape: live mid 0.230 / width 0.06 (was Mon 0.140 / 0.12) \u2014 LIVE mid-promote width-eligible. Locked my_p and CSV flags untouched. No capital.",
+      "deskChanges": "journal/claims-f8-tape-2026-09-08.md + decisions.",
+      "lessonId": "L11"
+    },
+    {
+      "at": "2026-09-07T09:45:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Claims ladder refresh vs locked my_p after material Mon move. F7 mid under my_p (observation only); F8 depth up but then-wide; F9 thin. No my_p rewrite, no transmit.",
+      "deskChanges": "journal/claims-ladder-refresh-2026-09-07.md + decisions; forecasts.csv untouched.",
+      "lessonId": null
+    }
+  ]
+}
