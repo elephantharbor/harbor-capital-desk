@@ -1,15 +1,8 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-09T17:08:12-05:00",
+  "lastUpdated": "2026-09-10T15:02:19-05:00",
   "items": [
-    {
-      "id": "gateway-health",
-      "title": "Gateway health check",
-      "nextRunAt": "2026-09-10T09:00:00-05:00",
-      "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
-      "owner": "Holt"
-    },
     {
       "id": "eod-reconcile",
       "title": "End-of-day reconcile",
@@ -18,10 +11,17 @@
       "owner": "Holt"
     },
     {
-      "id": "weekly-portfolio-review",
-      "title": "Weekly portfolio review",
-      "nextRunAt": "2026-09-11T17:00:00-05:00",
-      "scheduleLabel": "Fridays 5:00 PM CT",
+      "id": "gateway-health",
+      "title": "Gateway health check",
+      "nextRunAt": "2026-09-11T09:00:00-05:00",
+      "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
+      "owner": "Holt"
+    },
+    {
+      "id": "viability-evidence",
+      "title": "Viability evidence (Day 1 \u00b7 30d left)",
+      "nextRunAt": "2026-09-11T09:30:00-05:00",
+      "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
       "owner": "Holt"
     }
   ]
