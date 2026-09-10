@@ -1,8 +1,22 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-10T09:43:00-05:00",
+  "lastUpdated": "2026-09-10T15:00:00-05:00",
   "entries": [
+    {
+      "at": "2026-09-10T15:00:00-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Opened the 30-day live viability period (2026-09-10 \u2192 2026-10-10 CT) after the first live fill. Day 1 \u00b7 30 calendar days left. Not a profit quota; no-force-risk \u2014 abstention is valid evidence. Wells Overview trial-clock banner is display SoT for the clock.",
+      "deskChanges": "docs/viability-period-2026-09-10.md; session log + Next Up cite days-left; positions 0.02 SGOV on desk; trial-clock.json unchanged as banner SoT.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-10T14:33:01-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "summary": "Logged into Client Portal Gateway and filled the tiny Pro SMART SGOV reserve test (0.02 shares). First live Harbor Capital securities fill on this book.",
+      "deskChanges": "Positions: 0.02 SGOV; S-RESERVE live; prior Lite/ZERO cancel superseded.",
+      "lessonId": "L10"
+    },
     {
       "at": "2026-09-10T09:43:00-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
