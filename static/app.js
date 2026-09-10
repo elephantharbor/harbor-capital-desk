@@ -653,6 +653,16 @@
   /* ---------- views ---------- */
 
   function viewOverview() {
+    // Trial clock (shared portfolio JSON)
+    queue.EH && EH.loadTrialClock && EH.loadTrialClock("https://elephantharbor.github.io/data/trial-clock.json")
+      .then((tc) => {
+        const el = document.getElementById("trial-clock");
+        if (el) el.outerHTML = EH.renderTrialClock(tc);
+      })
+      .catch(() => {
+        const el = document.getElementById("trial-clock");
+        if (el) el.outerHTML = EH.renderTrialClock(null);
+      });
     const p = SNAP.portfolio || {};
     const risk = SNAP.risk || {};
     const hg = SNAP.human_gates || {};
@@ -703,7 +713,9 @@
     const byMarketRows = mkts
       .map((m) => {
         const ha = m.human_action || "none";
-        return `<tr>
+        return `
+      <div id="trial-clock" class="trial-clock-host"></div>
+<tr>
             <td>${marketBadge(m.id)} <span class="muted">${esc(m.name || "")}</span></td>
             <td>${statusBadge(m.status || "N/A")}</td>
             <td>${moneyHtml(m.value)}</td>

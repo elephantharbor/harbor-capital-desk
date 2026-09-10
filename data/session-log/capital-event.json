@@ -1,8 +1,15 @@
 {
   "areaId": "capital-event",
   "areaName": "Capital \u2014 Event Markets",
-  "lastUpdated": "2026-09-09T16:59:34-05:00",
+  "lastUpdated": "2026-09-10T09:43:00-05:00",
   "entries": [
+    {
+      "at": "2026-09-10T09:43:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Scored Wave-1 claims F7\u2013F9: DOL print 206k \u2192 all three NO. F7 Brier 0.0400 beat lock mid (mid-promote sample). F8/F9 outcome-calib only (thin at lock). Aug CPI F4 inside T-24 (live mid 0.145). EM-DIR-01 still researching. No capital.",
+      "deskChanges": "forecasts.csv F7\u2013F9 outcome/brier/status=resolved (my_p locked); journal/claims-resolve-2026-09-10.md; calibration_clean +3; decisions append.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-09T16:59:34-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",

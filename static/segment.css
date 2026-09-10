@@ -1,27 +1,4 @@
-/* Capital desk segment layer — tokens/chrome come from eh-console.css */
-:root {
-  --bg: #0f1216;
-  --bg2: #161b22;
-  --bg3: #1c2330;
-  --border: #2a3340;
-  --text: #e6edf3;
-  --muted: #8b9aab;
-  --dim: #5c6b7a;
-  --accent: #6ea8d9;
-  --paper: #c9a227;
-  --shadow: #7a8a9a;
-  --live: #3d9a6a;
-  --danger: #c45c5c;
-  --warn: #c98a3a;
-  --ok: #5a9a6e;
-  --font: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --mono: "IBM Plex Mono", "SF Mono", ui-monospace, monospace;
-}
-
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font: 13px/1.45 var(--font); }
-a { color: var(--accent); }
-button { font: inherit; cursor: pointer; }
+/* Capital desk segment layer — tokens/chrome from eh-console.css. Do not redefine --bg/--text/--segment. */
 
 .topbar {
   display: flex; justify-content: space-between; align-items: center;
