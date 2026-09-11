@@ -3,8 +3,8 @@
   "areaName": "Harbor Capital \u2014 Options",
   "segment": "capital",
   "submarket": "options",
-  "lastUpdated": "2026-09-11T10:20:46-05:00",
-  "ventures": [],
+  "lastUpdated": "2026-09-11T10:24:27-05:00",
   "empty": true,
-  "emptyReason": "No active positions \u2014 defined-risk research only; Options L2 not cleared; no live options."
+  "emptyReason": "No active positions \u2014 defined-risk research only; Options L2 not cleared; no live options.",
+  "items": []
 }

@@ -3,8 +3,8 @@
   "areaName": "Harbor Capital \u2014 Event",
   "segment": "capital",
   "submarket": "event",
-  "lastUpdated": "2026-09-11T10:20:46-05:00",
-  "ventures": [],
+  "lastUpdated": "2026-09-11T10:24:27-05:00",
   "empty": true,
-  "emptyReason": "No active positions \u2014 Kalshi cushions failing today; no paid/live fills."
+  "emptyReason": "No active positions \u2014 research/hunt queue only; Sep CPI and FOMC cushions failing; no paid live fills.",
+  "items": []
 }

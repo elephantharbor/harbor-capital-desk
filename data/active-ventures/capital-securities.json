@@ -3,8 +3,10 @@
   "areaName": "Harbor Capital \u2014 Securities",
   "segment": "capital",
   "submarket": "securities",
-  "lastUpdated": "2026-09-11T10:20:46-05:00",
-  "ventures": [
+  "lastUpdated": "2026-09-11T10:24:27-05:00",
+  "empty": false,
+  "emptyReason": null,
+  "items": [
     {
       "title": "SGOV \u2014 S-RESERVE (ops / cash-like T-bill ETF)",
       "segment": "capital",
@@ -39,7 +41,5 @@
       "strategyId": "S-COREBETA",
       "source": "ibkr_live"
     }
-  ],
-  "empty": false,
-  "emptyReason": null
+  ]
 }

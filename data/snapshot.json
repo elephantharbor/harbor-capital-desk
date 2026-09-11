@@ -5557,7 +5557,8 @@
         "emptyReason": "No active Harbor LIVE tickets \u2014 Fri MLB CLE/ATH are SHADOW only; S=$200 DK sleeve idle until Quinn+Holt clear."
       }
     },
-    "ventures": [
+    "note": "LIVE only. Shadows, research queues, intel-only, and unfilled IBIT are excluded.",
+    "items": [
       {
         "title": "SGOV \u2014 S-RESERVE (ops / cash-like T-bill ETF)",
         "segment": "capital",
@@ -5592,7 +5593,6 @@
         "strategyId": "S-COREBETA",
         "source": "ibkr_live"
       }
-    ],
-    "note": "LIVE only. Shadows, research queues, intel-only, and unfilled IBIT are excluded."
+    ]
   }
 }
