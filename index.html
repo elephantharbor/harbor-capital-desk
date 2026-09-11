@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+/* Public github.io → authenticated console (cheap redirect; gate enforces auth) */
+(function () {
+  try {
+    if (location.hostname === "elephantharbor.github.io") {
+      location.replace(
+        "https://console.elephantharbor.com" +
+          location.pathname +
+          location.search +
+          location.hash
+      );
+    }
+  } catch (e) {}
+})();
+</script>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Harbor Capital — Operating Desk</title>
