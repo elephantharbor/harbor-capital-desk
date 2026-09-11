@@ -804,6 +804,7 @@
         </div>
 
         <div data-next-up="capital"></div>
+        <div data-active-ventures="capital"></div>
 
         <div class="grid grid-2">
           <div class="card">
@@ -2131,7 +2132,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     // Insert Next Up after opening stack / first card if possible
     return html.replace(
       '<div class="stack">',
-      `<div class="stack"><div data-next-up="${area}"></div>`,
+      `<div class="stack"><div data-next-up="${area}"></div><div data-active-ventures="${area}"></div>`,
       1
     );
   }
@@ -2169,6 +2170,16 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   }
 
 
+  async function fillActiveVentureSlots() {
+    const slots = document.querySelectorAll("[data-active-ventures]");
+    const base = "https://elephantharbor.github.io/data/active-ventures/";
+    for (const el of slots) {
+      const areaId = el.getAttribute("data-active-ventures");
+      if (!areaId || !window.EH || !EH.mountActiveVentures) continue;
+      await EH.mountActiveVentures(el, base + areaId + ".json", { title: "Active ventures" });
+    }
+  }
+
   async function hydrateNextUpSlots() {
     const slots = document.querySelectorAll("[data-next-up]");
     for (const el of slots) {
@@ -2176,6 +2187,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       const data = await loadAreaNextUp(areaId);
       el.outerHTML = renderAreaNextUpHtml(data);
     }
+    await fillActiveVentureSlots();
   }
 
   
