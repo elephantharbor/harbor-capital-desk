@@ -5522,5 +5522,77 @@
       }
     },
     "generated_at_ct": "2026-09-11T09:35:21-05:00"
+  },
+  "activeVentures": {
+    "lastUpdated": "2026-09-11T10:20:46-05:00",
+    "source": "capital_truth_holt",
+    "liveCount": 2,
+    "bySubmarket": {
+      "securities": {
+        "count": 2,
+        "empty": false,
+        "symbols": [
+          "SGOV",
+          "VTI"
+        ]
+      },
+      "options": {
+        "count": 0,
+        "empty": true,
+        "emptyReason": "No active positions \u2014 defined-risk research only; Options L2 not cleared; no live options."
+      },
+      "event": {
+        "count": 0,
+        "empty": true,
+        "emptyReason": "No active positions \u2014 Kalshi cushions failing today; no paid/live fills."
+      },
+      "crypto": {
+        "count": 0,
+        "empty": true,
+        "emptyReason": "No active positions \u2014 intel monitor only; IBIT not transmitted yet."
+      },
+      "sports": {
+        "count": 0,
+        "empty": true,
+        "emptyReason": "No active Harbor LIVE tickets \u2014 Fri MLB CLE/ATH are SHADOW only; S=$200 DK sleeve idle until Quinn+Holt clear."
+      }
+    },
+    "ventures": [
+      {
+        "title": "SGOV \u2014 S-RESERVE (ops / cash-like T-bill ETF)",
+        "segment": "capital",
+        "submarket": "securities",
+        "description": "Parking cash in a short T-bill ETF as the reserve sleeve (ops fill), not a directional bet.",
+        "status": "live/open",
+        "startDate": "2026-09-10",
+        "owner": "Holt/Vera",
+        "exposure": "qty 0.02 \u00b7 mkt ~$2.01 \u00b7 avgCost ~101.505",
+        "performance": "uPnL ~-$0.02",
+        "nextMilestone": "Hold as ops reserve; EOD reconcile; size only if Capital needs more cash-like sleeve",
+        "detailLink": "https://elephantharbor.github.io/harbor-capital-desk/",
+        "lastUpdated": "2026-09-11T10:20:46-05:00",
+        "symbol": "SGOV",
+        "strategyId": "S-RESERVE",
+        "source": "ibkr_live"
+      },
+      {
+        "title": "VTI \u2014 S-COREBETA (whole-market beta)",
+        "segment": "capital",
+        "submarket": "securities",
+        "description": "Tiny whole-market beta (~$10) under Capital activation \u2014 directional_beta, not alpha.",
+        "status": "live/open",
+        "startDate": "2026-09-11",
+        "owner": "Holt/Vera",
+        "exposure": "qty 0.0265 \u00b7 mkt ~$9.98 \u00b7 avgCost ~380.50",
+        "performance": "uPnL ~-$0.10",
+        "nextMilestone": "Observe COREBETA fill; next-dollar after viability evidence \u2014 not alpha hunt",
+        "detailLink": "https://elephantharbor.github.io/harbor-capital-desk/",
+        "lastUpdated": "2026-09-11T10:20:46-05:00",
+        "symbol": "VTI",
+        "strategyId": "S-COREBETA",
+        "source": "ibkr_live"
+      }
+    ],
+    "note": "LIVE only. Shadows, research queues, intel-only, and unfilled IBIT are excluded."
   }
 }
