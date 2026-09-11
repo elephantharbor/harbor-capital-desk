@@ -1,21 +1,14 @@
 {
   "areaId": "capital-event",
   "areaName": "Event Markets",
-  "lastUpdated": "2026-09-10T15:03:17-05:00",
+  "lastUpdated": "2026-09-11T09:35:21-05:00",
   "items": [
     {
       "id": "eod-reconcile",
       "title": "End-of-day reconcile",
-      "nextRunAt": "2026-09-10T16:00:00-05:00",
+      "nextRunAt": "2026-09-11T16:00:00-05:00",
       "scheduleLabel": "Weekdays 4:00 PM CT",
       "owner": "Holt"
-    },
-    {
-      "id": "event-markets-weekday-triage",
-      "title": "Event markets weekday triage",
-      "nextRunAt": "2026-09-11T09:00:00-05:00",
-      "scheduleLabel": "Weekdays 9:00 AM CT",
-      "owner": "Reed (Harbor Capital - Event Markets)"
     },
     {
       "id": "weekly-portfolio-review",
@@ -23,6 +16,13 @@
       "nextRunAt": "2026-09-11T17:00:00-05:00",
       "scheduleLabel": "Fridays 5:00 PM CT",
       "owner": "Holt"
+    },
+    {
+      "id": "event-markets-weekday-triage",
+      "title": "Event markets weekday triage",
+      "nextRunAt": "2026-09-14T09:00:00-05:00",
+      "scheduleLabel": "Weekdays 9:00 AM CT",
+      "owner": "Reed (Harbor Capital - Event Markets)"
     }
   ]
 }

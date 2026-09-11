@@ -1,11 +1,11 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-10 15:03:17 CT",
+  "generated_at_ct": "2026-09-11 09:35:21 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-10 15:03:17 CT",
-    "last_reconciled_ibkr_ct": "2026-09-10 15:03:15 CT",
+    "generated_at_ct": "2026-09-11 09:35:21 CT",
+    "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
     "starting_c": 200.0,
@@ -15,7 +15,7 @@
       "Starting bankroll C=200.0 (LIVE) via docs/capital.json / book-snapshot",
       "Funding excess above C is reserve \u2014 not trading performance",
       "Viability clock starts on first live fill \u2014 not funding day",
-      "Live blotter rows: 1 \u2014 viability clock uses first live fill as T0",
+      "Live blotter rows: 2 \u2014 viability clock uses first live fill as T0",
       "Viability: not a profit quota; no-force-risk; banner SoT = Wells trial-clock",
       "Do not mix clean/contaminated Brier",
       "VOLGATE OOS is not live alpha",
@@ -36,21 +36,21 @@
       "label": "LIVE",
       "display": "200.0"
     },
-    "account_value": 209.98,
+    "account_value": 209.88,
     "account_value_money": {
-      "value": 209.98,
+      "value": 209.88,
       "label": "LIVE",
-      "display": "209.98"
+      "display": "209.88"
     },
     "net_pnl": {
-      "value": -0.02,
+      "value": -0.12,
       "label": "LIVE",
-      "display": "-0.02"
+      "display": "-0.12"
     },
     "total_return_pct": {
-      "value": -0.01,
+      "value": -0.06,
       "label": "LIVE",
-      "display": "-0.01%"
+      "display": "-0.06%"
     },
     "realized_pnl": {
       "value": 0.0,
@@ -58,27 +58,27 @@
       "display": "0.0"
     },
     "unrealized_pnl": {
-      "value": -0.02,
+      "value": -0.12,
       "label": "LIVE",
-      "display": "-0.02"
+      "display": "-0.12"
     },
     "cash_reserve": {
-      "value": 207.97,
+      "value": 197.89,
       "label": "LIVE",
-      "display": "207.97"
+      "display": "197.89"
     },
     "deployed": {
-      "value": 2.01,
+      "value": 11.99,
       "label": "LIVE",
-      "display": "2.01"
+      "display": "11.99"
     },
     "funding_excess": {
-      "value": 9.98,
+      "value": 9.88,
       "label": "LIVE",
-      "display": "9.98"
+      "display": "9.88"
     },
-    "funding_excess_note": "$9.98 above C sits in reserve \u2014 not trading return",
-    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $209.98 includes $9.98 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: Post first_live_sgov_fill INTENT_ca55d0e9; 0.02 SGOV mktValue 2.01; ledger cash 207.97 NAV 209.98",
+    "funding_excess_note": "$9.88 above C sits in reserve \u2014 not trading return",
+    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $209.88 includes $9.88 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: Post COREBETA VTI fill INTENT_e7536191; 0.02 SGOV mkt 2.01 + 0.0265 VTI mkt 9.98; cash 197.89 NAV 209.88; uPnL VTI -0.10 SGOV -0.02",
     "sleeves": [
       {
         "id": "S-RESERVE / E3-RESERVE",
@@ -123,7 +123,7 @@
         "note": "status string only; no dollar invent"
       }
     ],
-    "book_timestamp_ct": "2026-09-10 14:59 CT",
+    "book_timestamp_ct": "2026-09-11 09:32 CT",
     "book_source": "ibkr_gateway_ledger"
   },
   "performance_windows": {
@@ -169,6 +169,20 @@
         "notes": "Post first_live_sgov_fill INTENT_ca55d0e9; 0.02 SGOV mktValue 2.01; ledger cash 207.97 NAV 209.98",
         "mode": "LIVE",
         "label": "LIVE"
+      },
+      {
+        "date_ct": "2026-09-11 09:32 CT",
+        "nav": {
+          "value": 209.88,
+          "label": "LIVE",
+          "display": "209.88"
+        },
+        "cash": 197.89,
+        "deployed": 11.99,
+        "return_pct": null,
+        "notes": "Post COREBETA VTI fill INTENT_e7536191; 0.02 SGOV mkt 2.01 + 0.0265 VTI mkt 9.98; cash 197.89 NAV 209.88; uPnL VTI -0.10 SGOV -0.02",
+        "mode": "LIVE",
+        "label": "LIVE"
       }
     ],
     "reason": null,
@@ -191,6 +205,11 @@
         "date_ct": "2026-09-10 14:59 CT",
         "nav": 209.98,
         "label": "LIVE"
+      },
+      {
+        "date_ct": "2026-09-11 09:32 CT",
+        "nav": 209.88,
+        "label": "LIVE"
       }
     ],
     "note": "From journal/book-snapshot.csv; Shadow artifacts are not NAV.",
@@ -199,10 +218,25 @@
   "positions": {
     "securities": [
       {
+        "symbol": "VTI",
+        "qty": 0.0265,
+        "avg_price": 380.5002721,
+        "mkt_price": 376.7281494,
+        "mkt_value": 9.98,
+        "unrealized_pnl": -0.1,
+        "realized_pnl": null,
+        "thesis": "COREBETA directional_beta vs SGOV \u2014 not alpha",
+        "strategy_id": "S-COREBETA",
+        "source": "ibkr_live",
+        "status": "LIVE",
+        "market": "securities",
+        "label": "LIVE"
+      },
+      {
         "symbol": "SGOV",
         "qty": 0.02,
-        "avg_price": 101.5059415,
-        "mkt_price": 100.49559785,
+        "avg_price": 101.505,
+        "mkt_price": 100.51470945,
         "mkt_value": 2.01,
         "unrealized_pnl": -0.02,
         "realized_pnl": null,
@@ -219,7 +253,7 @@
     "crypto": [],
     "sports": [],
     "empty": false,
-    "note": "LIVE IBKR: 1 open securities position(s) (SGOV). Options remain research-first. Sports sleeve separate \u2014 never mix with IBKR LIVE.",
+    "note": "LIVE IBKR: 2 open securities position(s) (VTI, SGOV). Options remain research-first. Sports sleeve separate \u2014 never mix with IBKR LIVE.",
     "label": "LIVE",
     "source": "ibkr_live_book",
     "source_status": "LIVE",
@@ -257,9 +291,33 @@
         "account": "[account redacted]",
         "strategy_id": "S-RESERVE",
         "notes": "INTENT_ca55d0e9 FILLED Pro SMART; first live securities fill; viability T0"
+      },
+      {
+        "timestamp_ct": "2026-09-11 09:30:50 CT",
+        "market_instrument": "VTI",
+        "venue": "IBKR",
+        "direction": "BUY",
+        "entry_price": "380.5002721",
+        "size": "0.0265",
+        "thesis": "Activation COREBETA: tiny VTI directional_beta (~$10) after SGOV ops fill; not alpha.",
+        "estimated_probability": "",
+        "expected_return": "US equity market beta vs SGOV",
+        "source_of_edge": "directional_beta",
+        "benchmark": "SGOV",
+        "expected_downside": "4.0 max_loss",
+        "exit_logic": "hold as COREBETA unless Holt exits",
+        "fees_friction": "commission in broker avgCost ~380.50",
+        "outcome": "filled",
+        "realized_pnl": "0",
+        "subsequent_analysis": "",
+        "lesson_learned": "COREBETA first experimental live fill under activation",
+        "paper": "false",
+        "account": "[account redacted]",
+        "strategy_id": "S-COREBETA",
+        "notes": "INTENT_e7536191 FILLED Pro SMART; first experimental risk-on; still hold 0.02 SGOV"
       }
     ],
-    "blotter_count": 1,
+    "blotter_count": 2,
     "shadow_artifacts": [
       {
         "path": "journal/shadow-ledger-demo.csv",
@@ -472,7 +530,7 @@
     "utilization_detail": {
       "deployed": 0.0,
       "exp_book_cap": 20.0,
-      "reserve_cash": 207.97,
+      "reserve_cash": 197.89,
       "reserve_floor": 100.0,
       "note": "Cash-only: 0% of experimental book used; reserve above floor"
     },
@@ -918,7 +976,7 @@
         "name": "vti-spy-buyhold-vs-sgov",
         "owner": "Vera",
         "market": "securities",
-        "status": "idea",
+        "status": "live_experimental",
         "originated": "2026-09-04",
         "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
         "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
@@ -926,14 +984,14 @@
         "return_source": "directional_beta",
         "benchmark": "SGOV",
         "falsify": "open loss >=$4 or 90d review favors all-SGOV with no reason to continue",
-        "data_needs": "VTI/SGOV marks; IBKR fills when Holt transmits",
+        "data_needs": "VTI/SGOV marks; IBKR fills (COREBETA live)",
         "cost_notes": "Lite $0 + 1-3bp spread; hold not churn",
         "capital_alloc_pct": "5",
-        "next_decision": "Still idea behind proven SGOV ops; Holt transmit only. Viability window \u2260 force VTI by Day 30.",
-        "evidence_summary": "Sized 2026-09-05 under C=$200: $10 VTI, max loss $4, 90d exit. Next-dollar stack #2. docs/securities-directional-beta-sizing-2026-09-05.md. Not live.",
-        "updated_ct": "2026-09-10 15:00 CT",
+        "next_decision": "Hold COREBETA VTI; next-dollar IBIT research; EOD reconcile; viability evidence \u2014 no-force-risk",
+        "evidence_summary": "FILLED 2026-09-11 09:30:50 CT BUY 0.0265 VTI avgCost 380.50 Pro SMART INTENT_e7536191; mktValue ~9.98; first experimental live fill under activation. Still hold 0.02 SGOV.",
+        "updated_ct": "2026-09-11 09:32 CT",
         "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
-        "label": "PAPER",
+        "label": "LIVE",
         "originated_display": "Sep 4, 2026",
         "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
         "market_label": "Securities"
@@ -1204,9 +1262,9 @@
         "data_needs": "NANOS NBBO; Options Level 2",
         "cost_notes": "~$0.065/contract + spread",
         "capital_alloc_pct": "0",
-        "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+        "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
         "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-        "updated_ct": "2026-09-06 09:05 CT",
+        "updated_ct": "2026-09-11 08:45 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
         "label": "PAPER",
         "originated_display": null,
@@ -1229,9 +1287,9 @@
         "data_needs": "NANOS chain NBBO both wings",
         "cost_notes": "2x commission + spreads",
         "capital_alloc_pct": "0",
-        "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+        "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
         "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-        "updated_ct": "2026-09-06 09:05 CT",
+        "updated_ct": "2026-09-11 08:45 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
         "label": "PAPER",
         "originated_display": null,
@@ -1579,7 +1637,7 @@
       },
       {
         "status": "idea",
-        "count": 8,
+        "count": 7,
         "items": [
           {
             "strategy_id": "E2-XVEN",
@@ -1657,31 +1715,6 @@
             "market_label": "Event Markets"
           },
           {
-            "strategy_id": "S-COREBETA",
-            "name": "vti-spy-buyhold-vs-sgov",
-            "owner": "Vera",
-            "market": "securities",
-            "status": "idea",
-            "originated": "2026-09-04",
-            "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
-            "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
-            "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
-            "return_source": "directional_beta",
-            "benchmark": "SGOV",
-            "falsify": "open loss >=$4 or 90d review favors all-SGOV with no reason to continue",
-            "data_needs": "VTI/SGOV marks; IBKR fills when Holt transmits",
-            "cost_notes": "Lite $0 + 1-3bp spread; hold not churn",
-            "capital_alloc_pct": "5",
-            "next_decision": "Still idea behind proven SGOV ops; Holt transmit only. Viability window \u2260 force VTI by Day 30.",
-            "evidence_summary": "Sized 2026-09-05 under C=$200: $10 VTI, max loss $4, 90d exit. Next-dollar stack #2. docs/securities-directional-beta-sizing-2026-09-05.md. Not live.",
-            "updated_ct": "2026-09-10 15:00 CT",
-            "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
-            "label": "PAPER",
-            "originated_display": "Sep 4, 2026",
-            "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
-            "market_label": "Securities"
-          },
-          {
             "strategy_id": "S-CRYPTO-BH-001",
             "name": "BTC IBIT hold vs SGOV (directional beta)",
             "owner": "Cole",
@@ -1747,9 +1780,9 @@
             "data_needs": "NANOS NBBO; Options Level 2",
             "cost_notes": "~$0.065/contract + spread",
             "capital_alloc_pct": "0",
-            "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+            "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
             "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-            "updated_ct": "2026-09-06 09:05 CT",
+            "updated_ct": "2026-09-11 08:45 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
             "label": "PAPER",
             "originated_display": null,
@@ -1772,9 +1805,9 @@
             "data_needs": "NANOS chain NBBO both wings",
             "cost_notes": "2x commission + spreads",
             "capital_alloc_pct": "0",
-            "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+            "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
             "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-            "updated_ct": "2026-09-06 09:05 CT",
+            "updated_ct": "2026-09-11 08:45 CT",
             "capital_alloc_pct_note": "0 / no live capital allocated",
             "label": "PAPER",
             "originated_display": null,
@@ -2147,7 +2180,7 @@
       },
       {
         "status": "live_experimental",
-        "count": 2,
+        "count": 3,
         "items": [
           {
             "strategy_id": "E3-RESERVE",
@@ -2172,6 +2205,31 @@
             "label": "LIVE",
             "originated_display": "Sep 4, 2026",
             "description": "Park idle cash in short-term Treasury ETFs (SGOV/BIL) so money earns T-bill yield instead of sitting in near-zero broker cash. Ops plumbing, not a trading edge.",
+            "market_label": "Securities"
+          },
+          {
+            "strategy_id": "S-COREBETA",
+            "name": "vti-spy-buyhold-vs-sgov",
+            "owner": "Vera",
+            "market": "securities",
+            "status": "live_experimental",
+            "originated": "2026-09-04",
+            "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
+            "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
+            "edge_source": "market beta / buyhold \u2014 not Harbor info edge",
+            "return_source": "directional_beta",
+            "benchmark": "SGOV",
+            "falsify": "open loss >=$4 or 90d review favors all-SGOV with no reason to continue",
+            "data_needs": "VTI/SGOV marks; IBKR fills (COREBETA live)",
+            "cost_notes": "Lite $0 + 1-3bp spread; hold not churn",
+            "capital_alloc_pct": "5",
+            "next_decision": "Hold COREBETA VTI; next-dollar IBIT research; EOD reconcile; viability evidence \u2014 no-force-risk",
+            "evidence_summary": "FILLED 2026-09-11 09:30:50 CT BUY 0.0265 VTI avgCost 380.50 Pro SMART INTENT_e7536191; mktValue ~9.98; first experimental live fill under activation. Still hold 0.02 SGOV.",
+            "updated_ct": "2026-09-11 09:32 CT",
+            "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
+            "label": "LIVE",
+            "originated_display": "Sep 4, 2026",
+            "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
             "market_label": "Securities"
           },
           {
@@ -2205,10 +2263,10 @@
     "counts": {
       "shadow": 1,
       "researching": 5,
-      "idea": 8,
+      "idea": 7,
       "paused": 4,
       "rejected": 10,
-      "live_experimental": 2
+      "live_experimental": 3
     },
     "by_market": {
       "securities": [
@@ -2317,7 +2375,7 @@
           "name": "vti-spy-buyhold-vs-sgov",
           "owner": "Vera",
           "market": "securities",
-          "status": "idea",
+          "status": "live_experimental",
           "originated": "2026-09-04",
           "hypothesis": "US equity risk premium vs SGOV; honest directional_beta under return-sources mandate",
           "human_summary": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
@@ -2325,14 +2383,14 @@
           "return_source": "directional_beta",
           "benchmark": "SGOV",
           "falsify": "open loss >=$4 or 90d review favors all-SGOV with no reason to continue",
-          "data_needs": "VTI/SGOV marks; IBKR fills when Holt transmits",
+          "data_needs": "VTI/SGOV marks; IBKR fills (COREBETA live)",
           "cost_notes": "Lite $0 + 1-3bp spread; hold not churn",
           "capital_alloc_pct": "5",
-          "next_decision": "Still idea behind proven SGOV ops; Holt transmit only. Viability window \u2260 force VTI by Day 30.",
-          "evidence_summary": "Sized 2026-09-05 under C=$200: $10 VTI, max loss $4, 90d exit. Next-dollar stack #2. docs/securities-directional-beta-sizing-2026-09-05.md. Not live.",
-          "updated_ct": "2026-09-10 15:00 CT",
+          "next_decision": "Hold COREBETA VTI; next-dollar IBIT research; EOD reconcile; viability evidence \u2014 no-force-risk",
+          "evidence_summary": "FILLED 2026-09-11 09:30:50 CT BUY 0.0265 VTI avgCost 380.50 Pro SMART INTENT_e7536191; mktValue ~9.98; first experimental live fill under activation. Still hold 0.02 SGOV.",
+          "updated_ct": "2026-09-11 09:32 CT",
           "capital_alloc_pct_note": "registry 5% of C \u2014 not live until Holt transmits / blotter fill",
-          "label": "PAPER",
+          "label": "LIVE",
           "originated_display": "Sep 4, 2026",
           "description": "Buy-and-hold a small slice of the US stock market (VTI/SPY) to earn the long-run equity premium versus T-bill ETFs. Honest market beta \u2014 not a claim Harbor has stock-picking skill.",
           "market_label": "Securities"
@@ -2480,9 +2538,9 @@
           "data_needs": "NANOS NBBO; Options Level 2",
           "cost_notes": "~$0.065/contract + spread",
           "capital_alloc_pct": "0",
-          "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+          "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
           "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-          "updated_ct": "2026-09-06 09:05 CT",
+          "updated_ct": "2026-09-11 08:45 CT",
           "capital_alloc_pct_note": "0 / no live capital allocated",
           "label": "PAPER",
           "originated_display": null,
@@ -2505,9 +2563,9 @@
           "data_needs": "NANOS chain NBBO both wings",
           "cost_notes": "2x commission + spreads",
           "capital_alloc_pct": "0",
-          "next_decision": "Quinn PASS-WITH-CONDITIONS; research until Level\u22652 + Holt intent; no same-week VTI stack; DEB combo-only",
+          "next_decision": "Research/scanning pre-L2; live blocked on Thomas Level \u22652 ask (draft ready for Holt escalate)",
           "evidence_summary": "Quinn 2026-09-06 PASS WITH CONDITIONS (all-in\u2264$4 hard gate; no add size; DEB combo-only). docs/quinn-challenge-options-nanos-2026-09-06.md",
-          "updated_ct": "2026-09-06 09:05 CT",
+          "updated_ct": "2026-09-11 08:45 CT",
           "capital_alloc_pct_note": "0 / no live capital allocated",
           "label": "PAPER",
           "originated_display": null,
@@ -3052,7 +3110,7 @@
       {
         "forecast_id": "W1-F4",
         "event": "Aug 2026 CPI YoY above 3.4%",
-        "status": "locked",
+        "status": "resolved",
         "my_p_locked": "0.32",
         "market_p_at_lock": "0.310",
         "looked_at_market_first": "true",
@@ -3062,8 +3120,8 @@
         "author": "Reed",
         "timestamp_ct": "2026-09-04 10:19 CT",
         "eligible_mid_promote": false,
-        "outcome": null,
-        "brier": null
+        "outcome": "0",
+        "brier": "0.1024"
       },
       {
         "forecast_id": "W1-F6",
@@ -3151,8 +3209,8 @@
       "total": 10,
       "clean": 4,
       "contaminated": 6,
-      "pending": 7,
-      "resolved": 3,
+      "pending": 6,
+      "resolved": 4,
       "resolved_clean": 3,
       "mid_promote_eligible": 1
     },
@@ -3203,7 +3261,7 @@
     },
     "calibration_files": {
       "clean_append_rows": 3,
-      "contaminated_append_rows": 16,
+      "contaminated_append_rows": 17,
       "note": "CSV append-only row counts \u2014 NOT sample n / distinct forecast ids",
       "clean_path": "journal/calibration_clean.csv",
       "contaminated_path": "journal/calibration_contaminated.csv"
@@ -3461,8 +3519,50 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-10T15:00:00-05:00",
+    "lastUpdated": "2026-09-11T09:31:43-05:00",
     "entries": [
+      {
+        "id": "sess-vti-corebeta-20260911",
+        "at": "2026-09-11T09:31:43-05:00",
+        "ts": "2026-09-11T09:31:43.221137-05:00",
+        "ts_ct": "2026-09-11 09:31:43 CT",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "area": "securities",
+        "title": "COREBETA VTI filled (~$10)",
+        "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation \u2014 not alpha.",
+        "deskChanges": "Positions: 0.02 SGOV + 0.0265 VTI. S-COREBETA live_experimental. Intent FILLED. Next: EOD reconcile / IBIT research / viability evidence.",
+        "tags": [
+          "live",
+          "VTI",
+          "COREBETA",
+          "filled"
+        ],
+        "links": {
+          "intent": "INTENT_e7536191-c518-4274-91fc-aa5690c23405"
+        },
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-11T08:44:07-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Portfolio execution directive: opened ranked equity hunt queue (large+SMID themes) \u2014 not SGOV-as-the-business. COREBETA remains lead sized idea for Holt transmit. Options research/scanning continues pre-L2 (ask already escalated). No Day-30 force-risk.",
+        "deskChanges": "docs/securities-equity-hunt-queue-2026-09-11.md; docs/options-research-scan-2026-09-11.md; S-COREBETA researching.",
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-11T08:42:32-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Hayes/Holt activation: drafted Thomas IBKR Options Level \u22652 ask for Holt to escalate; started equity pipeline scanning without invent-gate wait. S-RESERVE live; COREBETA remains next risk-on when Holt transmits. No Day-30 force-risk.",
+        "deskChanges": "docs/options-l2-permission-ask-2026-09-11.md; docs/securities-equity-pipeline-activation-2026-09-11.md; human-dependencies gate 12 OPEN.",
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-10T15:04:21-05:00",
+        "actor": "Pike (Harbor Capital - Quant)",
+        "summary": "Quant/Exec: viability clock T0 live after SGOV 0.02 fill (Pro SMART). Will preserve exec-quality + P&L-after-fees evidence; will not force next-rail size for Day-30 optics. No Pike transmit.",
+        "deskChanges": "capital-quant Session Log; viability already on desk snapshot.",
+        "lessonId": "L10"
+      },
       {
         "at": "2026-09-10T15:00:00-05:00",
         "actor": "Holt (Harbor Capital - CEO)",
@@ -3543,8 +3643,50 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-10T15:00:00-05:00",
+    "lastUpdated": "2026-09-11T09:31:43-05:00",
     "entries": [
+      {
+        "id": "sess-vti-corebeta-20260911",
+        "at": "2026-09-11T09:31:43-05:00",
+        "ts": "2026-09-11T09:31:43.221137-05:00",
+        "ts_ct": "2026-09-11 09:31:43 CT",
+        "actor": "Holt (Harbor Capital - CEO)",
+        "area": "securities",
+        "title": "COREBETA VTI filled (~$10)",
+        "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation \u2014 not alpha.",
+        "deskChanges": "Positions: 0.02 SGOV + 0.0265 VTI. S-COREBETA live_experimental. Intent FILLED. Next: EOD reconcile / IBIT research / viability evidence.",
+        "tags": [
+          "live",
+          "VTI",
+          "COREBETA",
+          "filled"
+        ],
+        "links": {
+          "intent": "INTENT_e7536191-c518-4274-91fc-aa5690c23405"
+        },
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-11T08:44:07-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Portfolio execution directive: opened ranked equity hunt queue (large+SMID themes) \u2014 not SGOV-as-the-business. COREBETA remains lead sized idea for Holt transmit. Options research/scanning continues pre-L2 (ask already escalated). No Day-30 force-risk.",
+        "deskChanges": "docs/securities-equity-hunt-queue-2026-09-11.md; docs/options-research-scan-2026-09-11.md; S-COREBETA researching.",
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-11T08:42:32-05:00",
+        "actor": "Vera (Harbor Capital - Securities & Options)",
+        "summary": "Hayes/Holt activation: drafted Thomas IBKR Options Level \u22652 ask for Holt to escalate; started equity pipeline scanning without invent-gate wait. S-RESERVE live; COREBETA remains next risk-on when Holt transmits. No Day-30 force-risk.",
+        "deskChanges": "docs/options-l2-permission-ask-2026-09-11.md; docs/securities-equity-pipeline-activation-2026-09-11.md; human-dependencies gate 12 OPEN.",
+        "lessonId": null
+      },
+      {
+        "at": "2026-09-10T15:04:21-05:00",
+        "actor": "Pike (Harbor Capital - Quant)",
+        "summary": "Quant/Exec: viability clock T0 live after SGOV 0.02 fill (Pro SMART). Will preserve exec-quality + P&L-after-fees evidence; will not force next-rail size for Day-30 optics. No Pike transmit.",
+        "deskChanges": "capital-quant Session Log; viability already on desk snapshot.",
+        "lessonId": "L10"
+      },
       {
         "at": "2026-09-10T15:00:00-05:00",
         "actor": "Holt (Harbor Capital - CEO)",
@@ -3625,6 +3767,7 @@
   "system_health": {
     "tools_present": [
       "brier.py",
+      "candidate_gate.py",
       "crypto_md.py",
       "dashboard_snapshot.py",
       "fee_model.py",
@@ -3642,12 +3785,12 @@
       "smoke_test.py",
       "volgate_oos.py"
     ],
-    "tools_count": 17,
+    "tools_count": 18,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
     "snapshot_path": "dashboard/data/snapshot.json",
-    "proposed": 13,
+    "proposed": 12,
     "rejected": 10,
     "deferred": 4,
     "shadow": 1,
@@ -3705,11 +3848,29 @@
       {
         "forecast_id": "W1-F4",
         "timestamp_ct": "2026-09-04 10:19 CT",
-        "status": "locked",
+        "status": "resolved",
         "event": "Aug 2026 CPI YoY above 3.4%"
       }
     ],
     "strategy_updated_ct_tops": [
+      {
+        "strategy_id": "S-COREBETA",
+        "updated_ct": "2026-09-11 09:32 CT",
+        "status": "live_experimental",
+        "name": "vti-spy-buyhold-vs-sgov"
+      },
+      {
+        "strategy_id": "OPT-NANOS-DIR-001",
+        "updated_ct": "2026-09-11 08:45 CT",
+        "status": "idea",
+        "name": "long-nanos-directional"
+      },
+      {
+        "strategy_id": "OPT-NANOS-DEB-001",
+        "updated_ct": "2026-09-11 08:45 CT",
+        "status": "idea",
+        "name": "nanos-debit-vertical"
+      },
       {
         "strategy_id": "E3-RESERVE",
         "updated_ct": "2026-09-10 15:00 CT",
@@ -3717,28 +3878,10 @@
         "name": "Idle cash \u2192 T-bill/SGOV reserve"
       },
       {
-        "strategy_id": "S-COREBETA",
-        "updated_ct": "2026-09-10 15:00 CT",
-        "status": "idea",
-        "name": "vti-spy-buyhold-vs-sgov"
-      },
-      {
         "strategy_id": "S-RESERVE",
         "updated_ct": "2026-09-10 15:00 CT",
         "status": "live_experimental",
         "name": "sgov-bil-reserve-alias"
-      },
-      {
-        "strategy_id": "OPT-NANOS-DIR-001",
-        "updated_ct": "2026-09-06 09:05 CT",
-        "status": "idea",
-        "name": "long-nanos-directional"
-      },
-      {
-        "strategy_id": "OPT-NANOS-DEB-001",
-        "updated_ct": "2026-09-06 09:05 CT",
-        "status": "idea",
-        "name": "nanos-debit-vertical"
       },
       {
         "strategy_id": "OPT-SPY-OTM-001",
@@ -3803,6 +3946,42 @@
     ],
     "events": [
       {
+        "ts": "2026-09-11 ~09:30 CT \u2014 COREBETA first ex",
+        "kind": "decision",
+        "title": "2026-09-11 ~09:30 CT \u2014 COREBETA first experimental live fill (Holt)",
+        "summary": "**FILLED** BUY 0.0265 VTI MKT SMART via CPG (`INTENT_e7536191`). Avg cost ~380.50; mark ~$9.98."
+      },
+      {
+        "ts": "2026-09-11 ~09:14 CT \u2014 Sep CPI + FOMC cu",
+        "kind": "decision",
+        "title": "2026-09-11 ~09:14 CT \u2014 Sep CPI + FOMC cushion retest (Reed, analysis only)",
+        "summary": "Holt binding: prioritize fresh my_p on Sep CPI / FOMC before Tue 2026-09-15 T-24; **no live ask until cushion clears**. Width alone insufficient."
+      },
+      {
+        "ts": "2026-09-11 ~09:11 CT \u2014 Weekday triage: S",
+        "kind": "decision",
+        "title": "2026-09-11 ~09:11 CT \u2014 Weekday triage: Sep CPI T3.4 width flip (Reed, analysis only)",
+        "summary": "No new resolutions; no T-24/T-2 catalysts (FOMC Sep 16 still outside T-24)."
+      },
+      {
+        "ts": "2026-09-11 ~08:47 CT \u2014 Event hunt live b",
+        "kind": "decision",
+        "title": "2026-09-11 ~08:47 CT \u2014 Event hunt live book check (Reed, analysis only)",
+        "summary": "Doc: `docs/event-probability-hunt-queue-2026-09-11.md` \u2014 **Live check 2026-09-11** section + row status updates."
+      },
+      {
+        "ts": "2026-09-11 ~08:45 CT \u2014 Event probability",
+        "kind": "decision",
+        "title": "2026-09-11 ~08:45 CT \u2014 Event probability hunt queue opened (Reed, analysis only)",
+        "summary": "Thomas activation: systematic probability hunting \u2192 sized live only when edge clears process."
+      },
+      {
+        "ts": "2026-09-11 ~08:41 CT \u2014 Aug CPI F4 resolv",
+        "kind": "decision",
+        "title": "2026-09-11 ~08:41 CT \u2014 Aug CPI F4 resolved (Reed, analysis only)",
+        "summary": "BLS Aug 2026 CPI YoY = **3.4%**. Kalshi `KXCPIYOY-26AUG-T3.4` finalized `result=no` (`expiration_value=Above 3.3%`; settlement ~08:40 CT)."
+      },
+      {
         "ts": "2026-09-10 ~15:05 CT \u2014 Vera securities a",
         "kind": "decision",
         "title": "2026-09-10 ~15:05 CT \u2014 Vera securities ack (viability T0)",
@@ -3825,42 +4004,6 @@
         "kind": "decision",
         "title": "2026-09-09 \u2014 Session Log & Lessons (Event Markets)",
         "summary": "Confirmed lessons L01\u2013L10 already have `origination_date`."
-      },
-      {
-        "ts": "2026-09-09 ~09:02 CT \u2014 Claims T-24 tape ",
-        "kind": "decision",
-        "title": "2026-09-09 ~09:02 CT \u2014 Claims T-24 tape (Reed, analysis only)",
-        "summary": "Doc: `journal/claims-t24-tape-2026-09-09.md`. **`forecasts.csv` unchanged.**"
-      },
-      {
-        "ts": "2026-09-08 ~09:42 CT \u2014 Claims F8 width f",
-        "kind": "decision",
-        "title": "2026-09-08 ~09:42 CT \u2014 Claims F8 width flip (Reed, analysis only)",
-        "summary": "Doc: `journal/claims-f8-tape-2026-09-08.md`. **`forecasts.csv` unchanged.**"
-      },
-      {
-        "ts": "2026-09-07 ~09:45 CT \u2014 Claims ladder ref",
-        "kind": "decision",
-        "title": "2026-09-07 ~09:45 CT \u2014 Claims ladder refresh (Reed, analysis only)",
-        "summary": "Live Kalshi vs Wave-1 locked my_p after material claims move. Doc: `journal/claims-ladder-refresh-2026-09-07.md`."
-      },
-      {
-        "ts": "2026-09-06 \u2014 Event Markets `#market-even",
-        "kind": "decision",
-        "title": "2026-09-06 \u2014 Event Markets `#market-event` PR validation (PR #1)",
-        "summary": "Route `#market-event` + Markets subnav; `markets[].detail_route` = `#market-event`."
-      },
-      {
-        "ts": "2026-09-06 \u2014 Event Markets drill-down va",
-        "kind": "decision",
-        "title": "2026-09-06 \u2014 Event Markets drill-down validation standing by",
-        "summary": "2026-09-06 \u2014 Event Markets drill-down validation standing by"
-      },
-      {
-        "ts": "2026-09-06 \u2014 Event Markets cadence rebui",
-        "kind": "decision",
-        "title": "2026-09-06 \u2014 Event Markets cadence rebuild",
-        "summary": "Weekday 9:00 AM CT triage via Holt: early exit when idle; catalyst T-24/T-2 only for serious tracked events; score resolutions promptly; no cascade."
       },
       {
         "ts": "2026-09-04 11:25 CT",
@@ -3974,10 +4117,17 @@
         "owner": "Thomas",
         "status": "Skipped \u2014 deferred",
         "blocks": "Optional"
+      },
+      {
+        "n": "12",
+        "gate": "IBKR Options Level \u22652 (long options / debit spreads; NANOS path)",
+        "owner": "Thomas",
+        "status": "OPEN \u2014 escalated to Tom 2026-09-11 (Holt) \u00b7 draft `docs/options-l2-permission-ask-2026-09-11.md`",
+        "blocks": "Live options tickets only; equity COREBETA pipeline **not** blocked"
       }
     ],
-    "count": 11,
-    "open_count": 3,
+    "count": 12,
+    "open_count": 4,
     "live_blocked": false,
     "live_trading": true,
     "automated_execution": false,
@@ -4031,9 +4181,16 @@
         "owner": "Thomas",
         "status": "Skipped \u2014 deferred",
         "blocks": "Optional"
+      },
+      {
+        "n": "12",
+        "gate": "IBKR Options Level \u22652 (long options / debit spreads; NANOS path)",
+        "owner": "Thomas",
+        "status": "OPEN \u2014 escalated to Tom 2026-09-11 (Holt) \u00b7 draft `docs/options-l2-permission-ask-2026-09-11.md`",
+        "blocks": "Live options tickets only; equity COREBETA pipeline **not** blocked"
       }
     ],
-    "remaining_count": 7,
+    "remaining_count": 8,
     "source": "docs/human-dependencies.md",
     "note": "Live trading AUTHORIZED (C=$200 LIVE) within risk sleeve. Return-sources mandate in force \u2014 honest beta/event OK. automated_execution=false (Ready \u2014 Holt-gated; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
     "stale_fields_note": "Do not treat live_blocked=true or C-unconfirmed as current."
@@ -4044,7 +4201,7 @@
     "withdrawal": false,
     "account_id": null,
     "starting_c": 200.0,
-    "summary": "Funded LIVE book (starting bankroll C=$200.0). Return-sources mandate in force: grow capital intelligently \u2014 honest directional_beta / event_driven OK when risk/reward clears SGOV. Next-dollar stack: finish SGOV ops fill \u2192 S-COREBETA $10 VTI \u2192 S-CRYPTO-BH-001 ~$4 IBIT (same correlated book, max $20; no same-week dual entry unless Holt spends budget). EM-DIR-01 stays research until Quinn 5\u00a2 cushion + fresh lock. Net trading P&L from fills only; funding excess is reserve.",
+    "summary": "Funded LIVE book (starting bankroll C=$200.0). Return-sources mandate in force: grow capital intelligently \u2014 honest directional_beta / event_driven OK when risk/reward clears SGOV. Next-dollar stack: S-RESERVE SGOV live + S-COREBETA VTI live \u2192 S-CRYPTO-BH-001 ~$4 IBIT (same correlated book, max $20; no same-week dual entry unless Holt spends budget). EM-DIR-01 stays research until Quinn 5\u00a2 cushion + fresh lock. Net trading P&L from fills only; funding excess is reserve.",
     "notes": {
       "live_trading": "LIVE book authorized C=$200.0; return-sources mandate + next-dollar stack locked",
       "automated_execution": "Ready \u2014 Holt-gated. Flipping automated_execution=true is deferred until the Gateway+confirm-reply path is proven in production; Holt still transmits even then. Boolean stays false.",
@@ -4055,7 +4212,7 @@
       "automated_execution": "Ready \u2014 Holt-gated",
       "withdrawal": "Standing human gate"
     },
-    "action_needed": "Monitor sleeve limits; follow next-dollar stack",
+    "action_needed": "COREBETA live; next = EOD reconcile / IBIT research / viability evidence",
     "label": "LIVE"
   },
   "viability": {
@@ -4063,20 +4220,20 @@
     "starts_on": "first_live_fill",
     "clock_days": 30,
     "status": "IN_PROGRESS",
-    "day": 1,
-    "days_left": 30,
+    "day": 2,
+    "days_left": 29,
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
-    "live_trades": 1,
+    "live_trades": 2,
     "net_live_pnl": {
-      "value": -0.02,
+      "value": -0.12,
       "label": "LIVE",
-      "display": "-0.02"
+      "display": "-0.12"
     },
     "label": "LIVE",
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
     "first_fill_ct": "2026-09-10 14:33 CT",
-    "note": "Clock started on first live fill (T0). Day 1 of 30; 30 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 2 of 30; 29 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "viability_period": {
     "started": true,
@@ -4084,19 +4241,19 @@
     "started_at_ct": "2026-09-10",
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
-    "day": 1,
-    "days_left": 30,
+    "day": 2,
+    "days_left": 29,
     "status": "IN_PROGRESS",
     "clock_days": 30,
     "pending_order_id": null,
     "pending_order_status": null,
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
-    "note": "Clock started on first live fill (T0). Day 1 of 30; 30 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 2 of 30; 29 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "live_trading": true,
   "automated_execution": false,
   "withdrawal": false,
-  "last_reconciled_ibkr_ct": "2026-09-10 15:03:15 CT",
+  "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
   "docs_meta": {
     "docs": [
       {
@@ -4127,7 +4284,7 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-11 08:43:07 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -4206,7 +4363,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
+        "mtime_ct": "2026-09-11 08:43:07 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -4294,7 +4451,7 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-11 08:43:07 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -4373,7 +4530,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
+        "mtime_ct": "2026-09-11 08:43:07 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -4435,27 +4592,27 @@
     {
       "id": "securities",
       "name": "Securities",
-      "status": "Live \u2014 SGOV reserve",
-      "status_code": "live_sgov_reserve",
+      "status": "Live \u2014 SGOV + COREBETA VTI",
+      "status_code": "live_sgov_vti",
       "value": {
-        "value": 2.01,
+        "value": 11.99,
         "label": "LIVE",
-        "display": "2.01"
+        "display": "11.99"
       },
       "exposure": {
-        "value": 2.01,
+        "value": 11.99,
         "label": "LIVE",
-        "display": "2.01"
+        "display": "11.99"
       },
       "deployed": {
-        "value": 2.01,
+        "value": 11.99,
         "label": "LIVE",
-        "display": "2.01"
+        "display": "11.99"
       },
       "at_risk": {
-        "value": 2.01,
+        "value": 11.99,
         "label": "LIVE",
-        "display": "2.01"
+        "display": "11.99"
       },
       "realized_pnl": {
         "value": 0.0,
@@ -4463,38 +4620,38 @@
         "display": "0.0"
       },
       "unrealized_pnl": {
-        "value": -0.02,
+        "value": -0.12000000000000001,
         "label": "LIVE",
-        "display": "-0.02"
+        "display": "-0.12"
       },
       "net_pnl": {
-        "value": -0.02,
+        "value": -0.12000000000000001,
         "label": "LIVE",
-        "display": "-0.02"
+        "display": "-0.12"
       },
       "return_pct": {
         "value": null,
         "label": "N/A",
         "display": "N/A"
       },
-      "open": 1,
+      "open": 2,
       "closed": 0,
       "risk_util": {
         "value": 0.0,
         "label": "N/A",
         "display": "Experimental room used: $0 of $20"
       },
-      "benchmark": "SGOV / cash floor; VTI for COREBETA next risk-on",
+      "benchmark": "SGOV / cash floor; VTI COREBETA live",
       "return_source": "mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71)",
-      "objective": "Hold S-RESERVE SGOV; viability evidence discipline; COREBETA VTI when ready",
+      "objective": "Hold S-RESERVE SGOV + COREBETA VTI; next IBIT research; viability evidence",
       "latest_lesson": "Pro must force SMART routing; never emit ZERO or Lite on this account",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
-      "last_reconciled_ct": "2026-09-10 15:03:15 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
+      "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
-      "note": "First live securities fill live \u2014 1 open position(s). Marks from Gateway; do not invent P&L. Viability clock running (banner SoT).",
+      "note": "First live securities fill live \u2014 2 open position(s). Marks from Gateway; do not invent P&L. Viability clock running (banner SoT).",
       "market_id": "securities"
     },
     {
@@ -4555,7 +4712,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -4621,7 +4778,7 @@
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -4686,7 +4843,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -4756,7 +4913,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -4772,9 +4929,9 @@
       "status": "Full reserve",
       "status_code": "full_reserve",
       "value": {
-        "value": 207.97,
+        "value": 197.89,
         "label": "LIVE",
-        "display": "207.97"
+        "display": "197.89"
       },
       "exposure": {
         "value": 0.0,
@@ -4824,18 +4981,18 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-10 15:03:17 CT",
-      "book_timestamp_ct": "2026-09-10 14:59 CT",
-      "last_reconciled_ct": "2026-09-10 15:03:15 CT",
+      "last_updated_ct": "2026-09-11 09:35:21 CT",
+      "book_timestamp_ct": "2026-09-11 09:32 CT",
+      "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
       "label": "LIVE",
-      "note": "Account cash $207.97; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
+      "note": "Account cash $197.89; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
       "market_id": "cash_reserve"
     }
   ],
   "market_details": {
     "securities": {
-      "desk_goal": "S-RESERVE SGOV live (first fill done). Next risk-on: COREBETA (VTI). Viability evidence discipline through 2026-10-10 \u2014 no-force-risk.",
+      "desk_goal": "S-RESERVE SGOV live + COREBETA VTI live (first experimental risk-on). Next-dollar: IBIT research. Viability evidence through 2026-10-10 \u2014 no-force-risk.",
       "owner": "Vera",
       "emphasis": [
         "holdings",
@@ -4851,34 +5008,34 @@
       ],
       "next_stack": [
         "S-RESERVE SGOV 0.02 LIVE (ops path proven)",
-        "COREBETA VTI buy-hold vs SGOV (when sized)",
-        "Viability Day-30 memo 2026-10-10 CT"
+        "COREBETA VTI 0.0265 LIVE (first experimental fill 2026-09-11)",
+        "Next: IBIT research / EOD reconcile / viability evidence"
       ],
       "empty_positions_reason": "Open LIVE equity/ETF risk present when Gateway/blotter shows fills; otherwise cash sits in Cash / Reserve.",
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-11T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "nextRunAt": "2026-09-11T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-09-11T08:00:00-05:00",
+            "nextRunAt": "2026-09-14T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
-          },
-          {
-            "id": "securities-pm",
-            "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-11T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           }
         ]
@@ -4903,15 +5060,8 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
-          {
-            "id": "options-am-ride",
-            "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-11T08:00:00-05:00",
-            "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
@@ -4925,6 +5075,13 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "options-am-ride",
+            "title": "Securities morning scan (options ride)",
+            "nextRunAt": "2026-09-14T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
           }
         ]
       }
@@ -4947,21 +5104,14 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "nextRunAt": "2026-09-11T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
-          },
-          {
-            "id": "event-markets-weekday-triage",
-            "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-11T09:00:00-05:00",
-            "scheduleLabel": "Weekdays 9:00 AM CT",
-            "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "weekly-portfolio-review",
@@ -4969,6 +5119,13 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "event-markets-weekday-triage",
+            "title": "Event markets weekday triage",
+            "nextRunAt": "2026-09-14T09:00:00-05:00",
+            "scheduleLabel": "Weekdays 9:00 AM CT",
+            "owner": "Reed (Harbor Capital - Event Markets)"
           }
         ]
       }
@@ -5000,20 +5157,13 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
           {
-            "id": "crypto-pm",
-            "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-10T19:00:00-05:00",
-            "scheduleLabel": "Weekdays 7:00 PM CT",
-            "owner": "Cole"
-          },
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-11T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
+            "id": "ibit-research",
+            "title": "IBIT research (COREBETA live)",
+            "nextRunAt": "2026-09-11T10:00:00-05:00",
+            "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           },
           {
@@ -5022,6 +5172,13 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "crypto-pm",
+            "title": "Crypto evening scan",
+            "nextRunAt": "2026-09-11T19:00:00-05:00",
+            "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
           }
         ]
       }
@@ -5078,15 +5235,8 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
-          {
-            "id": "mlb-daily-board",
-            "title": "MLB daily screen",
-            "nextRunAt": "2026-09-11T09:30:00-05:00",
-            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
-            "owner": "Holt wake \u00b7 Sloan triage"
-          },
           {
             "id": "cfb-friday-board",
             "title": "CFB Friday slate",
@@ -5099,6 +5249,13 @@
             "title": "CFB Saturday slate",
             "nextRunAt": "2026-09-12T08:00:00-05:00",
             "scheduleLabel": "Saturdays 8:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "mlb-daily-board",
+            "title": "MLB daily screen",
+            "nextRunAt": "2026-09-12T09:30:00-05:00",
+            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
@@ -5198,26 +5355,26 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
+          {
+            "id": "ibit-research",
+            "title": "IBIT research (COREBETA live)",
+            "nextRunAt": "2026-09-11T10:00:00-05:00",
+            "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
+            "owner": "Cole"
+          },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "nextRunAt": "2026-09-11T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
           {
-            "id": "gateway-health",
-            "title": "Gateway health check",
-            "nextRunAt": "2026-09-11T09:00:00-05:00",
-            "scheduleLabel": "Weekdays 9 / 12 / 3 CT",
-            "owner": "Holt"
-          },
-          {
             "id": "viability-evidence",
-            "title": "Viability evidence (Day 1 \u00b7 30d left)",
-            "nextRunAt": "2026-09-11T09:30:00-05:00",
+            "title": "Viability evidence (Day 2 \u00b7 29d left)",
+            "nextRunAt": "2026-09-14T09:30:00-05:00",
             "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
             "owner": "Holt"
           }
@@ -5226,27 +5383,27 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-11T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "nextRunAt": "2026-09-11T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-09-11T08:00:00-05:00",
+            "nextRunAt": "2026-09-14T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
-          },
-          {
-            "id": "securities-pm",
-            "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-11T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           }
         ]
@@ -5254,15 +5411,8 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
-          {
-            "id": "options-am-ride",
-            "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-11T08:00:00-05:00",
-            "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
@@ -5276,27 +5426,27 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "options-am-ride",
+            "title": "Securities morning scan (options ride)",
+            "nextRunAt": "2026-09-14T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
           }
         ]
       },
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-10T16:00:00-05:00",
+            "nextRunAt": "2026-09-11T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
-          },
-          {
-            "id": "event-markets-weekday-triage",
-            "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-11T09:00:00-05:00",
-            "scheduleLabel": "Weekdays 9:00 AM CT",
-            "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "weekly-portfolio-review",
@@ -5304,26 +5454,26 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "event-markets-weekday-triage",
+            "title": "Event markets weekday triage",
+            "nextRunAt": "2026-09-14T09:00:00-05:00",
+            "scheduleLabel": "Weekdays 9:00 AM CT",
+            "owner": "Reed (Harbor Capital - Event Markets)"
           }
         ]
       },
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
           {
-            "id": "crypto-pm",
-            "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-10T19:00:00-05:00",
-            "scheduleLabel": "Weekdays 7:00 PM CT",
-            "owner": "Cole"
-          },
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-11T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
+            "id": "ibit-research",
+            "title": "IBIT research (COREBETA live)",
+            "nextRunAt": "2026-09-11T10:00:00-05:00",
+            "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           },
           {
@@ -5332,21 +5482,21 @@
             "nextRunAt": "2026-09-11T17:00:00-05:00",
             "scheduleLabel": "Fridays 5:00 PM CT",
             "owner": "Holt"
+          },
+          {
+            "id": "crypto-pm",
+            "title": "Crypto evening scan",
+            "nextRunAt": "2026-09-11T19:00:00-05:00",
+            "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
           }
         ]
       },
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-10T15:03:17-05:00",
+        "lastUpdated": "2026-09-11T09:35:21-05:00",
         "items": [
-          {
-            "id": "mlb-daily-board",
-            "title": "MLB daily screen",
-            "nextRunAt": "2026-09-11T09:30:00-05:00",
-            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
-            "owner": "Holt wake \u00b7 Sloan triage"
-          },
           {
             "id": "cfb-friday-board",
             "title": "CFB Friday slate",
@@ -5360,10 +5510,17 @@
             "nextRunAt": "2026-09-12T08:00:00-05:00",
             "scheduleLabel": "Saturdays 8:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "mlb-daily-board",
+            "title": "MLB daily screen",
+            "nextRunAt": "2026-09-12T09:30:00-05:00",
+            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
+            "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
       }
     },
-    "generated_at_ct": "2026-09-10T15:03:17-05:00"
+    "generated_at_ct": "2026-09-11T09:35:21-05:00"
   }
 }

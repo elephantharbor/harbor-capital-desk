@@ -1,15 +1,8 @@
 {
   "areaId": "capital-sports",
   "areaName": "Sports",
-  "lastUpdated": "2026-09-10T15:03:17-05:00",
+  "lastUpdated": "2026-09-11T09:35:21-05:00",
   "items": [
-    {
-      "id": "mlb-daily-board",
-      "title": "MLB daily screen",
-      "nextRunAt": "2026-09-11T09:30:00-05:00",
-      "scheduleLabel": "Daily 9:30 AM CT (in-season)",
-      "owner": "Holt wake \u00b7 Sloan triage"
-    },
     {
       "id": "cfb-friday-board",
       "title": "CFB Friday slate",
@@ -22,6 +15,13 @@
       "title": "CFB Saturday slate",
       "nextRunAt": "2026-09-12T08:00:00-05:00",
       "scheduleLabel": "Saturdays 8:00 AM CT",
+      "owner": "Holt wake \u00b7 Sloan triage"
+    },
+    {
+      "id": "mlb-daily-board",
+      "title": "MLB daily screen",
+      "nextRunAt": "2026-09-12T09:30:00-05:00",
+      "scheduleLabel": "Daily 9:30 AM CT (in-season)",
       "owner": "Holt wake \u00b7 Sloan triage"
     }
   ]

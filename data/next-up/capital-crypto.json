@@ -1,20 +1,13 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Crypto",
-  "lastUpdated": "2026-09-10T15:03:17-05:00",
+  "lastUpdated": "2026-09-11T09:35:21-05:00",
   "items": [
     {
-      "id": "crypto-pm",
-      "title": "Crypto evening scan",
-      "nextRunAt": "2026-09-10T19:00:00-05:00",
-      "scheduleLabel": "Weekdays 7:00 PM CT",
-      "owner": "Cole"
-    },
-    {
-      "id": "crypto-am",
-      "title": "Crypto morning scan",
-      "nextRunAt": "2026-09-11T07:30:00-05:00",
-      "scheduleLabel": "Weekdays 7:30 AM CT",
+      "id": "ibit-research",
+      "title": "IBIT research (COREBETA live)",
+      "nextRunAt": "2026-09-11T10:00:00-05:00",
+      "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
       "owner": "Cole"
     },
     {
@@ -23,6 +16,13 @@
       "nextRunAt": "2026-09-11T17:00:00-05:00",
       "scheduleLabel": "Fridays 5:00 PM CT",
       "owner": "Holt"
+    },
+    {
+      "id": "crypto-pm",
+      "title": "Crypto evening scan",
+      "nextRunAt": "2026-09-11T19:00:00-05:00",
+      "scheduleLabel": "Weekdays 7:00 PM CT",
+      "owner": "Cole"
     }
   ]
 }

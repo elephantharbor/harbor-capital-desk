@@ -1,8 +1,29 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-10T15:00:00-05:00",
+  "lastUpdated": "2026-09-11T09:31:43-05:00",
   "entries": [
+    {
+      "id": "sess-vti-corebeta-20260911",
+      "ts": "2026-09-11T09:31:43.221137-05:00",
+      "ts_ct": "2026-09-11 09:31:43 CT",
+      "area": "securities",
+      "title": "COREBETA VTI filled (~$10)",
+      "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation \u2014 not alpha.",
+      "tags": [
+        "live",
+        "VTI",
+        "COREBETA",
+        "filled"
+      ],
+      "links": {
+        "intent": "INTENT_e7536191-c518-4274-91fc-aa5690c23405"
+      },
+      "at": "2026-09-11T09:31:43-05:00",
+      "actor": "Holt (Harbor Capital - CEO)",
+      "deskChanges": "Positions: 0.02 SGOV + 0.0265 VTI. S-COREBETA live_experimental. Intent FILLED. Next: EOD reconcile / IBIT research / viability evidence.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-10T15:00:00-05:00",
       "actor": "Holt (Harbor Capital - CEO)",
@@ -77,5 +98,6 @@
       "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
-  ]
+  ],
+  "updated_ct": "2026-09-11 09:31:43 CT"
 }
