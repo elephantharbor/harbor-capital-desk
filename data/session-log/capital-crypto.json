@@ -1,8 +1,15 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Capital \u2014 Crypto",
-  "lastUpdated": "2026-09-09T17:05:31-05:00",
+  "lastUpdated": "2026-09-11T08:48:09-05:00",
   "entries": [
+    {
+      "at": "2026-09-11T08:48:09-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Activation first step: opened crypto intel/monitor queue (broad monitoring \u2260 tradable). IBIT ~$4 stays behind VTI; ARB/GRID/BASIS remain REJECT; no CEX KYC; no Day-30 optics transmit.",
+      "deskChanges": "docs/crypto-intel-monitor-queue-2026-09-11.md; Deferred empty book unchanged.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-09T17:05:31-05:00",
       "actor": "Cole (Harbor Capital - Crypto Spot)",

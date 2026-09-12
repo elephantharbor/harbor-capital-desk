@@ -1,8 +1,50 @@
 {
   "areaId": "capital-event",
   "areaName": "Capital \u2014 Event Markets",
-  "lastUpdated": "2026-09-10T09:43:00-05:00",
+  "lastUpdated": "2026-09-11T10:21:09-05:00",
   "entries": [
+    {
+      "at": "2026-09-11T10:21:09-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Active Ventures truth: Event Markets empty \u2014 no LIVE positions; hunt queue / calibration research only; cushions failing on Sep CPI and FOMC.",
+      "deskChanges": "active-ventures/capital-event.json empty=true",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-11T09:14:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Cushion retest pre T-24: Sep CPI locked my_p=0.52 \u2192 YES FAIL (\u22120.26) / NO PASS (+0.18) but depth+cluster block; FOMC fresh my_p H0=0.34 H25=0.64 looked_first=true \u2192 preferred H25 FAIL (\u22120.19). Ready for Quinn/Holt live ask? NO. forecasts.csv my_p untouched.",
+      "deskChanges": "journal/pre-market/sep-cpi-cushion-2026-09-11.md; journal/pre-market/em-dir-01-fomc-2026-09-11.md; docs/event-probability-hunt-queue-2026-09-11.md; decisions append; session-log capital-event mirrors.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-11T09:11:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Weekday triage idle on resolutions/T-24. Material live book flip: Sep CPI T3.4 KXCPIYOY-26SEP-T3.4 width 0.21\u21920.04 (WIDTH FAIL\u2192PASS); inside ask_sz=16 thin. Still no fresh my_p \u2192 cushion not tested; no transmit. FOMC outside T-24. forecasts.csv lock tags frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-11.md; docs/event-probability-hunt-queue-2026-09-11.md (seed2 + live refresh); decisions append; session-log capital-event mirrors.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-11T08:47:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Live Kalshi book check on five hunt-queue seeds: FOMC H0/H25 WIDTH PASS (deep; hike-heavy vs 09-05); Sep CPI T3.4 WIDTH FAIL (w0.21); claims center WIDTH PASS / wings thin; path+payrolls sample WIDTH PASS. No fresh independent my_p \u2192 cushion not tested. Verdict: no seed ready for Quinn/Holt live ask. No capital, no transmits, forecasts.csv untouched.",
+      "deskChanges": "docs/event-probability-hunt-queue-2026-09-11.md (Live check + row status); decisions append; session-log capital-event (growth docs + dashboard + desk-publish).",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-11T08:45:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Opened ranked event probability-hunt queue (Thomas activation): process gates before any live ask; seeded FOMC Sep16 / Sep CPI / next claims / path / NFP as researching. EM-DIR-01 still cushion-fail lead. Linked F7 beat-mid paper-only + F4 contaminated Brier 0.1024. No my_p invent, no capital, no transmits.",
+      "deskChanges": "docs/event-probability-hunt-queue-2026-09-11.md; pointer on event-research-queue-2026-09-05.md; decisions append; session-log capital-event (growth docs + desk-publish).",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-11T08:41:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Scored W1-F4 Aug CPI: BLS YoY 3.4% \u2192 Kalshi T3.4 NO. Brier 0.1024. Contaminated (looked_first=true) \u2014 not mid-promote. Drafted activation first-step: ranked candidate hunt with process gates; no live ticket without cushion/Quinn. No capital.",
+      "deskChanges": "forecasts.csv F4 outcome/brier/status=resolved (my_p+looked_first locked); calibration_contaminated +F4; journal/cpi-aug-resolve-2026-09-11.md; decisions append; session-log capital-event.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-10T09:43:00-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
