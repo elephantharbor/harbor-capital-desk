@@ -1,15 +1,43 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-11T09:31:43-05:00",
+  "lastUpdated": "2026-09-12T08:39:42-05:00",
   "entries": [
+    {
+      "id": "sess-sports-cfb-sat-gameday-20260912",
+      "ts": "2026-09-12T08:39:42.000000-05:00",
+      "ts_ct": "2026-09-12 08:39:42 CT",
+      "area": "sports",
+      "title": "Sat CFB game-day — 3 shadows kept, MIZZ dead, no LIVE",
+      "summary": "Sat CFB game-day kept three shadows (OSU +1.5, ISU +14, MICH +5.5), killed soft MIZZ@KU, no Harbor LIVE.",
+      "tags": [
+        "sports",
+        "CFB",
+        "shadow",
+        "gameday",
+        "no-live"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/cfb-saturday-gameday-2026-09-12.md",
+        "closeout": "docs/sports-memos/sports-desk-run-closeout-2026-09-12.md",
+        "shadows": [
+          "SP-SH-20260907-CFB-01",
+          "SP-SH-20260907-CFB-02",
+          "SP-SH-20260911-CFB-01"
+        ]
+      },
+      "at": "2026-09-12T08:39:42-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Sports Overview/shadow board + AV emptyReason refreshed; Active Ventures still empty.",
+      "lessonId": null
+    },
     {
       "id": "sess-vti-corebeta-20260911",
       "ts": "2026-09-11T09:31:43.221137-05:00",
       "ts_ct": "2026-09-11 09:31:43 CT",
       "area": "securities",
       "title": "COREBETA VTI filled (~$10)",
-      "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation \u2014 not alpha.",
+      "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation — not alpha.",
       "tags": [
         "live",
         "VTI",
@@ -27,7 +55,7 @@
     {
       "at": "2026-09-10T15:00:00-05:00",
       "actor": "Holt (Harbor Capital - CEO)",
-      "summary": "Opened the 30-day live viability period (2026-09-10 \u2192 2026-10-10 CT) after the first live fill. Day 1 \u00b7 30 calendar days left. Not a profit quota; no-force-risk \u2014 abstention is valid evidence. Wells Overview trial-clock banner is display SoT for the clock.",
+      "summary": "Opened the 30-day live viability period (2026-09-10 → 2026-10-10 CT) after the first live fill. Day 1 · 30 calendar days left. Not a profit quota; no-force-risk — abstention is valid evidence. Wells Overview trial-clock banner is display SoT for the clock.",
       "deskChanges": "docs/viability-period-2026-09-10.md; session log + Next Up cite days-left; positions 0.02 SGOV on desk; trial-clock.json unchanged as banner SoT.",
       "lessonId": null
     },
@@ -41,41 +69,41 @@
     {
       "at": "2026-09-10T09:43:00-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
-      "summary": "Event Markets: scored claims F7\u2013F9 (206k \u2192 all NO). F7 beat lock mid on Brier; F8/F9 thin-at-lock outcome only. Aug CPI inside T-24. Still no live event capital.",
-      "deskChanges": "forecasts.csv F7\u2013F9 outcome/brier/status=resolved (my_p locked); journal/claims-resolve-2026-09-10.md; calibration_clean +3; decisions append.",
+      "summary": "Event Markets: scored claims F7–F9 (206k → all NO). F7 beat lock mid on Brier; F8/F9 thin-at-lock outcome only. Aug CPI inside T-24. Still no live event capital.",
+      "deskChanges": "forecasts.csv F7–F9 outcome/brier/status=resolved (my_p locked); journal/claims-resolve-2026-09-10.md; calibration_clean +3; decisions append.",
       "lessonId": null
     },
     {
       "at": "2026-09-09T17:07:03-05:00",
       "actor": "Pike (Harbor Capital - Quant)",
-      "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated \u2014 no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
+      "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated — no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
       "deskChanges": "docs/session-log/capital-quant.json (+ dashboard mirror). Desk truth unchanged.",
       "lessonId": "L10"
     },
     {
       "at": "2026-09-09T17:05:00-05:00",
       "actor": "Holt (Harbor Capital - CEO)",
-      "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open \u2014 no transmit while auth is stale or the market is closed.",
+      "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open — no transmit while auth is stale or the market is closed.",
       "deskChanges": "lessons.csv origination_date + L10; snapshot lessons emit originationDate; Capital Session Log entries appended; desk republished.",
       "lessonId": "L10"
     },
     {
       "at": "2026-09-09T17:02:31-05:00",
       "actor": "Vera (Harbor Capital - Securities & Options)",
-      "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn \u2264$4 gate). No LIVE securities/options positions \u2014 desk empty/researching unchanged.",
+      "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn ≤$4 gate). No LIVE securities/options positions — desk empty/researching unchanged.",
       "deskChanges": "docs/session-log/capital-securities-options.json (+ dashboard mirror); lessons.csv L12.",
       "lessonId": "L12"
     },
     {
       "at": "2026-09-09T17:00:00-05:00",
       "actor": "Wells (Portfolio - Systems)",
-      "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas\u2019s standard. Holt owns ongoing entries after material runs.",
+      "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas’s standard. Holt owns ongoing entries after material runs.",
       "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
     },
     {
       "at": "2026-09-09T16:59:34-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
-      "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags \u2260 live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
+      "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags ≠ live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
       "deskChanges": "lessons.csv L11; data/session-log/capital-event.json; Event Markets researching empty unchanged.",
       "lessonId": "L11"
     },
