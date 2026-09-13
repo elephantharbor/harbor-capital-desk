@@ -1,12 +1,12 @@
 {
   "areaId": "capital-sports",
   "areaName": "Sports",
-  "lastUpdated": "2026-09-13T09:07:49-05:00",
+  "lastUpdated": "2026-09-13T09:34:31-05:00",
   "items": [
     {
       "id": "mlb-daily-board",
       "title": "MLB daily screen",
-      "nextRunAt": "2026-09-13T09:30:00-05:00",
+      "nextRunAt": "2026-09-14T09:30:00-05:00",
       "scheduleLabel": "Daily 9:30 AM CT (in-season)",
       "owner": "Holt wake \u00b7 Sloan triage"
     },

@@ -1,8 +1,30 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-13T09:07:45-05:00",
+  "lastUpdated": "2026-09-13T09:34:23-05:00",
   "entries": [
+    {
+      "id": "sess-sports-nfl-sun-screen-20260913",
+      "ts": "2026-09-13T09:34:23-05:00",
+      "ts_ct": "2026-09-13 09:34:23 CT",
+      "area": "sports",
+      "title": "NFL Week 1 Sunday screen \u2014 3 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and \u22123.5 favs without MoS. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
+      "tags": [
+        "sports",
+        "nfl",
+        "shadow",
+        "screen",
+        "week1"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/nfl-sun-screen-2026-09-13.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-13T09:34:23-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-SH-20260913-NFL-01..03; AV emptyReason refresh; Overview republish pending."
+    },
     {
       "id": "sess-sports-lessons-batch-20260913",
       "ts": "2026-09-13T09:07:45-05:00",
@@ -317,5 +339,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-09-13 09:15:00 CT"
+  "updated_ct": "2026-09-13 09:34:23 CT"
 }

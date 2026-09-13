@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-13 09:07:49 CT",
+  "generated_at_ct": "2026-09-13 09:34:31 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-13 09:07:49 CT",
+    "generated_at_ct": "2026-09-13 09:34:31 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -3589,8 +3589,30 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-13T09:07:45-05:00",
+    "lastUpdated": "2026-09-13T09:34:23-05:00",
     "entries": [
+      {
+        "id": "sess-sports-nfl-sun-screen-20260913",
+        "ts": "2026-09-13T09:34:23-05:00",
+        "ts_ct": "2026-09-13 09:34:23 CT",
+        "area": "sports",
+        "title": "NFL Week 1 Sunday screen \u2014 3 shadows, 0 Live",
+        "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and \u22123.5 favs without MoS. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
+        "tags": [
+          "sports",
+          "nfl",
+          "shadow",
+          "screen",
+          "week1"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/nfl-sun-screen-2026-09-13.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        "at": "2026-09-13T09:34:23-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Appended SP-SH-20260913-NFL-01..03; AV emptyReason refresh; Overview republish pending."
+      },
       {
         "id": "sess-sports-shadow-settle-20260913",
         "ts": "2026-09-13T09:15:00-05:00",
@@ -3931,8 +3953,30 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-13T09:07:45-05:00",
+    "lastUpdated": "2026-09-13T09:34:23-05:00",
     "entries": [
+      {
+        "id": "sess-sports-nfl-sun-screen-20260913",
+        "ts": "2026-09-13T09:34:23-05:00",
+        "ts_ct": "2026-09-13 09:34:23 CT",
+        "area": "sports",
+        "title": "NFL Week 1 Sunday screen \u2014 3 shadows, 0 Live",
+        "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and \u22123.5 favs without MoS. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
+        "tags": [
+          "sports",
+          "nfl",
+          "shadow",
+          "screen",
+          "week1"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/nfl-sun-screen-2026-09-13.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        "at": "2026-09-13T09:34:23-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Appended SP-SH-20260913-NFL-01..03; AV emptyReason refresh; Overview republish pending."
+      },
       {
         "id": "sess-sports-shadow-settle-20260913",
         "ts": "2026-09-13T09:15:00-05:00",
@@ -5153,7 +5197,7 @@
       "latest_lesson": "Pro must force SMART routing; never emit ZERO or Lite on this account",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -5218,7 +5262,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -5284,7 +5328,7 @@
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -5349,7 +5393,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -5419,7 +5463,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -5487,7 +5531,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-13 09:07:49 CT",
+      "last_updated_ct": "2026-09-13 09:34:31 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -5521,7 +5565,7 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -5566,7 +5610,7 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -5610,7 +5654,7 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -5663,7 +5707,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -6029,13 +6073,76 @@
           "result": "loss",
           "pnl_net_usd": -4.0,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20260913-NFL-01",
+          "logged_ct": "2026-09-13 09:30 CT",
+          "league": "NFL",
+          "event": "NFL W1 BUF @ HOU (2026-09-13)",
+          "side": "HOU +1.5",
+          "odds": "-110",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": "pickem to BUF -1",
+          "ev": "thin_no_MoS_no_Live",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "SP-CAND-02 refresh; HOU home vs short road fav; confirm DK in-app; no Live",
+          "result": "pending",
+          "pnl_net_usd": null,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20260913-NFL-02",
+          "logged_ct": "2026-09-13 09:30 CT",
+          "league": "NFL",
+          "event": "NFL W1 TB @ CIN (2026-09-13)",
+          "side": "TB +3.5",
+          "odds": "-110",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": "CIN -2.5 to -3.5",
+          "ev": "thin_no_MoS_no_Live",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Prefer +3.5 dog vs -3.5 chalk (key3_half_point_favorite_fragile lesson); shop +4 if available; no Live",
+          "result": "pending",
+          "pnl_net_usd": null,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20260913-NFL-03",
+          "logged_ct": "2026-09-13 09:30 CT",
+          "league": "NFL",
+          "event": "NFL W1 ATL @ PIT (2026-09-13)",
+          "side": "ATL +6.5",
+          "odds": "-110",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": "PIT -5 to -6",
+          "ev": "thin_noisy_no_MoS_no_Live",
+          "confidence": "Low",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Rush start steam from ~-3.5 to -6.5; Porter Jr unlikely; lagged dog number capture thesis; NEVER PIT -6.5 chalk; no Live",
+          "result": "pending",
+          "pnl_net_usd": null,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
         }
       ],
       "personal_recommendations": [],
       "roi_note": "No Harbor LIVE results yet. Shadow settles: 15 finished (7-8-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
       "shadow_settle_summary": {
         "reconciled": 15,
-        "still_open": 0,
+        "still_open": 3,
         "record_w_l_p": "7-8-0",
         "hyp_pnl_net_usd": -4.62,
         "by_league": {
@@ -6066,12 +6173,12 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-13T09:30:00-05:00",
+            "nextRunAt": "2026-09-14T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -6186,7 +6293,7 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "viability-evidence",
@@ -6214,7 +6321,7 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -6242,7 +6349,7 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -6270,7 +6377,7 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -6298,7 +6405,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -6326,12 +6433,12 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-13T09:07:49-05:00",
+        "lastUpdated": "2026-09-13T09:34:31-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-13T09:30:00-05:00",
+            "nextRunAt": "2026-09-14T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -6352,6 +6459,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-13T09:07:49-05:00"
+    "generated_at_ct": "2026-09-13T09:34:31-05:00"
   }
 }
