@@ -1,8 +1,33 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-12T09:52:00-05:00",
+  "lastUpdated": "2026-09-13T09:15:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-shadow-settle-20260913",
+      "ts": "2026-09-13T09:15:00-05:00",
+      "ts_ct": "2026-09-13 09:15:00 CT",
+      "area": "sports",
+      "title": "Shadow settle batch 2026-09-13 \u2014 15 finished, 0 open, no LIVE",
+      "summary": "Reconciled all finished Harbor shadows (14 v2 + 1 legacy SEA-3.5). Record 7-8-0 (v2 7-7-0); hyp P&L -$4.62 all-in / -$0.62 v2. CLV beat 4/7 where known. Spreads 5-0; MLB MLs 2-7. No Harbor LIVE invented.",
+      "tags": [
+        "sports",
+        "shadow",
+        "settle",
+        "CLV",
+        "no-live"
+      ],
+      "links": {
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md",
+        "process": "docs/sports-memos/sports-shadow-settle-process-2026-09-13.md",
+        "closeout": "docs/sports-memos/sports-desk-run-closeout-2026-09-12.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-13T09:15:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "All harbor_shadow rows marked settled with result+pnl; AV emptyReason refreshed; snapshot shadow_settle_summary added; still no LIVE in Active Ventures.",
+      "lessonId": null
+    },
     {
       "id": "sess-sports-mlb-screen-20260912",
       "ts": "2026-09-12T09:52:00.000000-05:00",
@@ -155,5 +180,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-09-11 09:31:43 CT"
+  "updated_ct": "2026-09-13 09:15:00 CT"
 }

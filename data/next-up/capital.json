@@ -1,11 +1,11 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-12T09:51:16-05:00",
+  "lastUpdated": "2026-09-13T09:04:56-05:00",
   "items": [
     {
       "id": "viability-evidence",
-      "title": "Viability evidence (Day 3 \u00b7 28d left)",
+      "title": "Viability evidence (Day 4 \u00b7 27d left)",
       "nextRunAt": "2026-09-14T09:30:00-05:00",
       "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
       "owner": "Holt"
