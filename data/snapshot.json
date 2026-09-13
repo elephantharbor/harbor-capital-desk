@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-13 09:34:31 CT",
+  "generated_at_ct": "2026-09-13 09:44:50 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-13 09:34:31 CT",
+    "generated_at_ct": "2026-09-13 09:44:50 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -3589,8 +3589,30 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-13T09:34:23-05:00",
+    "lastUpdated": "2026-09-13T09:44:50-05:00",
     "entries": [
+      {
+        "id": "sess-sports-mlb-sun-screen-20260913",
+        "ts": "2026-09-13T09:44:50-05:00",
+        "ts_ct": "2026-09-13 09:44:50 CT",
+        "area": "sports",
+        "title": "MLB Sun morning screen \u2014 2 shadows, 0 Live",
+        "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs P\u00e9rez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37\u201311:40 CT. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace\u2260full-game, no invent my_p.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "screen",
+          "sunday"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/mlb-screen-2026-09-13.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        "at": "2026-09-13T09:44:50-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      },
       {
         "id": "sess-sports-nfl-sun-screen-20260913",
         "ts": "2026-09-13T09:34:23-05:00",
@@ -3953,8 +3975,30 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-13T09:34:23-05:00",
+    "lastUpdated": "2026-09-13T09:44:50-05:00",
     "entries": [
+      {
+        "id": "sess-sports-mlb-sun-screen-20260913",
+        "ts": "2026-09-13T09:44:50-05:00",
+        "ts_ct": "2026-09-13 09:44:50 CT",
+        "area": "sports",
+        "title": "MLB Sun morning screen \u2014 2 shadows, 0 Live",
+        "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs P\u00e9rez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37\u201311:40 CT. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace\u2260full-game, no invent my_p.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "screen",
+          "sunday"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/mlb-screen-2026-09-13.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        "at": "2026-09-13T09:44:50-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      },
       {
         "id": "sess-sports-nfl-sun-screen-20260913",
         "ts": "2026-09-13T09:34:23-05:00",
@@ -5197,7 +5241,7 @@
       "latest_lesson": "Pro must force SMART routing; never emit ZERO or Lite on this account",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -5262,7 +5306,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -5328,7 +5372,7 @@
       "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -5393,7 +5437,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -5463,7 +5507,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -5531,7 +5575,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-13 09:34:31 CT",
+      "last_updated_ct": "2026-09-13 09:44:50 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -5565,7 +5609,7 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -5610,7 +5654,7 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -5654,7 +5698,7 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -5707,7 +5751,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -6136,13 +6180,55 @@
           "result": "pending",
           "pnl_net_usd": null,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20260913-MLB-01",
+          "logged_ct": "2026-09-13 09:45 CT",
+          "league": "MLB",
+          "event": "MLB-20260913-LAD@MIA",
+          "side": "MIA ML",
+          "odds": "+124",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": "pickem to MIA -110 / LAD even to -110",
+          "ev": "small_EV_no_MoS",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Sheehan vs Perez; roof; nF LAD ~50.7pct coin flip; kill if Perez scratched or Sheehan upgrades or MIA past -110 w/o news; confirm DK in-app; no Live; early FP ~11:40 CT",
+          "result": "pending",
+          "pnl_net_usd": null,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20260913-MLB-02",
+          "logged_ct": "2026-09-13 09:45 CT",
+          "league": "MLB",
+          "event": "MLB-20260913-BAL@TOR",
+          "side": "BAL ML",
+          "odds": "+126",
+          "stake_shadow_usd": 4.0,
+          "max_loss_usd": 4.0,
+          "harbor_fair_prob": null,
+          "fair_line": "TOR -120 to -140 / BAL +105 to +125",
+          "ev": "tiny_EV_no_MoS",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "TBD at kick",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Rogers vs Cease; roof; Cease ace\u2260full-game; TOR worst RPG thesis; FD shop +134; kill if Rogers scratched or TOR softens past -125 w/o news; confirm DK in-app; no Live; earliest FP ~11:37 CT",
+          "result": "pending",
+          "pnl_net_usd": null,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
         }
       ],
       "personal_recommendations": [],
       "roi_note": "No Harbor LIVE results yet. Shadow settles: 15 finished (7-8-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
       "shadow_settle_summary": {
         "reconciled": 15,
-        "still_open": 3,
+        "still_open": 5,
         "record_w_l_p": "7-8-0",
         "hyp_pnl_net_usd": -4.62,
         "by_league": {
@@ -6173,7 +6259,7 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
@@ -6293,7 +6379,7 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "viability-evidence",
@@ -6321,7 +6407,7 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -6349,7 +6435,7 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -6377,7 +6463,7 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -6405,7 +6491,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -6433,7 +6519,7 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-13T09:34:31-05:00",
+        "lastUpdated": "2026-09-13T09:44:50-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
@@ -6459,6 +6545,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-13T09:34:31-05:00"
+    "generated_at_ct": "2026-09-13T09:44:50-05:00"
   }
 }

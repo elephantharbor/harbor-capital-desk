@@ -1,8 +1,30 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-13T09:34:23-05:00",
+  "lastUpdated": "2026-09-13T09:44:50-05:00",
   "entries": [
+    {
+      "id": "sess-sports-mlb-sun-screen-20260913",
+      "ts": "2026-09-13T09:44:50-05:00",
+      "ts_ct": "2026-09-13 09:44:50 CT",
+      "area": "sports",
+      "title": "MLB Sun morning screen \u2014 2 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs P\u00e9rez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37\u201311:40 CT. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace\u2260full-game, no invent my_p.",
+      "tags": [
+        "sports",
+        "mlb",
+        "shadow",
+        "screen",
+        "sunday"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/mlb-screen-2026-09-13.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-13T09:44:50-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+    },
     {
       "id": "sess-sports-nfl-sun-screen-20260913-sports",
       "ts": "2026-09-13T09:34:23-05:00",
@@ -202,5 +224,5 @@
       "lessonId": null
     }
   ],
-  "updated_ct": "2026-09-13 09:34:23 CT"
+  "updated_ct": "2026-09-13 09:44:50 CT"
 }
