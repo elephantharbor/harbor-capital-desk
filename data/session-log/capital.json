@@ -1,8 +1,145 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-13T09:15:00-05:00",
+  "lastUpdated": "2026-09-13T09:07:45-05:00",
   "entries": [
+    {
+      "id": "sess-sports-lessons-batch-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports process lessons filed from shadow settle (SP-L01\u2013L05)",
+      "summary": "Five dated process/falsifier lessons from the 2026-09-13 shadow settle: thin SP sample kill (2026-09-12), ace\u2260full-game proxy (2026-09-12), bullpen leverage gate (2026-09-09), key-3 half-point fragile (2026-09-09), lagged dog number capture (2026-09-11). Behavior changes noted in lessons.csv.",
+      "tags": [
+        "sports",
+        "lesson",
+        "shadow",
+        "settle"
+      ],
+      "links": {
+        "lessons": "journal/lessons.csv",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-L01\u2013SP-L05 to lessons.csv; Session Log entries for each; Sports desk lessons feed on next publish.",
+      "lessonId": "SP-L01,SP-L02,SP-L03,SP-L04,SP-L05"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l05-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L05 (origination 2026-09-11)",
+      "summary": "Experience: MICH +5.5 entered after dog number restored; covered; close ~+4.5. Evidence: Lagged dog number captured +1pt vs close; positive process CLV. Learning: Lagged dog-number capture works when gate is explicit and number restores. Change: Keep conditional reopen gates on dog numbers; track number CLV separately from juice CLV.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L05",
+        "process"
+      ],
+      "links": {
+        "related": "SP-SH-20260911-CFB-01",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Lesson SP-L05 filed to journal/lessons.csv with originationDate 2026-09-11.",
+      "lessonId": "SP-L05",
+      "originationDate": "2026-09-11"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l04-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L04 (origination 2026-09-09)",
+      "summary": "Experience: SEA \u22123.5 lost on exact-3 margin (13-10). Evidence: Key number 3 is fragile for \u22123.5 chalk; dog +3.5 covered. Learning: Key-3 half-point favorite (\u22123.5) is fragile \u2014 prefer +3.5 dog side or require stronger MoS. Change: NFL key-number screen: \u22123.5 chalk needs extra MoS; default prefer buying +3.5 when near fair.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L04",
+        "process"
+      ],
+      "links": {
+        "related": "SP-SH-20260906-01;SP-SH-20260908-NFL-01",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Lesson SP-L04 filed to journal/lessons.csv with originationDate 2026-09-09.",
+      "lessonId": "SP-L04",
+      "originationDate": "2026-09-09"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l03-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L03 (origination 2026-09-09)",
+      "summary": "Experience: STL ML led late; Giants 6-run 8th; SF 7-6. Evidence: Early edge erased by bullpen collapse; no leverage gate. Learning: Bullpen leverage gate was missing on MLB ML shadows. Change: Same as SP-L02 \u2014 ML keepers need bullpen/leverage check or move to runline/abstain.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L03",
+        "process"
+      ],
+      "links": {
+        "related": "SP-SH-20260909-MLB-02",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Lesson SP-L03 filed to journal/lessons.csv with originationDate 2026-09-09.",
+      "lessonId": "SP-L03",
+      "originationDate": "2026-09-09"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l02-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L02 (origination 2026-09-12)",
+      "summary": "Experience: PIT ML with Skenes: ace left ahead; Soto blew 8th; CHC 4-3. Evidence: SP thesis held early; bullpen/leverage decided ML. Learning: Ace start is not a full-game ML proxy \u2014 need bullpen/leverage gate for ML tickets. Change: ML shadows require explicit late-inning/bullpen note; else prefer RL/+1.5 or abstain.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L02",
+        "process"
+      ],
+      "links": {
+        "related": "SP-SH-20260912-MLB-03",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Lesson SP-L02 filed to journal/lessons.csv with originationDate 2026-09-12.",
+      "lessonId": "SP-L02",
+      "originationDate": "2026-09-12"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l01-20260913",
+      "ts": "2026-09-13T09:07:45-05:00",
+      "ts_ct": "2026-09-13 09:07:45 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L01 (origination 2026-09-12)",
+      "summary": "Experience: CLE ML shadowed despite Espino thin-sample flag; MIN won 4-3. Evidence: Thin SP n was already a named kill/concern and still logged as keeper; loss followed. Learning: Thin SP sample kill rule must fire \u2014 flag \u2192 abstain/shadow-only-kill, not keeper. Change: Pre-shadow checklist: if SP sample thin, default abstain unless independent build clears MoS without SP weight.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L01",
+        "process"
+      ],
+      "links": {
+        "related": "SP-SH-20260912-MLB-02",
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-13.md"
+      },
+      "at": "2026-09-13T09:07:45-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Lesson SP-L01 filed to journal/lessons.csv with originationDate 2026-09-12.",
+      "lessonId": "SP-L01",
+      "originationDate": "2026-09-12"
+    },
     {
       "id": "sess-sports-shadow-settle-20260913",
       "ts": "2026-09-13T09:15:00-05:00",
