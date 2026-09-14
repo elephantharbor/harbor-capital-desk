@@ -1,8 +1,15 @@
 {
   "areaId": "capital-event",
   "areaName": "Capital \u2014 Event Markets",
-  "lastUpdated": "2026-09-11T10:21:09-05:00",
+  "lastUpdated": "2026-09-14T09:21:00-05:00",
   "entries": [
+    {
+      "at": "2026-09-14T09:21:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "MATERIAL AM triage FOMC T-24 prep: Kalshi verify H0 0.17/0.18 \u00b7 H25 0.83/0.84 WIDTH PASS; Sep CPI T3.4 0.77/0.91 w0.14 WIDTH FAIL; Claims 200/205/210 PASS/borderline. Kept 09-11 my_p \u2014 H25 cushion \u22120.21 FAIL; CPI YES \u22120.40 FAIL. No looked_first=false; claims clean lock skipped. Transmit-ready? NO. Next Tue T-24 watch. forecasts.csv frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-14.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-14); decisions append; session-log capital-event (growth docs + dashboard + desk-publish).",
+      "lessonId": null
+    },
     {
       "at": "2026-09-11T10:21:09-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",

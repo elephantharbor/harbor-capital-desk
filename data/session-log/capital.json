@@ -1,8 +1,52 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-13T09:44:50-05:00",
+  "lastUpdated": "2026-09-14T09:48:54-05:00",
   "entries": [
+    {
+      "id": "sess-sports-mlb-mon-screen-20260914",
+      "ts": "2026-09-14T09:48:54-05:00",
+      "ts_ct": "2026-09-14 09:48:54 CT",
+      "area": "sports",
+      "title": "MLB Mon morning screen \u2014 4 shadows, 0 Live",
+      "summary": "Modeled Mon 2026-09-14 MLB deepen slate. Keepers HARBOR_SHADOW: LAD \u22121.5 (Skubal/Lodolo; fade ML juice), Over 10.5 + SD \u22121.5 (Coors; fade SD ML), DET ML soft. ATL@CHC abstain (no_edge/wind). NYY@MIN rain watch \u2014 no ticket. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
+      "tags": [
+        "sports",
+        "mlb",
+        "shadow",
+        "screen",
+        "monday"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/mlb-screen-2026-09-14.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-14T09:48:54-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-SH-20260914-MLB-01..04; AV emptyReason same-day; Overview republish."
+    },
+    {
+      "id": "sess-sports-settle-sun-20260914",
+      "ts": "2026-09-14T09:47:54-05:00",
+      "ts_ct": "2026-09-14 09:47:54 CT",
+      "area": "sports",
+      "title": "Sun shadow settle \u2014 1\u20134\u20130 (\u2212$11.04)",
+      "summary": "Settled 5 open Sun 2026-09-13 HARBOR_SHADOW: HOU +1.5 L (BUF 36-31), TB +3.5 L (CIN 33-27), ATL +6.5 L (PIT 20-13), MIA ML W (MIA 6-4 LAD WO), BAL ML L (TOR 8-1). Hyp P&L \u2212$11.04. CLV mostly flat. No LIVE. Lessons: ace_fade_without_MoS; half_point_loss_on_steam_dog.",
+      "tags": [
+        "sports",
+        "settle",
+        "shadow",
+        "nfl",
+        "mlb"
+      ],
+      "links": {
+        "summary": "journal/sports-shadow/shadow-results-summary-2026-09-14.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-14T09:47:54-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Ledger settle fields on SP-SH-20260913-NFL-01..03 + MLB-01..02; shadow-results-summary-2026-09-14.md; AV emptyReason refresh."
+    },
     {
       "id": "sess-sports-mlb-sun-screen-20260913",
       "ts": "2026-09-13T09:44:50-05:00",
@@ -361,5 +405,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-09-13 09:44:50 CT"
+  "updated_ct": "2026-09-14 09:48:54 CT"
 }

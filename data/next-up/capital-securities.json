@@ -1,15 +1,8 @@
 {
   "areaId": "capital-securities",
   "areaName": "Securities",
-  "lastUpdated": "2026-09-13T09:44:50-05:00",
+  "lastUpdated": "2026-09-14T09:47:58-05:00",
   "items": [
-    {
-      "id": "securities-am",
-      "title": "Securities morning scan",
-      "nextRunAt": "2026-09-14T08:00:00-05:00",
-      "scheduleLabel": "Weekdays 8:00 AM CT",
-      "owner": "Vera"
-    },
     {
       "id": "securities-pm",
       "title": "Securities afternoon scan",
@@ -23,6 +16,13 @@
       "nextRunAt": "2026-09-14T16:00:00-05:00",
       "scheduleLabel": "Weekdays 4:00 PM CT",
       "owner": "Holt"
+    },
+    {
+      "id": "securities-am",
+      "title": "Securities morning scan",
+      "nextRunAt": "2026-09-15T08:00:00-05:00",
+      "scheduleLabel": "Weekdays 8:00 AM CT",
+      "owner": "Vera"
     }
   ]
 }
