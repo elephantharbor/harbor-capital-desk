@@ -1,8 +1,31 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-14T09:48:54-05:00",
+  "lastUpdated": "2026-09-14T10:20:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-cfb-mon-screen-20260914",
+      "ts": "2026-09-14T10:20:00-05:00",
+      "ts_ct": "2026-09-14 10:20:00 CT",
+      "area": "sports",
+      "title": "CFB Week 3 Monday screen \u2014 3 shadows, 0 Live",
+      "summary": "Modeled Mon 2026-09-14 CFB Week 3 early-week deepen (Thu\u2013Sat Sep 17\u201319). Keepers HARBOR_SHADOW: SMU +1.5 @ LOU (shop +2), UNC +3 @ CLEM (shop +3.5; perception collapse + key#3 dog), HOU +8.5 @ TTU Fri (open \u221210 lag; shop +9). Soft KU +5.5 vs ASU London ABSTAIN (gate \u2265+6). Watch LSU@MISS / FLA@AUB. Skip huge chalk. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Week 2 CFB shadows already settled W.",
+      "tags": [
+        "sports",
+        "cfb",
+        "shadow",
+        "screen",
+        "monday",
+        "week3"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/cfb-monday-screen-2026-09-14.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-14T10:20:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-SH-20260914-CFB-01..03; KU abstain; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+    },
     {
       "id": "sess-sports-mlb-mon-screen-20260914",
       "ts": "2026-09-14T09:48:54-05:00",
@@ -405,5 +428,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-09-14 09:48:54 CT"
+  "updated_ct": "2026-09-14 10:20:00 CT"
 }
