@@ -1,8 +1,30 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-15T09:40:00-05:00",
+  "lastUpdated": "2026-09-15T10:25:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-mlb-tue-screen-20260915",
+      "ts": "2026-09-15T10:25:00-05:00",
+      "ts_ct": "2026-09-15 10:25:00 CT",
+      "area": "sports",
+      "title": "MLB Tue morning screen \u2014 2 shadows, 0 Live",
+      "summary": "Modeled Tue 2026-09-15 MLB morning small set. Keepers HARBOR_SHADOW: ATL ML @ CHC (Perez vs Gausman; SP + Swanson IL; ~+119), BAL ML @ NYM (Baz vs Manaea; mild SP + Mon win; BP leverage discount). Soft KC@HOU / DET@TOR research-only abstain. Skip heavy chalk MIL/LAD/PHI/TB; soft-pass Coors SD@COL. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Confirm DK in-app.",
+      "tags": [
+        "sports",
+        "mlb",
+        "shadow",
+        "screen",
+        "tuesday"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/mlb-screen-2026-09-15.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv"
+      },
+      "at": "2026-09-15T10:25:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-SH-20260915-MLB-01..02; soft abstains; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+    },
     {
       "id": "sess-sports-nfl-tue-screen-20260915",
       "ts": "2026-09-15T09:40:00-05:00",
@@ -273,5 +295,5 @@
       "lessonId": null
     }
   ],
-  "updated_ct": "2026-09-14 10:20:00 CT"
+  "updated_ct": "2026-09-15 10:25:00 CT"
 }
