@@ -1,8 +1,34 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-14T10:20:00-05:00",
+  "lastUpdated": "2026-09-15T09:40:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-nfl-tue-screen-20260915",
+      "ts": "2026-09-15T09:40:00-05:00",
+      "ts_ct": "2026-09-15 09:40:00 CT",
+      "area": "sports",
+      "title": "NFL Week 2 Tuesday screen \u2014 4 shadows, 0 Live + Mon MLB settle 3-1-0",
+      "summary": "Job A: Settled Mon MLB SP-SH-20260914-MLB-01..04 \u2192 3-1-0 hyp +6.78 (LAD -1.5 W, Over 10.5 W, SD -1.5 L, DET ML W). CFB Week-3 left pending. Job B: NFL Week 2 cheap screen keepers HARBOR_SHADOW Under 53.5 DET@BUF (TNF fair-first), PIT +5.5 (Brown IR), ARI +4.5 (Darnold OUT number retreat), ATL +1.5 (flip/QB TBD). All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
+      "tags": [
+        "sports",
+        "nfl",
+        "mlb",
+        "shadow",
+        "screen",
+        "tuesday",
+        "week2",
+        "settle"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/nfl-tue-screen-2026-09-15.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "settle": "journal/sports-shadow/shadow-results-summary-2026-09-15.md"
+      },
+      "at": "2026-09-15T09:40:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Settled SP-SH-20260914-MLB-01..04; appended SP-SH-20260915-NFL-01..04; CFB W3 still open; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+    },
     {
       "id": "sess-sports-cfb-mon-screen-20260914",
       "ts": "2026-09-14T10:20:00-05:00",
