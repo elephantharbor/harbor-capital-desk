@@ -1,8 +1,22 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Capital \u2014 Crypto",
-  "lastUpdated": "2026-09-11T08:48:09-05:00",
+  "lastUpdated": "2026-09-16T17:16:16-05:00",
   "entries": [
+    {
+      "at": "2026-09-16T17:16:16-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "OS v2 IMPLEMENT: monitor\u2260tradable split; tradable shortlist with S-CRYPTO-BH-001 IBIT ~$4 as Quinn-ready directional_beta cheap test; ARB/GRID/BASIS stay REJECT (MD gaps ~1.7bps vs 160\u2013220bps gates). EmptyReason updated \u2014 not intel-only. No transmit.",
+      "deskChanges": "docs/crypto-os-v2-universe-split-2026-09-16.md; docs/crypto-memos/S-CRYPTO-BH-001-quinn-ready-2026-09-16.md; docs/crypto-os-v2-holt-report-2026-09-16.md; active-ventures/capital-crypto.json emptyReason+leadCandidate",
+      "lessonId": "L13"
+    },
+    {
+      "at": "2026-09-15T19:23:18-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "PM regime note: Clarity Act cloture failed 49\u201350; BTC broke ~76.6\u201377k support watch (~75.7k). Honest call: defer live IBIT; continue intel only; opportunity = better eventual entry if process clears later \u2014 not a size ask.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-09-15-pm.md; Active Ventures crypto still empty.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-11T08:48:09-05:00",
       "actor": "Cole (Harbor Capital - Crypto Spot)",

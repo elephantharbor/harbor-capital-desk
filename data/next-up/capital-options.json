@@ -1,20 +1,20 @@
 {
   "areaId": "capital-options",
   "areaName": "Options",
-  "lastUpdated": "2026-09-15T10:24:22-05:00",
+  "lastUpdated": "2026-09-16T17:19:52-05:00",
   "items": [
-    {
-      "id": "options-pm-ride",
-      "title": "Securities afternoon scan (options ride)",
-      "nextRunAt": "2026-09-15T13:30:00-05:00",
-      "scheduleLabel": "Weekdays 1:30 PM CT",
-      "owner": "Vera"
-    },
     {
       "id": "options-am-ride",
       "title": "Securities morning scan (options ride)",
-      "nextRunAt": "2026-09-16T08:00:00-05:00",
+      "nextRunAt": "2026-09-17T08:00:00-05:00",
       "scheduleLabel": "Weekdays 8:00 AM CT",
+      "owner": "Vera"
+    },
+    {
+      "id": "options-pm-ride",
+      "title": "Securities afternoon scan (options ride)",
+      "nextRunAt": "2026-09-17T13:30:00-05:00",
+      "scheduleLabel": "Weekdays 1:30 PM CT",
       "owner": "Vera"
     },
     {

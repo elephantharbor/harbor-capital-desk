@@ -1,10 +1,19 @@
 {
   "areaId": "capital-crypto",
-  "areaName": "Harbor Capital — Crypto",
+  "areaName": "Harbor Capital \u2014 Crypto",
   "segment": "capital",
   "submarket": "crypto",
-  "lastUpdated": "2026-09-16T17:15:31-05:00",
+  "lastUpdated": "2026-09-16T17:16:16-05:00",
   "empty": true,
-  "emptyReason": "No live crypto — monitor≠tradable; first permitted TEST SMALL = IBIT ~$4 (S-CRYPTO-BH-001) pending Quinn+Holt; empty intel not OK under OS v2.",
-  "items": []
+  "emptyReason": "No LIVE crypto \u2014 OS v2: lead cheap test S-CRYPTO-BH-001 IBIT ~$4 (directional_beta) is Quinn-ready (docs/crypto-memos/S-CRYPTO-BH-001-quinn-ready-2026-09-16.md); awaiting Quinn PASS + Holt transmit. Intel monitor active; ARB/GRID/BASIS REJECT. Empty intel-only not OK.",
+  "items": [],
+  "leadCandidate": {
+    "strategyId": "S-CRYPTO-BH-001",
+    "instrument": "IBIT",
+    "venue": "IBKR",
+    "sizeUsd": 4,
+    "returnSource": "directional_beta",
+    "status": "quinn_ready_awaiting_transmit",
+    "packet": "docs/crypto-memos/S-CRYPTO-BH-001-quinn-ready-2026-09-16.md"
+  }
 }

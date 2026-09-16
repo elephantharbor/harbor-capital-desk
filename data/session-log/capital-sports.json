@@ -1,15 +1,69 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-15T10:25:00-05:00",
+  "areaName": "Capital — Sports",
+  "lastUpdated": "2026-09-16T17:20:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-osv2-impl-settle-process-20260916",
+      "ts": "2026-09-16T17:20:00-05:00",
+      "ts_ct": "2026-09-16 17:20:00 CT",
+      "area": "sports",
+      "title": "OS v2 IMPLEMENT — Tue MLB settle 2-0 + below_mos process review",
+      "summary": "Settled finished Tue MLB Harbor shadows only: SP-SH-20260915-MLB-01 ATL ML W (+$4.76, CLV +0.85pp) ATL 6-3 CHC; SP-SH-20260915-MLB-02 BAL ML W (+$4.40, CLV −0.45pp) BAL 7-5 NYM/11. Batch 2-0-0 +$9.16; v2 cumulative 13-12-0 (+$4.28). Left pending (not started): CFB-01/02/03 Fri/Sat; NFL-01 TNF Under; NFL-02/03/04 Sun. LIVE qualifier: NONE clear MoS (all below_mos; ready_for_quinn NO). Mandatory process review filed — Shadow Pre-Log Gates v1 + lesson SP-L06 (abstain if mid-EV<$0.40; numeric EV before ticket_id; max 2 shadows/wake). No invent LIVE. No DK place. No iMessage.",
+      "tags": [
+        "sports",
+        "mlb",
+        "shadow",
+        "settle",
+        "process-review",
+        "os-v2",
+        "below_mos",
+        "no-live"
+      ],
+      "links": {
+        "cycle": "docs/sports-memos/sports-os-v2-cycle-2026-09-16.md",
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "settle": "journal/sports-shadow/shadow-results-summary-2026-09-16.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "lesson": "journal/lessons.csv#SP-L06"
+      },
+      "at": "2026-09-16T17:20:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Settled SP-SH-20260915-MLB-01/02; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows ≠ AV); Overview republish; Session Log; SP-L06 + process review memo.",
+      "lessonId": "SP-L06",
+      "originationDate": "2026-09-16"
+    },
+    {
+      "id": "sess-sports-lesson-sp-l06-20260916",
+      "ts": "2026-09-16T17:20:00-05:00",
+      "ts_ct": "2026-09-16 17:20:00 CT",
+      "area": "sports",
+      "title": "Sports lesson SP-L06 (origination 2026-09-16) — below_mos process",
+      "summary": "Experience: Post-MoS screens repeatedly log Low–Moderate below_mos shadows (EV ~$0.15–0.65 vs $0.80); Live queue empty. Evidence: Multi-day below_mos streak; best Tue MLB high-band ~$0.64 still under MoS. Learning: Current public-board SP/dog sourcing produces only thin edges; repeating soft-pass slates is process failure. Change: Shadow Pre-Log Gates v1 — numeric mid-EV before ticket_id; abstain if mid-EV<$0.40; max 2 shadows/wake; fair must disagree with market; process_delta required each screen.",
+      "tags": [
+        "sports",
+        "lesson",
+        "SP-L06",
+        "process",
+        "below_mos"
+      ],
+      "links": {
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "lessons": "journal/lessons.csv"
+      },
+      "at": "2026-09-16T17:20:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "Appended SP-L06 to journal/lessons.csv with originationDate 2026-09-16.",
+      "lessonId": "SP-L06",
+      "originationDate": "2026-09-16"
+    },
     {
       "id": "sess-sports-mlb-tue-screen-20260915",
       "ts": "2026-09-15T10:25:00-05:00",
       "ts_ct": "2026-09-15 10:25:00 CT",
       "area": "sports",
-      "title": "MLB Tue morning screen \u2014 2 shadows, 0 Live",
-      "summary": "Modeled Tue 2026-09-15 MLB morning small set. Keepers HARBOR_SHADOW: ATL ML @ CHC (Perez vs Gausman; SP + Swanson IL; ~+119), BAL ML @ NYM (Baz vs Manaea; mild SP + Mon win; BP leverage discount). Soft KC@HOU / DET@TOR research-only abstain. Skip heavy chalk MIL/LAD/PHI/TB; soft-pass Coors SD@COL. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Confirm DK in-app.",
+      "title": "MLB Tue morning screen — 2 shadows, 0 Live",
+      "summary": "Modeled Tue 2026-09-15 MLB morning small set. Keepers HARBOR_SHADOW: ATL ML @ CHC (Perez vs Gausman; SP + Swanson IL; ~+119), BAL ML @ NYM (Baz vs Manaea; mild SP + Mon win; BP leverage discount). Soft KC@HOU / DET@TOR research-only abstain. Skip heavy chalk MIL/LAD/PHI/TB; soft-pass Coors SD@COL. All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Confirm DK in-app.",
       "tags": [
         "sports",
         "mlb",
@@ -23,15 +77,15 @@
       },
       "at": "2026-09-15T10:25:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260915-MLB-01..02; soft abstains; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260915-MLB-01..02; soft abstains; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-nfl-tue-screen-20260915",
       "ts": "2026-09-15T09:40:00-05:00",
       "ts_ct": "2026-09-15 09:40:00 CT",
       "area": "sports",
-      "title": "NFL Week 2 Tuesday screen \u2014 4 shadows, 0 Live + Mon MLB settle 3-1-0",
-      "summary": "Job A: Settled Mon MLB SP-SH-20260914-MLB-01..04 \u2192 3-1-0 hyp +6.78 (LAD -1.5 W, Over 10.5 W, SD -1.5 L, DET ML W). CFB Week-3 left pending. Job B: NFL Week 2 cheap screen keepers HARBOR_SHADOW Under 53.5 DET@BUF (TNF fair-first), PIT +5.5 (Brown IR), ARI +4.5 (Darnold OUT number retreat), ATL +1.5 (flip/QB TBD). All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
+      "title": "NFL Week 2 Tuesday screen — 4 shadows, 0 Live + Mon MLB settle 3-1-0",
+      "summary": "Job A: Settled Mon MLB SP-SH-20260914-MLB-01..04 → 3-1-0 hyp +6.78 (LAD -1.5 W, Over 10.5 W, SD -1.5 L, DET ML W). CFB Week-3 left pending. Job B: NFL Week 2 cheap screen keepers HARBOR_SHADOW Under 53.5 DET@BUF (TNF fair-first), PIT +5.5 (Brown IR), ARI +4.5 (Darnold OUT number retreat), ATL +1.5 (flip/QB TBD). All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
       "tags": [
         "sports",
         "nfl",
@@ -49,15 +103,15 @@
       },
       "at": "2026-09-15T09:40:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Settled SP-SH-20260914-MLB-01..04; appended SP-SH-20260915-NFL-01..04; CFB W3 still open; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Settled SP-SH-20260914-MLB-01..04; appended SP-SH-20260915-NFL-01..04; CFB W3 still open; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-cfb-mon-screen-20260914",
       "ts": "2026-09-14T10:20:00-05:00",
       "ts_ct": "2026-09-14 10:20:00 CT",
       "area": "sports",
-      "title": "CFB Week 3 Monday screen \u2014 3 shadows, 0 Live",
-      "summary": "Modeled Mon 2026-09-14 CFB Week 3 early-week deepen (Thu\u2013Sat Sep 17\u201319). Keepers HARBOR_SHADOW: SMU +1.5 @ LOU (shop +2), UNC +3 @ CLEM (shop +3.5; perception collapse + key#3 dog), HOU +8.5 @ TTU Fri (open \u221210 lag; shop +9). Soft KU +5.5 vs ASU London ABSTAIN (gate \u2265+6). Watch LSU@MISS / FLA@AUB. Skip huge chalk. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Week 2 CFB shadows already settled W.",
+      "title": "CFB Week 3 Monday screen — 3 shadows, 0 Live",
+      "summary": "Modeled Mon 2026-09-14 CFB Week 3 early-week deepen (Thu–Sat Sep 17–19). Keepers HARBOR_SHADOW: SMU +1.5 @ LOU (shop +2), UNC +3 @ CLEM (shop +3.5; perception collapse + key#3 dog), HOU +8.5 @ TTU Fri (open −10 lag; shop +9). Soft KU +5.5 vs ASU London ABSTAIN (gate ≥+6). Watch LSU@MISS / FLA@AUB. Skip huge chalk. All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Week 2 CFB shadows already settled W.",
       "tags": [
         "sports",
         "cfb",
@@ -72,15 +126,15 @@
       },
       "at": "2026-09-14T10:20:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260914-CFB-01..03; KU abstain; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260914-CFB-01..03; KU abstain; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-mlb-sun-screen-20260913",
       "ts": "2026-09-13T09:44:50-05:00",
       "ts_ct": "2026-09-13 09:44:50 CT",
       "area": "sports",
-      "title": "MLB Sun morning screen \u2014 2 shadows, 0 Live",
-      "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs P\u00e9rez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37\u201311:40 CT. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace\u2260full-game, no invent my_p.",
+      "title": "MLB Sun morning screen — 2 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs Pérez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37–11:40 CT. No post-vig MoS → no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace≠full-game, no invent my_p.",
       "tags": [
         "sports",
         "mlb",
@@ -94,15 +148,15 @@
       },
       "at": "2026-09-13T09:44:50-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-nfl-sun-screen-20260913-sports",
       "ts": "2026-09-13T09:34:23-05:00",
       "ts_ct": "2026-09-13 09:34:23 CT",
       "area": "sports",
-      "title": "NFL Week 1 Sunday screen \u2014 3 shadows, 0 Live",
-      "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and \u22123.5 favs without MoS. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
+      "title": "NFL Week 1 Sunday screen — 3 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and −3.5 favs without MoS. No post-vig MoS → no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
       "tags": [
         "sports",
         "nfl",
@@ -123,8 +177,8 @@
       "ts": "2026-09-13T09:07:45-05:00",
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
-      "title": "Sports process lessons filed from shadow settle (SP-L01\u2013L05)",
-      "summary": "Five dated process/falsifier lessons from the 2026-09-13 shadow settle: thin SP sample kill (2026-09-12), ace\u2260full-game proxy (2026-09-12), bullpen leverage gate (2026-09-09), key-3 half-point fragile (2026-09-09), lagged dog number capture (2026-09-11). Behavior changes noted in lessons.csv.",
+      "title": "Sports process lessons filed from shadow settle (SP-L01–L05)",
+      "summary": "Five dated process/falsifier lessons from the 2026-09-13 shadow settle: thin SP sample kill (2026-09-12), ace≠full-game proxy (2026-09-12), bullpen leverage gate (2026-09-09), key-3 half-point fragile (2026-09-09), lagged dog number capture (2026-09-11). Behavior changes noted in lessons.csv.",
       "tags": [
         "sports",
         "lesson",
@@ -137,7 +191,7 @@
       },
       "at": "2026-09-13T09:07:45-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-L01\u2013SP-L05 to lessons.csv; Session Log entries for each; Sports desk lessons feed on next publish.",
+      "deskChanges": "Appended SP-L01–SP-L05 to lessons.csv; Session Log entries for each; Sports desk lessons feed on next publish.",
       "lessonId": "SP-L01,SP-L02,SP-L03,SP-L04,SP-L05"
     },
     {
@@ -169,7 +223,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L04 (origination 2026-09-09)",
-      "summary": "Experience: SEA \u22123.5 lost on exact-3 margin (13-10). Evidence: Key number 3 is fragile for \u22123.5 chalk; dog +3.5 covered. Learning: Key-3 half-point favorite (\u22123.5) is fragile \u2014 prefer +3.5 dog side or require stronger MoS. Change: NFL key-number screen: \u22123.5 chalk needs extra MoS; default prefer buying +3.5 when near fair.",
+      "summary": "Experience: SEA −3.5 lost on exact-3 margin (13-10). Evidence: Key number 3 is fragile for −3.5 chalk; dog +3.5 covered. Learning: Key-3 half-point favorite (−3.5) is fragile — prefer +3.5 dog side or require stronger MoS. Change: NFL key-number screen: −3.5 chalk needs extra MoS; default prefer buying +3.5 when near fair.",
       "tags": [
         "sports",
         "lesson",
@@ -192,7 +246,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L03 (origination 2026-09-09)",
-      "summary": "Experience: STL ML led late; Giants 6-run 8th; SF 7-6. Evidence: Early edge erased by bullpen collapse; no leverage gate. Learning: Bullpen leverage gate was missing on MLB ML shadows. Change: Same as SP-L02 \u2014 ML keepers need bullpen/leverage check or move to runline/abstain.",
+      "summary": "Experience: STL ML led late; Giants 6-run 8th; SF 7-6. Evidence: Early edge erased by bullpen collapse; no leverage gate. Learning: Bullpen leverage gate was missing on MLB ML shadows. Change: Same as SP-L02 — ML keepers need bullpen/leverage check or move to runline/abstain.",
       "tags": [
         "sports",
         "lesson",
@@ -215,7 +269,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L02 (origination 2026-09-12)",
-      "summary": "Experience: PIT ML with Skenes: ace left ahead; Soto blew 8th; CHC 4-3. Evidence: SP thesis held early; bullpen/leverage decided ML. Learning: Ace start is not a full-game ML proxy \u2014 need bullpen/leverage gate for ML tickets. Change: ML shadows require explicit late-inning/bullpen note; else prefer RL/+1.5 or abstain.",
+      "summary": "Experience: PIT ML with Skenes: ace left ahead; Soto blew 8th; CHC 4-3. Evidence: SP thesis held early; bullpen/leverage decided ML. Learning: Ace start is not a full-game ML proxy — need bullpen/leverage gate for ML tickets. Change: ML shadows require explicit late-inning/bullpen note; else prefer RL/+1.5 or abstain.",
       "tags": [
         "sports",
         "lesson",
@@ -238,7 +292,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L01 (origination 2026-09-12)",
-      "summary": "Experience: CLE ML shadowed despite Espino thin-sample flag; MIN won 4-3. Evidence: Thin SP n was already a named kill/concern and still logged as keeper; loss followed. Learning: Thin SP sample kill rule must fire \u2014 flag \u2192 abstain/shadow-only-kill, not keeper. Change: Pre-shadow checklist: if SP sample thin, default abstain unless independent build clears MoS without SP weight.",
+      "summary": "Experience: CLE ML shadowed despite Espino thin-sample flag; MIN won 4-3. Evidence: Thin SP n was already a named kill/concern and still logged as keeper; loss followed. Learning: Thin SP sample kill rule must fire — flag → abstain/shadow-only-kill, not keeper. Change: Pre-shadow checklist: if SP sample thin, default abstain unless independent build clears MoS without SP weight.",
       "tags": [
         "sports",
         "lesson",
@@ -260,7 +314,7 @@
       "ts": "2026-09-13T09:15:00-05:00",
       "ts_ct": "2026-09-13 09:15:00 CT",
       "area": "sports",
-      "title": "Shadow settle batch 2026-09-13 \u2014 15 finished, 0 open, no LIVE",
+      "title": "Shadow settle batch 2026-09-13 — 15 finished, 0 open, no LIVE",
       "summary": "Reconciled all finished Harbor shadows (14 v2 + 1 legacy SEA-3.5). Record 7-8-0 (v2 7-7-0); hyp P&L -$4.62 all-in / -$0.62 v2. CLV beat 4/7 where known. Spreads 5-0; MLB MLs 2-7. No Harbor LIVE invented.",
       "tags": [
         "sports",
@@ -284,7 +338,7 @@
       "at": "2026-09-12T09:52:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
       "summary": "Sat MLB morning screen kept three shadows (LAA ML @ WSH, CLE ML @ MIN, PIT ML @ CHC), soft-noted BAL@TOR / CWS@STL, abstained HOU@TB and SEA@ATH heavy juice; no Harbor LIVE.",
-      "deskChanges": "Sports Overview/shadow board + AV emptyReason refreshed for Sat MLB shadows; Active Ventures still empty (shadows \u2260 AV).",
+      "deskChanges": "Sports Overview/shadow board + AV emptyReason refreshed for Sat MLB shadows; Active Ventures still empty (shadows ≠ AV).",
       "lessonId": null
     },
     {
@@ -295,5 +349,5 @@
       "lessonId": null
     }
   ],
-  "updated_ct": "2026-09-15 10:25:00 CT"
+  "updated_ct": "2026-09-16 17:20:00 CT"
 }

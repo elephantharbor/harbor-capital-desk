@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-15 10:24:22 CT",
+  "generated_at_ct": "2026-09-16 17:19:52 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-15 10:24:22 CT",
+    "generated_at_ct": "2026-09-16 17:19:52 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -3078,7 +3078,7 @@
       {
         "forecast_id": "W1-F1",
         "event": "Sep 16 2026 FOMC: hold (0bp change)",
-        "status": "locked",
+        "status": "resolved",
         "my_p_locked": "0.42",
         "market_p_at_lock": "0.465",
         "looked_at_market_first": "true",
@@ -3088,13 +3088,13 @@
         "author": "Reed",
         "timestamp_ct": "2026-09-04 10:19 CT",
         "eligible_mid_promote": false,
-        "outcome": null,
-        "brier": null
+        "outcome": "0",
+        "brier": "0.1764"
       },
       {
         "forecast_id": "W1-F2",
         "event": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map",
-        "status": "locked",
+        "status": "resolved",
         "my_p_locked": "0.55",
         "market_p_at_lock": "0.535",
         "looked_at_market_first": "true",
@@ -3104,8 +3104,8 @@
         "author": "Reed",
         "timestamp_ct": "2026-09-04 10:25 CT",
         "eligible_mid_promote": false,
-        "outcome": null,
-        "brier": null
+        "outcome": "1",
+        "brier": "0.2025"
       },
       {
         "forecast_id": "W1-F4",
@@ -3126,7 +3126,7 @@
       {
         "forecast_id": "W1-F6",
         "event": "Sep 16 2026 FOMC: other (not hold, not +25bp)",
-        "status": "locked",
+        "status": "resolved",
         "my_p_locked": "0.03",
         "market_p_at_lock": "",
         "looked_at_market_first": "true",
@@ -3136,8 +3136,8 @@
         "author": "Reed",
         "timestamp_ct": "2026-09-04 10:25 CT",
         "eligible_mid_promote": false,
-        "outcome": null,
-        "brier": null
+        "outcome": "0",
+        "brier": "0.0009"
       },
       {
         "forecast_id": "W1-F7",
@@ -3209,8 +3209,8 @@
       "total": 10,
       "clean": 4,
       "contaminated": 6,
-      "pending": 6,
-      "resolved": 4,
+      "pending": 3,
+      "resolved": 7,
       "resolved_clean": 3,
       "mid_promote_eligible": 1
     },
@@ -3261,7 +3261,7 @@
     },
     "calibration_files": {
       "clean_append_rows": 3,
-      "contaminated_append_rows": 17,
+      "contaminated_append_rows": 20,
       "note": "CSV append-only row counts \u2014 NOT sample n / distinct forecast ids",
       "clean_path": "journal/calibration_clean.csv",
       "contaminated_path": "journal/calibration_contaminated.csv"
@@ -3580,17 +3580,77 @@
         "source": "shadow-settle-2026-09-13",
         "originationDate": "2026-09-11",
         "origination_date_display": "Logged Sep 11, 2026"
+      },
+      {
+        "date_ct": "2026-09-16",
+        "origination_date": "2026-09-16",
+        "lesson_id": "L14",
+        "what_happened": "FOMC hunt window closed with empty book after preferred H25 YES cushion FAIL \u22120.19\u2192\u22120.25 and Sep CPI YES FAIL while process unchanged",
+        "believed_beforehand": "Staying idle on preferred-YES FAIL was safe / process-complete until a miracle cushion appeared",
+        "evidence_showed": "OS v2: inactivity\u2260safety; repeated FAIL + empty book + unchanged process is a process failure same cycle; Sep CPI NO cleared \u22655\u00a2 cushion + width + depth post-settle",
+        "what_we_learned": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
+        "what_changed": "Allow ACT/TEST SMALL on NO when width\u22640.10 + cushion\u22655\u00a2 + depth\u2265size + max loss\u2264$4 + Quinn/Holt; next claims/NFP require clean my_p-first pre-market before Kalshi fetch; review 2026-09-23",
+        "related_ids": "W1-F1 W1-F2 W1-F6 EM-DIR-01 KXCPIYOY-26SEP-T3.4",
+        "source": "fomc-sep16-resolve + hunt-queue process review OS v2",
+        "market": "event",
+        "originationDate": "2026-09-16",
+        "origination_date_display": "Logged Sep 16, 2026"
+      },
+      {
+        "date_ct": "2026-09-16",
+        "origination_date": "2026-09-16",
+        "lesson_id": "SP-L06",
+        "what_happened": "Post-MoS screens repeatedly log Low-Moderate below_mos shadows (EV ~$0.15-0.65 vs $0.80 floor); Live queue empty.",
+        "believed_beforehand": "Thin public-board SP/dog edges were still worth shadow tickets for CLV/calibration.",
+        "evidence_showed": "Multi-day below_mos streak; best Tue MLB high-band ~$0.64 still under MoS; open NFL/CFB all thin.",
+        "what_we_learned": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
+        "what_changed": "Shadow Pre-Log Gates v1: numeric mid-EV before ticket_id; abstain if mid-EV<$0.40; max 2 shadows/wake; fair must disagree with market; prefer number-shop/injury-lag/key-number/totals; process_delta required each screen.",
+        "related_ids": "SP-SH-20260914-*;SP-SH-20260915-*;docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "source": "os-v2-process-review-2026-09-16",
+        "market": "sports",
+        "originationDate": "2026-09-16",
+        "origination_date_display": "Logged Sep 16, 2026"
       }
     ],
-    "count": 18,
+    "count": 20,
     "source": "journal/lessons.csv",
     "note": "from journal/lessons.csv (market inferred when missing; originationDate required)"
   },
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-15T10:25:00-05:00",
+    "lastUpdated": "2026-09-16T17:20:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-osv2-impl-settle-process-20260916",
+        "ts": "2026-09-16T17:20:00-05:00",
+        "ts_ct": "2026-09-16 17:20:00 CT",
+        "area": "sports",
+        "title": "OS v2 IMPLEMENT \u2014 Tue MLB settle 2-0 + below_mos process review",
+        "summary": "Settled finished Tue MLB Harbor shadows only: SP-SH-20260915-MLB-01 ATL ML W (+$4.76, CLV +0.85pp) ATL 6-3 CHC; SP-SH-20260915-MLB-02 BAL ML W (+$4.40, CLV \u22120.45pp) BAL 7-5 NYM/11. Batch 2-0-0 +$9.16; v2 cumulative 13-12-0 (+$4.28). Left pending (not started): CFB-01/02/03 Fri/Sat; NFL-01 TNF Under; NFL-02/03/04 Sun. LIVE qualifier: NONE clear MoS (all below_mos; ready_for_quinn NO). Mandatory process review filed \u2014 Shadow Pre-Log Gates v1 + lesson SP-L06 (abstain if mid-EV<$0.40; numeric EV before ticket_id; max 2 shadows/wake). No invent LIVE. No DK place. No iMessage.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "settle",
+          "process-review",
+          "os-v2",
+          "below_mos",
+          "no-live"
+        ],
+        "links": {
+          "cycle": "docs/sports-memos/sports-os-v2-cycle-2026-09-16.md",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "settle": "journal/sports-shadow/shadow-results-summary-2026-09-16.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "lesson": "journal/lessons.csv#SP-L06"
+        },
+        "at": "2026-09-16T17:20:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Settled SP-SH-20260915-MLB-01/02; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows \u2260 AV); Overview republish; Session Log; SP-L06 + process review memo.",
+        "lessonId": "SP-L06",
+        "originationDate": "2026-09-16"
+      },
       {
         "id": "sess-sports-mlb-tue-screen-20260915",
         "ts": "2026-09-15T10:25:00-05:00",
@@ -4090,8 +4150,38 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-15T10:25:00-05:00",
+    "lastUpdated": "2026-09-16T17:20:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-osv2-impl-settle-process-20260916",
+        "ts": "2026-09-16T17:20:00-05:00",
+        "ts_ct": "2026-09-16 17:20:00 CT",
+        "area": "sports",
+        "title": "OS v2 IMPLEMENT \u2014 Tue MLB settle 2-0 + below_mos process review",
+        "summary": "Settled finished Tue MLB Harbor shadows only: SP-SH-20260915-MLB-01 ATL ML W (+$4.76, CLV +0.85pp) ATL 6-3 CHC; SP-SH-20260915-MLB-02 BAL ML W (+$4.40, CLV \u22120.45pp) BAL 7-5 NYM/11. Batch 2-0-0 +$9.16; v2 cumulative 13-12-0 (+$4.28). Left pending (not started): CFB-01/02/03 Fri/Sat; NFL-01 TNF Under; NFL-02/03/04 Sun. LIVE qualifier: NONE clear MoS (all below_mos; ready_for_quinn NO). Mandatory process review filed \u2014 Shadow Pre-Log Gates v1 + lesson SP-L06 (abstain if mid-EV<$0.40; numeric EV before ticket_id; max 2 shadows/wake). No invent LIVE. No DK place. No iMessage.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "settle",
+          "process-review",
+          "os-v2",
+          "below_mos",
+          "no-live"
+        ],
+        "links": {
+          "cycle": "docs/sports-memos/sports-os-v2-cycle-2026-09-16.md",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "settle": "journal/sports-shadow/shadow-results-summary-2026-09-16.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "lesson": "journal/lessons.csv#SP-L06"
+        },
+        "at": "2026-09-16T17:20:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Settled SP-SH-20260915-MLB-01/02; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows \u2260 AV); Overview republish; Session Log; SP-L06 + process review memo.",
+        "lessonId": "SP-L06",
+        "originationDate": "2026-09-16"
+      },
       {
         "id": "sess-sports-mlb-tue-screen-20260915",
         "ts": "2026-09-15T10:25:00-05:00",
@@ -4620,7 +4710,7 @@
     "shadow": 1,
     "killed": 0,
     "quinn_challenge_lessons": 9,
-    "lessons_total": 18,
+    "lessons_total": 20,
     "mode": "LIVE",
     "label": "LIVE",
     "note": "Registry status counts + tools presence. No live probes."
@@ -4654,19 +4744,19 @@
       {
         "forecast_id": "W1-F2",
         "timestamp_ct": "2026-09-04 10:25 CT",
-        "status": "locked",
+        "status": "resolved",
         "event": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map"
       },
       {
         "forecast_id": "W1-F6",
         "timestamp_ct": "2026-09-04 10:25 CT",
-        "status": "locked",
+        "status": "resolved",
         "event": "Sep 16 2026 FOMC: other (not hold, not +25bp)"
       },
       {
         "forecast_id": "W1-F1",
         "timestamp_ct": "2026-09-04 10:19 CT",
-        "status": "locked",
+        "status": "resolved",
         "event": "Sep 16 2026 FOMC: hold (0bp change)"
       },
       {
@@ -4770,6 +4860,18 @@
     ],
     "events": [
       {
+        "ts": "2026-09-16 ~17:15 CT \u2014 FOMC Wave-1 F1/F2",
+        "kind": "decision",
+        "title": "2026-09-16 ~17:15 CT \u2014 FOMC Wave-1 F1/F2/F6 scored + OS v2 process review (Reed, analysis only)",
+        "summary": "Fed hiked **+25 bp** to 3.75\u20134.00% (statement ~13:00 CT). Kalshi `KXFEDDECISION-26SEP-*` finalized; H25=`yes`; H0/C25/C26/H26=`no`; settlement ~13:08 CT."
+      },
+      {
+        "ts": "2026-09-16 ~09:27 CT \u2014 Weekday triage FO",
+        "kind": "decision",
+        "title": "2026-09-16 ~09:27 CT \u2014 Weekday triage FOMC decision-day watch (Reed, analysis only)",
+        "summary": "Decision day: statement ~13:00 CT / 14:00 ET. Inside T-24, not yet T-2. Early scan: **F1/F2/F6 still locked unresolved** \u2014 score **AFTER statement only**."
+      },
+      {
         "ts": "2026-09-15 ~09:13 CT \u2014 Weekday triage FO",
         "kind": "decision",
         "title": "2026-09-15 ~09:13 CT \u2014 Weekday triage FOMC T-24 watch (Reed, analysis only)",
@@ -4818,18 +4920,6 @@
         "summary": "BLS Aug 2026 CPI YoY = **3.4%**. Kalshi `KXCPIYOY-26AUG-T3.4` finalized `result=no` (`expiration_value=Above 3.3%`; settlement ~08:40 CT)."
       },
       {
-        "ts": "2026-09-10 ~15:05 CT \u2014 Vera securities a",
-        "kind": "decision",
-        "title": "2026-09-10 ~15:05 CT \u2014 Vera securities ack (viability T0)",
-        "summary": "Confirmed blotter S-RESERVE fill; Session Log + registry updated."
-      },
-      {
-        "ts": "2026-09-10 ~14:33\u201315:00 CT \u2014 First live ",
-        "kind": "decision",
-        "title": "2026-09-10 ~14:33\u201315:00 CT \u2014 First live fill + 30-day viability clock",
-        "summary": "**FILLED** BUY 0.02 SGOV @ **100.50** Pro SMART (`INTENT_ca55d0e9`). Position 0.02 SGOV (~$2.01 mkt). First live securities fill."
-      },
-      {
         "ts": "2026-09-04 11:25 CT",
         "kind": "forecast",
         "title": "W1-F10 locked",
@@ -4856,7 +4946,7 @@
       {
         "ts": "2026-09-04 10:25 CT",
         "kind": "forecast",
-        "title": "W1-F2 locked",
+        "title": "W1-F2 resolved",
         "summary": "Sep 16 2026 FOMC: hike 25bp \u2014 residual partition + T3.75 map"
       }
     ],
@@ -5039,7 +5129,7 @@
         "status": "HUMAN_AUTH",
         "detail": "Broker login / session refresh required before exec rails are usable."
       },
-      "last_session_check_ct": "2026-09-15 10:24:21 CT",
+      "last_session_check_ct": "2026-09-16 17:19:51 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
@@ -5060,8 +5150,8 @@
     "starts_on": "first_live_fill",
     "clock_days": 30,
     "status": "IN_PROGRESS",
-    "day": 6,
-    "days_left": 25,
+    "day": 7,
+    "days_left": 24,
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
     "live_trades": 2,
@@ -5073,7 +5163,7 @@
     "label": "LIVE",
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
     "first_fill_ct": "2026-09-10 14:33 CT",
-    "note": "Clock started on first live fill (T0). Day 6 of 30; 25 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 7 of 30; 24 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "viability_period": {
     "started": true,
@@ -5081,14 +5171,14 @@
     "started_at_ct": "2026-09-10",
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
-    "day": 6,
-    "days_left": 25,
+    "day": 7,
+    "days_left": 24,
     "status": "IN_PROGRESS",
     "clock_days": 30,
     "pending_order_id": null,
     "pending_order_status": null,
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
-    "note": "Clock started on first live fill (T0). Day 6 of 30; 25 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 7 of 30; 24 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "live_trading": true,
   "automated_execution": false,
@@ -5139,7 +5229,7 @@
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-16 17:16:16 CT"
       },
       {
         "path": "docs/risk-architecture.md",
@@ -5227,8 +5317,8 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+        "mtime_ct": "2026-09-16 17:16:16 CT",
+        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-only insufficient \u2014 S-CRYPTO-BH-001 IBIT ~$4 Quinn-r\u2026"
       },
       {
         "id": "allocation",
@@ -5258,7 +5348,7 @@
     "excerpts": {
       "mission_short": "[redacted for public desk \u2014 see private workspace]",
       "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, le",
-      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-onl"
     }
   },
   "docs": {
@@ -5306,7 +5396,7 @@
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-16 17:16:16 CT"
       },
       {
         "path": "docs/risk-architecture.md",
@@ -5394,8 +5484,8 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+        "mtime_ct": "2026-09-16 17:16:16 CT",
+        "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-only insufficient \u2014 S-CRYPTO-BH-001 IBIT ~$4 Quinn-r\u2026"
       },
       {
         "id": "allocation",
@@ -5425,7 +5515,7 @@
     "excerpts": {
       "mission_short": "[redacted for public desk \u2014 see private workspace]",
       "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, le",
-      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist."
+      "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-onl"
     }
   },
   "markets": [
@@ -5487,7 +5577,7 @@
       "latest_lesson": "Pro must force SMART routing; never emit ZERO or Lite on this account",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -5552,7 +5642,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -5615,10 +5705,10 @@
       "benchmark": "Market-implied Brier / SGOV opportunity cost",
       "return_source": "Research tags only \u2014 no live P&L (mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))",
       "objective": "EM-DIR-01 + calibration research; no paid live until cushion + Holt",
-      "latest_lesson": "Promote only on simultaneous mids + full both-side friction across repeats",
+      "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -5683,7 +5773,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -5750,10 +5840,10 @@
       "benchmark": "Closing line (CLV); post-vig EV",
       "return_source": "N/A",
       "objective": "Independent-first forecast methodology; BINDING S=$200 DK; $0 open until Quinn-cleared; PERSONAL vs HARBOR tagged",
-      "latest_lesson": "N/A",
+      "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -5821,7 +5911,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-15 10:24:22 CT",
+      "last_updated_ct": "2026-09-16 17:19:52 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -5855,28 +5945,28 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
+          {
+            "id": "securities-am",
+            "title": "Securities morning scan",
+            "nextRunAt": "2026-09-17T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-15T13:30:00-05:00",
+            "nextRunAt": "2026-09-17T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-15T16:00:00-05:00",
+            "nextRunAt": "2026-09-17T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
-          },
-          {
-            "id": "securities-am",
-            "title": "Securities morning scan",
-            "nextRunAt": "2026-09-16T08:00:00-05:00",
-            "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
           }
         ]
       }
@@ -5900,20 +5990,20 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
-          {
-            "id": "options-pm-ride",
-            "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-15T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-16T08:00:00-05:00",
+            "nextRunAt": "2026-09-17T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-17T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
@@ -5944,21 +6034,21 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-15T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-16T09:00:00-05:00",
+            "nextRunAt": "2026-09-17T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-17T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           },
           {
             "id": "weekly-portfolio-review",
@@ -5997,26 +6087,26 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-15T19:00:00-05:00",
+            "nextRunAt": "2026-09-16T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
             "owner": "Cole"
           },
           {
             "id": "crypto-am",
             "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-16T07:30:00-05:00",
+            "nextRunAt": "2026-09-17T07:30:00-05:00",
             "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-09-16T10:00:00-05:00",
+            "nextRunAt": "2026-09-17T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           }
@@ -6714,11 +6804,11 @@
           "ev": "0.45",
           "confidence": "Low-Moderate",
           "forecast_class": "market_informed",
-          "clv": "TBD at kick",
+          "clv": "0.85",
           "tag": "HARBOR_SHADOW",
-          "rationale": "Perez vs Gausman; SP edge + better club + Swanson IL (rehab Fri aim); Webb BP soft note; Wrigley ~75F S/SSW mild; FD also +116; mid-band EV~$0.38-0.55 high~$0.64 \u2192 below_mos; FP~6:40 CT; BP/leverage note required on ML; kill if Perez scratched or ATL past -105 w/o news; confirm DK in-app; no Live; tag=below_mos",
-          "result": "pending",
-          "pnl_net_usd": null,
+          "rationale": "Perez vs Gausman; SP edge + better club + Swanson IL (rehab Fri aim); Webb BP soft note; Wrigley ~75F S/SSW mild; FD also +116; mid-band EV~$0.38-0.55 high~$0.64 \u2192 below_mos; FP~6:40 CT; BP/leverage note required on ML; kill if Perez scratched or ATL past -105 w/o news; confirm DK in-app; no Live; tag=below_mos; SETTLED ATL 6-3 CHC (Acu\u00f1a/Albies/Baldwin late 2-run HRs; P\u00e9rez W 6IP); postmortem 2026-09-16: sp_mismatch + Swanson IL thesis sound; BP/leverage note validated (Webb blew lead 7th); CLV mild beat (+119 vs close ~+115); calibration: mid-band 0.49-0.53 covered outcome; still below_mos at log \u2014 MoS abstain correct; lesson_tag=sp_mismatch_ML_hit_no_falsifier; tag=below_mos_settled",
+          "result": "win",
+          "pnl_net_usd": 4.76,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
         },
         {
@@ -6735,21 +6825,21 @@
           "ev": "0.15",
           "confidence": "Low-Moderate",
           "forecast_class": "market_informed",
-          "clv": "TBD at kick",
+          "clv": "-0.45",
           "tag": "HARBOR_SHADOW",
-          "rationale": "Baz vs Manaea; mild SP edge; BAL took Mon 2-1; discount if BP/IL kills late leverage; Baz ML-dog season mark weak; shop +114 if out; mid-band EV~$0.03-0.28 \u2192 below_mos/tiny; FP~6:10 CT; BP/leverage note required; kill if Baz scratched or BAL past -105 w/o news or closer IL; confirm DK in-app; no Live; tag=below_mos",
-          "result": "pending",
-          "pnl_net_usd": null,
+          "rationale": "Baz vs Manaea; mild SP edge; BAL took Mon 2-1; discount if BP/IL kills late leverage; Baz ML-dog season mark weak; shop +114 if out; mid-band EV~$0.03-0.28 \u2192 below_mos/tiny; FP~6:10 CT; BP/leverage note required; kill if Baz scratched or BAL past -105 w/o news or closer IL; confirm DK in-app; no Live; tag=below_mos; SETTLED BAL 7-5 NYM (11 inn; Alonso 300th HR tie 9th; Mayo ITPHR 11th); postmortem 2026-09-16: mild sp_mismatch + series momentum hit via high-variance extras; BP/leverage caution was warranted (game reached 11); CLV slight miss (+110 vs close ~+112); calibration: mid-band 0.46-0.50 covered but path noisy \u2014 do not upgrade MoS from one win; lesson_tag=soft_dog_ML_variance_ok_no_MoS; tag=below_mos_settled",
+          "result": "win",
+          "pnl_net_usd": 4.4,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
         }
       ],
       "personal_recommendations": [],
-      "roi_note": "No Harbor LIVE results yet. Shadow settles: 24 finished (11-13-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
+      "roi_note": "No Harbor LIVE results yet. Shadow settles: 26 finished (13-13-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
       "shadow_settle_summary": {
-        "reconciled": 24,
-        "still_open": 9,
-        "record_w_l_p": "11-13-0",
-        "hyp_pnl_net_usd": -8.88,
+        "reconciled": 26,
+        "still_open": 7,
+        "record_w_l_p": "13-13-0",
+        "hyp_pnl_net_usd": 0.28,
         "by_league": {
           "NFL": {
             "w": 1,
@@ -6766,11 +6856,11 @@
             "pnl_net_usd": 14.73
           },
           "MLB": {
-            "w": 6,
+            "w": 8,
             "l": 9,
             "p": 0,
-            "n": 15,
-            "pnl_net_usd": -11.25
+            "n": 17,
+            "pnl_net_usd": -2.09
           }
         },
         "note": "Hypothetical shadow settles only \u2014 not Harbor LIVE P&L. See journal/sports-shadow/shadow-results-summary-2026-09-13.md"
@@ -6778,12 +6868,12 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-16T09:30:00-05:00",
+            "nextRunAt": "2026-09-17T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -6898,76 +6988,76 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
           {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-15T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
-          {
             "id": "viability-evidence",
-            "title": "Viability evidence (Day 6 \u00b7 25d left)",
-            "nextRunAt": "2026-09-16T09:30:00-05:00",
+            "title": "Viability evidence (Day 7 \u00b7 24d left)",
+            "nextRunAt": "2026-09-17T09:30:00-05:00",
             "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
             "owner": "Holt"
           },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-09-16T10:00:00-05:00",
+            "nextRunAt": "2026-09-17T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-17T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           }
         ]
       },
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
+          {
+            "id": "securities-am",
+            "title": "Securities morning scan",
+            "nextRunAt": "2026-09-17T08:00:00-05:00",
+            "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-15T13:30:00-05:00",
+            "nextRunAt": "2026-09-17T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-15T16:00:00-05:00",
+            "nextRunAt": "2026-09-17T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
-          },
-          {
-            "id": "securities-am",
-            "title": "Securities morning scan",
-            "nextRunAt": "2026-09-16T08:00:00-05:00",
-            "scheduleLabel": "Weekdays 8:00 AM CT",
-            "owner": "Vera"
           }
         ]
       },
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
-          {
-            "id": "options-pm-ride",
-            "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-15T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-09-16T08:00:00-05:00",
+            "nextRunAt": "2026-09-17T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-17T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
@@ -6982,21 +7072,21 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-15T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-09-16T09:00:00-05:00",
+            "nextRunAt": "2026-09-17T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-17T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           },
           {
             "id": "weekly-portfolio-review",
@@ -7010,26 +7100,26 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-09-15T19:00:00-05:00",
+            "nextRunAt": "2026-09-16T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
             "owner": "Cole"
           },
           {
             "id": "crypto-am",
             "title": "Crypto morning scan",
-            "nextRunAt": "2026-09-16T07:30:00-05:00",
+            "nextRunAt": "2026-09-17T07:30:00-05:00",
             "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-09-16T10:00:00-05:00",
+            "nextRunAt": "2026-09-17T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           }
@@ -7038,12 +7128,12 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-15T10:24:22-05:00",
+        "lastUpdated": "2026-09-16T17:19:52-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-16T09:30:00-05:00",
+            "nextRunAt": "2026-09-17T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -7064,6 +7154,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-15T10:24:22-05:00"
+    "generated_at_ct": "2026-09-16T17:19:52-05:00"
   }
 }
