@@ -1,10 +1,10 @@
 {
   "areaId": "capital-options",
-  "areaName": "Harbor Capital \u2014 Options",
+  "areaName": "Harbor Capital — Options",
   "segment": "capital",
   "submarket": "options",
-  "lastUpdated": "2026-09-11T10:24:27-05:00",
+  "lastUpdated": "2026-09-16T17:15:31-05:00",
   "empty": true,
-  "emptyReason": "No active positions \u2014 defined-risk research only; Options L2 not cleared; no live options.",
+  "emptyReason": "No live options — defined-risk NANOS research ready; ONE human blocker: IBKR Options Level ≥2 (escalate once to Thomas).",
   "items": []
 }

@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital \u2014 Sports",
+  "areaName": "Harbor Capital — Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-15T10:25:00-05:00",
+  "lastUpdated": "2026-09-16T17:15:31-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets \u2014 Tue 2026-09-15 MLB morning screen: 2 HARBOR_SHADOW only (ATL ML @ CHC, BAL ML @ NYM) both below_mos; soft KC@HOU/DET@TOR research-only abstain; heavy chalk + Coors soft-pass. Same-day NFL Week2 shadows still open (4). CFB Week-3 pending Fri/Sat. ready_for_quinn NO. Shadows \u2260 AV. S=$200 DK sleeve idle until Quinn+Holt clear.",
+  "emptyReason": "No Harbor LIVE tickets — shadows≠AV; close-every-shadow mandate under OS v2. LIVE only with MoS+Quinn+Holt. S=$200 DK sleeve idle.",
   "items": []
 }

@@ -1,10 +1,10 @@
 {
   "areaId": "capital-crypto",
-  "areaName": "Harbor Capital \u2014 Crypto",
+  "areaName": "Harbor Capital — Crypto",
   "segment": "capital",
   "submarket": "crypto",
-  "lastUpdated": "2026-09-11T10:24:27-05:00",
+  "lastUpdated": "2026-09-16T17:15:31-05:00",
   "empty": true,
-  "emptyReason": "No active positions \u2014 intel monitor only; IBIT not transmitted yet.",
+  "emptyReason": "No live crypto — monitor≠tradable; first permitted TEST SMALL = IBIT ~$4 (S-CRYPTO-BH-001) pending Quinn+Holt; empty intel not OK under OS v2.",
   "items": []
 }
