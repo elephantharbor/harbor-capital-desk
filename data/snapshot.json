@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-17 10:05:05 CT",
+  "generated_at_ct": "2026-09-17 10:27:23 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-17 10:05:05 CT",
+    "generated_at_ct": "2026-09-17 10:27:23 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -1476,7 +1476,7 @@
         "name": "NANOS long put executable stub (post-FOMC)",
         "owner": "Vera",
         "market": "options",
-        "status": "idea",
+        "status": "researching",
         "originated": "2026-09-16",
         "hypothesis": "Post-hike hawkish digest \u2192 short-horizon equity risk-off via 1\u00d7 NANOS put; all-in \u2264$4",
         "human_summary": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
@@ -1487,8 +1487,8 @@
         "data_needs": "Live NANOS NBBO + Options Level \u22652 + fee what-if",
         "cost_notes": "NANOS ~$0.065/ct + pass-throughs; spread main friction",
         "capital_alloc_pct": "0",
-        "next_decision": "Escalate when L2 clears; Holt transmit only; no same-week same-direction stack with VTI",
-        "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).",
+        "next_decision": "L2 CLEARED 2026-09-17; complete live NBBO/all-in\u2264$4 prep; wait Holt week satellite=NANOS; Vera no transmit",
+        "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).; L2 CLEARED 2026-09-17 Portal (Holt); NBBO prep docs/securities-memos/OPT-NANOS-DIR-002-nbbo-prep-2026-09-17.md",
         "updated_ct": "2026-09-16 17:25 CT",
         "capital_alloc_pct_note": "0 / no live capital allocated",
         "label": "PAPER",
@@ -1531,7 +1531,7 @@
       },
       {
         "status": "researching",
-        "count": 5,
+        "count": 6,
         "items": [
           {
             "strategy_id": "E1-CAL",
@@ -1657,12 +1657,37 @@
             "originated_display": "Sep 5, 2026",
             "description": "Small, capped-loss yes/no bets on near-term Fed or inflation event contracts when a written thesis says expected payoff after fees beats cash or T-bills.",
             "market_label": "Event Markets"
+          },
+          {
+            "strategy_id": "OPT-NANOS-DIR-002",
+            "name": "NANOS long put executable stub (post-FOMC)",
+            "owner": "Vera",
+            "market": "options",
+            "status": "researching",
+            "originated": "2026-09-16",
+            "hypothesis": "Post-hike hawkish digest \u2192 short-horizon equity risk-off via 1\u00d7 NANOS put; all-in \u2264$4",
+            "human_summary": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
+            "edge_source": "index direction via defined-risk premium \u2014 not proprietary alpha",
+            "return_source": "directional_beta",
+            "benchmark": "SGOV opp cost; VTI path secondary",
+            "falsify": "L2 blocked OR ask+fees+spread>$4 OR half-spread>~25pct premium OR thesis fail by expiry",
+            "data_needs": "Live NANOS NBBO + Options Level \u22652 + fee what-if",
+            "cost_notes": "NANOS ~$0.065/ct + pass-throughs; spread main friction",
+            "capital_alloc_pct": "0",
+            "next_decision": "L2 CLEARED 2026-09-17; complete live NBBO/all-in\u2264$4 prep; wait Holt week satellite=NANOS; Vera no transmit",
+            "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).; L2 CLEARED 2026-09-17 Portal (Holt); NBBO prep docs/securities-memos/OPT-NANOS-DIR-002-nbbo-prep-2026-09-17.md",
+            "updated_ct": "2026-09-16 17:25 CT",
+            "capital_alloc_pct_note": "0 / no live capital allocated",
+            "label": "PAPER",
+            "originated_display": "Sep 16, 2026",
+            "description": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
+            "market_label": "Options"
           }
         ]
       },
       {
         "status": "idea",
-        "count": 8,
+        "count": 7,
         "items": [
           {
             "strategy_id": "E2-XVEN",
@@ -1837,31 +1862,6 @@
             "label": "PAPER",
             "originated_display": null,
             "description": "nanos-debit-vertical (options) \u2014 NANOS debit vertical caps loss further; net debit+fees <=$4",
-            "market_label": "Options"
-          },
-          {
-            "strategy_id": "OPT-NANOS-DIR-002",
-            "name": "NANOS long put executable stub (post-FOMC)",
-            "owner": "Vera",
-            "market": "options",
-            "status": "idea",
-            "originated": "2026-09-16",
-            "hypothesis": "Post-hike hawkish digest \u2192 short-horizon equity risk-off via 1\u00d7 NANOS put; all-in \u2264$4",
-            "human_summary": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
-            "edge_source": "index direction via defined-risk premium \u2014 not proprietary alpha",
-            "return_source": "directional_beta",
-            "benchmark": "SGOV opp cost; VTI path secondary",
-            "falsify": "L2 blocked OR ask+fees+spread>$4 OR half-spread>~25pct premium OR thesis fail by expiry",
-            "data_needs": "Live NANOS NBBO + Options Level \u22652 + fee what-if",
-            "cost_notes": "NANOS ~$0.065/ct + pass-throughs; spread main friction",
-            "capital_alloc_pct": "0",
-            "next_decision": "Escalate when L2 clears; Holt transmit only; no same-week same-direction stack with VTI",
-            "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).",
-            "updated_ct": "2026-09-16 17:25 CT",
-            "capital_alloc_pct_note": "0 / no live capital allocated",
-            "label": "PAPER",
-            "originated_display": "Sep 16, 2026",
-            "description": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
             "market_label": "Options"
           }
         ]
@@ -2312,8 +2312,8 @@
     ],
     "counts": {
       "shadow": 1,
-      "researching": 5,
-      "idea": 8,
+      "researching": 6,
+      "idea": 7,
       "paused": 4,
       "rejected": 10,
       "live_experimental": 3
@@ -2802,7 +2802,7 @@
           "name": "NANOS long put executable stub (post-FOMC)",
           "owner": "Vera",
           "market": "options",
-          "status": "idea",
+          "status": "researching",
           "originated": "2026-09-16",
           "hypothesis": "Post-hike hawkish digest \u2192 short-horizon equity risk-off via 1\u00d7 NANOS put; all-in \u2264$4",
           "human_summary": "Executable stub: BUY 1 NANOS put ~1-2% OTM Fri 2026-09-19 (fallback Mon 2026-09-22); hard all-in \u2264$4; L2 may block transmit.",
@@ -2813,8 +2813,8 @@
           "data_needs": "Live NANOS NBBO + Options Level \u22652 + fee what-if",
           "cost_notes": "NANOS ~$0.065/ct + pass-throughs; spread main friction",
           "capital_alloc_pct": "0",
-          "next_decision": "Escalate when L2 clears; Holt transmit only; no same-week same-direction stack with VTI",
-          "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).",
+          "next_decision": "L2 CLEARED 2026-09-17; complete live NBBO/all-in\u2264$4 prep; wait Holt week satellite=NANOS; Vera no transmit",
+          "evidence_summary": "Stub filed 2026-09-16; Quinn \u2264$4 gate; docs/securities-memos/OPT-NANOS-DIR-002-stub-2026-09-16.md; Quinn PASS WITH CONDITIONS 2026-09-16 (stub; live needs L2+NBBO+Holt).; L2 CLEARED 2026-09-17 Portal (Holt); NBBO prep docs/securities-memos/OPT-NANOS-DIR-002-nbbo-prep-2026-09-17.md",
           "updated_ct": "2026-09-16 17:25 CT",
           "capital_alloc_pct_note": "0 / no live capital allocated",
           "label": "PAPER",
@@ -3709,8 +3709,36 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-17T10:05:00-05:00",
+    "lastUpdated": "2026-09-17T10:28:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-nfl-thu-midweek-20260917",
+        "ts": "2026-09-17T10:28:00-05:00",
+        "ts_ct": "2026-09-17 10:28:00 CT",
+        "area": "sports",
+        "title": "NFL Thu midweek W2 absorb \u2014 KEEP 4 / kills 0",
+        "summary": "Absorbed Holt NFL Thu midweek W2 refresh. Open keepers all KEEP: SP-SH-20260915-NFL-01 Under 53.5 DET@BUF KEEP soft (tot 53.5\u2192~54.5 not past kill 55; weather non-factor; DET Mahogany/Miller OUT; thesis softer still below_mos); NFL-02 PIT +5.5 KEEP (Brown IR unchanged; kill inside +4 not triggered); NFL-03 ARI +4.5 KEEP (Darnold OUT / Lock starts; kill inside +3 not triggered); NFL-04 ATL +1.5 KEEP (starter unnamed; Tua DNP; kill not triggered; shop +2.5). Kills 0. Soft CIN/WAS/JAC watches \u2014 no new ledger (SP-L06). ready_for_quinn NO. Confirm DK in-app noted. No Live / no Quinn / no place / no iMessage.",
+        "tags": [
+          "sports",
+          "nfl",
+          "shadow",
+          "midweek",
+          "keep",
+          "below_mos",
+          "no-live",
+          "sp-l06"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/nfl-thu-midweek-2026-09-17.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md"
+        },
+        "at": "2026-09-17T10:28:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Ledger notes NFL-01 soften + 02\u201304 Thu midweek KEEP (result still pending); AV emptyReason refresh (0 LIVE; open CFB\u00d73 + NFL\u00d74 \u2260 AV); Overview republish; Session Log.",
+        "lessonId": "SP-L06",
+        "originationDate": "2026-09-17"
+      },
       {
         "id": "sess-sports-mlb-screen-empty-20260917",
         "ts": "2026-09-17T10:05:00-05:00",
@@ -4269,8 +4297,36 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-17T10:05:00-05:00",
+    "lastUpdated": "2026-09-17T10:28:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-nfl-thu-midweek-20260917",
+        "ts": "2026-09-17T10:28:00-05:00",
+        "ts_ct": "2026-09-17 10:28:00 CT",
+        "area": "sports",
+        "title": "NFL Thu midweek W2 absorb \u2014 KEEP 4 / kills 0",
+        "summary": "Absorbed Holt NFL Thu midweek W2 refresh. Open keepers all KEEP: SP-SH-20260915-NFL-01 Under 53.5 DET@BUF KEEP soft (tot 53.5\u2192~54.5 not past kill 55; weather non-factor; DET Mahogany/Miller OUT; thesis softer still below_mos); NFL-02 PIT +5.5 KEEP (Brown IR unchanged; kill inside +4 not triggered); NFL-03 ARI +4.5 KEEP (Darnold OUT / Lock starts; kill inside +3 not triggered); NFL-04 ATL +1.5 KEEP (starter unnamed; Tua DNP; kill not triggered; shop +2.5). Kills 0. Soft CIN/WAS/JAC watches \u2014 no new ledger (SP-L06). ready_for_quinn NO. Confirm DK in-app noted. No Live / no Quinn / no place / no iMessage.",
+        "tags": [
+          "sports",
+          "nfl",
+          "shadow",
+          "midweek",
+          "keep",
+          "below_mos",
+          "no-live",
+          "sp-l06"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/nfl-thu-midweek-2026-09-17.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md"
+        },
+        "at": "2026-09-17T10:28:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "Ledger notes NFL-01 soften + 02\u201304 Thu midweek KEEP (result still pending); AV emptyReason refresh (0 LIVE; open CFB\u00d73 + NFL\u00d74 \u2260 AV); Overview republish; Session Log.",
+        "lessonId": "SP-L06",
+        "originationDate": "2026-09-17"
+      },
       {
         "id": "sess-sports-mlb-screen-empty-20260917",
         "ts": "2026-09-17T10:05:00-05:00",
@@ -4828,6 +4884,7 @@
   },
   "system_health": {
     "tools_present": [
+      "_nanos_nbbo_probe.py",
       "brier.py",
       "candidate_gate.py",
       "crypto_md.py",
@@ -4848,7 +4905,7 @@
       "theme_scanner.py",
       "volgate_oos.py"
     ],
-    "tools_count": 19,
+    "tools_count": 20,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
@@ -4919,7 +4976,7 @@
       {
         "strategy_id": "OPT-NANOS-DIR-002",
         "updated_ct": "2026-09-16 17:25 CT",
-        "status": "idea",
+        "status": "researching",
         "name": "NANOS long put executable stub (post-FOMC)"
       },
       {
@@ -5185,12 +5242,12 @@
         "n": "12",
         "gate": "IBKR Options Level \u22652 (long options / debit spreads; NANOS path)",
         "owner": "Thomas",
-        "status": "OPEN \u2014 escalated to Tom 2026-09-11 (Holt) \u00b7 draft `docs/options-l2-permission-ask-2026-09-11.md`",
-        "blocks": "Live options tickets only; equity COREBETA pipeline **not** blocked"
+        "status": "CLEARED 2026-09-17 \u2014 Holt verified US Options Level 2 Approved on live Harbor Portal",
+        "blocks": "Live NANOS still needs OPRA/NBBO \u2264$4 abort + Holt week satellite pick (one of SMH/IBIT/NANOS); Vera does not transmit"
       }
     ],
     "count": 12,
-    "open_count": 4,
+    "open_count": 3,
     "live_blocked": false,
     "live_trading": true,
     "automated_execution": false,
@@ -5244,16 +5301,9 @@
         "owner": "Thomas",
         "status": "Skipped \u2014 deferred",
         "blocks": "Optional"
-      },
-      {
-        "n": "12",
-        "gate": "IBKR Options Level \u22652 (long options / debit spreads; NANOS path)",
-        "owner": "Thomas",
-        "status": "OPEN \u2014 escalated to Tom 2026-09-11 (Holt) \u00b7 draft `docs/options-l2-permission-ask-2026-09-11.md`",
-        "blocks": "Live options tickets only; equity COREBETA pipeline **not** blocked"
       }
     ],
-    "remaining_count": 8,
+    "remaining_count": 7,
     "source": "docs/human-dependencies.md",
     "note": "Live trading AUTHORIZED (C=$200 LIVE) within risk sleeve. Return-sources mandate in force \u2014 honest beta/event OK. automated_execution=false (Ready \u2014 Holt-gated; agents dry_run default). withdrawal=false (agents blocked). Remaining open items (entity rename, Bitwarden polish, CPA, standing leverage/withdrawal policy) are not a live halt.",
     "stale_fields_note": "Do not treat live_blocked=true or C-unconfirmed as current."
@@ -5278,7 +5328,7 @@
         "status": "HUMAN_AUTH",
         "detail": "Broker login / session refresh required before exec rails are usable."
       },
-      "last_session_check_ct": "2026-09-17 10:05:04 CT",
+      "last_session_check_ct": "2026-09-17 10:27:22 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
@@ -5363,7 +5413,7 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-11 08:43:07 CT"
+        "mtime_ct": "2026-09-17 10:16:50 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -5442,7 +5492,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-11 08:43:07 CT",
+        "mtime_ct": "2026-09-17 10:16:50 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -5530,7 +5580,7 @@
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-11 08:43:07 CT"
+        "mtime_ct": "2026-09-17 10:16:50 CT"
       },
       {
         "path": "docs/ops-index.md",
@@ -5609,7 +5659,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-09-11 08:43:07 CT",
+        "mtime_ct": "2026-09-17 10:16:50 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -5726,7 +5776,7 @@
       "latest_lesson": "Ranked labeled queues replace undifferentiated hunt lists; every options cycle must end in executable stub OR explicit REJECT+process change \u2014 not more research.",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -5791,7 +5841,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -5857,7 +5907,7 @@
       "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -5922,7 +5972,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -5992,7 +6042,7 @@
       "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -6060,7 +6110,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-17 10:05:05 CT",
+      "last_updated_ct": "2026-09-17 10:27:23 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -6094,7 +6144,7 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "securities-pm",
@@ -6139,7 +6189,7 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "options-pm-ride",
@@ -6183,7 +6233,7 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -6236,7 +6286,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -6871,7 +6921,7 @@
           "forecast_class": "market_informed",
           "clv": "TBD at kick",
           "tag": "HARBOR_SHADOW",
-          "rationale": "TNF Highmark open; fair-first on inflated total (51.5\u219253.5); DET +4.5 soft watch only (steamed -3\u2192-4.5; key3 lesson prefer dog not BUF -4.5 chalk); mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if total \u226451.5 w/o injury or climbs past 55; tag=below_mos",
+          "rationale": "TNF Highmark open; fair-first on inflated total (51.5\u219253.5); DET +4.5 soft watch only (steamed -3\u2192-4.5; key3 lesson prefer dog not BUF -4.5 chalk); mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if total \u226451.5 w/o injury or climbs past 55; tag=below_mos; Thu midweek 2026-09-17 KEEP soft: tot 53.5\u2192~54.5 (not past kill 55); weather non-factor; DET Mahogany OUT Miller OUT Reed Q; BUF Bishop/Ty Johnson/Sanders Q; thesis softer still below_mos; soft DET +4.5 only if \u2265+5.5 \u2014 no new ledger; confirm DK in-app; no Live",
           "result": "pending",
           "pnl_net_usd": null,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
@@ -6892,7 +6942,7 @@
           "forecast_class": "market_informed",
           "clv": "TBD at kick",
           "tag": "HARBOR_SHADOW",
-          "rationale": "AJ Brown IR (high ankle); NE -5.5 steamed from -4.5; total crushed 43.5\u219241.5 \u2014 Under WATCH only (already moved); injury-priced WR1 + number screen on dog; NEVER NE -5.5 chalk without MoS; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +4 w/o NE further injury; tag=below_mos",
+          "rationale": "AJ Brown IR (high ankle); NE -5.5 steamed from -4.5; total crushed 43.5\u219241.5 \u2014 Under WATCH only (already moved); injury-priced WR1 + number screen on dog; NEVER NE -5.5 chalk without MoS; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +4 w/o NE further injury; tag=below_mos; Thu midweek 2026-09-17 KEEP; Brown IR unchanged; kill inside +4 not triggered; never NE \u22125.5 chalk; confirm DK in-app; no Live",
           "result": "pending",
           "pnl_net_usd": null,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
@@ -6913,7 +6963,7 @@
           "forecast_class": "market_informed",
           "clv": "TBD at kick",
           "tag": "HARBOR_SHADOW",
-          "rationale": "Darnold OUT (hip); Lock likely; number retreat -6/-5.5\u2192-4.5; ARI Week1 upset vs LAC; lesson=lagged_dog_number_capture; NEVER SEA -4.5 chalk; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +3 w/o SEA upgrade; tag=below_mos",
+          "rationale": "Darnold OUT (hip); Lock likely; number retreat -6/-5.5\u2192-4.5; ARI Week1 upset vs LAC; lesson=lagged_dog_number_capture; NEVER SEA -4.5 chalk; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +3 w/o SEA upgrade; tag=below_mos; Thu midweek 2026-09-17 KEEP; Darnold OUT Lock starts; kill inside +3 not triggered; confirm DK in-app; no Live",
           "result": "pending",
           "pnl_net_usd": null,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
@@ -6934,7 +6984,7 @@
           "forecast_class": "market_informed",
           "clv": "TBD at kick",
           "tag": "HARBOR_SHADOW",
-          "rationale": "Flipped: open ATL -1.5 \u2192 CAR -1.5 (some -2.5); Falcons QB unsettled (Rush/Tua/Penix TBD Wed); prefer dog ATL +1.5/+2.5 over CAR chalk; CAR allowed 59 W1; mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if Penix/Tua confirmed healthy AND ATL shortens past +0.5; tag=below_mos",
+          "rationale": "Flipped: open ATL -1.5 \u2192 CAR -1.5 (some -2.5); Falcons QB unsettled (Rush/Tua/Penix TBD Wed); prefer dog ATL +1.5/+2.5 over CAR chalk; CAR allowed 59 W1; mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if Penix/Tua confirmed healthy AND ATL shortens past +0.5; tag=below_mos; Thu midweek 2026-09-17 KEEP; Stefanski not naming starter Tua DNP Rush+Penix practiced; kill=healthy Penix/Tua AND ATL past +0.5 not triggered; shop +2.5 if avail; confirm DK in-app; no Live",
           "result": "pending",
           "pnl_net_usd": null,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
@@ -7017,7 +7067,7 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
@@ -7137,7 +7187,7 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -7165,7 +7215,7 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "securities-pm",
@@ -7193,7 +7243,7 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "options-pm-ride",
@@ -7221,7 +7271,7 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -7249,7 +7299,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -7277,7 +7327,7 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-17T10:05:05-05:00",
+        "lastUpdated": "2026-09-17T10:27:23-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
@@ -7303,6 +7353,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-17T10:05:05-05:00"
+    "generated_at_ct": "2026-09-17T10:27:23-05:00"
   }
 }
