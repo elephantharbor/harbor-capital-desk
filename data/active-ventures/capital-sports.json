@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-16T17:20:00-05:00",
+  "lastUpdated": "2026-09-17T10:05:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Wed 2026-09-16 OS v2 IMPLEMENT: settled Tue MLB shadows SP-SH-20260915-MLB-01/02 (ATL ML W, BAL ML W; batch 2-0-0 +$9.16). Open shadows only (≠AV): CFB Week-3 Fri/Sat (3), NFL TNF Under + Sun dogs (4). All below_mos. ready_for_quinn NO. Process review filed (SP-L06 Shadow Pre-Log Gates v1). S=$200 DK sleeve idle until Quinn+Holt clear.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Thu 2026-09-17 MLB screen (~10:05 CT): SP-L06 Pre-Log Gates \u2192 empty board (0 new MLB shadows; LAA/DET primaries fail mid-EV<$0.40 and/or fair\u2248market / mild SP-dog). Open shadows only (\u2260AV): CFB Week-3 Fri/Sat (3); NFL TNF Under 53.5 DET@BUF (SP-SH-20260915-NFL-01 \u2014 leave pending until final); NFL Sun dogs (3). All below_mos. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear.",
   "items": []
 }
