@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-18T10:10:00-05:00",
+  "lastUpdated": "2026-09-18T10:29:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Fri 2026-09-18 (~10:10 CT): settled TNF SP-SH-20260915-NFL-01 Under 53.5 DET@BUF LOSS (BUF 41–31 DET, tot 72; hyp −$4.00; CLV number_−1.0pt vs close ~54.5). MLB Fri SP-L06 screen → empty board (0 new SP-SH-20260918-MLB-*; CIN/ARI mid-EV<$0.40 / fair≈market / mild SP-dog; PHI Luzardo IL + bullpen SP-confirm kill; BOS Chapman lat + Contreras miss flags). Open shadows only (≠AV): CFB Week-3 Fri HOU+8.5 tonight + Sat SMU/UNC (3); NFL Sun dogs PIT/ARI/ATL (3). All below_mos. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Fri 2026-09-18 (~10:29 CT): absorbed Holt CFB Week-3 Fri refresh. SP-SH-20260914-CFB-03 HOU +8.5 \u2192 SOFTEN KEEP (market only +7.5; open \u221210 faded; kill inside +7 not met; CLV settle only \u2014 no chase). CFB-01 SMU +1.5 KEEP (shop +2/+2.5). CFB-02 UNC +3 KEEP prefer +3.5 (Vizzina Out / Reynolds start; never CLEM chalk). Soft KU abstain unless DK \u2265+6. SP-L06: no new thin shadows. Open shadows only (\u2260AV): CFB\u00d73 (HOU tonight + Sat SMU/UNC) + NFL Sun PIT/ARI/ATL\u00d73. All below_mos. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app.",
   "items": []
 }
