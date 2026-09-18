@@ -1,8 +1,36 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital — Sports",
-  "lastUpdated": "2026-09-17T10:28:00-05:00",
+  "lastUpdated": "2026-09-18T10:10:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-mlb-fri-tnf-settle-20260918",
+      "ts": "2026-09-18T10:10:00-05:00",
+      "ts_ct": "2026-09-18 10:10:00 CT",
+      "area": "sports",
+      "title": "TNF settle LOSS + MLB Fri empty board (SP-L06)",
+      "summary": "Settled SP-SH-20260915-NFL-01 Under 53.5 DET@BUF: LOSS (BUF 41–31 DET, tot 72; hyp −$4.00; CLV number_−1.0pt vs close ~54.5). Cumulative shadows 13–13–0 (+$0.28). MLB Fri screen under SP-L06 → empty board (0 new MLB shadows): CIN+108 / ARI+105 / PHI even / BOS+112 all fail mid-EV<$0.40 and/or fair≈market / mild SP-dog / Luzardo IL SP-confirm / Chapman+Contreras flags. Open leave pending: CFB-01/02/03; NFL-02/03/04. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage.",
+      "tags": [
+        "sports",
+        "mlb",
+        "nfl",
+        "shadow",
+        "settle",
+        "tnf",
+        "empty-board",
+        "below_mos",
+        "no-live",
+        "sp-l06"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/mlb-screen-2026-09-18.md",
+        "settle": "journal/sports-shadow/shadow-results-summary-2026-09-18.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md"
+      },
+      "at": "2026-09-18T10:10:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)"
+    },
     {
       "id": "sess-sports-nfl-thu-midweek-20260917",
       "ts": "2026-09-17T10:28:00-05:00",
@@ -406,5 +434,5 @@
       "lessonId": null
     }
   ],
-  "updated_ct": "2026-09-17 10:28:00 CT"
+  "updated_ct": "2026-09-18 10:10:00 CT"
 }
