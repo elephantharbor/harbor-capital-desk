@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-19T08:15:00-05:00",
+  "lastUpdated": "2026-09-19T09:40:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Sat 2026-09-19 (~8:15 CT): absorbed Holt CFB Sat Week-3 gameday. SP-SH-20260914-CFB-03 HOU +8.5 SETTLED W (TTU 28–26 HOU; margin −2; hyp +$3.64; CLV number_−1.0pt vs close +7.5; DEAD). CFB-02 UNC +3 KEEP (shop +3.5; CLEM −3.5; Reynolds starts; Vizzina Q/backup; never CLEM chalk; kill not met; below_mos → no Live). CFB-01 SMU +1.5 KEEP (LOU −1.5; shop +2/+2.5; ~95°F note; kill not met; below_mos → no Live). Soft KU abstain unless DK ≥+6. SP-L06: no new thin shadows. Cumulative shadows 14–13–0 (+$3.92). Open shadows only (≠AV): CFB×2 Sat (UNC/SMU) + NFL Sun PIT/ARI/ATL×3. All below_mos. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Sat 2026-09-19 (~9:40 CT): MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 3rd straight MLB empty). Primaries: BOS ML @ TB ABSTAIN (Chapman lat + Contreras hand flags; mid-EV <$0.40 honest @ +114/+126; mild SP-dog). TEX ML vs TOR ABSTAIN (nF ~54.6% vs mkt ~46% @ +116 clears mid-EV ~$0.49\u20130.67 but below_mos + prefer-0 calibration \u2014 no ticket_id). Soft PHI/HOU/BAL research only. Skip chalk + PNC storms. Prior Sat AM: CFB HOU +8.5 SETTLED W; UNC+3 / SMU+1.5 KEEP (below_mos). Cumulative shadows 14\u201313\u20130 (+$3.92). Open shadows only (\u2260AV): CFB\u00d72 Sat (UNC/SMU) + NFL Sun PIT/ARI/ATL\u00d73. All below_mos. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
   "items": []
 }
