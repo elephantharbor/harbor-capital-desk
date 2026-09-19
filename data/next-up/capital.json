@@ -1,18 +1,11 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-18T10:29:55-05:00",
+  "lastUpdated": "2026-09-19T08:10:50-05:00",
   "items": [
     {
-      "id": "eod-reconcile",
-      "title": "End-of-day reconcile",
-      "nextRunAt": "2026-09-18T16:00:00-05:00",
-      "scheduleLabel": "Weekdays 4:00 PM CT",
-      "owner": "Holt"
-    },
-    {
       "id": "viability-evidence",
-      "title": "Viability evidence (Day 9 \u00b7 22d left)",
+      "title": "Viability evidence (Day 10 \u00b7 21d left)",
       "nextRunAt": "2026-09-21T09:30:00-05:00",
       "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
       "owner": "Holt"
@@ -23,6 +16,13 @@
       "nextRunAt": "2026-09-21T10:00:00-05:00",
       "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
       "owner": "Cole"
+    },
+    {
+      "id": "eod-reconcile",
+      "title": "End-of-day reconcile",
+      "nextRunAt": "2026-09-21T16:00:00-05:00",
+      "scheduleLabel": "Weekdays 4:00 PM CT",
+      "owner": "Holt"
     }
   ]
 }
