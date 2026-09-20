@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-20 09:18:09 CT",
+  "generated_at_ct": "2026-09-20 09:46:23 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-20 09:18:09 CT",
+    "generated_at_ct": "2026-09-20 09:46:23 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -3709,8 +3709,36 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-20T09:15:00-05:00",
+    "lastUpdated": "2026-09-20T09:45:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-mlb-screen-empty-20260920",
+        "ts": "2026-09-20T09:45:00-05:00",
+        "ts_ct": "2026-09-20 09:45:00 CT",
+        "area": "sports",
+        "title": "MLB Sun empty board (SP-L06) \u2014 4th straight",
+        "summary": "Sun MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 4th consecutive MLB empty). ATL ML @ HOU (+120/+124) ABSTAIN: P\u00e9rez (9-9, 3.07) vs Brown (6-3, 3.43) near-even SP; ATL 91-64 soft dog; nF HOU ~54.2% \u2248 market ~45% ATL; mild SP-dog/club sourcing de-priority; mid-EV ~$0.48\u20130.66 at 0.50\u20130.52 still below_mos ($0.80) + prefer-0 \u2192 no ticket_id. DET ML @ CWS (\u2212102) ABSTAIN/PASS: Melton (8-4, 2.52) vs Martin (9-7, 3.96) clear SP edge but Rate Field rain ~63\u201374% / windy; fair\u2248market; mid-EV \u226a $0.40. Soft BOS +126 / MIA +132 / NYY\u2013ARI research only. Skip CLE \u2212240 \u00b7 LAD \u2212275 \u00b7 MIL \u2212210 \u00b7 PHI \u2212161 \u00b7 SEA \u2212162 \u00b7 TEX \u2212163 \u00b7 CHC \u2212157. Roofs clean (Daikin, Trop, Chase). No SP-SH-20260920-MLB-* rows. Open leave pending: NFL-02/03/04 Sun. Cumulative 14\u201315\u20130 (\u2212$4.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "empty-board",
+          "below_mos",
+          "no-live",
+          "sp-l06",
+          "abstain",
+          "weather"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/mlb-screen-2026-09-20.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "prior_nfl": "docs/sports-memos/nfl-sunday-gameday-2026-09-20.md"
+        },
+        "at": "2026-09-20T09:45:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open NFL\u00d73 \u2260 AV). Overview republish. Session Log. process_delta: prefer-0 honored; ATL left off; DET weather kill."
+      },
       {
         "id": "sess-sports-cfb-settle-nfl-sun-gameday-20260920",
         "ts": "2026-09-20T09:15:00-05:00",
@@ -4416,8 +4444,36 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-20T09:15:00-05:00",
+    "lastUpdated": "2026-09-20T09:45:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-mlb-screen-empty-20260920",
+        "ts": "2026-09-20T09:45:00-05:00",
+        "ts_ct": "2026-09-20 09:45:00 CT",
+        "area": "sports",
+        "title": "MLB Sun empty board (SP-L06) \u2014 4th straight",
+        "summary": "Sun MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 4th consecutive MLB empty). ATL ML @ HOU (+120/+124) ABSTAIN: P\u00e9rez (9-9, 3.07) vs Brown (6-3, 3.43) near-even SP; ATL 91-64 soft dog; nF HOU ~54.2% \u2248 market ~45% ATL; mild SP-dog/club sourcing de-priority; mid-EV ~$0.48\u20130.66 at 0.50\u20130.52 still below_mos ($0.80) + prefer-0 \u2192 no ticket_id. DET ML @ CWS (\u2212102) ABSTAIN/PASS: Melton (8-4, 2.52) vs Martin (9-7, 3.96) clear SP edge but Rate Field rain ~63\u201374% / windy; fair\u2248market; mid-EV \u226a $0.40. Soft BOS +126 / MIA +132 / NYY\u2013ARI research only. Skip CLE \u2212240 \u00b7 LAD \u2212275 \u00b7 MIL \u2212210 \u00b7 PHI \u2212161 \u00b7 SEA \u2212162 \u00b7 TEX \u2212163 \u00b7 CHC \u2212157. Roofs clean (Daikin, Trop, Chase). No SP-SH-20260920-MLB-* rows. Open leave pending: NFL-02/03/04 Sun. Cumulative 14\u201315\u20130 (\u2212$4.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+        "tags": [
+          "sports",
+          "mlb",
+          "shadow",
+          "empty-board",
+          "below_mos",
+          "no-live",
+          "sp-l06",
+          "abstain",
+          "weather"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/mlb-screen-2026-09-20.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "prior_nfl": "docs/sports-memos/nfl-sunday-gameday-2026-09-20.md"
+        },
+        "at": "2026-09-20T09:45:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open NFL\u00d73 \u2260 AV). Overview republish. Session Log. process_delta: prefer-0 honored; ATL left off; DET weather kill."
+      },
       {
         "id": "sess-sports-cfb-settle-nfl-sun-gameday-20260920",
         "ts": "2026-09-20T09:15:00-05:00",
@@ -5566,7 +5622,7 @@
         "status": "HUMAN_AUTH",
         "detail": "Broker login / session refresh required before exec rails are usable."
       },
-      "last_session_check_ct": "2026-09-20 09:18:08 CT",
+      "last_session_check_ct": "2026-09-20 09:46:22 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
@@ -6014,7 +6070,7 @@
       "latest_lesson": "Ranked labeled queues replace undifferentiated hunt lists; every options cycle must end in executable stub OR explicit REJECT+process change \u2014 not more research.",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -6079,7 +6135,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -6145,7 +6201,7 @@
       "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -6210,7 +6266,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -6280,7 +6336,7 @@
       "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -6348,7 +6404,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-20 09:18:09 CT",
+      "last_updated_ct": "2026-09-20 09:46:23 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -6382,7 +6438,7 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -6427,7 +6483,7 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -6471,7 +6527,7 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -6524,7 +6580,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -7305,12 +7361,12 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-20T09:30:00-05:00",
+            "nextRunAt": "2026-09-21T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -7425,7 +7481,7 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "viability-evidence",
@@ -7453,7 +7509,7 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "securities-am",
@@ -7481,7 +7537,7 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "options-am-ride",
@@ -7509,7 +7565,7 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
@@ -7537,7 +7593,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "crypto-am",
@@ -7565,12 +7621,12 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-20T09:18:09-05:00",
+        "lastUpdated": "2026-09-20T09:46:23-05:00",
         "items": [
           {
             "id": "mlb-daily-board",
             "title": "MLB daily screen",
-            "nextRunAt": "2026-09-20T09:30:00-05:00",
+            "nextRunAt": "2026-09-21T09:30:00-05:00",
             "scheduleLabel": "Daily 9:30 AM CT (in-season)",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
@@ -7591,6 +7647,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-20T09:18:09-05:00"
+    "generated_at_ct": "2026-09-20T09:46:23-05:00"
   }
 }

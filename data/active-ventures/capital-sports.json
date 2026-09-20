@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-20T09:15:00-05:00",
+  "lastUpdated": "2026-09-20T09:45:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Sun 2026-09-20 (~9:15 CT): settled Sat CFB keepers both L. SP-SH-20260914-CFB-01 SMU +1.5 SETTLED L (LOU 41–31 SMU; margin −10; hyp −$4.00; CLV~flat; DEAD). SP-SH-20260914-CFB-02 UNC +3 SETTLED L (CLEM 28–20 UNC; margin −8; hyp −$4.00; CLV number_−0.5pt vs close +3.5; DEAD). Cumulative shadows 14–15–0 (−$4.08). Absorbed Holt NFL Sun Week-2 gameday: TNF-01 already SETTLED L; KEEP NFL-02 PIT +5.5 / NFL-03 ARI +4.5 / NFL-04 ATL +1.5 prefer +2.5 — all below_mos → no Live; kills not met; soft CIN/WAS/JAC — no new ledger (SP-L06). Open shadows only (≠AV): NFL Sun PIT/ARI/ATL ×3. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Sun 2026-09-20 (~9:45 CT): MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 4th consecutive MLB empty). ATL ML @ HOU (+120/+124) ABSTAIN: P\u00e9rez vs Brown near-even SP; nF HOU ~54.2% \u2248 market; mild soft-dog/club sourcing de-priority; mid-EV ~$0.48\u20130.66 at club bump still below_mos ($0.80) + prefer-0 \u2192 no ticket_id. DET ML @ CWS (\u2212102) ABSTAIN/PASS: Melton SP edge real but Rate Field rain ~63\u201374% + fair\u2248market + mid-EV \u226a $0.40. Soft BOS +126 / MIA +132 / ARI +138 research only. Skip CLE/LAD/MIL/PHI/SEA/TEX/CHC chalk. Roofs clean (Daikin, Trop, Chase). No SP-SH-20260920-MLB-* rows. Open shadows only (\u2260AV): NFL Sun PIT +5.5 / ARI +4.5 / ATL +1.5 prefer +2.5 \u00d73 (below_mos; KEEP from AM gameday). Cumulative shadows 14\u201315\u20130 (\u2212$4.08). ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
   "items": []
 }
