@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-21T10:15:00-05:00",
+  "lastUpdated": "2026-09-21T11:00:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Mon 2026-09-21 (~10:15 CT): settled NFL Sun Week-2 keepers all L. SP-SH-20260915-NFL-02 PIT +5.5 SETTLED L (NE 20–3 PIT; margin −17; hyp −$4.00; CLV number_+0.5pt vs close +5; DEAD). SP-SH-20260915-NFL-03 ARI +4.5 SETTLED L (SEA 31–7 ARI; margin −24; hyp −$4.00; CLV~flat; DEAD). SP-SH-20260915-NFL-04 ATL +1.5 SETTLED L (CAR 34–3 ATL; margin −31; hyp −$4.00; CLV number_−1.0pt vs close +2.5; DEAD). Cumulative shadows 14–18–0 (−$16.08). MLB Mon SP-L06 empty board (5th straight; 0 new MLB shadows) — TOR ML / soft WSH +125 / soft MIN −118 all fail pre-log. Open shadows: none. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Mon 2026-09-21 (~11:00 CT): CFB Week-4 Mon early-week screen under SP-L06 \u2192 empty board (0 new CFB shadows; first CFB empty under locked gates). Primaries ABSTAIN: Ole Miss +3.5 @ FLA (DK \u22123.5/60.5; VSiN FLA \u22121.5; mid-EV ~$0.12\u20130.28); USC +2.5/+3 vs ORE (DK \u22123/62.5; VSiN wrong-side ORE; mid-EV ~$0.20\u20130.35); Missouri +6.5 @ MSST (DK \u22126.5/58.5; VSiN \u22122 vs mkt \u22126.5 \u2014 closest watch; mid-EV ~$0.28\u20130.43 prefer-0). Soft IA +5.5 / Fri CLEM +1.5 \u2014 no edge. Skip OSU/ND/MIA/TTU chalk. Prior same-day: NFL Sun L\u00d73; MLB Mon empty (5th). Cum shadows 14\u201318\u20130 (\u2212$16.08). Open shadows: none. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
   "items": []
 }

@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-21 10:19:40 CT",
+  "generated_at_ct": "2026-09-21 10:58:32 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-21 10:19:40 CT",
+    "generated_at_ct": "2026-09-21 10:58:32 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -3709,8 +3709,38 @@
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-21T10:15:00-05:00",
+    "lastUpdated": "2026-09-21T11:00:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-cfb-mon-empty-20260921",
+        "ts": "2026-09-21T11:00:00-05:00",
+        "ts_ct": "2026-09-21 11:00:00 CT",
+        "area": "sports",
+        "title": "CFB Mon Week-4 empty board (SP-L06 prefer-0)",
+        "summary": "CFB Week-4 Mon early-week screen (games Sep 24\u201326) under SP-L06 \u2192 empty board (0 new CFB shadows; first CFB empty under locked gates). Ole Miss +3.5 @ FLA ABSTAIN: DK FLA \u22123.5 / 60.5; VSiN FLA \u22121.5; hangover vs Sumrall; mid-EV ~$0.12\u20130.28 <$0.40; never FLA \u22123.5 chalk. USC +2.5/+3 vs ORE ABSTAIN: DK ORE \u22123 / 62.5 (Covers \u22122.5); VSiN wrong-side ORE (USC \u22121.5) noted but no invent full flip; mid-EV ~$0.20\u20130.35; never ORE chalk. Missouri +6.5 @ MSST ABSTAIN (closest): DK MSST \u22126.5 / 58.5; VSiN \u22122 vs mkt \u22126.5 + open\u2212steam; mid-EV ~$0.28\u20130.43 at honest band \u2014 prefer-0 leaves calibration unused; reopen only if DK \u2265+7. Soft Iowa +5.5 @ MICH fair\u2248VSiN \u22124.5 ABSTAIN. Soft Fri Clemson +1.5 @ CAL WATCH only. Skip OSU \u221227.5 / ND \u221227.5 / MIA \u221241.5 / TTU \u221235.5. No SP-SH-20260921-CFB-* rows. Open CFB=0. Cum 14\u201318\u20130 (\u2212$16.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+        "tags": [
+          "sports",
+          "cfb",
+          "shadow",
+          "empty-board",
+          "below_mos",
+          "no-live",
+          "sp-l06",
+          "abstain",
+          "week-4",
+          "prefer-0"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/cfb-monday-screen-2026-09-21.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "prior_mlb": "docs/sports-memos/mlb-screen-2026-09-21.md",
+          "vsin": "https://vsin.com/college-football/week-4-college-football-power-ratings-and-projections-for-every-game/"
+        },
+        "at": "2026-09-21T11:00:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "No new CFB ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: first CFB empty under SP-L06; VSiN gaps noted not forced; prefer-0 honored."
+      },
       {
         "id": "sess-sports-nfl-settle-mlb-empty-20260921",
         "ts": "2026-09-21T10:15:00-05:00",
@@ -4476,8 +4506,38 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-09-21T10:15:00-05:00",
+    "lastUpdated": "2026-09-21T11:00:00-05:00",
     "entries": [
+      {
+        "id": "sess-sports-cfb-mon-empty-20260921",
+        "ts": "2026-09-21T11:00:00-05:00",
+        "ts_ct": "2026-09-21 11:00:00 CT",
+        "area": "sports",
+        "title": "CFB Mon Week-4 empty board (SP-L06 prefer-0)",
+        "summary": "CFB Week-4 Mon early-week screen (games Sep 24\u201326) under SP-L06 \u2192 empty board (0 new CFB shadows; first CFB empty under locked gates). Ole Miss +3.5 @ FLA ABSTAIN: DK FLA \u22123.5 / 60.5; VSiN FLA \u22121.5; hangover vs Sumrall; mid-EV ~$0.12\u20130.28 <$0.40; never FLA \u22123.5 chalk. USC +2.5/+3 vs ORE ABSTAIN: DK ORE \u22123 / 62.5 (Covers \u22122.5); VSiN wrong-side ORE (USC \u22121.5) noted but no invent full flip; mid-EV ~$0.20\u20130.35; never ORE chalk. Missouri +6.5 @ MSST ABSTAIN (closest): DK MSST \u22126.5 / 58.5; VSiN \u22122 vs mkt \u22126.5 + open\u2212steam; mid-EV ~$0.28\u20130.43 at honest band \u2014 prefer-0 leaves calibration unused; reopen only if DK \u2265+7. Soft Iowa +5.5 @ MICH fair\u2248VSiN \u22124.5 ABSTAIN. Soft Fri Clemson +1.5 @ CAL WATCH only. Skip OSU \u221227.5 / ND \u221227.5 / MIA \u221241.5 / TTU \u221235.5. No SP-SH-20260921-CFB-* rows. Open CFB=0. Cum 14\u201318\u20130 (\u2212$16.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+        "tags": [
+          "sports",
+          "cfb",
+          "shadow",
+          "empty-board",
+          "below_mos",
+          "no-live",
+          "sp-l06",
+          "abstain",
+          "week-4",
+          "prefer-0"
+        ],
+        "links": {
+          "memo": "docs/sports-memos/cfb-monday-screen-2026-09-21.md",
+          "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+          "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+          "prior_mlb": "docs/sports-memos/mlb-screen-2026-09-21.md",
+          "vsin": "https://vsin.com/college-football/week-4-college-football-power-ratings-and-projections-for-every-game/"
+        },
+        "at": "2026-09-21T11:00:00-05:00",
+        "actor": "Sloan (Harbor Capital - Sports)",
+        "deskChanges": "No new CFB ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: first CFB empty under SP-L06; VSiN gaps noted not forced; prefer-0 honored."
+      },
       {
         "id": "sess-sports-nfl-settle-mlb-empty-20260921",
         "ts": "2026-09-21T10:15:00-05:00",
@@ -5686,7 +5746,7 @@
         "status": "HUMAN_AUTH",
         "detail": "Broker login / session refresh required before exec rails are usable."
       },
-      "last_session_check_ct": "2026-09-21 10:19:39 CT",
+      "last_session_check_ct": "2026-09-21 10:58:32 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
@@ -6134,7 +6194,7 @@
       "latest_lesson": "Ranked labeled queues replace undifferentiated hunt lists; every options cycle must end in executable stub OR explicit REJECT+process change \u2014 not more research.",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -6199,7 +6259,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -6265,7 +6325,7 @@
       "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -6330,7 +6390,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -6400,7 +6460,7 @@
       "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -6468,7 +6528,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-21 10:19:40 CT",
+      "last_updated_ct": "2026-09-21 10:58:32 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -6502,7 +6562,7 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "securities-pm",
@@ -6547,7 +6607,7 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "options-pm-ride",
@@ -6591,7 +6651,7 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -6644,7 +6704,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -7425,7 +7485,7 @@
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "nfl-tuesday-board",
@@ -7545,7 +7605,7 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -7573,7 +7633,7 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "securities-pm",
@@ -7601,7 +7661,7 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "options-pm-ride",
@@ -7629,7 +7689,7 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "eod-reconcile",
@@ -7657,7 +7717,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -7685,7 +7745,7 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-21T10:19:40-05:00",
+        "lastUpdated": "2026-09-21T10:58:32-05:00",
         "items": [
           {
             "id": "nfl-tuesday-board",
@@ -7711,6 +7771,6 @@
         ]
       }
     },
-    "generated_at_ct": "2026-09-21T10:19:40-05:00"
+    "generated_at_ct": "2026-09-21T10:58:32-05:00"
   }
 }
