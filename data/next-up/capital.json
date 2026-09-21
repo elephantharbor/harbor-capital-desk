@@ -1,28 +1,28 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-20T09:46:23-05:00",
+  "lastUpdated": "2026-09-21T10:19:40-05:00",
   "items": [
-    {
-      "id": "viability-evidence",
-      "title": "Viability evidence (Day 11 \u00b7 20d left)",
-      "nextRunAt": "2026-09-21T09:30:00-05:00",
-      "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
-      "owner": "Holt"
-    },
-    {
-      "id": "ibit-research",
-      "title": "IBIT research (COREBETA live)",
-      "nextRunAt": "2026-09-21T10:00:00-05:00",
-      "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
-      "owner": "Cole"
-    },
     {
       "id": "eod-reconcile",
       "title": "End-of-day reconcile",
       "nextRunAt": "2026-09-21T16:00:00-05:00",
       "scheduleLabel": "Weekdays 4:00 PM CT",
       "owner": "Holt"
+    },
+    {
+      "id": "viability-evidence",
+      "title": "Viability evidence (Day 12 \u00b7 19d left)",
+      "nextRunAt": "2026-09-22T09:30:00-05:00",
+      "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
+      "owner": "Holt"
+    },
+    {
+      "id": "ibit-research",
+      "title": "IBIT research (COREBETA live)",
+      "nextRunAt": "2026-09-22T10:00:00-05:00",
+      "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
+      "owner": "Cole"
     }
   ]
 }
