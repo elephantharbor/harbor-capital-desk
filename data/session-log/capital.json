@@ -1,8 +1,39 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-21T11:00:00-05:00",
+  "lastUpdated": "2026-09-22T09:52:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-nfl-tue-empty-20260922",
+      "ts": "2026-09-22T09:52:00-05:00",
+      "ts_ct": "2026-09-22 09:52:00 CT",
+      "area": "sports",
+      "title": "NFL Tue Week-3 empty board (SP-L06 prefer-0)",
+      "summary": "NFL Week-3 Tue early screen under SP-L06 \u2192 empty board (0 new NFL shadows; first NFL empty under locked gates). Open ledger entering wake=0 after Week-2 0\u20134 settle (cum 14\u201318\u20130 \u2212$16.08). WAS +6.5/+7 ABSTAIN/WATCH hold Wed: Daniels OUT / Mariota; Darnold hip Wed practice TBD; no timed confirmation; mid-EV ~$0.00\u20130.20 \u226a $0.40. CHI +3/+3.5 ABSTAIN: Caleb hamstring week-to-week; DK/VI ~PHI \u22123 (CBS early \u22124.5 already shortened); key-3 fragile; OUT not confirmed; mid-EV <$0.40. TEN +3/+3.5 ABSTAIN: Dart sprained MCL (MRI Tue); Winston likely; lag already captured (open NYG \u22125.5/\u22126 \u2192 DK/SI ~\u22123/\u22123.5); +6 gone; fair\u2248market; mid-EV \u226a $0.40. Soft ATL +6/+6.5 TNF ABSTAIN: Penix starts; +7 kill met at DK. Soft LAC+7 / PIT+3.5 / IND+1.5 watch only. Skip large chalks. Prefer-0 below_mos honored (W2 dog KEEP\u00d73 all L lesson). No SP-SH-20260922-NFL-* rows. ready_for_quinn NO. Confirm DK in-app (CBS DK + VI DK column + SI Dart move; live DK app 403 from box). No Live / no Quinn / no place / no iMessage / no cascade.",
+      "tags": [
+        "sports",
+        "nfl",
+        "shadow",
+        "empty-board",
+        "below_mos",
+        "no-live",
+        "sp-l06",
+        "abstain",
+        "week-3",
+        "prefer-0",
+        "injury-lag"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/nfl-tue-screen-2026-09-22.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "prior_settle": "journal/sports-shadow/shadow-results-summary-2026-09-21.md",
+        "prior_cfb": "docs/sports-memos/cfb-monday-screen-2026-09-21.md"
+      },
+      "at": "2026-09-22T09:52:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "No new NFL ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: first NFL empty under SP-L06; WAS hold Wed; CHI key-3+OUT TBD; TEN lag priced; ATL +7 kill; prefer-0; W2 thin-dog lesson."
+    },
     {
       "id": "sess-sports-cfb-mon-empty-20260921",
       "ts": "2026-09-21T11:00:00-05:00",
