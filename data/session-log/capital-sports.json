@@ -1,8 +1,38 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-22T09:52:00-05:00",
+  "lastUpdated": "2026-09-22T10:15:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-mlb-tue-empty-20260922",
+      "ts": "2026-09-22T10:15:00-05:00",
+      "ts_ct": "2026-09-22 10:15:00 CT",
+      "area": "sports",
+      "title": "MLB Tue empty board (SP-L06 6th straight \u00b7 prefer-0)",
+      "summary": "MLB Tue Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 6th consecutive MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). TB ML G1 (+105/+112) ASAP PASS: Martinez\u2248Rod\u00f3n SP wash; SharpModels TB 45% \u2248 de-vig; YS NE ~12\u201318 mph soft Under only; mid-EV \u226a $0.40; never NYY \u2212135 chalk; FP ~12:05 CT \u2192 pass. CLE ML (+105/+110) ABSTAIN: Messick 2.57 vs Tolle 3.02 narrative but Sharp/DRatings/nF/MGM lean BOS 54\u201358% \u2248 market; Chapman OUT priced (CLE steam +117\u2192+109); mid-EV <$0.40; never BOS \u2212130 chalk. MIL ML (+114/+120) ABSTAIN: closest \u2014 SharpModels 50/50 + nF MIL ~50.6% vs de-vig ~44% (fair disagrees) \u2192 mid-EV ~$0.40\u20130.45 @ +120 clears $0.40 gate but below_mos; prefer-0 + soft-dog-vs-ace (May 4.61 into Wheeler 2.99) leave calibration unused; never PHI \u2212137/\u2212142 chalk. Soft TB G2 / STL +142 / SD +109 ABSTAIN. Heavy chalk SKIP. Prefer-0 below_mos honored. No SP-SH-20260922-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "tags": [
+        "sports",
+        "mlb",
+        "shadow",
+        "empty-board",
+        "below_mos",
+        "no-live",
+        "sp-l06",
+        "abstain",
+        "prefer-0",
+        "soft-dog"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/mlb-screen-2026-09-22.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "prior_mlb": "docs/sports-memos/mlb-screen-2026-09-21.md",
+        "same_day_nfl": "docs/sports-memos/nfl-tue-screen-2026-09-22.md"
+      },
+      "at": "2026-09-22T10:15:00-05:00",
+      "actor": "Sloan (Harbor Capital - Sports)",
+      "deskChanges": "No new MLB ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: 6th MLB empty under SP-L06; TB G1 ASAP fair\u2248mkt pass; CLE SP edge not in models; MIL prefer-0 below_mos vs ace; calibration unused."
+    },
     {
       "id": "sess-sports-nfl-tue-empty-20260922",
       "ts": "2026-09-22T09:52:00-05:00",
@@ -673,5 +703,5 @@
       "lessonId": null
     }
   ],
-  "updated_ct": "2026-09-20 09:45:00 CT"
+  "updated_ct": "2026-09-22 10:15:00 CT"
 }
