@@ -1,18 +1,18 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-09-24 10:01:21 CT",
+  "generated_at_ct": "2026-09-24 16:29:21 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-09-24 10:01:21 CT",
+    "generated_at_ct": "2026-09-24 16:29:21 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
-    "starting_c": 200.0,
+    "starting_c": 500.0,
     "capital_source": "docs/capital.json",
     "confirmed_ct": "2026-09-05",
     "warnings": [
-      "Starting bankroll C=200.0 (LIVE) via docs/capital.json / book-snapshot",
+      "Starting bankroll C=500.0 (LIVE) via docs/capital.json / book-snapshot",
       "Funding excess above C is reserve \u2014 not trading performance",
       "Viability clock starts on first live fill \u2014 not funding day",
       "Live blotter rows: 2 \u2014 viability clock uses first live fill as T0",
@@ -30,11 +30,11 @@
     "mode": "LIVE",
     "data_quality": "LIVE",
     "c_confirmed": true,
-    "starting_c": 200.0,
+    "starting_c": 500.0,
     "starting_capital": {
-      "value": 200.0,
+      "value": 500.0,
       "label": "LIVE",
-      "display": "200.0"
+      "display": "500.0"
     },
     "account_value": 209.88,
     "account_value_money": {
@@ -48,9 +48,9 @@
       "display": "-0.12"
     },
     "total_return_pct": {
-      "value": -0.06,
+      "value": -0.024,
       "label": "LIVE",
-      "display": "-0.06%"
+      "display": "-0.024%"
     },
     "realized_pnl": {
       "value": 0.0,
@@ -73,12 +73,12 @@
       "display": "11.99"
     },
     "funding_excess": {
-      "value": 9.88,
+      "value": -290.12,
       "label": "LIVE",
-      "display": "9.88"
+      "display": "-290.12"
     },
-    "funding_excess_note": "$9.88 above C sits in reserve \u2014 not trading return",
-    "note": "Starting bankroll C=$200.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $209.88 includes $9.88 funding excess (sits in cash/reserve; risk math still uses C=$200.0). Book note: Post COREBETA VTI fill INTENT_e7536191; 0.02 SGOV mkt 2.01 + 0.0265 VTI mkt 9.98; cash 197.89 NAV 209.88; uPnL VTI -0.10 SGOV -0.02",
+    "funding_excess_note": "$-290.12 above C sits in reserve \u2014 not trading return",
+    "note": "Starting bankroll C=$500.0 (LIVE). Net trading P&L from fills only; funding excess is reserve, not performance. Account value $209.88 includes $-290.12 funding excess (sits in cash/reserve; risk math still uses C=$500.0). Book note: Post COREBETA VTI fill INTENT_e7536191; 0.02 SGOV mkt 2.01 + 0.0265 VTI mkt 9.98; cash 197.89 NAV 209.88; uPnL VTI -0.10 SGOV -0.02",
     "sleeves": [
       {
         "id": "S-RESERVE / E3-RESERVE",
@@ -375,62 +375,62 @@
   "risk": {
     "label": "LIVE",
     "c_confirmed": true,
-    "starting_c": 200.0,
-    "framework": "policy LIVE framework (% of C=200.0)",
+    "starting_c": 500.0,
+    "framework": "policy LIVE framework (% of C=500.0)",
     "pct_limits": [
       {
         "rule": "Max loss / size per position (experimental)",
         "pct_of_c": 0.02,
         "pct_display": "2%",
-        "notes": "$4",
-        "label": "LIVE",
-        "dollars_at_c": 4.0
-      },
-      {
-        "rule": "Max loss / size per position (core)",
-        "pct_of_c": 0.05,
-        "pct_display": "5%",
         "notes": "$10",
         "label": "LIVE",
         "dollars_at_c": 10.0
       },
       {
+        "rule": "Max loss / size per position (core)",
+        "pct_of_c": 0.05,
+        "pct_display": "5%",
+        "notes": "$25",
+        "label": "LIVE",
+        "dollars_at_c": 25.0
+      },
+      {
         "rule": "Max loss per strategy (realized + open)",
         "pct_of_c": 0.04,
         "pct_display": "4%",
-        "notes": "$8",
-        "label": "LIVE",
-        "dollars_at_c": 8.0
-      },
-      {
-        "rule": "Max exposure per asset / ticker / event",
-        "pct_of_c": 0.08,
-        "pct_display": "8%",
-        "notes": "$16",
-        "label": "LIVE",
-        "dollars_at_c": 16.0
-      },
-      {
-        "rule": "Max correlated book",
-        "pct_of_c": 0.1,
-        "pct_display": "10%",
         "notes": "$20",
         "label": "LIVE",
         "dollars_at_c": 20.0
       },
       {
-        "rule": "Experimental book total (simultaneous)",
-        "pct_of_c": 0.1,
-        "pct_display": "\u226410%",
-        "notes": "\u2264$20",
+        "rule": "Max exposure per asset / ticker / event",
+        "pct_of_c": 0.08,
+        "pct_display": "8%",
+        "notes": "$40",
         "label": "LIVE",
-        "dollars_at_c": 20.0
+        "dollars_at_c": 40.0
+      },
+      {
+        "rule": "Max correlated book",
+        "pct_of_c": 0.1,
+        "pct_display": "10%",
+        "notes": "$50",
+        "label": "LIVE",
+        "dollars_at_c": 50.0
+      },
+      {
+        "rule": "Experimental book total (simultaneous max-loss)",
+        "pct_of_c": 0.15,
+        "pct_display": "\u226415%",
+        "notes": "\u2264$75",
+        "label": "LIVE",
+        "dollars_at_c": 75.0
       },
       {
         "rule": "Core book",
         "pct_of_c": 0.0,
         "pct_display": "0% until evidence",
-        "notes": "$0",
+        "notes": "$0\u2192scale",
         "label": "LIVE",
         "dollars_at_c": 0.0
       },
@@ -438,47 +438,47 @@
         "rule": "Sleeve ceiling: event contracts",
         "pct_of_c": 0.4,
         "pct_display": "40%",
-        "notes": "$80",
+        "notes": "$200",
         "label": "LIVE",
-        "dollars_at_c": 80.0
+        "dollars_at_c": 200.0
       },
       {
         "rule": "Sleeve ceiling: risk-on securities",
         "pct_of_c": 0.4,
         "pct_display": "40%",
-        "notes": "$80",
+        "notes": "$200",
         "label": "LIVE",
-        "dollars_at_c": 80.0
+        "dollars_at_c": 200.0
       },
       {
         "rule": "Sleeve ceiling: crypto spot",
-        "pct_of_c": 0.1,
-        "pct_display": "10%",
-        "notes": "$20",
-        "label": "LIVE",
-        "dollars_at_c": 20.0
-      },
-      {
-        "rule": "Cash / T-bill reserve floor",
-        "pct_of_c": 0.5,
-        "pct_display": "\u226550%",
-        "notes": "\u2265$100",
+        "pct_of_c": 0.2,
+        "pct_display": "20%",
+        "notes": "$100",
         "label": "LIVE",
         "dollars_at_c": 100.0
       },
       {
-        "rule": "Typical first live idea / systems test",
-        "pct_of_c": 0.01,
-        "pct_display": "0.5\u20131%",
-        "notes": "$1\u2013$2",
+        "rule": "Cash / T-bill reserve floor",
+        "pct_of_c": 0.4,
+        "pct_display": "\u226540%",
+        "notes": "\u2265$200",
         "label": "LIVE",
-        "dollars_at_c": 2.0
+        "dollars_at_c": 200.0
+      },
+      {
+        "rule": "Typical first live idea in a new lane",
+        "pct_of_c": 0.02,
+        "pct_display": "1\u20132%",
+        "notes": "$5\u2013$10",
+        "label": "LIVE",
+        "dollars_at_c": 10.0
       },
       {
         "rule": "Soft daily loss pause (exp book)",
         "pct_of_c": null,
         "pct_display": "\u2014",
-        "notes": "$8 (4% C)",
+        "notes": "$20 (4% C)",
         "label": "LIVE"
       }
     ],
@@ -486,40 +486,40 @@
       {
         "threshold_pct": 0.12,
         "threshold_display": "\u226512%",
-        "action": "\u2265$24",
+        "action": "\u2265$60",
         "label": "LIVE",
-        "dollars_at_c": 24.0
+        "dollars_at_c": 60.0
       },
       {
         "threshold_pct": 0.18,
         "threshold_display": "\u226518%",
-        "action": "\u2265$36",
+        "action": "\u2265$90",
         "label": "LIVE",
-        "dollars_at_c": 36.0
+        "dollars_at_c": 90.0
       },
       {
         "threshold_pct": 0.25,
         "threshold_display": "\u226525%",
-        "action": "\u2265$50",
+        "action": "\u2265$125",
         "label": "LIVE",
-        "dollars_at_c": 50.0
+        "dollars_at_c": 125.0
       }
     ],
     "dd_thresholds": [
       {
         "pct": 12,
         "action": "Cut experimental book in half; no new strategies",
-        "dollars": 24.0
+        "dollars": 60.0
       },
       {
         "pct": 18,
         "action": "Freeze new risk; written review before any new position",
-        "dollars": 36.0
+        "dollars": 90.0
       },
       {
         "pct": 25,
         "action": "Halt all live trading until Thomas restarts",
-        "dollars": 50.0
+        "dollars": 125.0
       }
     ],
     "utilization": {
@@ -529,9 +529,9 @@
     },
     "utilization_detail": {
       "deployed": 0.0,
-      "exp_book_cap": 20.0,
+      "exp_book_cap": 75.0,
       "reserve_cash": 197.89,
-      "reserve_floor": 100.0,
+      "reserve_floor": 200.0,
       "note": "Cash-only: 0% of experimental book used; reserve above floor"
     },
     "current_dd": {
@@ -548,37 +548,37 @@
       "strategy_loss": 0.04,
       "asset_exposure": 0.08,
       "correlated_book": 0.1,
-      "experimental_book": 0.1,
+      "experimental_book": 0.15,
       "sleeve_event": 0.4,
       "sleeve_securities": 0.4,
-      "sleeve_crypto": 0.1,
-      "reserve_floor": 0.5,
+      "sleeve_crypto": 0.2,
+      "reserve_floor": 0.4,
       "soft_daily_loss": 0.04,
       "start_experiment_low": 0.005,
       "start_experiment_high": 0.01
     },
     "dollar_limits": {
-      "C": 200.0,
-      "pos_experimental": 4.0,
-      "pos_core": 10.0,
-      "strategy_loss": 8.0,
-      "asset_exposure": 16.0,
-      "correlated_book": 20.0,
-      "experimental_book": 20.0,
-      "sleeve_event": 80.0,
-      "sleeve_securities": 80.0,
-      "sleeve_crypto": 20.0,
-      "reserve_floor": 100.0,
-      "soft_daily_loss": 8.0,
-      "start_experiment_low": 1.0,
-      "start_experiment_high": 2.0,
-      "dd_reduce": 24.0,
-      "dd_freeze": 36.0,
-      "dd_halt": 50.0
+      "C": 500.0,
+      "pos_experimental": 10.0,
+      "pos_core": 25.0,
+      "strategy_loss": 20.0,
+      "asset_exposure": 40.0,
+      "correlated_book": 50.0,
+      "experimental_book": 75.0,
+      "sleeve_event": 200.0,
+      "sleeve_securities": 200.0,
+      "sleeve_crypto": 100.0,
+      "reserve_floor": 200.0,
+      "soft_daily_loss": 20.0,
+      "start_experiment_low": 2.5,
+      "start_experiment_high": 5.0,
+      "dd_reduce": 60.0,
+      "dd_freeze": 90.0,
+      "dd_halt": 125.0
     },
-    "dollar_limits_note": "Filled from C=200.0 \u00d7 risk-architecture / position_sizing percentages",
+    "dollar_limits_note": "Filled from C=500.0 \u00d7 risk-architecture / position_sizing percentages",
     "no_leverage": true,
-    "note": "Dollar limits filled for confirmed C=200.0.",
+    "note": "Dollar limits filled for confirmed C=500.0.",
     "source": "docs/risk-architecture.md",
     "pointers": [
       "docs/risk-architecture.md",
@@ -604,7 +604,7 @@
           "label": "N/A",
           "display": "N/A"
         },
-        "cap": 20.0,
+        "cap": 75.0,
         "label": "N/A",
         "note": "LIVE account funded; no open securities positions \u2014 not live securities exposure"
       },
@@ -620,7 +620,7 @@
           "label": "N/A",
           "display": "N/A"
         },
-        "cap": 20.0,
+        "cap": 75.0,
         "label": "N/A",
         "note": "Researching \u2014 at-risk when live = max loss, not notional"
       },
@@ -636,7 +636,7 @@
           "label": "N/A",
           "display": "N/A"
         },
-        "cap": 20.0,
+        "cap": 75.0,
         "label": "N/A",
         "note": "Researching \u2014 no paid live event risk; util vs experimental room $20"
       },
@@ -652,7 +652,7 @@
           "label": "N/A",
           "display": "N/A"
         },
-        "cap": 20.0,
+        "cap": 100.0,
         "label": "N/A",
         "note": "Deferred \u2014 no live crypto risk"
       },
@@ -685,7 +685,7 @@
           "label": "LIVE",
           "display": "0.0"
         },
-        "cap": 100.0,
+        "cap": 200.0,
         "label": "LIVE",
         "note": "Full reserve \u2014 not at risk"
       }
@@ -5979,8 +5979,8 @@
     "automated_execution": false,
     "withdrawal": false,
     "account_id": null,
-    "starting_c": 200.0,
-    "summary": "Funded LIVE book (starting bankroll C=$200.0). Return-sources mandate in force: grow capital intelligently \u2014 honest directional_beta / event_driven OK when risk/reward clears SGOV. Next-dollar stack: S-RESERVE SGOV live + S-COREBETA VTI live \u2192 S-CRYPTO-BH-001 ~$4 IBIT (same correlated book, max $20; no same-week dual entry unless Holt spends budget). EM-DIR-01 stays research until Quinn 5\u00a2 cushion + fresh lock. Net trading P&L from fills only; funding excess is reserve.",
+    "starting_c": 500.0,
+    "summary": "Funded LIVE book (starting bankroll C=$500.0). Return-sources mandate in force: grow capital intelligently \u2014 honest directional_beta / event_driven OK when risk/reward clears SGOV. Next-dollar stack: S-RESERVE SGOV live + S-COREBETA VTI live \u2192 S-CRYPTO-BH-001 ~$4 IBIT (same correlated book, max $20; no same-week dual entry unless Holt spends budget). EM-DIR-01 stays research until Quinn 5\u00a2 cushion + fresh lock. Net trading P&L from fills only; funding excess is reserve.",
     "session_health": {
       "exec_rails": {
         "whole_share_rail": {
@@ -5994,11 +5994,11 @@
         "status": "HUMAN_AUTH",
         "detail": "Broker login / session refresh required before exec rails are usable."
       },
-      "last_session_check_ct": "2026-09-24 10:01:20 CT",
+      "last_session_check_ct": "2026-09-24 16:29:21 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
-      "live_trading": "LIVE book authorized C=$200.0; return-sources mandate + next-dollar stack locked",
+      "live_trading": "LIVE book authorized C=$500.0; return-sources mandate + next-dollar stack locked",
       "automated_execution": "Broker login / session refresh required before exec rails are usable. Boolean automated_execution stays false \u2014 Holt alone transmits; agents dry_run default.",
       "withdrawal": "No agent withdrawal authority \u2014 standing human gate"
     },
@@ -6064,17 +6064,17 @@
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-10 15:01:55 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/human-dependencies.md",
@@ -6084,7 +6084,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:53 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -6099,12 +6099,12 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:53 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -6134,15 +6134,15 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear the mandate decision question.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Live experiment sleeve \u2014 2026-09-05 \u00b7 **Rebased 2026-09-24**\n\n**C = $500** \u00b7 IBKR \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal  \n**Posture:** `docs/mid-window-posture-2026-09-24.md`\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.  \nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear. Soft uncertainty \u2192 cut size or redesign \u2014 not perpetual abstention.\n\n## Hard limits (binding @ C=$500)\n| L\u2026"
       },
       {
         "id": "capital",
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-10 15:01:55 CT",
+        "mtime_ct": "2026-09-24 16:23:31 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6150,8 +6150,8 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (re\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n**Posture:** `docs/mid-window-posture-2026-09-24.md` \u2014 bias to bounded live experiments; soft blockers reshape size/design; 2\u20133 similar abstentions trigger process adaptation.\n\n## Pos\u2026"
       },
       {
         "id": "human_gates",
@@ -6166,8 +6166,8 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
+        "mtime_ct": "2026-09-24 16:23:53 CT",
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially\u2026"
       },
       {
         "id": "forecasting",
@@ -6190,16 +6190,16 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max lo\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin\u2026"
       },
       {
         "id": "lifecycle",
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
+        "mtime_ct": "2026-09-24 16:23:53 CT",
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/re\u2026"
       },
       {
         "id": "historical_canonical",
@@ -6212,7 +6212,7 @@
     ],
     "excerpts": {
       "mission_short": "[redacted for public desk \u2014 see private workspace]",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, le",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remai",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-onl"
     }
   },
@@ -6231,17 +6231,17 @@
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-10 15:01:55 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/human-dependencies.md",
@@ -6251,7 +6251,7 @@
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:53 CT"
       },
       {
         "path": "docs/performance-methodology.md",
@@ -6266,12 +6266,12 @@
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:31 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT"
+        "mtime_ct": "2026-09-24 16:23:53 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
@@ -6301,15 +6301,15 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Live experiment sleeve \u2014 2026-09-05\n\n**C = $200** \u00b7 IBKR funded \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.\nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear the mandate decision question.\n\n## Hard limits (binding)\n| Limit | Dollars |\n|---|---|\n| Max simultaneous experimental deploy | **$20** |\n| Max loss / size per experimental position\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Live experiment sleeve \u2014 2026-09-05 \u00b7 **Rebased 2026-09-24**\n\n**C = $500** \u00b7 IBKR \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal  \n**Posture:** `docs/mid-window-posture-2026-09-24.md`\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.  \nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear. Soft uncertainty \u2192 cut size or redesign \u2014 not perpetual abstention.\n\n## Hard limits (binding @ C=$500)\n| L\u2026"
       },
       {
         "id": "capital",
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-09-10 15:01:55 CT",
+        "mtime_ct": "2026-09-24 16:23:31 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6317,8 +6317,8 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n## Position & book caps\n\n| Rule | % of C | $ (C=200) | Notes |\n|---|---|---|---|\n| Max loss / size per position (experimental) | **2%** | **$4** | Default new risk |\n| Max loss / size per position (core) | **5%** | **$10** | Core starts 0 |\n| Max loss per strategy (re\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n**Posture:** `docs/mid-window-posture-2026-09-24.md` \u2014 bias to bounded live experiments; soft blockers reshape size/design; 2\u20133 similar abstentions trigger process adaptation.\n\n## Pos\u2026"
       },
       {
         "id": "human_gates",
@@ -6333,8 +6333,8 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-2026-09-06.md` |\n| **Sports mandate** \u2014 financial decision system; Sloan agent | `docs/sports-market\u2026"
+        "mtime_ct": "2026-09-24 16:23:53 CT",
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially\u2026"
       },
       {
         "id": "forecasting",
@@ -6357,16 +6357,16 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max lo\u2026"
+        "mtime_ct": "2026-09-24 16:23:31 CT",
+        "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin\u2026"
       },
       {
         "id": "lifecycle",
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-09-08 12:01:32 CT",
-        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially | `docs/options-markets-mandate-\u2026"
+        "mtime_ct": "2026-09-24 16:23:53 CT",
+        "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/re\u2026"
       },
       {
         "id": "historical_canonical",
@@ -6379,7 +6379,7 @@
     ],
     "excerpts": {
       "mission_short": "[redacted for public desk \u2014 see private workspace]",
-      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT  \n**C (starting bankroll USD) = $200** (Thomas funded IBKR live 2026-09-05; binding for sleeve %). Client Portal showed ~$210 cash/NAV at confirm \u2014 treat excess as reserve; **do not** inflate experimental limits. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve is default.\n\nNo uncapped leverage, margin borrowing, naked options, perps, le",
+      "risk_short": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remai",
       "loop_short": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-onl"
     }
   },
@@ -6434,7 +6434,7 @@
       "risk_util": {
         "value": 0.0,
         "label": "N/A",
-        "display": "Experimental room used: $0 of $20"
+        "display": "Experimental room used: $0 of $75"
       },
       "benchmark": "SGOV / cash floor; VTI COREBETA live",
       "return_source": "mixed (directional_beta\u00d73, hybrid\u00d72, alpha_mispricing\u00d71)",
@@ -6442,7 +6442,7 @@
       "latest_lesson": "Ranked labeled queues replace undifferentiated hunt lists; every options cycle must end in executable stub OR explicit REJECT+process change \u2014 not more research.",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -6499,7 +6499,7 @@
       "risk_util": {
         "value": 0.0,
         "label": "N/A",
-        "display": "Experimental room used: $0 of $20"
+        "display": "Experimental room used: $0 of $75"
       },
       "benchmark": "Defined-risk max loss \u2264 sleeve; NANOS preferred at C=$200",
       "return_source": "Research tags only \u2014 no live P&L (mixed (directional_beta\u00d77, hybrid\u00d73))",
@@ -6507,7 +6507,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -6565,7 +6565,7 @@
       "risk_util": {
         "value": 0.0,
         "label": "N/A",
-        "display": "Experimental room used: $0 of $20"
+        "display": "Experimental room used: $0 of $75"
       },
       "benchmark": "Market-implied Brier / SGOV opportunity cost",
       "return_source": "Research tags only \u2014 no live P&L (mixed (event_driven\u00d73, alpha_mispricing\u00d72, arb_rv\u00d71))",
@@ -6573,7 +6573,7 @@
       "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -6630,7 +6630,7 @@
       "risk_util": {
         "value": 0.0,
         "label": "N/A",
-        "display": "Experimental room used: $0 of $20"
+        "display": "Experimental room used: $0 of $75"
       },
       "benchmark": "SGOV; IBIT candidate when sequenced",
       "return_source": "Research tags only \u2014 no live P&L (mixed (arb_rv\u00d72, directional_beta\u00d71, hybrid\u00d71))",
@@ -6638,7 +6638,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -6708,7 +6708,7 @@
       "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -6776,12 +6776,12 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-09-24 10:01:21 CT",
+      "last_updated_ct": "2026-09-24 16:29:21 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
       "label": "LIVE",
-      "note": "Account cash $197.89; risk math uses C=$200.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
+      "note": "Account cash $197.89; risk math uses C=$500.0. Funding excess above C is reserve, not trading performance. No risk deployed.",
       "market_id": "cash_reserve"
     }
   ],
@@ -6810,28 +6810,28 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "securities-pm",
-            "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-24T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-24T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "securities-am",
             "title": "Securities morning scan",
             "nextRunAt": "2026-09-25T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
+          },
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-25T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-25T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           }
         ]
       }
@@ -6855,20 +6855,20 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "options-pm-ride",
-            "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-24T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
             "nextRunAt": "2026-09-25T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-25T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
@@ -6899,21 +6899,21 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-24T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
             "nextRunAt": "2026-09-25T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-25T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           },
           {
             "id": "weekly-portfolio-review",
@@ -6952,7 +6952,7 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -7003,745 +7003,22 @@
       },
       "empty_live_reason": "Ready / human execution \u2014 $0 open Harbor wagers until Quinn-cleared ticket is placed. Do not invent picks.",
       "harbor_live": [],
-      "harbor_shadow": [
-        {
-          "ticket_id": "SP-SH-20260906-01",
-          "logged_ct": "2026-09-06 10:44 CT",
-          "league": "NFL",
-          "event": "NFL W1 NE @ SEA (2026-09-09)",
-          "side": "SEA -3.5",
-          "odds": "-105",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": null,
-          "ev": "\u22640 (no independent my_p)",
-          "confidence": "Low",
-          "forecast_class": "market_informed",
-          "clv": "1.16",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "shadow_only Quinn-accepted; FD shop -112; close TBD at kick; forecast_class=market_informed no independent my_p; SETTLED SEA 13-10 NE (SEA by 3; SEA -3.5 fails); postmortem 2026-09-13: chalk -3.5 lost on exact-3; CLV mixed (books at -3/-3.5); lesson=key3_half_point_favorite_fragile",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260906-CFB-01",
-          "logged_ct": "2026-09-06 11:10 CT",
-          "league": "CFB",
-          "event": "CFB W1 LOU vs MISS (2026-09-06)",
-          "side": "LOU +6.5",
-          "odds": "-105",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "MISS -4.5 to -5.5",
-          "ev": "borderline_tiny_not_actionable",
-          "confidence": "Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "optional shadow per Holt; no place ask; personal bonus separate; SETTLED MISS 41-38 LOU (MISS by 3; LOU +6.5 covers); postmortem 2026-09-13: thesis dog-cover ok (key #6.5 held); CLV~flat on juice; lesson=key_number_cover_worked",
-          "result": "win",
-          "pnl_net_usd": 3.81,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260907-MLB-02",
-          "logged_ct": "2026-09-07 09:45 CT",
-          "league": "MLB",
-          "event": "MLB-20260907-ATL@PHI",
-          "side": "ATL ML",
-          "odds": "+141",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "PHI -130 to -145 / ATL +115 to +135",
-          "ev": "thin_MoS_pending_Holmes_confirm",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "no Live; confirm Holmes; refresh DK; SETTLED PHI 1-0 ATL (Luzardo shutout); postmortem 2026-09-13: Holmes/dog ML failed vs ace shutout; CLV unavailable; lesson=SP_confirm_gate_still_required",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260907-CFB-01",
-          "logged_ct": "2026-09-07 10:20 CT",
-          "league": "CFB",
-          "event": "CFB W2 OSU @ TEX (2026-09-12)",
-          "side": "OSU +1.5",
-          "odds": "+1.5",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to TEX -1",
-          "ev": "no_MoS_for_Live",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "-0.46",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "CLV track rematch; no Live; SETTLED TEX 24-23 OSU (TEX by 1; OSU +1.5 covers); postmortem 2026-09-13: rematch key-number thesis sound (dog covers 1); juice CLV slight miss vs -108 close; lesson=key_number_half_point_matters",
-          "result": "win",
-          "pnl_net_usd": 3.64,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260907-CFB-02",
-          "logged_ct": "2026-09-07 10:20 CT",
-          "league": "CFB",
-          "event": "CFB W2 ISU @ IA (2026-09-12)",
-          "side": "ISU +14.5",
-          "odds": "+14.5",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "IA -7 to -10",
-          "ev": "thin_pending_line_move",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_+0.5pt_vs_close_14",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "number-too-big screen; refresh if shortens to -11; SETTLED IA 16-13 ISU (IA by 3; ISU +14.5 covers easily); postmortem 2026-09-13: number-too-big screen correct (final margin 3); entry +14.5 vs close ~+14 = +0.5pt number CLV; lesson=large_dog_number_screen_validated",
-          "result": "win",
-          "pnl_net_usd": 3.64,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260908-NFL-01",
-          "logged_ct": "2026-09-08 09:10 CT",
-          "league": "NFL",
-          "event": "NFL W1 NE @ SEA (2026-09-09)",
-          "side": "NE +3.5",
-          "odds": "+3.5",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "SEA -2.5 to -3",
-          "ev": "no_MoS_Live",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "1.75",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Charbonnet out; Henderson trending miss; SP-CAND-01 refresh; SETTLED SEA 13-10 NE (SEA by 3; NE +3.5 covers); postmortem 2026-09-13: injury/key-# thesis held (exact 3 margin); juice CLV beat vs late -118; lesson=key3_half_point_critical",
-          "result": "win",
-          "pnl_net_usd": 3.64,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260909-MLB-01",
-          "logged_ct": "2026-09-09 10:05 CT",
-          "league": "MLB",
-          "event": "MLB-20260909-CLE@BAL",
-          "side": "CLE ML",
-          "odds": "-112",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "CLE -125 to -140",
-          "ev": "tiny_EV_no_MoS",
-          "confidence": "Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Griffin vs Baz; kill if Griffin scratched or CLE worse than -130; SETTLED BAL 9-5 CLE (Baz W; Griffin L); postmortem 2026-09-13: Griffin vs Baz failed after 8-run 3rd; CLV unavailable; lesson=early_inning_SP_fragility_not_in_model",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260909-MLB-02",
-          "logged_ct": "2026-09-09 10:05 CT",
-          "league": "MLB",
-          "event": "MLB-20260909-STL@SF",
-          "side": "STL ML",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "STL -130 to -145",
-          "ev": "tiny_EV_confirm_Tidwell",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Pallante vs Tidwell; kill if SP upgraded or STL past -135; SETTLED SF 7-6 STL (Giants 6-run 8th); postmortem 2026-09-13: Pallante held early then bullpen collapse; CLV unavailable; lesson=bullpen_leverage_gate_missing",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260910-MLB-01",
-          "logged_ct": "2026-09-10 09:40 CT",
-          "league": "MLB",
-          "event": "MLB-20260910-TB@ATL",
-          "side": "TB ML",
-          "odds": "-102",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "TB -118 to -138",
-          "ev": "tiny_EV_no_MoS",
-          "confidence": "Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Martinez vs Perez; kill if Martinez scratched or TB worse than -130; confirm DK in-app; SETTLED ATL 3-1 TB (Perez 7 scoreless; Riley 8th); postmortem 2026-09-13: TB favorite failed vs Perez; CLV unavailable; lesson=road_fav_tiny_EV_no_MoS",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260911-MLB-01",
-          "logged_ct": "2026-09-11 10:05 CT",
-          "league": "MLB",
-          "event": "MLB-20260911-CLE@MIN",
-          "side": "CLE ML",
-          "odds": "-120",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "CLE -118 to -133",
-          "ev": "tiny_EV_no_MoS",
-          "confidence": "Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Messick vs Bradley; kill if Messick scratched or CLE worse than -140; confirm DK in-app; nF counter MIN 52pct; SETTLED CLE 5-2 MIN (Martinez late rally); postmortem 2026-09-13: Messick thesis held; CLV~flat at -120; lesson=SP_edge_with_price_discipline_ok",
-          "result": "win",
-          "pnl_net_usd": 3.33,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260911-MLB-02",
-          "logged_ct": "2026-09-11 10:05 CT",
-          "league": "MLB",
-          "event": "MLB-20260911-SEA@ATH",
-          "side": "ATH ML",
-          "odds": "+142",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "ATH +105 to -105 / SEA -105 to -120",
-          "ev": "small_EV_no_MoS",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "1.05",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Kirby vs Springs rematch; Munoz B2B softens closer kill; kill if Springs out or SEA softens past -145; confirm DK in-app; SETTLED ATH 6-5 SEA /10 (Walton walk-off); postmortem 2026-09-13: dog ML rematch hit; CLV beat (+142 vs close ~+136); lesson=dog_ML_with_soft_closer_context_ok_but_variance_high",
-          "result": "win",
-          "pnl_net_usd": 5.68,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260911-CFB-01",
-          "logged_ct": "2026-09-11 10:35 CT",
-          "league": "CFB",
-          "event": "CFB W2 OU @ MICH (2026-09-12)",
-          "side": "MICH +5.5",
-          "odds": "+5.5",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "OU -1 to -2.5 / MICH +1 to +2.5",
-          "ev": "no_MoS_for_Live",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_+1.0pt_vs_close_4.5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Mon gate MICH +pts if >=+3.5; dog restored ~OU -5/-5.5; confirm DK in-app; no Live; SETTLED MICH 17-10 OU (MICH wins outright; +5.5 covers); postmortem 2026-09-13: market-lag dog restored; entry +5.5 vs close ~+4.5 = +1pt number CLV; lesson=lagged_dog_number_capture",
-          "result": "win",
-          "pnl_net_usd": 3.64,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260912-MLB-01",
-          "logged_ct": "2026-09-12 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260912-LAA@WSH",
-          "side": "LAA ML",
-          "odds": "+105",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "LAA -100 to -118 / WSH even to +118",
-          "ev": "tiny_to_small_EV_no_MoS",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Urena vs Alvarez; FD also -102; kill if Urena scratched or LAA worse than -130; confirm DK in-app; nF counter WSH ~61pct; SETTLED WSH 6-5 LAA /10 (Abrams scores on error); postmortem 2026-09-13: Urena/Alvarez screen missed extras; CLV unavailable; lesson=extras_variance_not_priced",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260912-MLB-02",
-          "logged_ct": "2026-09-12 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260912-CLE@MIN",
-          "side": "CLE ML",
-          "odds": "-116",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "CLE -110 to -125",
-          "ev": "tiny_EV_no_MoS_thin_Espino_n",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Espino vs Prielipp; do not invent my_p from thin Espino n; kill if scratched/demoted or CLE worse than -140; confirm DK in-app; nF counter MIN 53.9pct; SETTLED MIN 4-3 CLE (Rodriguez 1st-AB HR); postmortem 2026-09-13: thin Espino n flagged pre-game; CLV unavailable; lesson=thin_SP_sample_kill_rule_should_have_fired",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260912-MLB-03",
-          "logged_ct": "2026-09-12 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260912-PIT@CHC",
-          "side": "PIT ML",
-          "odds": "+104",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to PIT -110",
-          "ev": "tiny_EV_no_MoS",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "NA",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Skenes vs Holmes; earliest ~1:20 CT; +1.5 soft alt noted; kill if Skenes scratched or CHC softens past -110; confirm DK in-app; SETTLED CHC 4-3 PIT (Skenes good; Soto blows 8th); postmortem 2026-09-13: SP thesis ok but bullpen failed; CLV unavailable; lesson=ace_start_not_full_game_proxy",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260913-NFL-01",
-          "logged_ct": "2026-09-13 09:30 CT",
-          "league": "NFL",
-          "event": "NFL W1 BUF @ HOU (2026-09-13)",
-          "side": "HOU +1.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to BUF -1",
-          "ev": "thin_no_MoS_no_Live",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "SP-CAND-02 refresh; HOU home vs short road fav; confirm DK in-app; no Live; SETTLED BUF 36-31 HOU (HOU by -5; +1.5 fails); postmortem 2026-09-14: short-home dog thesis broke late (Allen 34yd TD 1:36); number held flat; CLV~0; process=home_dog_short_spread_variance_high_no_MoS",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260913-NFL-02",
-          "logged_ct": "2026-09-13 09:30 CT",
-          "league": "NFL",
-          "event": "NFL W1 TB @ CIN (2026-09-13)",
-          "side": "TB +3.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "CIN -2.5 to -3.5",
-          "ev": "thin_no_MoS_no_Live",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Prefer +3.5 dog vs -3.5 chalk (key3_half_point_favorite_fragile lesson); shop +4 if available; no Live; SETTLED CIN 33-27 TB (TB by -6; +3.5 fails); postmortem 2026-09-14: key+3.5 dog missed (4 turnovers); number flat at 3.5; CLV~0; process=turnover_script_killed_dog_cover_thesis",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260913-NFL-03",
-          "logged_ct": "2026-09-13 09:30 CT",
-          "league": "NFL",
-          "event": "NFL W1 ATL @ PIT (2026-09-13)",
-          "side": "ATL +6.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "PIT -5 to -6",
-          "ev": "thin_noisy_no_MoS_no_Live",
-          "confidence": "Low",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Rush start steam from ~-3.5 to -6.5; Porter Jr unlikely; lagged dog number capture thesis; NEVER PIT -6.5 chalk; no Live; SETTLED PIT 20-13 ATL (ATL by -7; +6.5 fails by 0.5); postmortem 2026-09-14: lagged_dog steam capture missed (Watt pick-6); market_lag can be real steam; CLV~flat on juice; process=half_point_loss_on_steam_dog_no_MoS",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260913-MLB-01",
-          "logged_ct": "2026-09-13 09:45 CT",
-          "league": "MLB",
-          "event": "MLB-20260913-LAD@MIA",
-          "side": "MIA ML",
-          "odds": "+124",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to MIA -110 / LAD even to -110",
-          "ev": "small_EV_no_MoS",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Sheehan vs Perez; roof; nF LAD ~50.7pct coin flip; kill if Perez scratched or Sheehan upgrades or MIA past -110 w/o news; confirm DK in-app; no Live; early FP ~11:40 CT; SETTLED MIA 6-4 LAD (walk-off Ramirez 9th); postmortem 2026-09-14: SP/dog ML thesis held via late rally vs LAD BP (Scott); CLV~flat; process=bullpen_leverage_cut_both_ways_dog_hit",
-          "result": "win",
-          "pnl_net_usd": 4.96,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260913-MLB-02",
-          "logged_ct": "2026-09-13 09:45 CT",
-          "league": "MLB",
-          "event": "MLB-20260913-BAL@TOR",
-          "side": "BAL ML",
-          "odds": "+126",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "TOR -120 to -140 / BAL +105 to +125",
-          "ev": "tiny_EV_no_MoS",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Rogers vs Cease; roof; Cease ace\u2260full-game; TOR worst RPG thesis; FD shop +134; kill if Rogers scratched or TOR softens past -125 w/o news; confirm DK in-app; no Live; earliest FP ~11:37 CT; SETTLED TOR 8-1 BAL (Cease 9K; Vlad 4H HR); postmortem 2026-09-14: fade-ace chalk failed hard; Cease full-game proxy held; CLV~flat; process=ace_fade_without_MoS_falsified_20260913",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-MLB-01",
-          "logged_ct": "2026-09-14 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260914-LAD@CIN",
-          "side": "LAD -1.5",
-          "odds": "-131",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "LAD -1.5 around -105 to -120 / ML juice rich at -232",
-          "ev": "0.15",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "-1.15",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Skubal vs Lodolo; fade LAD ML juice (-232); prefer RL; FP~5:40 CT; post_vig_ev~$0.10-0.25 @ mid-band \u2192 below_mos; Lodolo unders/props WATCH only; confirm DK in-app; no Live; process flags: BP note on any ML alt; SETTLED LAD 4-1 CIN (LAD by 3; -1.5 covers); postmortem 2026-09-15: Skubal SP_mismatch RL thesis sound; fade ML juice correct; CLV slight miss vs ~-125 close; lesson=ace_SP_RL_over_juiced_ML_validated; tag=below_mos_settled",
-          "result": "win",
-          "pnl_net_usd": 3.05,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-MLB-02",
-          "logged_ct": "2026-09-14 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260914-SD@COL",
-          "side": "Over 10.5",
-          "odds": "-120",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "Tot 11.0 to 12.0 Coors / market 10.5-11",
-          "ev": "0.35",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "-1.06",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Mize vs Sugano (Sugano rough); Coors; fade SD ML juice (-174/-198); prefer Over / SD -1.5 shop; FP~7:40 CT; mid-band EV~$0.20-0.50 \u2192 below_mos; confirm DK in-app; no Live; tag=below_mos; SETTLED SD 8-7 COL (15 runs; Over 10.5 hits); postmortem 2026-09-15: Coors park_environment Over thesis sound; CLV mild miss on juice; lesson=Coors_Over_screen_validated; tag=below_mos_settled; correlated with MLB-03",
-          "result": "win",
-          "pnl_net_usd": 3.33,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-MLB-03",
-          "logged_ct": "2026-09-14 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260914-SD@COL",
-          "side": "SD -1.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "SD -1.5 around -105 to -115 / fade SD ML",
-          "ev": "0.25",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Mize vs Sugano; Coors; shop SD -1.5 near -110 (avoid steamed -132); correlated with Over 02; mid-band EV~$0.15-0.40 \u2192 below_mos; kill if Sugano scratched upgrade or SD ML softens without news; confirm DK in-app; no Live; SETTLED SD 8-7 COL (SD by 1; -1.5 fails); postmortem 2026-09-15: SP_mismatch RL missed by half-run; Over correlated hit while RL failed; CLV~flat; lesson=Coors_RL_variance_high_vs_total; tag=below_mos_settled; correlated with MLB-02",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-MLB-04",
-          "logged_ct": "2026-09-14 09:50 CT",
-          "league": "MLB",
-          "event": "MLB-20260914-DET@TOR",
-          "side": "DET ML",
-          "odds": "+110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to TOR -120 / DET +100 to +115",
-          "ev": "0.10",
-          "confidence": "Low",
-          "forecast_class": "market_informed",
-          "clv": "1.16",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Melton vs Soriano; soft DET +ML; Under 7.5 WATCH if both SP settle; roof Rogers; FP~6:07 CT; mid-band EV tiny ~$0.05-0.20 \u2192 below_mos; BP/leverage note required; kill if Melton scratched or TOR softens past -125 w/o news; confirm DK in-app; no Live; tag=below_mos; SETTLED DET 6-5 TOR (9th error walk-off script); postmortem 2026-09-15: soft DET +ML hit despite Melton short outing / Soriano no-hit deep; BP leverage both ways; CLV beat (+110 vs close ~+105); lesson=soft_dog_ML_variance_ok_no_MoS; tag=below_mos_settled",
-          "result": "win",
-          "pnl_net_usd": 4.4,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-CFB-01",
-          "logged_ct": "2026-09-14 10:15 CT",
-          "league": "CFB",
-          "event": "CFB W3 SMU @ LOU (2026-09-19)",
-          "side": "SMU +1.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to LOU -1 / SMU +0 to +1",
-          "ev": "0.15",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Pickem ACC; shop +2/+2.5 for CLV; Circa open ~2 BetMGM -2 Covers mostly -1.5/59.5; Sat ~3:30 ET; mid-band EV~$0.05-0.30 \u2192 below_mos; confirm DK in-app; no Live; kill if SMU worse than +0.5 w/o LOU injury or LOU past -3.5; tag=below_mos; Fri refresh 2026-09-18 KEEP: still LOU \u22121.5 / SMU +1.5; shop +2/+2.5; kill (worse than +0.5 or LOU past \u22123.5) not met; LOU/SMU depth OUT no number-flip; confirm DK in-app; no Live; Sat gameday 2026-09-19 KEEP: still LOU \u22121.5 / SMU +1.5; shop +2/+2.5 if out; ~95\u00b0F Louisville note only; kill (worse than +0.5 or LOU past \u22123.5) not met; below_mos \u2192 no Live; confirm DK in-app; SETTLED L LOU 41-31 SMU (SMU by -10; +1.5 fails); postmortem 2026-09-20: pickem ACC / key dog half thesis failed \u2014 LOU pulled away late (Keyjuan Brown long TDs); close held LOU \u22121.5 / SMU +1.5 (CLV~flat juice); kill (worse than +0.5 / LOU past \u22123.5) never met; below_mos correctly blocked Live; lesson_tag=pickem_short_fav_home_still_covered_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-CFB-02",
-          "logged_ct": "2026-09-14 10:15 CT",
-          "league": "CFB",
-          "event": "CFB W3 UNC @ CLEM (2026-09-19)",
-          "side": "UNC +3",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "CLEM -1 to -2.5 / UNC +1 to +2.5",
-          "ev": "0.25",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_-0.5pt_vs_close_+3.5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Clemson perception collapse post-LSU+GS non-cover; key #3 dog; Circa open 3.5\u21923; Covers many UNC +3.5 \u2014 prefer shop +3.5; Sat noon; mid-band EV~$0.10-0.40 \u2192 below_mos; NEVER CLEM -3 chalk (key3_half_point_favorite_fragile); kill if inside +2 w/o Clemson injury; confirm DK in-app; no Live; tag=below_mos; Fri refresh 2026-09-18 KEEP (prefer +3.5): CLEM \u22123.5 / UNC +3/+3.5; Clemson QB Vizzina Out (elbow) \u2014 Reynolds start supports dog; never CLEM chalk; kill (inside +2 AND Vizzina returns) not met; confirm DK in-app; no Live; Sat gameday 2026-09-19 KEEP: shop +3.5; CLEM \u22123.5; Reynolds starts; Vizzina Q/backup (elbow) \u2014 still supports dog vs Fri Out framing; never CLEM chalk; kill (inside +2 AND Vizzina starts) not met; below_mos \u2192 no Live; confirm DK in-app; SETTLED L CLEM 28-20 UNC (UNC by -8; +3 and +3.5 fail); postmortem 2026-09-20: key#3 dog / market_lag thesis failed \u2014 Clemson rallied after weather delay (Reynolds first start; Davidson go-ahead); close CLEM \u22123.5 / UNC +3.5 (entry +3 = number CLV \u22120.5pt vs shop +3.5); never-CLEM-chalk rule held; kill (inside +2 AND Vizzina starts) not met; below_mos correctly blocked Live; lesson_tag=key3_dog_weather_delay_rally_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260914-CFB-03",
-          "logged_ct": "2026-09-14 10:15 CT",
-          "league": "CFB",
-          "event": "CFB W3 HOU @ TTU (2026-09-18)",
-          "side": "HOU +8.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "TTU -7 to -9.5",
-          "ev": "0.20",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_-1.0pt_vs_close_+7.5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Fri ~8pm ET first; Circa open TTU -10 \u2192 -8.5; some Mon books -7.5; shop +9/+9.5 if out else hold +8.5; soften if only +7.5; mid-band EV~$0.10-0.35 \u2192 below_mos; kill if inside +7 w/o TTU injury; confirm DK in-app; no Live; tag=below_mos; lesson=lagged_dog_number_capture; Fri refresh 2026-09-18 SOFTEN KEEP: market only HOU +7.5 (open \u221210 faded; Mon soften rule hit; kill inside +7 not met); CLV settle only \u2014 do not chase gone +8.5/+9; no 60\u201390m unless re-widens +8.5+; Lubbock ~87\u00b0F / wind~9 neutral; TTU Carter/White Q trending return (against dog); HOU Strozier Out; confirm DK in-app; no Live; SETTLED W TTU 28-26 HOU (HOU by -2; covers +7.5 and +8.5); DEAD do not reopen; postmortem 2026-09-19: lagged_dog_number_capture thesis covered (margin -2); number faded against entry (+8.5 \u2192 close +7.5; CLV number_-1.0pt) but result W; SOFTEN KEEP path correct (no chase gone +8.5/+9); below_mos correctly blocked Live; lesson_tag=lagged_dog_number_fade_still_cover_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "win",
-          "pnl_net_usd": 3.64,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-NFL-01",
-          "logged_ct": "2026-09-15 09:35 CT",
-          "league": "NFL",
-          "event": "NFL W2 DET @ BUF (2026-09-17)",
-          "side": "Under 53.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "Tot 50.5 to 52.5 TNF / market 53.5 (opened ~51.5-52.5)",
-          "ev": "0.20",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_-1.0pt_vs_close_54.5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "TNF Highmark open; fair-first on inflated total (51.5\u219253.5); DET +4.5 soft watch only (steamed -3\u2192-4.5; key3 lesson prefer dog not BUF -4.5 chalk); mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if total \u226451.5 w/o injury or climbs past 55; tag=below_mos; Thu midweek 2026-09-17 KEEP soft: tot 53.5\u2192~54.5 (not past kill 55); weather non-factor; DET Mahogany OUT Miller OUT Reed Q; BUF Bishop/Ty Johnson/Sanders Q; thesis softer still below_mos; soft DET +4.5 only if \u2265+5.5 \u2014 no new ledger; confirm DK in-app; no Live; SETTLED BUF 41-31 DET (tot 72; Under 53.5 fails); postmortem 2026-09-18: fair-first inflated-total thesis failed \u2014 Highmark opener shootout (Allen 5 TD); close tot ~54.5 (number CLV \u22121.0pt vs entry 53.5; kill\u226555 not triggered but thesis already soft); weather non-factor; below_mos correctly blocked Live; lesson_tag=TNF_total_inflate_still_shot_out_no_falsifier_on_MoS_abstain; tag=below_mos_settled",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-NFL-02",
-          "logged_ct": "2026-09-15 09:35 CT",
-          "league": "NFL",
-          "event": "NFL W2 PIT @ NE (2026-09-20)",
-          "side": "PIT +5.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "NE -3.5 to -5 / PIT +3.5 to +5 (AJ Brown IR priced)",
-          "ev": "0.25",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_+0.5pt_vs_close_+5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "AJ Brown IR (high ankle); NE -5.5 steamed from -4.5; total crushed 43.5\u219241.5 \u2014 Under WATCH only (already moved); injury-priced WR1 + number screen on dog; NEVER NE -5.5 chalk without MoS; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +4 w/o NE further injury; tag=below_mos; Thu midweek 2026-09-17 KEEP; Brown IR unchanged; kill inside +4 not triggered; never NE \u22125.5 chalk; confirm DK in-app; no Live; Sun gameday 2026-09-20 KEEP: public NE \u22125 / PIT +5 (band \u22124.5/\u22125.5) tot ~41.5; Brown IR unchanged; Gillette showers likely; kill inside +4 not met; below_mos \u2192 no Live; confirm DK in-app; SETTLED L NE 20-3 PIT (PIT by -17; +5.5 fails); postmortem 2026-09-21: injury-priced dog / Brown IR thesis failed \u2014 NE controlled throughout (Gillette); close NE \u22125/\u22125.5 band (entry +5.5 = number CLV +0.5pt vs public +5); kill inside +4 never met; below_mos correctly blocked Live; lesson_tag=injury_priced_dog_still_blown_out_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-NFL-03",
-          "logged_ct": "2026-09-15 09:35 CT",
-          "league": "NFL",
-          "event": "NFL W2 SEA @ ARI (2026-09-20)",
-          "side": "ARI +4.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "SEA -2.5 to -4 with Lock / market -4.5 (opened -5.5/-6)",
-          "ev": "0.25",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.0",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Darnold OUT (hip); Lock likely; number retreat -6/-5.5\u2192-4.5; ARI Week1 upset vs LAC; lesson=lagged_dog_number_capture; NEVER SEA -4.5 chalk; mid-band EV~$0.10-0.40 \u2192 below_mos; confirm DK in-app; no Live; kill if inside +3 w/o SEA upgrade; tag=below_mos; Thu midweek 2026-09-17 KEEP; Darnold OUT Lock starts; kill inside +3 not triggered; confirm DK in-app; no Live; Sun gameday 2026-09-20 KEEP: still SEA \u22124.5 / ARI +4.5 tot ~41.5; Darnold OUT Lock starts; State Farm roof TBD; kill inside +3 not met; below_mos \u2192 no Live; confirm DK in-app; SETTLED L SEA 31-7 ARI (ARI by -24; +4.5 fails); postmortem 2026-09-21: lagged_dog_number_capture / Lock-start thesis failed \u2014 SEA blew out ARI; close held SEA \u22124/\u22124.5 band (CLV~flat at +4.5); kill inside +3 never met; never-SEA-chalk held; below_mos correctly blocked Live; lesson_tag=lagged_dog_Lock_start_still_blown_out_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-NFL-04",
-          "logged_ct": "2026-09-15 09:35 CT",
-          "league": "NFL",
-          "event": "NFL W2 CAR @ ATL (2026-09-20)",
-          "side": "ATL +1.5",
-          "odds": "-110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to CAR -1 / ATL +0 to +1.5 (QB unsettled)",
-          "ev": "0.20",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "number_-1.0pt_vs_close_+2.5",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Flipped: open ATL -1.5 \u2192 CAR -1.5 (some -2.5); Falcons QB unsettled (Rush/Tua/Penix TBD Wed); prefer dog ATL +1.5/+2.5 over CAR chalk; CAR allowed 59 W1; mid-band EV~$0.10-0.35 \u2192 below_mos; confirm DK in-app; no Live; kill if Penix/Tua confirmed healthy AND ATL shortens past +0.5; tag=below_mos; Thu midweek 2026-09-17 KEEP; Stefanski not naming starter Tua DNP Rush+Penix practiced; kill=healthy Penix/Tua AND ATL past +0.5 not triggered; shop +2.5 if avail; confirm DK in-app; no Live; Sun gameday 2026-09-20 KEEP prefer +2.5: public CAR \u22122.5 / ATL +2.5 tot ~43.5; Rush starts Penix not ready Tua out; kill (healthy Penix/Tua AND past +0.5) not met; below_mos \u2192 no Live; confirm DK in-app; SETTLED L CAR 34-3 ATL (ATL by -31; +1.5 and +2.5 fail); postmortem 2026-09-21: market_lag / QB-unsettled dog thesis failed \u2014 Rush start crushed by Young/Waller; close CAR \u22122.5 / ATL +2.5 (entry +1.5 = number CLV \u22121.0pt vs shop +2.5); kill (healthy Penix/Tua AND past +0.5) not met; below_mos correctly blocked Live; lesson_tag=QB_unsettled_home_dog_blown_out_no_falsifier_on_MoS; tag=below_mos_settled_DEAD",
-          "result": "loss",
-          "pnl_net_usd": -4.0,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-MLB-01",
-          "logged_ct": "2026-09-15 10:25 CT",
-          "league": "MLB",
-          "event": "MLB-20260915-ATL@CHC",
-          "side": "ATL ML",
-          "odds": "+119",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "pickem to ATL -110 / CHC -115",
-          "ev": "0.45",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "0.85",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Perez vs Gausman; SP edge + better club + Swanson IL (rehab Fri aim); Webb BP soft note; Wrigley ~75F S/SSW mild; FD also +116; mid-band EV~$0.38-0.55 high~$0.64 \u2192 below_mos; FP~6:40 CT; BP/leverage note required on ML; kill if Perez scratched or ATL past -105 w/o news; confirm DK in-app; no Live; tag=below_mos; SETTLED ATL 6-3 CHC (Acu\u00f1a/Albies/Baldwin late 2-run HRs; P\u00e9rez W 6IP); postmortem 2026-09-16: sp_mismatch + Swanson IL thesis sound; BP/leverage note validated (Webb blew lead 7th); CLV mild beat (+119 vs close ~+115); calibration: mid-band 0.49-0.53 covered outcome; still below_mos at log \u2014 MoS abstain correct; lesson_tag=sp_mismatch_ML_hit_no_falsifier; tag=below_mos_settled",
-          "result": "win",
-          "pnl_net_usd": 4.76,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        },
-        {
-          "ticket_id": "SP-SH-20260915-MLB-02",
-          "logged_ct": "2026-09-15 10:25 CT",
-          "league": "MLB",
-          "event": "MLB-20260915-BAL@NYM",
-          "side": "BAL ML",
-          "odds": "+110",
-          "stake_shadow_usd": 4.0,
-          "max_loss_usd": 4.0,
-          "harbor_fair_prob": null,
-          "fair_line": "NYM -115 to -125 / BAL +100 to +110",
-          "ev": "0.15",
-          "confidence": "Low-Moderate",
-          "forecast_class": "market_informed",
-          "clv": "-0.45",
-          "tag": "HARBOR_SHADOW",
-          "rationale": "Baz vs Manaea; mild SP edge; BAL took Mon 2-1; discount if BP/IL kills late leverage; Baz ML-dog season mark weak; shop +114 if out; mid-band EV~$0.03-0.28 \u2192 below_mos/tiny; FP~6:10 CT; BP/leverage note required; kill if Baz scratched or BAL past -105 w/o news or closer IL; confirm DK in-app; no Live; tag=below_mos; SETTLED BAL 7-5 NYM (11 inn; Alonso 300th HR tie 9th; Mayo ITPHR 11th); postmortem 2026-09-16: mild sp_mismatch + series momentum hit via high-variance extras; BP/leverage caution was warranted (game reached 11); CLV slight miss (+110 vs close ~+112); calibration: mid-band 0.46-0.50 covered but path noisy \u2014 do not upgrade MoS from one win; lesson_tag=soft_dog_ML_variance_ok_no_MoS; tag=below_mos_settled",
-          "result": "win",
-          "pnl_net_usd": 4.4,
-          "source": "journal/sports-shadow/clv-ledger-v2.csv"
-        }
-      ],
+      "harbor_shadow": [],
       "personal_recommendations": [],
-      "roi_note": "No Harbor LIVE results yet. Shadow settles: 33 finished (14-19-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
+      "roi_note": "No Harbor LIVE results yet \u2014 ROI / by-sport / by-edge empty until first Harbor-tagged settle.",
       "shadow_settle_summary": {
-        "reconciled": 33,
+        "reconciled": 0,
         "still_open": 0,
-        "record_w_l_p": "14-19-0",
-        "hyp_pnl_net_usd": -20.08,
-        "by_league": {
-          "NFL": {
-            "w": 1,
-            "l": 8,
-            "p": 0,
-            "n": 9,
-            "pnl_net_usd": -28.36
-          },
-          "CFB": {
-            "w": 5,
-            "l": 2,
-            "p": 0,
-            "n": 7,
-            "pnl_net_usd": 10.37
-          },
-          "MLB": {
-            "w": 8,
-            "l": 9,
-            "p": 0,
-            "n": 17,
-            "pnl_net_usd": -2.09
-          }
-        },
+        "record_w_l_p": "0-0-0",
+        "hyp_pnl_net_usd": null,
+        "by_league": {},
         "note": "Hypothetical shadow settles only \u2014 not Harbor LIVE P&L. See journal/sports-shadow/shadow-results-summary-2026-09-13.md"
       },
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "mlb-daily-board",
-            "title": "MLB daily screen",
-            "nextRunAt": "2026-09-25T09:30:00-05:00",
-            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
-            "owner": "Holt wake \u00b7 Sloan triage"
-          },
           {
             "id": "cfb-friday-board",
             "title": "CFB Friday slate",
@@ -7754,6 +7031,13 @@
             "title": "CFB Saturday slate",
             "nextRunAt": "2026-09-26T08:00:00-05:00",
             "scheduleLabel": "Saturdays 8:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "nfl-sunday-board",
+            "title": "NFL Sunday slate",
+            "nextRunAt": "2026-09-27T09:00:00-05:00",
+            "scheduleLabel": "Sundays 9:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
@@ -7853,15 +7137,8 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-24T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "viability-evidence",
             "title": "Viability evidence (Day 15 \u00b7 16d left)",
@@ -7875,54 +7152,61 @@
             "nextRunAt": "2026-09-25T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-25T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           }
         ]
       },
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "securities-pm",
-            "title": "Securities afternoon scan",
-            "nextRunAt": "2026-09-24T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-24T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "securities-am",
             "title": "Securities morning scan",
             "nextRunAt": "2026-09-25T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
+          },
+          {
+            "id": "securities-pm",
+            "title": "Securities afternoon scan",
+            "nextRunAt": "2026-09-25T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-25T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           }
         ]
       },
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "options-pm-ride",
-            "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-09-24T13:30:00-05:00",
-            "scheduleLabel": "Weekdays 1:30 PM CT",
-            "owner": "Vera"
-          },
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
             "nextRunAt": "2026-09-25T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
+            "owner": "Vera"
+          },
+          {
+            "id": "options-pm-ride",
+            "title": "Securities afternoon scan (options ride)",
+            "nextRunAt": "2026-09-25T13:30:00-05:00",
+            "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
@@ -7937,21 +7221,21 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "eod-reconcile",
-            "title": "End-of-day reconcile",
-            "nextRunAt": "2026-09-24T16:00:00-05:00",
-            "scheduleLabel": "Weekdays 4:00 PM CT",
-            "owner": "Holt"
-          },
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
             "nextRunAt": "2026-09-25T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
+          },
+          {
+            "id": "eod-reconcile",
+            "title": "End-of-day reconcile",
+            "nextRunAt": "2026-09-25T16:00:00-05:00",
+            "scheduleLabel": "Weekdays 4:00 PM CT",
+            "owner": "Holt"
           },
           {
             "id": "weekly-portfolio-review",
@@ -7965,7 +7249,7 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
           {
             "id": "crypto-pm",
@@ -7993,15 +7277,8 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-09-24T10:01:21-05:00",
+        "lastUpdated": "2026-09-24T16:29:21-05:00",
         "items": [
-          {
-            "id": "mlb-daily-board",
-            "title": "MLB daily screen",
-            "nextRunAt": "2026-09-25T09:30:00-05:00",
-            "scheduleLabel": "Daily 9:30 AM CT (in-season)",
-            "owner": "Holt wake \u00b7 Sloan triage"
-          },
           {
             "id": "cfb-friday-board",
             "title": "CFB Friday slate",
@@ -8015,10 +7292,17 @@
             "nextRunAt": "2026-09-26T08:00:00-05:00",
             "scheduleLabel": "Saturdays 8:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
+          },
+          {
+            "id": "nfl-sunday-board",
+            "title": "NFL Sunday slate",
+            "nextRunAt": "2026-09-27T09:00:00-05:00",
+            "scheduleLabel": "Sundays 9:00 AM CT",
+            "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
       }
     },
-    "generated_at_ct": "2026-09-24T10:01:21-05:00"
+    "generated_at_ct": "2026-09-24T16:29:21-05:00"
   }
 }

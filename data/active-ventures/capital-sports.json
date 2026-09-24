@@ -3,8 +3,8 @@
   "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-24T10:05:00-05:00",
+  "lastUpdated": "2026-09-24T16:29:13-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets \u2014 Thu 2026-09-24 (~10:05 CT): MLB Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 8th straight MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). ASAP KC ML (+108) vs CWS (\u2212126) PASS: SharpModels KC 55% / nF KC 51.25% lean against CWS chalk but honest mid hugs nF ~0.51 (Dobnak Sep 5.91 in 4 GS form risk \u2014 do not invent to Sharp 55); mid-EV @ +108 \u2248 $0.24 \u226a $0.40; Low conf; FP ~1:10 CT \u2192 pass; never CWS \u2212126 chalk. MIL ML (+100) @ PHI (\u2212118 FD / \u2212120 BetMGM) ABSTAIN: Wilson thin_SP_sample_kill (~15 G / ~34 IP) + IL return (back strain Aug 31; rehab Sep 15; leading contender to start \u2014 not confirmed multi-inning); SharpModels 50/50; nF MIL 57.81% optimistic ceiling; BetMGM model PHI 51.6% against; honest mid ~0.50\u20130.52 \u2192 mid-EV ~$0.00\u20130.16 \u226a $0.40; never PHI \u2212118/\u2212120 chalk. Soft TB +128 Seymour confirmed vs Schlittler 1.94 ABSTAIN (SP against). Soft CLE/NYM/HOU ABSTAIN. Prefer-0 honored (calibration unused). No SP-SH-20260924-MLB-* rows. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Thu 2026-09-24 (~16:30 CT): NFL W3 + CFB W4 live-candidate slate under mid-window ($5 unit / SP-L07). MoS A\u2013E clears: 0 (ready_for_quinn []). Calibration shadow SP-SH-20260924-NFL-01 CHI +4.5 @ \u2212105 (Keenum lag; mid-EV ~$0.47\u20130.66 < MoS $1.00) \u2014 shadow only, not Live. Watches: WAS +7.5 Fri if Darnold OUT; MIZZ +7 shop; USC +3.5. Standing MLB daily PAUSED. Open LIVE=0; open shadows=1 (CHI calib); cum ~14\u201318\u20130 (\u2212$16.08). Confirm DK in-app. No invent Live / no Quinn cascade / no place.",
   "items": []
 }

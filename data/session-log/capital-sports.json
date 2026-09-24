@@ -1,8 +1,41 @@
 {
   "areaId": "capital-sports",
   "areaName": "Capital \u2014 Sports",
-  "lastUpdated": "2026-09-24T10:05:00-05:00",
+  "lastUpdated": "2026-09-24T16:29:13-05:00",
   "entries": [
+    {
+      "id": "sess-sports-nfl-cfb-slate-20260924",
+      "ts": "2026-09-24T16:29:13-05:00",
+      "ts_ct": "2026-09-24 16:29:13 CT",
+      "area": "sports",
+      "title": "NFL W3 + CFB W4 live-candidate slate \u00b7 SP-L07 process change \u00b7 0 MoS clears",
+      "summary": "Mid-window sports slate (Sloan): NFL Week 3 (TNF\u2192MNF) + CFB Week 4 weekend. Public DK via Sporting News + VegasInsider DK columns \u2014 confirm in-app. Sleeve $5/$15/$30. MoS A\u2013E @ $5 (\u2265$1.00): no clears; ready_for_quinn []. Best: CHI +4.5 injury-lag (Keenum trending; fair PHI \u22125.5 to \u22127.5 vs mkt \u22124.5) mid-EV ~$0.47\u20130.66 \u2192 SP-SH-20260924-NFL-01 below_mos_calibration only (not Live). WAS +7.5 Fri Darnold watch; MIZZ +6.5 VSiN gap watch (W3 lagged-dog caution); USC +3 soft. Explicit SP-L07: pause standing MLB daily; NFL+CFB focus; football calibration unlock (\u22641/week NFL, \u22641/weekend CFB); Quinn probe-MoS 10% request flagged \u2014 no cascade (A fail under 20%). Open LIVE=0; open shadows=1; cum ~14\u201318\u20130 (\u2212$16.08). No credentials / place / iMessage / Quinn escalate.",
+      "tags": [
+        "sports",
+        "nfl",
+        "cfb",
+        "shadow",
+        "below_mos",
+        "calibration",
+        "no-live",
+        "sp-l07",
+        "mid-window",
+        "process-change",
+        "mlb-paused",
+        "injury-lag",
+        "ready_for_quinn-empty"
+      ],
+      "links": {
+        "memo": "docs/sports-memos/nfl-cfb-live-candidates-week-2026-09-24.md",
+        "ledger": "journal/sports-shadow/clv-ledger-v2.csv",
+        "process": "docs/sports-memos/sports-below-mos-process-review-2026-09-16.md",
+        "sleeve": "docs/sports-risk-sleeve-2026-09-06.md",
+        "mid_window": "docs/mid-window-posture-2026-09-24.md"
+      },
+      "at": "2026-09-24T16:29:13-05:00",
+      "actor": "Sloan (Harbor Capital \u2014 Sports)",
+      "deskChanges": "AV emptyReason refresh (0 LIVE; 1 calibration shadow CHI). Next Up: MLB daily PAUSED; NFL/CFB focus. Session Log. process_delta: SP-L07 mid-window absorb; first football live-candidate slate @ $5; MoS still bind; no empty celebration."
+    },
     {
       "id": "sess-sports-mlb-thu-empty-20260924",
       "ts": "2026-09-24T10:05:00-05:00",
