@@ -1,10 +1,10 @@
 {
   "areaId": "capital-sports",
-  "areaName": "Harbor Capital — Sports",
+  "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-23T10:30:00-05:00",
+  "lastUpdated": "2026-09-24T10:05:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets — Wed 2026-09-23 (~10:30 CT): MLB Sloan deepen under SP-L06 → empty board (0 new MLB shadows; 7th straight MLB empty). Open ledger=0; cum 14–18–0 (−$16.08). ASAP WSH ML (+134/+140) @ DET PASS: Lovelady 5 GS / WHIP 1.837 thin_SP_sample_kill + Cavalli shut-down BP game; SharpModels WSH 42% / nF DET 63.2%; mid-EV ≪ $0.40; never DET −163/−166 chalk; FP ~12:10 CT. MIL ML (−131 DK / −136/−138 FD) ABSTAIN: road chalk needs mid ≥0.624 for $0.40 EV; Sharp ~50% / VSIN EST ~pick'em / nF 58.1% → mid-EV ≤~$0.10; never chalk without MoS. CWS ML (−116/−118) ABSTAIN: Hudson 8 GS thin_SP_sample_kill; Sharp 44% / nF ~49% against chalk; mid-EV negative; confirm Hudson vs Fedde SP. Soft LAA/CLE/TB/TOR G1 ABSTAIN. Prefer-0 honored (calibration unused). No SP-SH-20260923-MLB-* rows. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
+  "emptyReason": "No Harbor LIVE tickets \u2014 Thu 2026-09-24 (~10:05 CT): MLB Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 8th straight MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). ASAP KC ML (+108) vs CWS (\u2212126) PASS: SharpModels KC 55% / nF KC 51.25% lean against CWS chalk but honest mid hugs nF ~0.51 (Dobnak Sep 5.91 in 4 GS form risk \u2014 do not invent to Sharp 55); mid-EV @ +108 \u2248 $0.24 \u226a $0.40; Low conf; FP ~1:10 CT \u2192 pass; never CWS \u2212126 chalk. MIL ML (+100) @ PHI (\u2212118 FD / \u2212120 BetMGM) ABSTAIN: Wilson thin_SP_sample_kill (~15 G / ~34 IP) + IL return (back strain Aug 31; rehab Sep 15; leading contender to start \u2014 not confirmed multi-inning); SharpModels 50/50; nF MIL 57.81% optimistic ceiling; BetMGM model PHI 51.6% against; honest mid ~0.50\u20130.52 \u2192 mid-EV ~$0.00\u20130.16 \u226a $0.40; never PHI \u2212118/\u2212120 chalk. Soft TB +128 Seymour confirmed vs Schlittler 1.94 ABSTAIN (SP against). Soft CLE/NYM/HOU ABSTAIN. Prefer-0 honored (calibration unused). No SP-SH-20260924-MLB-* rows. ready_for_quinn NO. S=$200 DK sleeve idle until Quinn+Holt clear. Confirm DK in-app. No invent Live.",
   "items": []
 }
