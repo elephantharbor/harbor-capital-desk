@@ -5,26 +5,87 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Harbor NFL forecasts, Oct 4–5, 2026</title>
 <style>
-  :root { color-scheme: light; }
-  body { margin: 0; font: 16px/1.45 Georgia, "Iowan Old Style", serif; color: #1c1915; background: #f6f3ee; }
-  main { max-width: 1100px; margin: 0 auto; padding: 28px 18px 64px; }
-  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 8px; }
-  p { margin: 0 0 12px; }
-  .note { color: #4a453d; }
-  table { width: 100%; border-collapse: collapse; background: #fff; }
-  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #e4ddd2; }
-  th { font: 600 0.78rem/1.3 system-ui, sans-serif; letter-spacing: 0.02em; color: #5c564c; }
-  td { font-size: 0.95rem; }
-  .sub { color: #5c564c; font-size: 0.82rem; }
-  .wrap { overflow-x: auto; border: 1px solid #e4ddd2; border-radius: 8px; }
-  footer { margin-top: 16px; color: #5c564c; font-size: 0.85rem; }
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 16px/1.5 "Segoe UI", system-ui, sans-serif;
+    color: #f4f7fb;
+    background:
+      radial-gradient(900px 420px at 8% -10%, rgba(62, 224, 176, 0.28), transparent 60%),
+      radial-gradient(700px 380px at 100% 0%, rgba(124, 156, 255, 0.35), transparent 55%),
+      #0b1220;
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 18px 72px; }
+  .hero { margin-bottom: 18px; }
+  .kicker {
+    margin: 0 0 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #3ee0b0;
+  }
+  h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.03em; }
+  .when { margin: 6px 0 0; color: #ffb020; font-weight: 700; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+  .chips span {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  .lead { color: #c9d3e3; max-width: 68rem; margin: 0 0 18px; }
+  .wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    background: rgba(18, 26, 43, 0.92);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 860px; }
+  th, td { text-align: left; vertical-align: top; padding: 14px 14px; }
+  th {
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #9eb0cc;
+    background: #162033;
+    position: sticky;
+    top: 0;
+  }
+  tr + tr td { border-top: 1px solid rgba(255,255,255,0.06); }
+  tbody tr:hover td { background: rgba(62, 224, 176, 0.06); }
+  .sub { display: block; margin-top: 4px; color: #9eb0cc; font-size: 0.82rem; font-weight: 500; }
+  .up { color: #3ee0b0; }
+  .down { color: #ff8aa0; }
+  .safe {
+    display: inline-block;
+    background: rgba(62, 224, 176, 0.14);
+    color: #b8ffe8;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  footer { margin-top: 16px; color: #9eb0cc; font-size: 0.9rem; }
 </style>
 </head>
 <body>
 <main>
-  <h1>Harbor NFL forecasts, Oct 4–5, 2026</h1>
-  <p class="note">Fifteen frozen guesses, not bets. Nothing here is a wager, and no money is at risk. Frozen at 7:46 AM CT on Oct 4. The line is DraftKings as shown on the ESPN scoreboard at 8:28 AM CT, while every game was still scheduled.</p>
-  <p class="note">The difference is Harbor's home-team margin minus that DraftKings home-team margin. A plus means Harbor has the home team higher than the book. The note uses the last three weeks of offense and defense, rest, and a built-in home bump. It does not use injuries or quarterbacks.</p>
+  <header class="hero">
+    <p class="kicker">Harbor Capital</p>
+    <h1>NFL forecasts</h1>
+    <p class="when">Oct 4–5, 2026</p>
+  </header>
+  <div class="chips">
+    <span>15 guesses, not bets</span>
+    <span>Frozen 7:46 AM CT</span>
+    <span>DraftKings line, 8:28 AM CT</span>
+  </div>
+  <p class="lead">Nothing here is a wager, and no money is at risk. The line is DraftKings as shown on the ESPN scoreboard at 8:28 AM CT, while every game was still scheduled. The difference is Harbor's home-team margin minus that line. A plus means Harbor has the home team higher than the book. The note uses the last three weeks of offense and defense, rest, and a built-in home bump. It does not use injuries or quarterbacks.</p>
   <div class="wrap">
   <table>
     <thead><tr>
@@ -36,106 +97,106 @@
 <td><strong>WAS by 5.6</strong><br><span class="sub">home margin 5.57</span></td>
 <td>Weeks 1–3, Washington's offense was stronger (2.2 vs −1.8 EPA per game, not points scored) and its defense allowed less (4.3 vs 10.1), with rest even, so those inputs pushed toward Washington. This game is on a neutral field in London, but the frozen guess still includes the model's home-field bump for Washington.</td>
 <td><strong>IND -4.5</strong></td>
-<td><strong>+10.07</strong><br><span class="sub">home team 10.07 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+10.07</strong><br><span class="sub">home team 10.07 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>ARI @ NYG</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>ARI by 0.6</strong><br><span class="sub">home margin -0.61</span></td>
 <td>Arizona's weeks 1–3 offense was stronger (1.8 vs −3.0 EPA per game, not points scored) while the Giants allowed a bit less on defense (5.0 vs 6.4), and rest was even. Taken together those rates pushed toward Arizona; the home-field bump pushed back toward the Giants and was not enough to flip the guess.</td>
 <td><strong>ARI -2.5</strong></td>
-<td><strong>+1.89</strong><br><span class="sub">home team 1.89 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+1.89</strong><br><span class="sub">home team 1.89 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>DAL @ HOU</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>DAL by 3.7</strong><br><span class="sub">home margin -3.69</span></td>
 <td>Dallas's weeks 1–3 offense was much stronger (12.0 vs −6.3 EPA per game, not points scored) while Houston's defense allowed far less (−0.5 vs 12.8), and rest was even. That offensive gap outweighed Houston's defense and the home-field bump, so the guess was pushed toward Dallas.</td>
 <td><strong>HOU -3</strong></td>
-<td><strong>-6.69</strong><br><span class="sub">home team 6.69 points lower than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="down">-6.69</strong><br><span class="sub">home team 6.69 points lower than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>GB @ TB</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>TB by 3.5</strong><br><span class="sub">home margin 3.47</span></td>
 <td>Green Bay's weeks 1–3 offense was less bad (−7.3 vs −10.6 EPA per game, not points scored) and Green Bay had three more days of rest, but Tampa Bay's defense allowed much less (−5.8 vs 4.3). That defensive gap plus the home-field bump outweighed the offense and rest edges and pushed the guess toward Tampa Bay.</td>
 <td><strong>GB -3</strong></td>
-<td><strong>+6.47</strong><br><span class="sub">home team 6.47 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+6.47</strong><br><span class="sub">home team 6.47 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>JAX @ CIN</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>JAX by 0.9</strong><br><span class="sub">home margin -0.9</span></td>
 <td>Jacksonville's weeks 1–3 offense was stronger (9.7 vs 2.4 EPA per game, not points scored) while the defenses were nearly even (Cincinnati allowed −5.6, Jacksonville −5.4), and rest was the same. That offensive edge pushed toward Jacksonville and outweighed Cincinnati's home-field bump.</td>
 <td><strong>CIN -2.5</strong></td>
-<td><strong>-3.4</strong><br><span class="sub">home team 3.4 points lower than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="down">-3.4</strong><br><span class="sub">home team 3.4 points lower than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>LA @ PHI</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>LA by 2.0</strong><br><span class="sub">home margin -1.97</span></td>
 <td>The Rams' weeks 1–3 offense was stronger (1.4 vs −1.4 EPA per game, not points scored) and their defense allowed less (−4.2 vs 3.3), and the Rams also had one more day of rest. Those inputs pushed toward Los Angeles and outweighed Philadelphia's home-field bump.</td>
 <td><strong>LAR -3.5</strong></td>
-<td><strong>+1.53</strong><br><span class="sub">home team 1.53 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+1.53</strong><br><span class="sub">home team 1.53 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>NE @ BUF</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>BUF by 10.4</strong><br><span class="sub">home margin 10.42</span></td>
 <td>Buffalo's weeks 1–3 offense was much stronger (12.8 vs −7.3 EPA per game, not points scored) while New England's defense allowed less (−2.4 vs 5.0), and rest was even. The offensive gap plus the home-field bump outweighed New England's defensive edge and pushed the guess toward Buffalo.</td>
 <td><strong>BUF -7</strong></td>
-<td><strong>+3.42</strong><br><span class="sub">home team 3.42 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+3.42</strong><br><span class="sub">home team 3.42 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>NYJ @ CHI</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>CHI by 5.0</strong><br><span class="sub">home margin 5.04</span></td>
 <td>Chicago's weeks 1–3 offense was stronger (8.8 vs 2.0 EPA per game, not points scored) while the Jets' defense allowed less (−2.2 vs 0.6), and the Jets had one more day of rest. Chicago's offense plus the home-field bump outweighed those Jets edges and pushed the guess toward Chicago.</td>
 <td><strong>CHI -3.5</strong></td>
-<td><strong>+1.54</strong><br><span class="sub">home team 1.54 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+1.54</strong><br><span class="sub">home team 1.54 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>TEN @ BAL</strong><br><span class="sub">Sun, Oct 4, 12:00 PM CT</span></td>
 <td><strong>BAL by 8.1</strong><br><span class="sub">home margin 8.09</span></td>
 <td>Baltimore's weeks 1–3 offense was much stronger (10.4 vs −3.4 EPA per game, not points scored) while Tennessee's defense allowed less (1.2 vs 4.9), and rest was even. The offensive gap plus the home-field bump outweighed Tennessee's defensive edge and pushed the guess toward Baltimore.</td>
 <td><strong>BAL -11.5</strong></td>
-<td><strong>-3.41</strong><br><span class="sub">home team 3.41 points lower than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="down">-3.41</strong><br><span class="sub">home team 3.41 points lower than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>MIA @ MIN</strong><br><span class="sub">Sun, Oct 4, 3:05 PM CT</span></td>
 <td><strong>MIN by 8.9</strong><br><span class="sub">home margin 8.88</span></td>
 <td>Both offenses were weak in weeks 1–3, with Miami only slightly better (−6.1 vs −6.5 EPA per game, not points scored), while Minnesota's defense allowed far less (−12.1 vs 7.9), and rest was even. That defensive gap plus the home-field bump pushed the guess toward Minnesota.</td>
 <td><strong>MIN -10</strong></td>
-<td><strong>-1.12</strong><br><span class="sub">home team 1.12 points lower than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="down">-1.12</strong><br><span class="sub">home team 1.12 points lower than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>DEN @ SF</strong><br><span class="sub">Sun, Oct 4, 3:25 PM CT</span></td>
 <td><strong>SF by 14.7</strong><br><span class="sub">home margin 14.7</span></td>
 <td>San Francisco's weeks 1–3 offense was much stronger (18.6 vs −4.2 EPA per game, not points scored) and its defense allowed a bit less (1.0 vs 1.7), with rest even. Those inputs and the home-field bump all pushed the guess toward San Francisco.</td>
 <td><strong>SF -3</strong></td>
-<td><strong>+11.7</strong><br><span class="sub">home team 11.7 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+11.7</strong><br><span class="sub">home team 11.7 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>KC @ LV</strong><br><span class="sub">Sun, Oct 4, 3:25 PM CT</span></td>
 <td><strong>KC by 2.8</strong><br><span class="sub">home margin -2.8</span></td>
 <td>Kansas City's weeks 1–3 offense was much stronger (10.3 vs −2.6 EPA per game, not points scored) while Las Vegas's defense allowed less (−8.5 vs −5.4), and rest was even. The offensive gap outweighed Las Vegas's defense and the home-field bump, so the guess was pushed toward Kansas City.</td>
 <td><strong>KC -4.5</strong></td>
-<td><strong>+1.7</strong><br><span class="sub">home team 1.7 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+1.7</strong><br><span class="sub">home team 1.7 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>LAC @ SEA</strong><br><span class="sub">Sun, Oct 4, 3:25 PM CT</span></td>
 <td><strong>SEA by 13.8</strong><br><span class="sub">home margin 13.76</span></td>
 <td>Seattle's weeks 1–3 offense was stronger (3.0 vs −11.1 EPA per game, not points scored) and its defense allowed much less (−9.8 vs 0.9), with rest even. Those inputs and the home-field bump all pushed the guess toward Seattle.</td>
 <td><strong>SEA -7</strong></td>
-<td><strong>+6.76</strong><br><span class="sub">home team 6.76 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+6.76</strong><br><span class="sub">home team 6.76 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>DET @ CAR</strong><br><span class="sub">Sun, Oct 4, 7:20 PM CT</span></td>
 <td><strong>CAR by 2.1</strong><br><span class="sub">home margin 2.07</span></td>
 <td>Detroit's weeks 1–3 offense was stronger (9.9 vs 4.3 EPA per game, not points scored) while Carolina's defense allowed much less (0.1 vs 9.4), and rest was even. Those two edges nearly cancelled, and the home-field bump is what left the guess with Carolina.</td>
 <td><strong>DET -3.5</strong></td>
-<td><strong>+5.57</strong><br><span class="sub">home team 5.57 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+5.57</strong><br><span class="sub">home team 5.57 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr><tr>
 <td><strong>ATL @ NO</strong><br><span class="sub">Mon, Oct 5, 7:15 PM CT</span></td>
 <td><strong>NO by 5.0</strong><br><span class="sub">home margin 4.97</span></td>
 <td>New Orleans's weeks 1–3 offense was stronger (1.9 vs −9.5 EPA per game, not points scored) while Atlanta's defense allowed less (−2.9 vs 5.3), and Atlanta had three more days of rest. New Orleans's offense plus the home-field bump outweighed Atlanta's defense and rest and pushed the guess toward New Orleans.</td>
 <td><strong>NO -1.5</strong></td>
-<td><strong>+3.47</strong><br><span class="sub">home team 3.47 points higher than the line</span></td>
-<td>No. Forecast only.</td>
+<td><strong class="up">+3.47</strong><br><span class="sub">home team 3.47 points higher than the line</span></td>
+<td><span class="safe">No. Forecast only.</span></td>
 </tr>
     </tbody>
   </table>
