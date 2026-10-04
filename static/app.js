@@ -2072,7 +2072,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     }
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        <th>Matchup</th><th>Harbor guess</th><th>Current line</th><th>Difference</th><th>Frozen</th><th>Money at risk</th>
+        <th>Matchup</th><th>Harbor guess</th><th>What moved the guess</th><th>Current line</th><th>Difference</th><th>Frozen</th><th>Money at risk</th>
       </tr></thead>
       <tbody>
         ${rows
@@ -2086,9 +2086,13 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
             const diffCell = hasDiff
               ? `<strong>${esc(formatGapNumber(r.projection_minus_line))}</strong><br/><span class="muted">${esc(forecastGapPhrase(r.projection_minus_line))}</span>`
               : "—";
+            const kick = r.kickoff_display
+              ? `<br/><span class="muted">${esc(r.kickoff_display)}</span>`
+              : "";
             return `<tr>
-              <td><strong>${esc(r.matchup || "")}</strong></td>
+              <td><strong>${esc(r.matchup || "")}</strong>${kick}</td>
               <td><strong>${esc(r.harbor_direction || "")}</strong><br/><span class="muted">home margin ${esc(r.predicted_home_margin ?? "N/A")}</span></td>
+              <td class="muted" style="max-width:34em">${esc(r.prediction_blurb || "—")}</td>
               <td>${lineCell}</td>
               <td>${diffCell}</td>
               <td class="muted">${esc(r.prediction_timestamp || "N/A")}</td>
