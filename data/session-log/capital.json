@@ -1,8 +1,41 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-09-24T10:05:00-05:00",
+  "lastUpdated": "2026-10-03T11:45:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-cfb-sat-20261003",
+      "ts": "2026-10-03T11:45:00-05:00",
+      "ts_ct": "2026-10-03 11:45:00 CT",
+      "area": "sports",
+      "title": "CFB Week 5 Sat screen \u00b7 empty board \u00b7 0 shadows \u00b7 freeze lifted",
+      "summary": "CFB Sat Week 5 screen (Sloan, ~11:45 CT): first post-freeze SP-L07 pass, not a token-lock catch-up. Public Covers board + ESPN SP+/FPI (Connelly Oct 2) + DK Network spots. Noon ET already in progress (ALA 14\u20137 MSST, UCF 7\u20130 HOU, AFA/ISU/WIS live). No Harbor LIVE. ready_for_quinn []. No calibration shadow: Baylor +3.5 two-source gap but Lagway/VSiN haircut fails Mod+; Cincy +6.5/+7 gap but mid-EV @$5 under $0.40 at \u2212115 and revenge fade; Iowa +14.5 FPI only 1.0pt off; Florida models split; UMass chalk gap Low confidence (no invented my_p); UCF +11.5 was the clean two-source dog but kick already passed \u2014 no backfill. Open shadows=0; open LIVE=0; cum 14\u201318\u20130 (hyp \u2212$15.13). MLB still paused. Empty-streak count = 1 (token-lock weeks not counted). Memo cfb-saturday-gameday-2026-10-03.md. No Quinn / no iMessage / no place. Holt owns Pages push.",
+      "tags": [
+        "sports",
+        "cfb",
+        "screen",
+        "empty-board",
+        "no-live",
+        "sp-l07",
+        "post-freeze"
+      ]
+    },
+    {
+      "id": "sess-sports-shadow-settle-20260929",
+      "ts": "2026-09-29T10:58:00-05:00",
+      "ts_ct": "2026-09-29 10:58:00 CT",
+      "area": "sports",
+      "title": "Shadow settle \u00b7 SP-SH-20260924-NFL-01 CHI +4.5 W \u00b7 open shadows=0",
+      "summary": "Daily shadow settle (Sloan): SP-SH-20260924-NFL-01 CHI +4.5 @ \u2212105 ($5 calib) \u2192 W. Final CHI 27\u20137 PHI (cover by 20). Close consensus CHI +3.5 (entry +4.5 = number CLV +1.0pt; juice ~flat \u2212105). Hyp P&L +$4.76. Cum shadows 14\u201318\u20130 (hyp \u2212$15.13); open shadows=0; open LIVE=0. Postmortem: injury_lag/Keenum thesis sound; below_mos_calibration abstain validated \u2014 no process falsifier. TOKEN CONSERVATION LOCK unchanged (stand down / settle-only thru ~Oct 4). Ledger + shadow-results-summary-2026-09-29.md updated. No invent Live / no iMessage / no Quinn.",
+      "tags": [
+        "sports",
+        "nfl",
+        "shadow",
+        "settle",
+        "clv",
+        "token_lock"
+      ]
+    },
     {
       "id": "sess-sports-mlb-thu-empty-20260924",
       "ts": "2026-09-24T10:05:00-05:00",
@@ -923,5 +956,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-09-23 10:30:00 CT"
+  "updated_ct": "2026-10-03 11:45:00 CT"
 }

@@ -1,8 +1,43 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Capital \u2014 Crypto",
-  "lastUpdated": "2026-09-16T17:16:16-05:00",
+  "lastUpdated": "2026-09-24T16:30:21-05:00",
   "entries": [
+    {
+      "at": "2026-09-24T16:30:21-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "Filed spot-venue brief for Thomas (A IBKR-only / B Coinbase Advanced / C Kraken / D Gemini defer). IBIT \u2264$10 waits Gateway; ETH/spot waits venue. Concurrent SMH+IBIT locked under correlated spend.",
+      "deskChanges": "docs/crypto-spot-venue-brief-2026-09-24.md; sleeve still empty LIVE pending Gateway + venue.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-24T07:38:06-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "AM regime Thu: BTC soft through ~83.5k floor (~83.3k / low ~82.7k) under 10y yield pressure \u2014 extension of Wed grind, not new edge. Stay observe; no size/transmit ask. ARB/GRID/BASIS dead.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-09-24-am.md; sleeve still empty LIVE.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-21T08:01:39-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "AM regime Mon: BTC through ~85k (~+5.5% vs Fri PM) / ETH ~2.7k \u2014 Fri weekend-~80k falsifier cleared+extended via squeeze. Stay observe; next watch hold/fade ~85k into RTH. No size/transmit ask. ARB/GRID/BASIS dead.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-09-21-am.md (Cole voice); sleeve still empty LIVE.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-18T19:07:43-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "PM regime: BTC through ~80k (~+3.7% vs AM) / IBIT ~46 \u2014 extension of relief grind, not new edge. Stay observe; weekend ~80k hold is falsifier watch. No size/transmit ask. ARB/GRID/BASIS dead.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-09-18-pm.md (Cole voice); sleeve still empty LIVE.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-18T07:59:23-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "AM regime: BTC reclaim ~78k (~+2% vs PM) is risk-on grind, not a new catalyst. IBIT cheap-test thesis unchanged \u2014 stay observe/parked (NANOS week satellite; CPG still blocks). No size ask.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-09-18-am.md; sleeve still empty LIVE.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-16T17:16:16-05:00",
       "actor": "Cole (Harbor Capital - Crypto Spot)",

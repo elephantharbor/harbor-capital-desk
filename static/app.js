@@ -2046,6 +2046,35 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     </table></div>`;
   }
 
+
+  function sportsForecastTable(rows) {
+    if (!rows || !rows.length) {
+      return emptyState("No forecasts on the board", "When Pike freezes a model version before kick, those SHADOW guesses show up here. They are not bets.");
+    }
+    return `<div class="table-wrap"><table class="data">
+      <thead><tr>
+        <th>Matchup</th><th>Kick</th><th>Harbor guess</th><th>Decision</th><th>Model</th><th>Frozen</th><th>Money at risk?</th>
+      </tr></thead>
+      <tbody>
+        ${rows
+          .map((r) => {
+            const money = r.money_at_risk ? "YES — live stake" : "No — forecast only";
+            return `<tr>
+              <td><strong>${esc(r.matchup || "")}</strong></td>
+              <td class="muted">${esc(r.kickoff || "N/A")}</td>
+              <td><strong>${esc(r.harbor_direction || "")}</strong><br/><span class="muted">home margin ${esc(r.predicted_home_margin ?? "N/A")}</span></td>
+              <td>${sportsTagBadge(r.decision === "SHADOW" ? "HARBOR_SHADOW" : r.decision || "SHADOW")}<br/><span class="muted">${esc(r.decision_plain || "")}</span></td>
+              <td class="muted"><code>${esc(r.model_id || "")}</code></td>
+              <td class="muted">${esc(r.prediction_timestamp || "N/A")}</td>
+              <td><strong>${esc(money)}</strong></td>
+            </tr>`;
+          })
+          .join("")}
+      </tbody>
+    </table></div>`;
+  }
+
+
   function viewMarketSports() {
     const id = "sports";
     const m = marketRowById(id);
@@ -2057,19 +2086,65 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const sleeve = details.sleeve || {};
     const legend = details.tag_legend || {};
     const leagues = details.leagues || ["NFL", "CFB", "MLB"];
-    const live = details.harbor_live || [];
-    const shadow = details.harbor_shadow || [];
+    const live = details.active_bets || details.harbor_live || [];
+    const forecasts = details.todays_forecasts || [];
+    const forecastMeta = details.todays_forecasts_meta || {};
+    const settled = details.recently_settled || [];
+    const openShadow = details.open_shadow_learning || [];
+    const shadowHist = details.harbor_shadow || [];
     const personal = details.personal_recommendations || [];
+    const actions = details.action_required || [];
+    const perf = details.model_performance || {};
+    const fresh = details.data_freshness || {};
+    const mode = details.operating_mode || "RESEARCH";
+    const activeCount = details.active_bets_count != null ? details.active_bets_count : live.length;
+    const atRisk = details.money_at_risk_usd != null ? details.money_at_risk_usd : 0;
     const extras = `
       <div class="row-plain"><span class="k">Leagues</span><span class="v">${esc(leagues.join(" · "))} only</span></div>
       <div class="row-plain"><span class="k">${tip("Sports sleeve (S)", "Sports sleeve (S)")}</span><span class="v">${esc(formatUsd(sleeve.S ?? m.sleeve_s ?? 200) || "$200.00")} DraftKings Harbor-tagged · unit ${esc(formatUsd(sleeve.unit) || "$4.00")} / max ${esc(formatUsd(sleeve.max_ticket) || "$10.00")}</span></div>
       <div class="row-plain"><span class="k">At-risk means</span><span class="v"><strong>Stake</strong> when live — never totals into IBKR LIVE NAV</span></div>`;
+    const actionCard = actions.length
+      ? `<div class="card"><h2>Action required</h2>${sportsTicketTable(actions, "Nothing waiting on you", "No place-card recommendations right now.")}</div>`
+      : `<div class="card"><h2>Action required</h2>${emptyState("Nothing waiting on you", "No Harbor place-card recommendations. Forecasts below are not bets.")}</div>`;
     return `
       <div class="stack">
         ${marketCommonHeader(m, details)}
-        ${marketQaCard(m, details, extras)}
         <div class="card">
-          <h2>Tag legend (read this)</h2>
+          <h2>Sports overview</h2>
+          <div class="strip">
+            <div class="item"><span class="k">Mode</span><span class="v"><strong>${esc(mode)}</strong></span></div>
+            <div class="item"><span class="k">Active Bets</span><span class="v"><strong>${esc(String(activeCount))}</strong></span></div>
+            <div class="item"><span class="k">Money at risk</span><span class="v"><strong>${esc(formatUsd(atRisk) || "$0")}</strong></span></div>
+            <div class="item"><span class="k">Today's forecasts</span><span class="v"><strong>${esc(String(forecastMeta.count ?? forecasts.length))}</strong> SHADOW</span></div>
+          </div>
+          <p class="muted" style="margin-top:8px">${esc(softenThomasCopy(forecastMeta.plain || details.empty_live_reason || ""))}</p>
+          <p class="dim" style="margin-top:4px">Forecasts ≠ bets. A SHADOW row never counts as an Active Bet.</p>
+          ${fresh.forecasts_frozen_at ? `<p class="dim">Forecasts frozen: ${esc(fresh.forecasts_frozen_at)} · evidence: <code>${esc(fresh.forecasts_source || "")}</code></p>` : ""}
+        </div>
+        ${marketQaCard(m, details, extras)}
+        ${actionCard}
+        <div class="card">
+          <h2>Active Bets (real money)</h2>
+          <p class="muted" style="margin:0 0 8px">Only Harbor-tagged tickets you actually placed. Empty means <strong>Active Bets: 0</strong>.</p>
+          ${sportsTicketTable(live, "Active Bets: 0", details.empty_live_reason || "No Harbor LIVE tickets. Do not invent picks.")}
+        </div>
+        <div class="card">
+          <h2>Today's Forecasts (SHADOW — no money at risk)</h2>
+          <p class="muted" style="margin:0 0 8px">What Harbor's model guessed before kick. Positive home margin means the home team is guessed to win by that many points. These are <strong>not</strong> wagers.</p>
+          ${sportsForecastTable(forecasts)}
+        </div>
+        <div class="card">
+          <h2>Recently settled (learning history)</h2>
+          <p class="muted" style="margin:0 0 8px">Past SHADOW / LIVE settles for learning — not today's board.</p>
+          ${sportsTicketTable(settled.length ? settled : shadowHist.filter((r) => String(r.result || "").toLowerCase() !== "pending").slice(0, 12), "No settled rows yet", "Settled tickets and shadow results will archive here.")}
+        </div>
+        <div class="card">
+          <h2>Open SHADOW learning tickets</h2>
+          <p class="muted" style="margin:0 0 8px">Older paper tickets still waiting on a settle — separate from Today's Forecasts.</p>
+          ${sportsTicketTable(openShadow, "No open shadow tickets", "All prior shadow tickets are settled or none are open.")}
+        </div>
+        <div class="card">
+          <h2>Tag legend</h2>
           <div class="strip" style="flex-direction:column;align-items:stretch;gap:6px">
             <div>${sportsTagBadge("HARBOR_LIVE")} — ${esc(softenThomasCopy(legend.HARBOR_LIVE || "Harbor-tagged live ticket on the sports sleeve (S)."))}</div>
             <div>${sportsTagBadge("HARBOR_SHADOW")} — ${esc(softenThomasCopy(legend.HARBOR_SHADOW || "Shadow / process only — not P&L."))}</div>
@@ -2085,21 +2160,13 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           </div>
         </div>
         <div class="card">
-          <h2>${sportsTagBadge("HARBOR_LIVE")} open tickets</h2>
-          ${sportsTicketTable(live, "No Harbor LIVE tickets", details.empty_live_reason || "Ready — you place Harbor tickets — $0 open. Do not invent picks.")}
-        </div>
-        <div class="card">
-          <h2>${sportsTagBadge("HARBOR_SHADOW")} slate / learning</h2>
-          <p class="muted" style="margin:0 0 8px">Shadow rows are process / ${tip("closing-line value (CLV)", "CLV")} learning — <strong>not</strong> Harbor P&amp;L and not live stakes.</p>
-          ${sportsTicketTable(shadow, "No Harbor SHADOW rows", "Shadow ledger empty — independent-forecast methodology still applies.")}
-        </div>
-        <div class="card">
           <h2>${sportsTagBadge("PERSONAL_RECOMMENDATION")}</h2>
           ${sportsTicketTable(personal, "No personal recommendations on desk", "Personal bets are excluded from Harbor P&L and sleeve utilization by design.")}
         </div>
         <div class="card">
-          <h2>Performance / ROI</h2>
-          ${emptyState("No Harbor LIVE results yet", details.roi_note || "ROI and by-sport / by-edge breakdowns appear after first Harbor-tagged settle.")}
+          <h2>Model performance</h2>
+          <p>${esc(softenThomasCopy(perf.plain || details.roi_note || "No Harbor LIVE results yet."))}</p>
+          <p class="muted" style="margin-top:8px">${esc(details.roi_note || "")}</p>
         </div>
         <div class="card">
           <h2>Strategies</h2>
@@ -2111,6 +2178,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
         </div>
       </div>`;
   }
+
 
   function viewMarketPage(id) {
     const areaMap = {

@@ -3,8 +3,8 @@
   "areaName": "Harbor Capital \u2014 Event",
   "segment": "capital",
   "submarket": "event",
-  "lastUpdated": "2026-09-16T17:15:00-05:00",
+  "lastUpdated": "2026-09-25T09:25:00-05:00",
   "ventures": [],
   "empty": true,
-  "emptyReason": "No active positions \u2014 FOMC Wave-1 F1/F2/F6 scored (contaminated); process change allows Sep CPI NO ACT/TEST SMALL pending Quinn/Holt; still no LIVE fills."
+  "emptyReason": "No active positions \u2014 Claims WE Sep26/OCT01 ladder LISTED but contaminated my_p (looked_first=true) + NO-side cushions paper-only / no Quinn named ticket; Sep CPI NO book gates clear but Cleveland nowcast 3.57% kill \u22653.55 HIT (Quinn+Holt gated; Reed no-transmit); Oct FOMC research only; U-3 contaminated_abstain; L14 still in force / no live ACT; mid-window reshape \u2264$10 observation only; still no LIVE fills."
 }

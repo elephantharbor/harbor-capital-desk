@@ -1,8 +1,57 @@
 {
   "areaId": "capital-event",
   "areaName": "Capital \u2014 Event Markets",
-  "lastUpdated": "2026-09-16T17:15:00-05:00",
+  "lastUpdated": "2026-09-25T09:25:00-05:00",
   "entries": [
+    {
+      "at": "2026-09-25T09:25:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Fri Claims OCT01 NOW LISTED: KXJOBLESSCLAIMS-26OCT01 live. Contaminated my_p lock (Holt wake mids) looked_first=true \u2014 density <190:0.12 / 190-194:0.18 / 195-199:0.30 / 200-204:0.20 / 205-209:0.12 / >=210:0.08; cumul >=190/195/200/205/210 = 0.88/0.70/0.40/0.20/0.08. WIDTH PASS center (\u2265215 FAIL w0.11); YES cushions all FAIL; NO >=200 +0.13 / >=205 +0.09 / >=195 +0.05 border PASS contaminated \u2014 reshape \u2264$10 observation only, not transmit-ready. CPI 0.94/0.96 mid 0.950 w0.02 YES \u22120.45 FAIL / NO +0.41 PASS \u2014 Cleveland 3.57% kill \u22653.55 HIT (CPI NO dead escalate). Oct FOMC H0 0.345 / H25 0.655 research only. U-3 mid 0.370 contaminated_abstain. L14 still in force, no live ACT. Transmit-ready? NO. Empty book. forecasts.csv frozen / no Wave-1 invent. Mid-window: ladder present \u2192 soft reshape not freeze.",
+      "deskChanges": "journal/pre-market/claims-we-oct01-2026-09-25.md; journal/weekday-triage-2026-09-25.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-25 + Seed 3 OCT01); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": "L14"
+    },
+    {
+      "at": "2026-09-24T09:44:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Thu Claims settle: KXJOBLESSCLAIMS-26SEP24 FINALIZED expiration_value=197000 (~08:18 CT). DOL 197k vs ~200\u2013201k consensus. Ladder \u2265190/195=yes; \u2265200+ =no. Research tape only (no Wave-1 CSV rows); observational contaminated Brier density mean 0.1150 / cumul mean 0.0790 (Fri looked_first=true my_p kept, not rewritten). CPI 0.94/0.96 mid 0.950 w0.02 YES \u22120.45 FAIL / NO +0.41 PASS \u2014 Cleveland nowcast 3.57% upd 09/24 kill \u22653.55 HIT. Oct FOMC H0 0.365 (+8\u00a2) / H25 0.635 (\u22126\u00a2) research only. Next claims not listed. L14 still in force, no live ACT. Transmit-ready? NO. Empty book. forecasts.csv frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-24.md; journal/claims-we-sep19-tape-2026-09-24.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-24); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": "L14"
+    },
+    {
+      "at": "2026-09-23T09:45:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Wed Claims T-2: KXJOBLESSCLAIMS-26SEP24 WIDTH MIX (FAIL w0.11\u20130.13 on \u2265190\u2013200; PASS w0.07/0.09 on \u2265205/210) but cushions all FAIL \u2014 no size. Fri contaminated my_p kept (looked_first=true; no rewrite). CPI 0.96/0.97 mid 0.965 w0.01 YES \u22120.46 FAIL / NO +0.43 PASS \u2014 Cleveland nowcast 3.57% upd 09/23 kill \u22653.55 HIT (was 3.50% Tue). Oct FOMC large move H0 0.285 (\u221220\u00a2) / H25 0.695 (+18\u00a2) research only. L14 review: still in force, no live ACT yet. Transmit-ready? NO. Empty book. Settle Thu 09-24. forecasts.csv frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-23.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-23); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": "L14"
+    },
+    {
+      "at": "2026-09-22T09:40:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Tue Claims T-24 open: KXJOBLESSCLAIMS-26SEP24 WIDTH FAIL (w 0.16\u20130.23 across \u2265190\u2013210); all cushions FAIL \u2014 size killed. Fri contaminated my_p kept (looked_first=true; no rewrite). CPI 0.95/0.97 mid 0.960 (+6\u00a2 vs Mon) w0.02 YES \u22120.46 FAIL / NO +0.42 PASS (Quinn gated; Holt still; Cleveland nowcast 3.50% page 09/22, kill \u22653.55 not hit). Oct FOMC H25 0.515 / H0 0.485 research only. Transmit-ready? NO. Empty book. Settle Thu 09-24. forecasts.csv frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-22.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-22); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-21T09:50:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Mon MATERIAL AM: Claims KXJOBLESSCLAIMS-26SEP24 WIDTH FAIL (w 0.11\u20130.26 across \u2265190\u2013210); \u2265205/210 mids soft; all cushions FAIL \u2014 size killed. Fri contaminated my_p kept (looked_first=true; no rewrite). CPI 0.89/0.91 mid 0.900 w0.02 YES \u22120.40 FAIL / NO +0.36 PASS (Quinn gated; Holt still; Cleveland nowcast 3.50% upd 09/21, kill \u22653.55 not hit). Oct FOMC H0/H25 both ~0.495 research only. Transmit-ready? NO. Empty book. Claims T-24 ~Tue 09-22. forecasts.csv frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-21.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-21); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-18T09:41:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Fri MATERIAL AM: Claims KXJOBLESSCLAIMS-26SEP24 live. Contaminated my_p lock (Holt wake mids) looked_first=true \u2014 density <190:0.10 / 190-194:0.15 / 195-199:0.25 / 200-204:0.25 / 205-209:0.15 / >=210:0.10; cumul >=190/195/200/205/210 = 0.90/0.75/0.50/0.25/0.10. Cushion YES >=190 +0.09 / >=195 +0.07 PASS contaminated; center FAIL; >=210 NO +0.06 thin. CPI 0.94/0.95 w0.01 YES -0.44 FAIL / NO +0.41 PASS (Quinn gated; Holt still). Oct FOMC research only. Transmit-ready? NO. forecasts.csv frozen. Empty book.",
+      "deskChanges": "journal/pre-market/claims-we-sep24-2026-09-18.md; journal/weekday-triage-2026-09-18.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-18); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": null
+    },
+    {
+      "at": "2026-09-17T09:30:00-05:00",
+      "actor": "Reed (Harbor Capital - Event Markets)",
+      "summary": "Thu triage: Claims WE Sep12 settled DOL/Kalshi 196k (research tape only; no Wave-1 row). CPI T3.4 live 0.93/0.95 w0.02 PASS; YES cushion \u22120.44 FAIL; NO +0.40 PASS; yes_bid_sz\u2248222 (deeper vs 39). ACT/TEST SMALL CPI NO still valid under L14; Quinn+Holt required. Next claims SEP24 not listed. FOMC closed/scored. Transmit-ready? NO. forecasts.csv my_p frozen.",
+      "deskChanges": "journal/weekday-triage-2026-09-17.md; journal/claims-we-sep12-tape-2026-09-17.md; docs/event-probability-hunt-queue-2026-09-11.md (Live check 2026-09-17); decisions append; session-log capital-event mirrors; active-ventures emptyReason.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-16T17:15:00-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",

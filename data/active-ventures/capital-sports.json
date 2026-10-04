@@ -3,8 +3,9 @@
   "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-09-24T16:29:13-05:00",
+  "lastUpdated": "2026-10-03T11:45:00-05:00",
   "empty": true,
-  "emptyReason": "No Harbor LIVE tickets \u2014 Thu 2026-09-24 (~16:30 CT): NFL W3 + CFB W4 live-candidate slate under mid-window ($5 unit / SP-L07). MoS A\u2013E clears: 0 (ready_for_quinn []). Calibration shadow SP-SH-20260924-NFL-01 CHI +4.5 @ \u2212105 (Keenum lag; mid-EV ~$0.47\u20130.66 < MoS $1.00) \u2014 shadow only, not Live. Watches: WAS +7.5 Fri if Darnold OUT; MIZZ +7 shop; USC +3.5. Standing MLB daily PAUSED. Open LIVE=0; open shadows=1 (CHI calib); cum ~14\u201318\u20130 (\u2212$16.08). Confirm DK in-app. No invent Live / no Quinn cascade / no place.",
-  "items": []
+  "emptyReason": "Active Bets: 0 \u2014 Sun 2026-10-04 CT. 15 NFL SHADOW forecasts frozen 7:46 AM CT (walkforward-v1) are on Today's Forecasts \u2014 not LIVE. No Harbor money at risk. Path A / LIVE stays closed. Shadows \u2260 Active Ventures.",
+  "items": [],
+  "updatedAt": "2026-10-04T07:55:00-05:00"
 }
