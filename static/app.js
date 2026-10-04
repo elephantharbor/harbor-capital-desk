@@ -2108,6 +2108,12 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       : `<div class="card"><h2>Action required</h2>${emptyState("Nothing waiting on you", "No Harbor place-card recommendations. Forecasts below are not bets.")}</div>`;
     return `
       <div class="stack">
+        <div class="card">
+          <h2>Today's Forecasts (SHADOW — no money at risk)</h2>
+          <p class="muted" style="margin:0 0 8px">What Harbor's model guessed before kick. Positive home margin means the home team is guessed to win by that many points. These are <strong>not</strong> wagers.</p>
+          ${sportsForecastTable(forecasts)}
+        </div>
+        <!-- sports-after-forecast -->
         ${marketCommonHeader(m, details)}
         <div class="card">
           <h2>Sports overview</h2>
@@ -2127,11 +2133,6 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           <h2>Active Bets (real money)</h2>
           <p class="muted" style="margin:0 0 8px">Only Harbor-tagged tickets you actually placed. Empty means <strong>Active Bets: 0</strong>.</p>
           ${sportsTicketTable(live, "Active Bets: 0", details.empty_live_reason || "No Harbor LIVE tickets. Do not invent picks.")}
-        </div>
-        <div class="card">
-          <h2>Today's Forecasts (SHADOW — no money at risk)</h2>
-          <p class="muted" style="margin:0 0 8px">What Harbor's model guessed before kick. Positive home margin means the home team is guessed to win by that many points. These are <strong>not</strong> wagers.</p>
-          ${sportsForecastTable(forecasts)}
         </div>
         <div class="card">
           <h2>Recently settled (learning history)</h2>
@@ -2197,6 +2198,14 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     else return viewMarketsIndex();
     const area = areaMap[id];
     if (!area || html.includes("data-next-up=")) return html;
+    // Sports: keep Today's Forecasts above Next Up and Active Ventures.
+    if (id === "sports" && html.includes("<!-- sports-after-forecast -->")) {
+      return html.replace(
+        "<!-- sports-after-forecast -->",
+        `<div data-next-up="${area}"></div><div data-active-ventures="${area}"></div>`,
+        1
+      );
+    }
     // Insert Next Up after opening stack / first card if possible
     return html.replace(
       '<div class="stack">',
