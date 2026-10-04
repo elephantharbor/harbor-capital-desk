@@ -2047,24 +2047,50 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   }
 
 
+  function formatGapNumber(n) {
+    const rounded = Math.round(Number(n) * 100) / 100;
+    const abs = Math.abs(rounded);
+    let body = abs.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+    if (rounded < 0) return "-" + body;
+    if (rounded > 0) return "+" + body;
+    return "0";
+  }
+
+  function forecastGapPhrase(n) {
+    const rounded = Math.round(Number(n) * 100) / 100;
+    if (rounded === 0) return "home team matches the line";
+    const abs = Math.abs(rounded);
+    let body = abs.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+    const unit = abs === 1 ? "point" : "points";
+    if (rounded < 0) return `home team ${body} ${unit} lower than the line`;
+    return `home team ${body} ${unit} higher than the line`;
+  }
+
   function sportsForecastTable(rows) {
     if (!rows || !rows.length) {
       return emptyState("No forecasts on the board", "When Pike freezes a model version before kick, those SHADOW guesses show up here. They are not bets.");
     }
     return `<div class="table-wrap"><table class="data">
       <thead><tr>
-        <th>Matchup</th><th>Kick</th><th>Harbor guess</th><th>Decision</th><th>Model</th><th>Frozen</th><th>Money at risk?</th>
+        <th>Matchup</th><th>Harbor guess</th><th>Current line</th><th>Difference</th><th>Frozen</th><th>Money at risk</th>
       </tr></thead>
       <tbody>
         ${rows
           .map((r) => {
             const money = r.money_at_risk ? "YES — live stake" : "No — forecast only";
+            const hasLine = r.current_line_home_margin != null && r.current_line_home_margin !== "" && r.current_line_display;
+            const lineCell = hasLine
+              ? `<strong>${esc(r.current_line_display)}</strong>${/neutral site/i.test(String(r.line_source || "")) ? `<br/><span class="muted">Neutral-site line</span>` : ""}`
+              : "Line not found";
+            const hasDiff = hasLine && r.projection_minus_line != null && r.projection_minus_line !== "" && Number.isFinite(Number(r.projection_minus_line));
+            const diffCell = hasDiff
+              ? `<strong>${esc(formatGapNumber(r.projection_minus_line))}</strong><br/><span class="muted">${esc(forecastGapPhrase(r.projection_minus_line))}</span>`
+              : "—";
             return `<tr>
               <td><strong>${esc(r.matchup || "")}</strong></td>
-              <td class="muted">${esc(r.kickoff || "N/A")}</td>
               <td><strong>${esc(r.harbor_direction || "")}</strong><br/><span class="muted">home margin ${esc(r.predicted_home_margin ?? "N/A")}</span></td>
-              <td>${sportsTagBadge(r.decision === "SHADOW" ? "HARBOR_SHADOW" : r.decision || "SHADOW")}<br/><span class="muted">${esc(r.decision_plain || "")}</span></td>
-              <td class="muted"><code>${esc(r.model_id || "")}</code></td>
+              <td>${lineCell}</td>
+              <td>${diffCell}</td>
               <td class="muted">${esc(r.prediction_timestamp || "N/A")}</td>
               <td><strong>${esc(money)}</strong></td>
             </tr>`;
@@ -2110,6 +2136,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       <div class="stack">
         <div class="card">
           <h2>Today's Forecasts (SHADOW — no money at risk)</h2>
+          <p class="muted" style="margin:0 0 8px">${esc(forecastMeta.line_difference_plain || "The difference is Harbor's home-team margin minus the sportsbook home-team margin.")}</p>
           <p class="muted" style="margin:0 0 8px">What Harbor's model guessed before kick. Positive home margin means the home team is guessed to win by that many points. These are <strong>not</strong> wagers.</p>
           ${sportsForecastTable(forecasts)}
         </div>

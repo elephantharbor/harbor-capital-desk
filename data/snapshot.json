@@ -7131,7 +7131,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "IND -4.5",
+          "current_line_home_margin": -4.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2 (ESPN neutral-site flag; Tottenham Hotspur Stadium. Pregame spread, not a live line.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 10.07
         },
         {
           "matchup": "ARI @ NYG",
@@ -7146,7 +7152,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "ARI -2.5",
+          "current_line_home_margin": -2.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 1.89
         },
         {
           "matchup": "DAL @ HOU",
@@ -7161,7 +7173,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "HOU -3",
+          "current_line_home_margin": 3.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": -6.69
         },
         {
           "matchup": "GB @ TB",
@@ -7176,7 +7194,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "GB -3",
+          "current_line_home_margin": -3.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 6.47
         },
         {
           "matchup": "JAX @ CIN",
@@ -7191,7 +7215,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "CIN -2.5",
+          "current_line_home_margin": 2.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": -3.4
         },
         {
           "matchup": "LA @ PHI",
@@ -7206,7 +7236,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "LAR -3.5",
+          "current_line_home_margin": -3.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 1.53
         },
         {
           "matchup": "NE @ BUF",
@@ -7221,7 +7257,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "BUF -7",
+          "current_line_home_margin": 7.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 3.42
         },
         {
           "matchup": "NYJ @ CHI",
@@ -7236,7 +7278,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "CHI -3.5",
+          "current_line_home_margin": 3.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 1.54
         },
         {
           "matchup": "TEN @ BAL",
@@ -7251,7 +7299,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "BAL -11.5",
+          "current_line_home_margin": 11.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": -3.41
         },
         {
           "matchup": "MIA @ MIN",
@@ -7266,7 +7320,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "MIN -10",
+          "current_line_home_margin": 10.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": -1.12
         },
         {
           "matchup": "DEN @ SF",
@@ -7281,7 +7341,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "SF -3",
+          "current_line_home_margin": 3.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 11.7
         },
         {
           "matchup": "KC @ LV",
@@ -7296,7 +7362,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "KC -4.5",
+          "current_line_home_margin": -4.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 1.7
         },
         {
           "matchup": "LAC @ SEA",
@@ -7311,7 +7383,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "SEA -7",
+          "current_line_home_margin": 7.0,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 6.76
         },
         {
           "matchup": "DET @ CAR",
@@ -7326,7 +7404,13 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "DET -3.5",
+          "current_line_home_margin": -3.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 5.57
         },
         {
           "matchup": "ATL @ NO",
@@ -7341,14 +7425,24 @@
           "prediction_timestamp": "2026-10-04 07:46:54 CDT",
           "money_at_risk": false,
           "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet."
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "current_line_display": "NO -1.5",
+          "current_line_home_margin": 1.5,
+          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-04 08:28 AM CT",
+          "projection_minus_line": 3.47
         }
       ],
       "todays_forecasts_meta": {
         "count": 15,
         "model_id": "walkforward-v1-2026-10-04",
         "frozen_at": "2026-10-04 07:46:54 CDT",
-        "plain": "15 frozen NFL SHADOW forecasts on the board \u2014 predictions, not bets."
+        "plain": "15 frozen NFL SHADOW forecasts on the board \u2014 predictions, not bets.",
+        "line_book": "DraftKings",
+        "line_read_at": "2026-10-04 08:28 AM CT",
+        "line_page": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+        "line_difference_plain": "The difference is Harbor's home-team margin minus DraftKings' home-team margin, read at 8:28 AM CT."
       },
       "harbor_shadow": [
         {
