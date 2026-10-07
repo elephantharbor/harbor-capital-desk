@@ -1,10 +1,10 @@
 {
   "schema_version": "harbor-dashboard-snapshot-v1",
-  "generated_at_ct": "2026-10-04 08:07:37 CT",
+  "generated_at_ct": "2026-10-07 07:33:22 CT",
   "mode": "LIVE",
   "c_confirmed": true,
   "meta": {
-    "generated_at_ct": "2026-10-04 08:07:37 CT",
+    "generated_at_ct": "2026-10-07 07:33:22 CT",
     "last_reconciled_ibkr_ct": "2026-09-11 09:35:20 CT",
     "mode": "LIVE",
     "c_confirmed": true,
@@ -324,42 +324,42 @@
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/shadow-h5-dual.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/shadow-h5-kalshi-forecastex.md",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:22 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/shadow-h5.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:22 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/shadow-h4-fedwatch-vs-binaries.md",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:22 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/shadow-h4-snapshot-2026-09-04.csv",
         "label": "SHADOW",
         "kind": "artifact_ref",
         "note": "path reference only; no invented SHADOW PnL",
-        "mtime_ct": "2026-10-02 13:25:22 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       }
     ],
     "by_market_counts": {
@@ -3199,6 +3199,22 @@
         "brier": "0.1024"
       },
       {
+        "forecast_id": "W1-F5",
+        "event": "Sep 2026 U-3 unemployment above 4.1%",
+        "status": "resolved",
+        "my_p_locked": "0.38",
+        "market_p_at_lock": "0.560",
+        "looked_at_market_first": "true",
+        "thin_book": "false",
+        "wide_book": "false",
+        "book_width": null,
+        "author": "Reed",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "eligible_mid_promote": false,
+        "outcome": "1",
+        "brier": "0.3844"
+      },
+      {
         "forecast_id": "W1-F6",
         "event": "Sep 16 2026 FOMC: other (not hold, not +25bp)",
         "status": "resolved",
@@ -3279,13 +3295,13 @@
         "brier": null
       }
     ],
-    "active_count": 8,
+    "active_count": 9,
     "counts": {
       "total": 10,
       "clean": 4,
       "contaminated": 6,
-      "pending": 3,
-      "resolved": 7,
+      "pending": 2,
+      "resolved": 8,
       "resolved_clean": 3,
       "mid_promote_eligible": 1
     },
@@ -3326,9 +3342,9 @@
           "W1-F1",
           "W1-F2",
           "W1-F4",
+          "W1-F5",
           "W1-F6",
-          "W1-F3",
-          "W1-F5"
+          "W1-F3"
         ],
         "count": 6,
         "note": "looked_at_market_first or contaminated_abstain"
@@ -3336,7 +3352,7 @@
     },
     "calibration_files": {
       "clean_append_rows": 3,
-      "contaminated_append_rows": 20,
+      "contaminated_append_rows": 21,
       "note": "CSV append-only row counts \u2014 NOT sample n / distinct forecast ids",
       "clean_path": "journal/calibration_clean.csv",
       "contaminated_path": "journal/calibration_contaminated.csv"
@@ -3700,16 +3716,30 @@
         "market": "securities",
         "originationDate": "2026-09-16",
         "origination_date_display": "Logged Sep 16, 2026"
+      },
+      {
+        "date_ct": "2026-10-05",
+        "origination_date": "2026-09-25",
+        "lesson_id": "L16",
+        "what_happened": "OCT01 claims cycle: contaminated paper NO \u2265200 (+0.13) / \u2265205 (+0.09) cleared WIDTH+cushion+depth under honest looked_first=true tag but were left un-transmitted with no Quinn named ticket; print 197k made those NO sides winners",
+        "believed_beforehand": "Leaving cleared contaminated NO-side candidates as observation-only / empty book was process-complete under L14 contamination caution",
+        "evidence_showed": "Mid-window posture (09-24): soft WIDTH/cushion fails \u2192 reshape not freeze; serial empty on cleared NO candidates is process failure; paper NO \u2265200/\u2265205 would have won; density 195\u2013199 bin (my_p 0.30) was the print bin",
+        "what_we_learned": "Contaminated looked_first=true is not a permanent veto when NO-side gates clear under an honest my_p tag \u2014 mid-window requires escalate/reshape rather than serial empty identity",
+        "what_changed": "Next claims cycle: if NO side clears WIDTH\u22640.10 + cushion\u22655\u00a2 + depth\u2265size + max loss \u2264$10 under honest my_p tag (clean OR looked_first=true), escalate sized ACT/TEST SMALL ask to Quinn+Holt rather than serial empty; owner Reed; review ~2026-10-12; do not invent live fills",
+        "related_ids": "KXJOBLESSCLAIMS-26OCT01; claims-we-oct01-2026-09-25; L14; mid-window-posture-2026-09-24",
+        "source": "claims-we-oct01-tape-2026-10-05 + weekday-triage-2026-10-05 + Learning System closed loop",
+        "originationDate": "2026-09-25",
+        "origination_date_display": "Logged Sep 25, 2026"
       }
     ],
-    "count": 21,
+    "count": 22,
     "source": "journal/lessons.csv",
     "note": "from journal/lessons.csv (market inferred when missing; originationDate required)"
   },
   "session_log": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-10-03T11:45:00-05:00",
+    "lastUpdated": "2026-10-06T09:15:00-05:00",
     "entries": [
       {
         "id": "sess-weekly-review-20260925",
@@ -4642,6 +4672,50 @@
         "actor": "Holt (Harbor Capital - CEO)",
         "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
         "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
+      },
+      {
+        "id": "sess-sports-nfl-week5-shadow-ingest-20261006",
+        "ts": "2026-10-06T09:15:00-05:00",
+        "ts_ct": "2026-10-06 09:15:00 CT",
+        "area": "sports",
+        "title": "Week 5 NFL SHADOW forecasts ingested (15 \u00b7 not bets)",
+        "summary": "Ingested Pike frozen Week 5 SHADOW forecasts into Capital Operating Desk. Source data/nfl-history/out/shadow-v1-2026-10-06-week5.csv (immutable; frozen 2026-10-06 09:10:52 CDT; model walkforward-v1-2026-10-06; 15 games; class SHADOW; annotations on BAL@ATL and NYG@WAS). dashboard_snapshot._load_todays_nfl_forecasts now points at week5 CSV (was Oct 4); annotation field passed through into forecast dict / notes. Active Bets: 0. No LIVE invented. Oct 4 CSV untouched. No Pages-push.",
+        "deskChanges": "tools/dashboard_snapshot.py loader \u2192 shadow-v1-2026-10-06-week5.csv + annotation; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+        "humanActions": []
+      },
+      {
+        "id": "sess-sports-nfl-week5-watch-deep-20261006",
+        "ts": "2026-10-06T09:12:00-05:00",
+        "ts_ct": "2026-10-06 09:12:00 CT",
+        "area": "sports",
+        "title": "NFL Week 5 deep look \u00b7 WATCH board \u00b7 no SHADOW \u00b7 no LIVE",
+        "summary": "Sloan deeper look docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md off Holt Tue screen: BAL @ ATL WATCH hold \u2014 Lamar left-ankle sprain (boot/MRI; Rapoport 'outside chance'); Huntley next; Humphrey/Vorhees/Smythe out-of-game Wk 4; public line ranges BAL \u22122.5 \u2194 ATL \u22122.5 (ESPN-DK ATL \u22122.5; DK open BAL \u22124.5); FPI drifted to 51.8% BAL \u2014 no band from FPI; hold for Thu injury report. NYG @ WAS WATCH hold \u2014 WAS \u22123 \u2212115 (books \u22123 to \u22124.5); Daniels planned start pending Wed/Thu practice; FPI WAS by 6.7 noted as disagreement, not edge. CIN @ MIA total 42.5 WATCH soft \u2014 Chase protocol / Higgins adductor; most of drop happened pre-open (BetMGM opened 43.5), so overshoot not shown yet. TB @ DAL TNF PASS likely \u2014 DAL \u22129.5, rookie Jalon Daniels starts. No SHADOW tickets; no new ledger or calibration rows. None LIVE_PROBE (Path A unarmed; blank prob_range). Public prices only \u2014 DK in-app unconfirmed. Forecast coordination: Pike freezes Week 5 before TNF 7:15 PM CT / London 8:30 AM CT; annotate Lamar/Daniels rows, no hand-adjust; desk builder still pointed at Oct 4 CSV (untouched). AV emptyReason refreshed.",
+        "deskChanges": "docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+        "humanActions": []
+      },
+      {
+        "id": "sess-sports-shadow-settle-20261005",
+        "ts": "2026-10-05T10:55:00-05:00",
+        "ts_ct": "2026-10-05 10:55:00 CT",
+        "area": "sports",
+        "title": "NFL Sun Learning Probe shadow settle \u00b7 3\u20131 \u00b7 ledger n=38",
+        "summary": "Settled 4 NFL Sun 10-04 Learning Probe SHADOWs ($5 hyp, no money bet) that lived in calibration/memo: SP-SH-20261004-NFL-01 Dallas +3 \u2212112 W DAL 34\u201330 HOU (+$4.46; price CLV +0.66pp vs DK close \u2212115); NFL-02 Jacksonville +2.5 \u2212105 W JAX 22\u201317 CIN (+$4.76; \u22120.72pp vs \u2212102); NFL-03 Washington +4.5 \u2212115 L IND 30\u201313 WSH (\u2212$5.00; \u22122.99pp vs \u2212102); NFL-04 San Francisco \u22123 +100 W SF 24\u201314 DEN (+$5.00; +1.22pp vs \u2212105). All four closed on the screened number (juice-only moves). Net hyp +$9.22. Aggregate 18\u201320\u20130 hyp \u2212$6.36 (n=38); CLV scored 31 (11 beat / 11 miss / 9 flat). Ledger open=0. No LIVE. No process falsifier filed; WAS miss logged as watch item (FPI vs QB-change steam), not a lesson. Summary journal/sports-shadow/shadow-results-summary-2026-10-05.md."
+      },
+      {
+        "id": "sess-sports-cfb-week6-deep-process-20261005",
+        "ts": "2026-10-05T10:40:00-05:00",
+        "ts_ct": "2026-10-05 10:40:00 CT",
+        "area": "sports",
+        "title": "CFB W6 deep look WATCH \u00b7 two-empty process review \u00b7 no LIVE",
+        "summary": "Sloan deeper look docs/sports-memos/cfb-week6-watch-deep-2026-10-05.md: KENN +3 Wed WATCH (FPI dog vs steam; CLEATZ Week 6 SP+ JXST \u22127 conflict); MOST +2.5 Thu WATCH/lean PASS (FPI dog; SP+ \u2248 WKU \u22122). FSU/IOWA/MIZ WATCH. Soft stay soft. None LIVE_PROBE. No place card. No Quinn send. Process review docs/sports-memos/sports-process-review-two-empty-2026-10-05.md: two empties = honest blank-band / Path A unarmed (Pike verbatim: still unarmed; no cover% from gaps; interval blocked on data). Sat Learning Probe settle already done 10-04 \u2014 not re-settled. AV emptyReason refreshed same-day. Frozen NFL forecast CSV untouched."
+      },
+      {
+        "id": "sess-sports-shadow-settle-20261004",
+        "ts": "2026-10-04T10:50:00-05:00",
+        "ts_ct": "2026-10-04 10:50:00 CT",
+        "area": "sports",
+        "title": "CFB Learning Probe shadow settle \u00b7 BAY W / CIN L \u00b7 ledger n=34",
+        "summary": "Settled 2 Sat-night CFB Learning Probe SHADOWs that were in calibration/memo but missing from clv-ledger-v2: SP-SH-20261003-CFB-01 Baylor +3.5 \u2212110 ($5) W BAY 55\u201319 ASU (hyp +$4.55; juice CLV \u22121.16pp vs SportsLine close \u2212105); SP-SH-20261003-CFB-02 Cincinnati +7 \u2212115 ($5) L ARIZ 34\u20137 CIN (hyp \u2212$5.00; number CLV +0.5pt vs SportsLine late +6.5). Net hyp this run \u2212$0.45. Aggregate now 15\u201319\u20130 hyp \u2212$15.58 (n=34); ledger open=0. NFL Sun/Mon SHADOWs not settled. No LIVE. No process falsifier filed (blank-band abstain held). Summary journal/sports-shadow/shadow-results-summary-2026-10-04.md."
       },
       {
         "id": "sess-sports-cfb-sat-20261003",
@@ -4682,7 +4756,7 @@
   "sessionLog": {
     "areaId": "capital",
     "areaName": "Harbor Capital",
-    "lastUpdated": "2026-10-03T11:45:00-05:00",
+    "lastUpdated": "2026-10-06T09:15:00-05:00",
     "entries": [
       {
         "id": "sess-weekly-review-20260925",
@@ -5615,6 +5689,50 @@
         "actor": "Holt (Harbor Capital - CEO)",
         "summary": "Published Capital Next Up, set Harbor iMessage alert policy with Inkbox, and rebuilt operating cadence briefs for the week.",
         "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
+      },
+      {
+        "id": "sess-sports-nfl-week5-shadow-ingest-20261006",
+        "ts": "2026-10-06T09:15:00-05:00",
+        "ts_ct": "2026-10-06 09:15:00 CT",
+        "area": "sports",
+        "title": "Week 5 NFL SHADOW forecasts ingested (15 \u00b7 not bets)",
+        "summary": "Ingested Pike frozen Week 5 SHADOW forecasts into Capital Operating Desk. Source data/nfl-history/out/shadow-v1-2026-10-06-week5.csv (immutable; frozen 2026-10-06 09:10:52 CDT; model walkforward-v1-2026-10-06; 15 games; class SHADOW; annotations on BAL@ATL and NYG@WAS). dashboard_snapshot._load_todays_nfl_forecasts now points at week5 CSV (was Oct 4); annotation field passed through into forecast dict / notes. Active Bets: 0. No LIVE invented. Oct 4 CSV untouched. No Pages-push.",
+        "deskChanges": "tools/dashboard_snapshot.py loader \u2192 shadow-v1-2026-10-06-week5.csv + annotation; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+        "humanActions": []
+      },
+      {
+        "id": "sess-sports-nfl-week5-watch-deep-20261006",
+        "ts": "2026-10-06T09:12:00-05:00",
+        "ts_ct": "2026-10-06 09:12:00 CT",
+        "area": "sports",
+        "title": "NFL Week 5 deep look \u00b7 WATCH board \u00b7 no SHADOW \u00b7 no LIVE",
+        "summary": "Sloan deeper look docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md off Holt Tue screen: BAL @ ATL WATCH hold \u2014 Lamar left-ankle sprain (boot/MRI; Rapoport 'outside chance'); Huntley next; Humphrey/Vorhees/Smythe out-of-game Wk 4; public line ranges BAL \u22122.5 \u2194 ATL \u22122.5 (ESPN-DK ATL \u22122.5; DK open BAL \u22124.5); FPI drifted to 51.8% BAL \u2014 no band from FPI; hold for Thu injury report. NYG @ WAS WATCH hold \u2014 WAS \u22123 \u2212115 (books \u22123 to \u22124.5); Daniels planned start pending Wed/Thu practice; FPI WAS by 6.7 noted as disagreement, not edge. CIN @ MIA total 42.5 WATCH soft \u2014 Chase protocol / Higgins adductor; most of drop happened pre-open (BetMGM opened 43.5), so overshoot not shown yet. TB @ DAL TNF PASS likely \u2014 DAL \u22129.5, rookie Jalon Daniels starts. No SHADOW tickets; no new ledger or calibration rows. None LIVE_PROBE (Path A unarmed; blank prob_range). Public prices only \u2014 DK in-app unconfirmed. Forecast coordination: Pike freezes Week 5 before TNF 7:15 PM CT / London 8:30 AM CT; annotate Lamar/Daniels rows, no hand-adjust; desk builder still pointed at Oct 4 CSV (untouched). AV emptyReason refreshed.",
+        "deskChanges": "docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+        "humanActions": []
+      },
+      {
+        "id": "sess-sports-shadow-settle-20261005",
+        "ts": "2026-10-05T10:55:00-05:00",
+        "ts_ct": "2026-10-05 10:55:00 CT",
+        "area": "sports",
+        "title": "NFL Sun Learning Probe shadow settle \u00b7 3\u20131 \u00b7 ledger n=38",
+        "summary": "Settled 4 NFL Sun 10-04 Learning Probe SHADOWs ($5 hyp, no money bet) that lived in calibration/memo: SP-SH-20261004-NFL-01 Dallas +3 \u2212112 W DAL 34\u201330 HOU (+$4.46; price CLV +0.66pp vs DK close \u2212115); NFL-02 Jacksonville +2.5 \u2212105 W JAX 22\u201317 CIN (+$4.76; \u22120.72pp vs \u2212102); NFL-03 Washington +4.5 \u2212115 L IND 30\u201313 WSH (\u2212$5.00; \u22122.99pp vs \u2212102); NFL-04 San Francisco \u22123 +100 W SF 24\u201314 DEN (+$5.00; +1.22pp vs \u2212105). All four closed on the screened number (juice-only moves). Net hyp +$9.22. Aggregate 18\u201320\u20130 hyp \u2212$6.36 (n=38); CLV scored 31 (11 beat / 11 miss / 9 flat). Ledger open=0. No LIVE. No process falsifier filed; WAS miss logged as watch item (FPI vs QB-change steam), not a lesson. Summary journal/sports-shadow/shadow-results-summary-2026-10-05.md."
+      },
+      {
+        "id": "sess-sports-cfb-week6-deep-process-20261005",
+        "ts": "2026-10-05T10:40:00-05:00",
+        "ts_ct": "2026-10-05 10:40:00 CT",
+        "area": "sports",
+        "title": "CFB W6 deep look WATCH \u00b7 two-empty process review \u00b7 no LIVE",
+        "summary": "Sloan deeper look docs/sports-memos/cfb-week6-watch-deep-2026-10-05.md: KENN +3 Wed WATCH (FPI dog vs steam; CLEATZ Week 6 SP+ JXST \u22127 conflict); MOST +2.5 Thu WATCH/lean PASS (FPI dog; SP+ \u2248 WKU \u22122). FSU/IOWA/MIZ WATCH. Soft stay soft. None LIVE_PROBE. No place card. No Quinn send. Process review docs/sports-memos/sports-process-review-two-empty-2026-10-05.md: two empties = honest blank-band / Path A unarmed (Pike verbatim: still unarmed; no cover% from gaps; interval blocked on data). Sat Learning Probe settle already done 10-04 \u2014 not re-settled. AV emptyReason refreshed same-day. Frozen NFL forecast CSV untouched."
+      },
+      {
+        "id": "sess-sports-shadow-settle-20261004",
+        "ts": "2026-10-04T10:50:00-05:00",
+        "ts_ct": "2026-10-04 10:50:00 CT",
+        "area": "sports",
+        "title": "CFB Learning Probe shadow settle \u00b7 BAY W / CIN L \u00b7 ledger n=34",
+        "summary": "Settled 2 Sat-night CFB Learning Probe SHADOWs that were in calibration/memo but missing from clv-ledger-v2: SP-SH-20261003-CFB-01 Baylor +3.5 \u2212110 ($5) W BAY 55\u201319 ASU (hyp +$4.55; juice CLV \u22121.16pp vs SportsLine close \u2212105); SP-SH-20261003-CFB-02 Cincinnati +7 \u2212115 ($5) L ARIZ 34\u20137 CIN (hyp \u2212$5.00; number CLV +0.5pt vs SportsLine late +6.5). Net hyp this run \u2212$0.45. Aggregate now 15\u201319\u20130 hyp \u2212$15.58 (n=34); ledger open=0. NFL Sun/Mon SHADOWs not settled. No LIVE. No process falsifier filed (blank-band abstain held). Summary journal/sports-shadow/shadow-results-summary-2026-10-04.md."
       },
       {
         "id": "sess-sports-cfb-sat-20261003",
@@ -5670,6 +5788,7 @@
       "nfl_margin_walkforward_v1.py",
       "nfl_margin_walkforward_v2.py",
       "nfl_margin_walkforward_v3.py",
+      "nfl_shadow_freeze_v1.py",
       "null_backtest.py",
       "position_sizing.py",
       "publish_capital_segment_summary.py",
@@ -5681,7 +5800,7 @@
       "theme_scanner.py",
       "volgate_oos.py"
     ],
-    "tools_count": 26,
+    "tools_count": 27,
     "smoke_test_path": "tools/smoke_test.py",
     "smoke_test_exists": true,
     "last_snapshot_write_ok": true,
@@ -5692,7 +5811,7 @@
     "shadow": 1,
     "killed": 0,
     "quinn_challenge_lessons": 9,
-    "lessons_total": 21,
+    "lessons_total": 22,
     "mode": "LIVE",
     "label": "LIVE",
     "note": "Registry status counts + tools presence. No live probes."
@@ -5746,6 +5865,12 @@
         "timestamp_ct": "2026-09-04 10:19 CT",
         "status": "resolved",
         "event": "Aug 2026 CPI YoY above 3.4%"
+      },
+      {
+        "forecast_id": "W1-F5",
+        "timestamp_ct": "2026-09-04 10:19 CT",
+        "status": "resolved",
+        "event": "Sep 2026 U-3 unemployment above 4.1%"
       }
     ],
     "strategy_updated_ct_tops": [
@@ -5842,6 +5967,30 @@
     ],
     "events": [
       {
+        "ts": "2026-10-06 ~09:25 CT \u2014 Weekday triage: q",
+        "kind": "decision",
+        "title": "2026-10-06 ~09:25 CT \u2014 Weekday triage: quiet, OCT08 \u2265200 book widened (Reed, analysis only)",
+        "summary": "No resolutions due; no T-24/T-2 catalyst (claims OCT08 T-24 = Wed 10-07). OCT08 my_p lock (10-05, looked_first=true) untouched; books pulled after lock."
+      },
+      {
+        "ts": "2026-10-05 ~09:40 CT \u2014 Process lock: my_",
+        "kind": "decision",
+        "title": "2026-10-05 ~09:40 CT \u2014 Process lock: my_p-first before live mids (Reed + Holt)",
+        "summary": "Holt answered Reed process Q: for clean my_p-first on claims/ladders, weekday checks and AM packets must **not** show live mids until after my_p is written. If quotes land first \u2192 tag `looked_first=tr"
+      },
+      {
+        "ts": "2026-10-05 ~09:36 CT \u2014 Weekday triage me",
+        "kind": "decision",
+        "title": "2026-10-05 ~09:36 CT \u2014 Weekday triage merge: OCT01 score + F5 resolve + OCT08 contaminated lock + L16 (Reed, analysis only)",
+        "summary": "**Claims WE Sep 26 / `KXJOBLESSCLAIMS-26OCT01`:** FINALIZED **197k** (~08:50 CT 10-01). Ladder \u2265190/195=yes; \u2265200+=no. Observational vs Fri 09-25 contaminated density (`looked_first=true`, **not rewri"
+      },
+      {
+        "ts": "2026-10-05 ~09:27 CT \u2014 Post-freeze weekd",
+        "kind": "decision",
+        "title": "2026-10-05 ~09:27 CT \u2014 Post-freeze weekday triage: Claims OCT01 197k + U-3 4.2% scored; OCT08 ladder listed (Reed, analysis only)",
+        "summary": "First triage since token freeze (09-28 \u2192 lifted 10-03). No catch-up research invented for freeze days. Empty book unchanged."
+      },
+      {
         "ts": "2026-09-25 ~09:25 CT \u2014 Weekday triage: C",
         "kind": "decision",
         "title": "2026-09-25 ~09:25 CT \u2014 Weekday triage: Claims OCT01 NOW LISTED; contaminated my_p lock (Reed, analysis only)",
@@ -5876,30 +6025,6 @@
         "kind": "decision",
         "title": "2026-09-21 ~09:50 CT \u2014 Weekday triage: Claims SEP24 WIDTH FAIL + CPI NO retest (Reed, analysis only)",
         "summary": "Holt MATERIAL AM (~09:47\u201309:48 CT): claims WIDTH FAIL w0.11\u20130.26; \u2265205/210 mids soft; Sep CPI mid ~0.895 (\u22125\u00a2); Oct FOMC H0/H25 both ~0.495. Verified Kalshi public API ~09:50 CT."
-      },
-      {
-        "ts": "2026-09-18 ~09:41 CT \u2014 Weekday triage: C",
-        "kind": "decision",
-        "title": "2026-09-18 ~09:41 CT \u2014 Weekday triage: Claims SEP24 contaminated my_p lock (Reed, analysis only)",
-        "summary": "Holt MATERIAL AM: wake already included live Kalshi mids for claims WE Sep24 + Oct FOMC / Sep CPI \u2192 **cannot** claim clean my_p-first. L14 #2: lock partition from non-price inputs with **`looked_at_ma"
-      },
-      {
-        "ts": "2026-09-17 ~09:30 CT \u2014 Weekday triage: C",
-        "kind": "decision",
-        "title": "2026-09-17 ~09:30 CT \u2014 Weekday triage: Claims WE Sep12 settled 196k + CPI NO retest (Reed, analysis only)",
-        "summary": "No new Wave-1 resolutions (F1/F2/F6 already scored 09-16). `forecasts.csv` my_p **frozen**; calibration_contaminated F1/F2/F6 rows verified present."
-      },
-      {
-        "ts": "2026-09-16 ~17:15 CT \u2014 FOMC Wave-1 F1/F2",
-        "kind": "decision",
-        "title": "2026-09-16 ~17:15 CT \u2014 FOMC Wave-1 F1/F2/F6 scored + OS v2 process review (Reed, analysis only)",
-        "summary": "Fed hiked **+25 bp** to 3.75\u20134.00% (statement ~13:00 CT). Kalshi `KXFEDDECISION-26SEP-*` finalized; H25=`yes`; H0/C25/C26/H26=`no`; settlement ~13:08 CT."
-      },
-      {
-        "ts": "2026-09-16 ~09:27 CT \u2014 Weekday triage FO",
-        "kind": "decision",
-        "title": "2026-09-16 ~09:27 CT \u2014 Weekday triage FOMC decision-day watch (Reed, analysis only)",
-        "summary": "Decision day: statement ~13:00 CT / 14:00 ET. Inside T-24, not yet T-2. Early scan: **F1/F2/F6 still locked unresolved** \u2014 score **AFTER statement only**."
       },
       {
         "ts": "2026-09-04 11:25 CT",
@@ -6104,7 +6229,7 @@
         "status": "DOWN",
         "detail": "Both exec rails down \u2014 no automated path until Gateway/Portal recover."
       },
-      "last_session_check_ct": "2026-10-04 08:07:37 CT",
+      "last_session_check_ct": "2026-10-07 07:33:22 CT",
       "dual_rail_note": "Whole-share via Gateway; tiny fractionals via Client Portal until API allows"
     },
     "notes": {
@@ -6125,8 +6250,8 @@
     "starts_on": "first_live_fill",
     "clock_days": 30,
     "status": "IN_PROGRESS",
-    "day": 25,
-    "days_left": 6,
+    "day": 28,
+    "days_left": 3,
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
     "live_trades": 2,
@@ -6138,7 +6263,7 @@
     "label": "LIVE",
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
     "first_fill_ct": "2026-09-10 14:33 CT",
-    "note": "Clock started on first live fill (T0). Day 25 of 30; 6 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 28 of 30; 3 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "viability_period": {
     "started": true,
@@ -6146,14 +6271,14 @@
     "started_at_ct": "2026-09-10",
     "start_date": "2026-09-10",
     "review_date": "2026-10-10",
-    "day": 25,
-    "days_left": 6,
+    "day": 28,
+    "days_left": 3,
     "status": "IN_PROGRESS",
     "clock_days": 30,
     "pending_order_id": null,
     "pending_order_status": null,
     "banner_source": "elephantharbor.github.io/data/trial-clock.json",
-    "note": "Clock started on first live fill (T0). Day 25 of 30; 6 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
+    "note": "Clock started on first live fill (T0). Day 28 of 30; 3 calendar days left until 2026-10-10 CT. Not a profit quota. Display SoT: Wells Overview trial-clock banner. No-force-risk \u2014 abstention is valid evidence."
   },
   "live_trading": true,
   "automated_execution": false,
@@ -6164,62 +6289,62 @@
       {
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       }
     ],
     "sections": [
@@ -6228,7 +6353,7 @@
         "title": "Live exec / ops state",
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6236,7 +6361,7 @@
         "title": "First live ops test",
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6244,7 +6369,7 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "# Live experiment sleeve \u2014 2026-09-05 \u00b7 **Rebased 2026-09-24**\n\n**C = $500** \u00b7 IBKR \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal  \n**Posture:** `docs/mid-window-posture-2026-09-24.md`\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.  \nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear. Soft uncertainty \u2192 cut size or redesign \u2014 not perpetual abstention.\n\n## Hard limits (binding @ C=$500)\n| L\u2026"
       },
       {
@@ -6252,7 +6377,7 @@
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6260,7 +6385,7 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n**Posture:** `docs/mid-window-posture-2026-09-24.md` \u2014 bias to bounded live experiments; soft blockers reshape size/design; 2\u20133 similar abstentions trigger process adaptation.\n\n## Pos\u2026"
       },
       {
@@ -6268,7 +6393,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -6276,7 +6401,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially\u2026"
       },
       {
@@ -6284,7 +6409,7 @@
         "title": "Performance methodology",
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Performance methodology\nLive within sleeve (C confirmed). Do not invent live P&L. Attribute honestly by return_source.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one lin\u2026"
       },
       {
@@ -6292,7 +6417,7 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-only insufficient \u2014 S-CRYPTO-BH-001 IBIT ~$4 Quinn-r\u2026"
       },
       {
@@ -6300,7 +6425,7 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin\u2026"
       },
       {
@@ -6308,7 +6433,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/re\u2026"
       },
       {
@@ -6316,7 +6441,7 @@
         "title": "HISTORICAL canonical (2026-09-04)",
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
@@ -6331,62 +6456,62 @@
       {
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT"
+        "mtime_ct": "2026-10-06 17:46:04 CT"
       },
       {
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT"
+        "mtime_ct": "2026-10-06 17:46:05 CT"
       }
     ],
     "sections": [
@@ -6395,7 +6520,7 @@
         "title": "Live exec / ops state",
         "path": "docs/exec-layer-status-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6403,7 +6528,7 @@
         "title": "First live ops test",
         "path": "docs/first-live-ops-test-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6411,7 +6536,7 @@
         "title": "Live experiment sleeve",
         "path": "docs/live-experiment-sleeve-2026-09-05.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "# Live experiment sleeve \u2014 2026-09-05 \u00b7 **Rebased 2026-09-24**\n\n**C = $500** \u00b7 IBKR \u00b7 Phase 1: **no uncapped leverage** (no margin borrowing / naked options / perps / levETFs); **defined-risk options permitted within sleeve dollars** \u00b7 No agent withdrawal  \n**Posture:** `docs/mid-window-posture-2026-09-24.md`\n\n## Purpose\nLearn from real fills/fees/ops without exposing the whole bankroll. Small live positions are experiments.  \nSleeve limits are **not anti-trading**: intentional risk (including honest beta/directional) is OK inside these caps when thesis, size, exit, and friction clear. Soft uncertainty \u2192 cut size or redesign \u2014 not perpetual abstention.\n\n## Hard limits (binding @ C=$500)\n| L\u2026"
       },
       {
@@ -6419,7 +6544,7 @@
         "title": "Capital confirmation",
         "path": "docs/capital.json",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       },
       {
@@ -6427,7 +6552,7 @@
         "title": "Risk architecture",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin borrowing, naked options, perps, leveraged ETFs. **Defined-risk options OK** (max loss known at entry) inside sleeve. Binary event / sports tickets: loss capped at stake + fees. Agents: **no withdrawal authority**.\n\n**Posture:** `docs/mid-window-posture-2026-09-24.md` \u2014 bias to bounded live experiments; soft blockers reshape size/design; 2\u20133 similar abstentions trigger process adaptation.\n\n## Pos\u2026"
       },
       {
@@ -6435,7 +6560,7 @@
         "title": "Human gates",
         "path": "docs/human-dependencies.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Human dependencies (remaining gates)\nUpdated: 2026-09-06 CT. **Live trading authorized** within risk architecture (C=$200).\n\n| # | Gate | Owner | Status | Blocks |\n|---|---|---|---|---|\n| 1 | Confirm starting capital **C** | Thomas | **CLEARED \u2014 C=$200** | \u2014 |\n| 2 | Book split vs $300 venture budget | Thomas | Cleared by mandate | \u2014 |\n| 3 | Legal residence (Missouri) | Thomas | Cleared 2026-09-04 | Sports still verify in-app |\n| 4 | Entity vs personal IBKR name | Thomas | Open / personal for now | Entity rename later |\n| 5 | IBKR live account funded | Thomas | **CLEARED** (funded) | \u2014 |\n| 6 | Withdrawal destination lock | Thomas | Standing human gate | External transfers |\n| 7 | Bitwarden\u2026"
       },
       {
@@ -6443,7 +6568,7 @@
         "title": "Team & ops",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/return-sources-mandate-2026-09-05.md` |\n| **Options mandate** \u2014 defined-risk only; Vera owns initially\u2026"
       },
       {
@@ -6451,7 +6576,7 @@
         "title": "Performance methodology",
         "path": "docs/performance-methodology.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Performance methodology\nLive within sleeve (C confirmed). Do not invent live P&L. Attribute honestly by return_source.\n\n## Daily (CT close or end of research day)\nRecord in `journal/book-snapshot.csv` when C exists; otherwise checklist in `journal/decisions.md`:\n\n| Field | Meaning |\n|---|---|\n| date_ct | America/Chicago |\n| nav / peak / dd_pct | From risk_engine; skip $ if C unset |\n| at_risk / reserve / experimental / core | % or $ once funded |\n| forecasts_locked_today | count + ids |\n| brier_pending | unresolved scored later |\n| friction_flags | any edge claim inside fee band? |\n| risk_flags | ok / reduce / freeze / halt |\n| human_blockers | still waiting on F-list? |\n| notes | one lin\u2026"
       },
       {
@@ -6459,7 +6584,7 @@
         "title": "Learning loop",
         "path": "journal/learning-loop.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Learning loop\n\nCadence: Hypothesis \u2192 Forecast \u2192 Challenge \u2192 Decision \u2192 Result \u2192 Attribution \u2192 Learning \u2192 Adjustment\n\nRules:\n- Lock my_p before outcome; never rewrite after the fact.\n- Record market_p at lock.\n- Cash is a position.\n- No live trades until C, risk architecture, and approved account access exist.\n\n- 2026-09-16 OS v2 crypto: intel-only insufficient \u2014 S-CRYPTO-BH-001 IBIT ~$4 Quinn-r\u2026"
       },
       {
@@ -6467,7 +6592,7 @@
         "title": "Allocation / risk (same source)",
         "path": "docs/risk-architecture.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Risk architecture (operational)\nDate: 2026-09-05 CT \u00b7 **Rebased 2026-09-24 CT**  \n**C (working capital USD) = $500** (Thomas mid-window directive 2026-09-24; was $200). Binding for sleeve %. Live NAV may still show pre-top-up until Gateway re-auth + funding/OPRA settle \u2014 **risk math uses C=$500 anyway**; never invent broker NAV/fills. Peak equity for drawdown uses max(peak, observed NAV). Mode: **LIVE** within experimental sleeve; reserve remains a real position.\n\nNo uncapped leverage, margin\u2026"
       },
       {
@@ -6475,7 +6600,7 @@
         "title": "Strategy lifecycle (ops index)",
         "path": "docs/ops-index.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:21 CT",
+        "mtime_ct": "2026-10-06 17:46:04 CT",
         "text": "# Ops index \u2014 Harbor Capital Growth\n**Authoritative map.** Future agents: read these paths; do not reconstruct from chat.\nDate: **2026-09-06 CT**. Mode: **LIVE** within experiment sleeve. No credentials in-repo.\n\n## Current truth (start here)\n| Pointer | Path |\n|---|---|\n| **MID-WINDOW POSTURE (binding 2026-09-24)** \u2014 C=$500; bias to bounded live experiments | `docs/mid-window-posture-2026-09-24.md` |\n| **Return-sources mandate (binding)** \u2014 grow capital intelligently; not alpha-only | `docs/re\u2026"
       },
       {
@@ -6483,7 +6608,7 @@
         "title": "HISTORICAL canonical (2026-09-04)",
         "path": "docs/canonical-state-2026-09-04.md",
         "exists": true,
-        "mtime_ct": "2026-10-02 13:25:23 CT",
+        "mtime_ct": "2026-10-06 17:46:05 CT",
         "text": "[redacted for public desk \u2014 see private workspace]"
       }
     ],
@@ -6552,7 +6677,7 @@
       "latest_lesson": "Ranked labeled queues replace undifferentiated hunt lists; every options cycle must end in executable stub OR explicit REJECT+process change \u2014 not more research.",
       "human_action": "none",
       "data_source": "ibkr Gateway positions + journal blotter/book-snapshot + registry",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#market-securities",
       "label": "LIVE",
@@ -6617,7 +6742,7 @@
       "latest_lesson": "At this bankroll, options live path is NANOS-or-defer; never stack with VTI same week; Level \u22652 + Holt intent required",
       "human_action": "IBKR options permissions (Level \u22652) when ready for live \u2014 not blocking research",
       "data_source": "docs/options-markets-mandate-2026-09-06.md + registry (options rows)",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-options",
       "label": "N/A",
@@ -6683,7 +6808,7 @@
       "latest_lesson": "Preferred-YES veto + permanent skip-clean-lock after seeing mids structurally blocks LIVE tickets even when NO side clears gates",
       "human_action": "none",
       "data_source": "registry + journal forecasts + docs/event-research-queue-2026-09-05.md",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-event",
       "label": "N/A",
@@ -6748,7 +6873,7 @@
       "latest_lesson": "For Phase-1 directional_beta prefer IBKR Bitcoin ETF proxy over CEX spot; CEX stays DEFER until a post-fee edge needs it",
       "human_action": "none",
       "data_source": "docs/next-dollar-stack-2026-09-06.md + crypto memos + registry",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-crypto",
       "label": "N/A",
@@ -6818,7 +6943,7 @@
       "latest_lesson": "Current sourcing produces only thin edges; repeating identical soft-pass slates is process failure not patience.",
       "human_action": "none",
       "data_source": "docs/sports-forecasting-methodology-2026-09-06.md + sports-risk-sleeve + journal/sports-shadow/",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "last_reconciled_ct": null,
       "detail_route": "#market-sports",
       "label": "N/A",
@@ -6886,7 +7011,7 @@
       "latest_lesson": "N/A",
       "human_action": "none",
       "data_source": "journal/book-snapshot.csv",
-      "last_updated_ct": "2026-10-04 08:07:37 CT",
+      "last_updated_ct": "2026-10-07 07:33:22 CT",
       "book_timestamp_ct": "2026-09-11 09:32 CT",
       "last_reconciled_ct": "2026-09-11 09:35:20 CT",
       "detail_route": "#overview",
@@ -6920,26 +7045,26 @@
       "next_up": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-10-05T08:00:00-05:00",
+            "nextRunAt": "2026-10-07T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-10-05T13:30:00-05:00",
+            "nextRunAt": "2026-10-07T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-10-05T16:00:00-05:00",
+            "nextRunAt": "2026-10-07T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           }
@@ -6965,19 +7090,19 @@
       "next_up": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-10-05T08:00:00-05:00",
+            "nextRunAt": "2026-10-07T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-10-05T13:30:00-05:00",
+            "nextRunAt": "2026-10-07T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
@@ -7009,19 +7134,19 @@
       "next_up": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-10-05T09:00:00-05:00",
+            "nextRunAt": "2026-10-07T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-10-05T16:00:00-05:00",
+            "nextRunAt": "2026-10-07T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
@@ -7062,27 +7187,27 @@
       "next_up": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-10-05T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
-            "owner": "Cole"
-          },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-10-05T10:00:00-05:00",
+            "nextRunAt": "2026-10-07T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           },
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-10-05T19:00:00-05:00",
+            "nextRunAt": "2026-10-07T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-10-08T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           }
         ]
@@ -7119,360 +7244,375 @@
       "active_bets": [],
       "todays_forecasts": [
         {
-          "matchup": "IND @ WAS",
-          "away": "IND",
-          "home": "WAS",
-          "kickoff": "2026-10-04 09:30",
-          "kickoff_display": "Sun, Oct 4, 8:30 AM CT",
-          "prediction_blurb": "Weeks 1\u20133, Washington's offense was stronger (2.2 vs \u22121.8 EPA per game, not points scored) and its defense allowed less (4.3 vs 10.1), with rest even, so those inputs pushed toward Washington. This game is on a neutral field in London, but the frozen guess still includes the model's home-field bump for Washington.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 5.57,
-          "harbor_direction": "WAS by 5.6",
+          "matchup": "TB @ DAL",
+          "away": "TB",
+          "home": "DAL",
+          "kickoff": "2026-10-08 20:15",
+          "kickoff_display": "Thu, Oct 8, 7:15 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 6.82,
+          "harbor_direction": "DAL by 6.8",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "IND -4.5",
-          "current_line_home_margin": -4.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2 (ESPN neutral-site flag; Tottenham Hotspur Stadium. Pregame spread, not a live line.)",
+          "prediction_blurb": "Dallas's weeks 1\u20134 offense was much stronger (11.6 vs \u22128.5 EPA per game, not points scored) while Tampa Bay's defense allowed much less (\u22124.1 vs 12.6), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward Dallas.",
+          "current_line_display": "DAL -8.5",
+          "current_line_home_margin": 8.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 10.07
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -1.68
         },
         {
-          "matchup": "ARI @ NYG",
-          "away": "ARI",
-          "home": "NYG",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Arizona's weeks 1\u20133 offense was stronger (1.8 vs \u22123.0 EPA per game, not points scored) while the Giants allowed a bit less on defense (5.0 vs 6.4), and rest was even. Taken together those rates pushed toward Arizona; the home-field bump pushed back toward the Giants and was not enough to flip the guess.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": -0.61,
-          "harbor_direction": "ARI by 0.6",
+          "matchup": "PHI @ JAX",
+          "away": "PHI",
+          "home": "JAX",
+          "kickoff": "2026-10-11 09:30",
+          "kickoff_display": "Sun, Oct 11, 8:30 AM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 12.47,
+          "harbor_direction": "JAX by 12.5",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "ARI -2.5",
-          "current_line_home_margin": -2.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "prediction_blurb": "Jacksonville's weeks 1\u20134 offense was much stronger (9.8 vs \u22125.2 EPA per game, not points scored) while its defense allowed much less (\u22123.3 vs 3.0), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward Jacksonville. This game is on a neutral field in London, but the frozen guess still includes the model's home-field bump for Jacksonville.",
+          "current_line_display": "JAX -7",
+          "current_line_home_margin": 7.0,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (ESPN neutral-site flag; Tottenham Hotspur Stadium. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 1.89
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 5.47
         },
         {
-          "matchup": "DAL @ HOU",
-          "away": "DAL",
-          "home": "HOU",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Dallas's weeks 1\u20133 offense was much stronger (12.0 vs \u22126.3 EPA per game, not points scored) while Houston's defense allowed far less (\u22120.5 vs 12.8), and rest was even. That offensive gap outweighed Houston's defense and the home-field bump, so the guess was pushed toward Dallas.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": -3.69,
-          "harbor_direction": "DAL by 3.7",
+          "matchup": "CHI @ GB",
+          "away": "CHI",
+          "home": "GB",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -5.57,
+          "harbor_direction": "CHI by 5.6",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "HOU -3",
-          "current_line_home_margin": 3.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": -6.69
-        },
-        {
-          "matchup": "GB @ TB",
-          "away": "GB",
-          "home": "TB",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Green Bay's weeks 1\u20133 offense was less bad (\u22127.3 vs \u221210.6 EPA per game, not points scored) and Green Bay had three more days of rest, but Tampa Bay's defense allowed much less (\u22125.8 vs 4.3). That defensive gap plus the home-field bump outweighed the offense and rest edges and pushed the guess toward Tampa Bay.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 3.47,
-          "harbor_direction": "TB by 3.5",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "GB -3",
+          "prediction_blurb": "Chicago's weeks 1\u20134 offense was much stronger (6.9 vs \u22125.2 EPA per game, not points scored) while its defense allowed less (\u22120.7 vs 2.6), and rest was even. Taken together those rates outweighed Green Bay's home-field bump and pushed the guess toward Chicago.",
+          "current_line_display": "CHI -3",
           "current_line_home_margin": -3.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 6.47
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -2.57
         },
         {
-          "matchup": "JAX @ CIN",
-          "away": "JAX",
-          "home": "CIN",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Jacksonville's weeks 1\u20133 offense was stronger (9.7 vs 2.4 EPA per game, not points scored) while the defenses were nearly even (Cincinnati allowed \u22125.6, Jacksonville \u22125.4), and rest was the same. That offensive edge pushed toward Jacksonville and outweighed Cincinnati's home-field bump.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": -0.9,
-          "harbor_direction": "JAX by 0.9",
+          "matchup": "CIN @ MIA",
+          "away": "CIN",
+          "home": "MIA",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -4.71,
+          "harbor_direction": "CIN by 4.7",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "CIN -2.5",
+          "prediction_blurb": "Cincinnati's weeks 1\u20134 offense was much stronger (2.6 vs \u22126.4 EPA per game, not points scored) while its defense allowed less (\u22121.7 vs 3.7), and rest was even. Taken together those rates outweighed Miami's home-field bump and pushed the guess toward Cincinnati.",
+          "current_line_display": "CIN -7",
+          "current_line_home_margin": -7.0,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 2.29
+        },
+        {
+          "matchup": "CLE @ NYJ",
+          "away": "CLE",
+          "home": "NYJ",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 2.94,
+          "harbor_direction": "NYJ by 2.9",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "prediction_blurb": "Both offenses were close in weeks 1\u20134 (0.4 vs 0.1 EPA per game, not points scored) while its defense allowed less (\u22121.3 vs 1.0), and Cleveland had 3 more days of rest. Taken together those rates plus the home-field bump pushed the guess toward the Jets.",
+          "current_line_display": "NYJ -2.5",
           "current_line_home_margin": 2.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": -3.4
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 0.44
         },
         {
-          "matchup": "LA @ PHI",
-          "away": "LA",
-          "home": "PHI",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "The Rams' weeks 1\u20133 offense was stronger (1.4 vs \u22121.4 EPA per game, not points scored) and their defense allowed less (\u22124.2 vs 3.3), and the Rams also had one more day of rest. Those inputs pushed toward Los Angeles and outweighed Philadelphia's home-field bump.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": -1.97,
-          "harbor_direction": "LA by 2.0",
+          "matchup": "HOU @ TEN",
+          "away": "HOU",
+          "home": "TEN",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 0.43,
+          "harbor_direction": "TEN by 0.4",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "LAR -3.5",
-          "current_line_home_margin": -3.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "prediction_blurb": "Houston's weeks 1\u20134 offense was stronger (\u22121.7 vs \u22123.8 EPA per game, not points scored) while the defenses were nearly even (Tennessee allowed 3.0, Houston 2.3), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward Tennessee.",
+          "current_line_display": "HOU -7.5",
+          "current_line_home_margin": -7.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 1.53
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 7.93
         },
         {
-          "matchup": "NE @ BUF",
-          "away": "NE",
-          "home": "BUF",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Buffalo's weeks 1\u20133 offense was much stronger (12.8 vs \u22127.3 EPA per game, not points scored) while New England's defense allowed less (\u22122.4 vs 5.0), and rest was even. The offensive gap plus the home-field bump outweighed New England's defensive edge and pushed the guess toward Buffalo.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 10.42,
-          "harbor_direction": "BUF by 10.4",
+          "matchup": "IND @ PIT",
+          "away": "IND",
+          "home": "PIT",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 1.04,
+          "harbor_direction": "PIT by 1.0",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "BUF -7",
-          "current_line_home_margin": 7.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "prediction_blurb": "Indianapolis's weeks 1\u20134 offense was stronger (\u22122.8 vs \u22126.3 EPA per game, not points scored) while its defense allowed less (1.0 vs 3.7), and Pittsburgh had 3 more days of rest. Taken together those rates plus the home-field bump pushed the guess toward Pittsburgh.",
+          "current_line_display": "PIT -2.5",
+          "current_line_home_margin": 2.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 3.42
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -1.46
         },
         {
-          "matchup": "NYJ @ CHI",
-          "away": "NYJ",
-          "home": "CHI",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Chicago's weeks 1\u20133 offense was stronger (8.8 vs 2.0 EPA per game, not points scored) while the Jets' defense allowed less (\u22122.2 vs 0.6), and the Jets had one more day of rest. Chicago's offense plus the home-field bump outweighed those Jets edges and pushed the guess toward Chicago.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 5.04,
-          "harbor_direction": "CHI by 5.0",
+          "matchup": "LV @ NE",
+          "away": "LV",
+          "home": "NE",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 0.22,
+          "harbor_direction": "Near pick'em",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "CHI -3.5",
+          "prediction_blurb": "Las Vegas's weeks 1\u20134 offense was stronger (\u22121.0 vs \u22122.1 EPA per game, not points scored) while Las Vegas's defense allowed less (\u22124.5 vs 0.1), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward New England.",
+          "current_line_display": "NE -3.5",
           "current_line_home_margin": 3.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 1.54
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -3.28
         },
         {
-          "matchup": "TEN @ BAL",
-          "away": "TEN",
-          "home": "BAL",
-          "kickoff": "2026-10-04 13:00",
-          "kickoff_display": "Sun, Oct 4, 12:00 PM CT",
-          "prediction_blurb": "Baltimore's weeks 1\u20133 offense was much stronger (10.4 vs \u22123.4 EPA per game, not points scored) while Tennessee's defense allowed less (1.2 vs 4.9), and rest was even. The offensive gap plus the home-field bump outweighed Tennessee's defensive edge and pushed the guess toward Baltimore.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 8.09,
-          "harbor_direction": "BAL by 8.1",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "BAL -11.5",
-          "current_line_home_margin": 11.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": -3.41
-        },
-        {
-          "matchup": "MIA @ MIN",
-          "away": "MIA",
-          "home": "MIN",
-          "kickoff": "2026-10-04 16:05",
-          "kickoff_display": "Sun, Oct 4, 3:05 PM CT",
-          "prediction_blurb": "Both offenses were weak in weeks 1\u20133, with Miami only slightly better (\u22126.1 vs \u22126.5 EPA per game, not points scored), while Minnesota's defense allowed far less (\u221212.1 vs 7.9), and rest was even. That defensive gap plus the home-field bump pushed the guess toward Minnesota.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 8.88,
-          "harbor_direction": "MIN by 8.9",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "MIN -10",
-          "current_line_home_margin": 10.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": -1.12
-        },
-        {
-          "matchup": "DEN @ SF",
-          "away": "DEN",
-          "home": "SF",
-          "kickoff": "2026-10-04 16:25",
-          "kickoff_display": "Sun, Oct 4, 3:25 PM CT",
-          "prediction_blurb": "San Francisco's weeks 1\u20133 offense was much stronger (18.6 vs \u22124.2 EPA per game, not points scored) and its defense allowed a bit less (1.0 vs 1.7), with rest even. Those inputs and the home-field bump all pushed the guess toward San Francisco.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 14.7,
-          "harbor_direction": "SF by 14.7",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "SF -3",
-          "current_line_home_margin": 3.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 11.7
-        },
-        {
-          "matchup": "KC @ LV",
-          "away": "KC",
-          "home": "LV",
-          "kickoff": "2026-10-04 16:25",
-          "kickoff_display": "Sun, Oct 4, 3:25 PM CT",
-          "prediction_blurb": "Kansas City's weeks 1\u20133 offense was much stronger (10.3 vs \u22122.6 EPA per game, not points scored) while Las Vegas's defense allowed less (\u22128.5 vs \u22125.4), and rest was even. The offensive gap outweighed Las Vegas's defense and the home-field bump, so the guess was pushed toward Kansas City.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": -2.8,
-          "harbor_direction": "KC by 2.8",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "KC -4.5",
-          "current_line_home_margin": -4.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 1.7
-        },
-        {
-          "matchup": "LAC @ SEA",
-          "away": "LAC",
-          "home": "SEA",
-          "kickoff": "2026-10-04 16:25",
-          "kickoff_display": "Sun, Oct 4, 3:25 PM CT",
-          "prediction_blurb": "Seattle's weeks 1\u20133 offense was stronger (3.0 vs \u221211.1 EPA per game, not points scored) and its defense allowed much less (\u22129.8 vs 0.9), with rest even. Those inputs and the home-field bump all pushed the guess toward Seattle.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 13.76,
-          "harbor_direction": "SEA by 13.8",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "SEA -7",
-          "current_line_home_margin": 7.0,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 6.76
-        },
-        {
-          "matchup": "DET @ CAR",
-          "away": "DET",
-          "home": "CAR",
-          "kickoff": "2026-10-04 20:20",
-          "kickoff_display": "Sun, Oct 4, 7:20 PM CT",
-          "prediction_blurb": "Detroit's weeks 1\u20133 offense was stronger (9.9 vs 4.3 EPA per game, not points scored) while Carolina's defense allowed much less (0.1 vs 9.4), and rest was even. Those two edges nearly cancelled, and the home-field bump is what left the guess with Carolina.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 2.07,
-          "harbor_direction": "CAR by 2.1",
-          "decision": "SHADOW",
-          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
-          "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "DET -3.5",
-          "current_line_home_margin": -3.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-          "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 5.57
-        },
-        {
-          "matchup": "ATL @ NO",
-          "away": "ATL",
+          "matchup": "MIN @ NO",
+          "away": "MIN",
           "home": "NO",
-          "kickoff": "2026-10-05 20:15",
-          "kickoff_display": "Mon, Oct 5, 7:15 PM CT",
-          "prediction_blurb": "New Orleans's weeks 1\u20133 offense was stronger (1.9 vs \u22129.5 EPA per game, not points scored) while Atlanta's defense allowed less (\u22122.9 vs 5.3), and Atlanta had three more days of rest. New Orleans's offense plus the home-field bump outweighed Atlanta's defense and rest and pushed the guess toward New Orleans.",
-          "model_id": "walkforward-v1-2026-10-04",
-          "predicted_home_margin": 4.97,
-          "harbor_direction": "NO by 5.0",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -1.15,
+          "harbor_direction": "MIN by 1.1",
           "decision": "SHADOW",
           "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
-          "prediction_timestamp": "2026-10-04 07:46:54 CDT",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
           "money_at_risk": false,
-          "source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
           "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
-          "current_line_display": "NO -1.5",
-          "current_line_home_margin": 1.5,
-          "line_source": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
+          "prediction_blurb": "New Orleans's weeks 1\u20134 offense was stronger (0.2 vs \u22127.1 EPA per game, not points scored) while its defense allowed much less (\u221211.0 vs 9.6), and Minnesota had 1 more day of rest. Taken together those rates outweighed New Orleans's home-field bump and pushed the guess toward Minnesota.",
+          "current_line_display": "MIN -1.5",
+          "current_line_home_margin": -1.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
           "line_book": "DraftKings",
-          "line_read_at": "2026-10-04 08:28 AM CT",
-          "projection_minus_line": 3.47
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 0.35
+        },
+        {
+          "matchup": "NYG @ WAS",
+          "away": "NYG",
+          "home": "WAS",
+          "kickoff": "2026-10-11 13:00",
+          "kickoff_display": "Sun, Oct 11, 12:00 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 2.04,
+          "harbor_direction": "WAS by 2.0",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": "Model has no QB input. Jayden Daniels planned start (elbow); Marcus Mariota out (per Sloan Tue screen).",
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet. Model has no QB input. Jayden Daniels planned start (elbow); Marcus Mariota out (per Sloan Tue screen).",
+          "prediction_blurb": "Washington's weeks 1\u20134 offense was stronger (\u22122.1 vs \u22123.5 EPA per game, not points scored) while the Giants' defense allowed less (\u22120.2 vs 1.8), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward Washington. Model has no QB input. Jayden Daniels planned start (elbow); Marcus Mariota out (per Sloan Tue screen).",
+          "current_line_display": "WSH -3.5",
+          "current_line_home_margin": 3.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -1.46
+        },
+        {
+          "matchup": "DEN @ LAC",
+          "away": "DEN",
+          "home": "LAC",
+          "kickoff": "2026-10-11 16:05",
+          "kickoff_display": "Sun, Oct 11, 3:05 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -0.76,
+          "harbor_direction": "DEN by 0.8",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "prediction_blurb": "Denver's weeks 1\u20134 offense was much stronger (\u22121.7 vs \u22129.7 EPA per game, not points scored) while the Chargers' defense allowed less (\u22121.5 vs 3.3), and rest was even. Taken together those rates outweighed the Chargers' home-field bump and pushed the guess toward Denver.",
+          "current_line_display": "DEN -3.5",
+          "current_line_home_margin": -3.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 2.74
+        },
+        {
+          "matchup": "DET @ ARI",
+          "away": "DET",
+          "home": "ARI",
+          "kickoff": "2026-10-11 16:25",
+          "kickoff_display": "Sun, Oct 11, 3:25 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -2.77,
+          "harbor_direction": "DET by 2.8",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "prediction_blurb": "Detroit's weeks 1\u20134 offense was much stronger (10.5 vs \u22122.6 EPA per game, not points scored) while Arizona's defense allowed much less (3.5 vs 11.4), and rest was even. Taken together those rates outweighed Arizona's home-field bump and pushed the guess toward Detroit.",
+          "current_line_display": "DET -5.5",
+          "current_line_home_margin": -5.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": 2.73
+        },
+        {
+          "matchup": "SF @ SEA",
+          "away": "SF",
+          "home": "SEA",
+          "kickoff": "2026-10-11 16:25",
+          "kickoff_display": "Sun, Oct 11, 3:25 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -1.9,
+          "harbor_direction": "SF by 1.9",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "prediction_blurb": "San Francisco's weeks 1\u20134 offense was much stronger (15.9 vs 0.1 EPA per game, not points scored) while Seattle's defense allowed much less (\u22128.8 vs 2.2), and rest was even. Taken together those rates outweighed Seattle's home-field bump and pushed the guess toward San Francisco.",
+          "current_line_display": "SEA -2.5",
+          "current_line_home_margin": 2.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -4.4
+        },
+        {
+          "matchup": "BAL @ ATL",
+          "away": "BAL",
+          "home": "ATL",
+          "kickoff": "2026-10-11 20:20",
+          "kickoff_display": "Sun, Oct 11, 7:20 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": -1.72,
+          "harbor_direction": "BAL by 1.7",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": "Model has no QB input. Lamar Jackson ankle; Tyler Huntley possible start (per Sloan Tue screen).",
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet. Model has no QB input. Lamar Jackson ankle; Tyler Huntley possible start (per Sloan Tue screen).",
+          "prediction_blurb": "Baltimore's weeks 1\u20134 offense was much stronger (9.9 vs \u22121.4 EPA per game, not points scored) while Atlanta's defense allowed less (\u22123.5 vs 2.5), and Baltimore had 1 more day of rest. Taken together those rates outweighed Atlanta's home-field bump and pushed the guess toward Baltimore. Model has no QB input. Lamar Jackson ankle; Tyler Huntley possible start (per Sloan Tue screen).",
+          "current_line_display": "ATL -3.5",
+          "current_line_home_margin": 3.5,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -5.22
+        },
+        {
+          "matchup": "BUF @ LA",
+          "away": "BUF",
+          "home": "LA",
+          "kickoff": "2026-10-12 20:15",
+          "kickoff_display": "Mon, Oct 12, 7:15 PM CT",
+          "model_id": "walkforward-v1-2026-10-06",
+          "predicted_home_margin": 2.08,
+          "harbor_direction": "LA by 2.1",
+          "decision": "SHADOW",
+          "decision_plain": "SHADOW \u2014 paper forecast only; no money at risk",
+          "prediction_timestamp": "2026-10-06 09:10:52 CDT",
+          "money_at_risk": false,
+          "annotation": null,
+          "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+          "notes": "Frozen pregame guess from Harbor NFL walk-forward v1. Known to miss the real final margin by about half a point more than the schedule number on old games. Not a bet.",
+          "prediction_blurb": "The Rams' weeks 1\u20134 offense was weaker (1.6 vs 11.5 EPA per game, not points scored) while its defense allowed much less (\u22127.3 vs 7.2), and rest was even. Taken together those rates plus the home-field bump pushed the guess toward the Rams.",
+          "current_line_display": "LAR -3",
+          "current_line_home_margin": 3.0,
+          "line_source": "https://www.espn.com/nfl/schedule/_/week/5/year/2026/seasontype/2 (Odds by DraftKings on ESPN schedule. Pregame spread, not a live line. DK in-app not claimed.)",
+          "line_book": "DraftKings",
+          "line_read_at": "2026-10-07 07:32 AM CT",
+          "projection_minus_line": -0.92
         }
       ],
       "todays_forecasts_meta": {
         "count": 15,
-        "model_id": "walkforward-v1-2026-10-04",
-        "frozen_at": "2026-10-04 07:46:54 CDT",
+        "model_id": "walkforward-v1-2026-10-06",
+        "frozen_at": "2026-10-06 09:10:52 CDT",
         "plain": "15 frozen NFL SHADOW forecasts on the board \u2014 predictions, not bets.",
         "line_book": "DraftKings",
-        "line_read_at": "2026-10-04 08:28 AM CT",
-        "line_page": "https://www.espn.com/nfl/scoreboard/_/week/4/year/2026/seasontype/2",
-        "line_difference_plain": "The difference is Harbor's home-team margin minus DraftKings' home-team margin, read at 8:28 AM CT."
+        "line_read_at": "2026-10-07 07:32 AM CT",
+        "line_page": "https://www.espn.com/nfl/scoreboard/_/week/5/year/2026/seasontype/2",
+        "line_difference_plain": "The difference is Harbor's home-team margin minus DraftKings' home-team margin, read at 7:32 AM CT."
       },
       "harbor_shadow": [
         {
@@ -8146,6 +8286,132 @@
           "result": "win",
           "pnl_net_usd": 4.76,
           "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261003-CFB-01",
+          "logged_ct": "2026-10-03 16:05 CT",
+          "league": "CFB",
+          "event": "CFB-2026-10-03-BAY@ASU",
+          "side": "Baylor +3.5",
+          "odds": "-110",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "ASU -3.5 mkt; SP+ Baylor by 2.7 / FPI by 0.8",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "-1.16",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03; not historical $4). Blank prob_range \u2014 Oct 2 SP+/FPI stale / Lagway sample. Thesis: two-model dog vs ASU -3.5. ESPN event_id 401856817. SETTLED W BAY 55-19 ASU (BAY by 36; +3.5 covers easily); postmortem 2026-10-04: model-side thesis held on cover; blank-band abstain validated (no LIVE invented); close SportsLine ASU -3.5 -105 (number flat; juice CLV mild miss vs entry -110); lesson_tag=none_no_falsifier_blank_band_abstain_validated; tag=learning_probe_shadow_settled",
+          "result": "win",
+          "pnl_net_usd": 4.55,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261003-CFB-02",
+          "logged_ct": "2026-10-03 16:05 CT",
+          "league": "CFB",
+          "event": "CFB-2026-10-03-CIN@ARIZ",
+          "side": "Cincinnati +7",
+          "odds": "-115",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "ARIZ -7 mkt (open -8.5); SP+ ARIZ by 4.0 / FPI by 2.1",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "number_+0.5pt_vs_close_+6.5",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range \u2014 Richardson return + -115 blocked one-sided band. Thesis: models ARIZ by <TD; key 7; open -8.5 shortened. ESPN event_id 401856820. SETTLED L ARIZ 34-7 CIN (CIN by -27; +7 fails); postmortem 2026-10-04: model-gap dog thesis missed hard (forecast margin vs real ~27pt gap \u2014 not a MoS falsifier); blank-band / SHADOW class correctly blocked LIVE; CLV number +0.5pt vs SportsLine late -6.5 (game-log ATS still +7); juice close messy; lesson_tag=none_no_falsifier_blank_band_abstain_validated; tag=learning_probe_shadow_settled",
+          "result": "loss",
+          "pnl_net_usd": -5.0,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261004-NFL-01",
+          "logged_ct": "2026-10-03 16:18 CT",
+          "league": "NFL",
+          "event": "NFL W5 DAL @ HOU (2026-10-04)",
+          "side": "Dallas +3",
+          "odds": "-112",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "HOU -3 mkt (open -2.5); FPI DAL by 1.3",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "0.66",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872967. Calibration-only until settle; appended settled 2026-10-05. SETTLED W DAL 34-30 HOU (DAL by 4 outright; +3 covers); postmortem 2026-10-05: FPI-flip dog thesis held on cover (outright W); falsifier (no cover + Collins/Stroud explosives) not met; number flat at +3, juice CLV beat (close -115 vs entry -112); blank-band SHADOW class correctly blocked LIVE; one calibration point not proof; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+          "result": "win",
+          "pnl_net_usd": 4.46,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261004-NFL-02",
+          "logged_ct": "2026-10-03 16:18 CT",
+          "league": "NFL",
+          "event": "NFL W5 JAX @ CIN (2026-10-04)",
+          "side": "Jacksonville +2.5",
+          "odds": "-105",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "CIN -2.5 mkt (flat); FPI JAX by 1.1",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "-0.72",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872969. Calibration-only until settle; appended settled 2026-10-05. SETTLED W JAX 22-17 CIN (JAX by 5 outright; +2.5 covers); postmortem 2026-10-05: FPI-flip dog thesis held on cover (outright W); falsifier not met; number flat at +2.5, juice CLV mild miss (close -102 vs entry -105); blank-band SHADOW class correctly blocked LIVE; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+          "result": "win",
+          "pnl_net_usd": 4.76,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261004-NFL-03",
+          "logged_ct": "2026-10-03 16:18 CT",
+          "league": "NFL",
+          "event": "NFL-2026-W5-IND@WSH-2026-10-04-London",
+          "side": "Washington +4.5",
+          "odds": "-115",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "IND -4.5 mkt (open WSH -1.5; Daniels OUT steam); FPI IND by 1.3",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "-2.99",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872965. Calibration-only until settle; appended settled 2026-10-05. SETTLED L IND 30-13 WSH (WSH by -17; +4.5 fails); postmortem 2026-10-05: dog-gap-vs-FPI thesis missed hard; pre-registered falsifier MET (no cover; Daniels-out steam was right direction, FPI looks under-updated for QB change) \u2014 forecast miss vs real result, not money lost and not a MoS falsifier; number flat at +4.5, juice CLV miss (close -102 vs entry -115 = we paid heavy juice); blank-band SHADOW class correctly blocked LIVE; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+          "result": "loss",
+          "pnl_net_usd": -5.0,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
+        },
+        {
+          "ticket_id": "SP-SH-20261004-NFL-04",
+          "logged_ct": "2026-10-03 16:18 CT",
+          "league": "NFL",
+          "event": "NFL W5 DEN @ SF (2026-10-04)",
+          "side": "San Francisco -3",
+          "odds": "+100",
+          "stake_shadow_usd": 5.0,
+          "max_loss_usd": 5.0,
+          "harbor_fair_prob": null,
+          "fair_line": "SF -3 mkt (open -2.5); FPI SF by 7.9",
+          "ev": "blank_band_SHADOW_no_LIVE",
+          "confidence": "Low-Moderate",
+          "forecast_class": "market_informed",
+          "clv": "1.22",
+          "tag": "HARBOR_SHADOW",
+          "rationale": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872975. Calibration-only until settle; appended settled 2026-10-05. SETTLED W SF 24-14 DEN (SF by 10; -3 covers); postmortem 2026-10-05: FPI-chalk-vs-short-number thesis held on cover; falsifier (no cover / close shortens through -2.5) not met; number flat at -3, juice CLV beat (close -105 vs entry +100); blank-band SHADOW class correctly blocked LIVE; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+          "result": "win",
+          "pnl_net_usd": 5.0,
+          "source": "journal/sports-shadow/clv-ledger-v2.csv"
         }
       ],
       "open_shadow_learning": [],
@@ -8411,19 +8677,19 @@
         "plain": "On 2,593 old NFL games (2016\u20132025), Harbor's first model missed the real final margin by about 10.3 points on average. The number on the schedule missed by about 9.8. Harbor was less accurate than that baseline in every one of those years. No bets were placed on those games.",
         "shadow_settle_summary_ref": true
       },
-      "roi_note": "No Harbor LIVE results yet. Shadow settles: 32 finished (14-18-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
+      "roi_note": "No Harbor LIVE results yet. Shadow settles: 38 finished (18-20-0 W-L-P) \u2014 hyp P&L in sports-shadow ledger / shadow-results-summary-2026-09-13.md; not LIVE ROI.",
       "shadow_settle_summary": {
-        "reconciled": 32,
+        "reconciled": 38,
         "still_open": 0,
-        "record_w_l_p": "14-18-0",
-        "hyp_pnl_net_usd": -15.13,
+        "record_w_l_p": "18-20-0",
+        "hyp_pnl_net_usd": -6.36,
         "by_league": {
           "CFB": {
-            "w": 4,
-            "l": 2,
+            "w": 5,
+            "l": 3,
             "p": 0,
-            "n": 6,
-            "pnl_net_usd": 6.56
+            "n": 8,
+            "pnl_net_usd": 6.11
           },
           "MLB": {
             "w": 8,
@@ -8433,44 +8699,44 @@
             "pnl_net_usd": -2.09
           },
           "NFL": {
-            "w": 2,
-            "l": 7,
+            "w": 5,
+            "l": 8,
             "p": 0,
-            "n": 9,
-            "pnl_net_usd": -19.6
+            "n": 13,
+            "pnl_net_usd": -10.38
           }
         },
         "note": "Hypothetical shadow settles only \u2014 not Harbor LIVE P&L. See journal/sports-shadow/shadow-results-summary-2026-09-13.md"
       },
       "data_freshness": {
-        "forecasts_source": "data/nfl-history/out/shadow-v1-2026-10-04.csv",
-        "forecasts_frozen_at": "2026-10-04 07:46:54 CDT",
+        "forecasts_source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
+        "forecasts_frozen_at": "2026-10-06 09:10:52 CDT",
         "note": "Raw CSV remains the evidence layer; this desk is the human view."
       },
       "next_up": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
-            "id": "nfl-sunday-board",
-            "title": "NFL Sunday slate",
-            "nextRunAt": "2026-10-04T09:00:00-05:00",
-            "scheduleLabel": "Sundays 9:00 AM CT",
+            "id": "nfl-thursday-board",
+            "title": "NFL Thursday slate",
+            "nextRunAt": "2026-10-08T10:00:00-05:00",
+            "scheduleLabel": "Thursdays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "cfb-monday-board",
-            "title": "CFB Monday slate",
-            "nextRunAt": "2026-10-05T10:00:00-05:00",
-            "scheduleLabel": "Mondays 10:00 AM CT",
+            "id": "cfb-friday-board",
+            "title": "CFB Friday slate",
+            "nextRunAt": "2026-10-09T10:00:00-05:00",
+            "scheduleLabel": "Fridays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "nfl-tuesday-board",
-            "title": "NFL Tuesday slate",
-            "nextRunAt": "2026-10-06T09:00:00-05:00",
-            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "id": "cfb-saturday-board",
+            "title": "CFB Saturday slate",
+            "nextRunAt": "2026-10-10T08:00:00-05:00",
+            "scheduleLabel": "Saturdays 8:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
@@ -8570,26 +8836,26 @@
       "capital": {
         "areaId": "capital",
         "areaName": "Harbor Capital",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "viability-evidence",
-            "title": "Viability evidence (Day 25 \u00b7 6d left)",
-            "nextRunAt": "2026-10-05T09:30:00-05:00",
+            "title": "Viability evidence (Day 28 \u00b7 3d left)",
+            "nextRunAt": "2026-10-07T09:30:00-05:00",
             "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
             "owner": "Holt"
           },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-10-05T10:00:00-05:00",
+            "nextRunAt": "2026-10-07T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-10-05T16:00:00-05:00",
+            "nextRunAt": "2026-10-07T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           }
@@ -8598,26 +8864,26 @@
       "capital-securities": {
         "areaId": "capital-securities",
         "areaName": "Securities",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "securities-am",
             "title": "Securities morning scan",
-            "nextRunAt": "2026-10-05T08:00:00-05:00",
+            "nextRunAt": "2026-10-07T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "securities-pm",
             "title": "Securities afternoon scan",
-            "nextRunAt": "2026-10-05T13:30:00-05:00",
+            "nextRunAt": "2026-10-07T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-10-05T16:00:00-05:00",
+            "nextRunAt": "2026-10-07T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           }
@@ -8626,19 +8892,19 @@
       "capital-options": {
         "areaId": "capital-options",
         "areaName": "Options",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "options-am-ride",
             "title": "Securities morning scan (options ride)",
-            "nextRunAt": "2026-10-05T08:00:00-05:00",
+            "nextRunAt": "2026-10-07T08:00:00-05:00",
             "scheduleLabel": "Weekdays 8:00 AM CT",
             "owner": "Vera"
           },
           {
             "id": "options-pm-ride",
             "title": "Securities afternoon scan (options ride)",
-            "nextRunAt": "2026-10-05T13:30:00-05:00",
+            "nextRunAt": "2026-10-07T13:30:00-05:00",
             "scheduleLabel": "Weekdays 1:30 PM CT",
             "owner": "Vera"
           },
@@ -8654,19 +8920,19 @@
       "capital-event": {
         "areaId": "capital-event",
         "areaName": "Event Markets",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
             "id": "event-markets-weekday-triage",
             "title": "Event markets weekday triage",
-            "nextRunAt": "2026-10-05T09:00:00-05:00",
+            "nextRunAt": "2026-10-07T09:00:00-05:00",
             "scheduleLabel": "Weekdays 9:00 AM CT",
             "owner": "Reed (Harbor Capital - Event Markets)"
           },
           {
             "id": "eod-reconcile",
             "title": "End-of-day reconcile",
-            "nextRunAt": "2026-10-05T16:00:00-05:00",
+            "nextRunAt": "2026-10-07T16:00:00-05:00",
             "scheduleLabel": "Weekdays 4:00 PM CT",
             "owner": "Holt"
           },
@@ -8682,27 +8948,27 @@
       "capital-crypto": {
         "areaId": "capital-crypto",
         "areaName": "Crypto",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
-          {
-            "id": "crypto-am",
-            "title": "Crypto morning scan",
-            "nextRunAt": "2026-10-05T07:30:00-05:00",
-            "scheduleLabel": "Weekdays 7:30 AM CT",
-            "owner": "Cole"
-          },
           {
             "id": "ibit-research",
             "title": "IBIT research (COREBETA live)",
-            "nextRunAt": "2026-10-05T10:00:00-05:00",
+            "nextRunAt": "2026-10-07T10:00:00-05:00",
             "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
             "owner": "Cole"
           },
           {
             "id": "crypto-pm",
             "title": "Crypto evening scan",
-            "nextRunAt": "2026-10-05T19:00:00-05:00",
+            "nextRunAt": "2026-10-07T19:00:00-05:00",
             "scheduleLabel": "Weekdays 7:00 PM CT",
+            "owner": "Cole"
+          },
+          {
+            "id": "crypto-am",
+            "title": "Crypto morning scan",
+            "nextRunAt": "2026-10-08T07:30:00-05:00",
+            "scheduleLabel": "Weekdays 7:30 AM CT",
             "owner": "Cole"
           }
         ]
@@ -8710,32 +8976,32 @@
       "capital-sports": {
         "areaId": "capital-sports",
         "areaName": "Sports",
-        "lastUpdated": "2026-10-04T08:07:37-05:00",
+        "lastUpdated": "2026-10-07T07:33:22-05:00",
         "items": [
           {
-            "id": "nfl-sunday-board",
-            "title": "NFL Sunday slate",
-            "nextRunAt": "2026-10-04T09:00:00-05:00",
-            "scheduleLabel": "Sundays 9:00 AM CT",
+            "id": "nfl-thursday-board",
+            "title": "NFL Thursday slate",
+            "nextRunAt": "2026-10-08T10:00:00-05:00",
+            "scheduleLabel": "Thursdays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "cfb-monday-board",
-            "title": "CFB Monday slate",
-            "nextRunAt": "2026-10-05T10:00:00-05:00",
-            "scheduleLabel": "Mondays 10:00 AM CT",
+            "id": "cfb-friday-board",
+            "title": "CFB Friday slate",
+            "nextRunAt": "2026-10-09T10:00:00-05:00",
+            "scheduleLabel": "Fridays 10:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           },
           {
-            "id": "nfl-tuesday-board",
-            "title": "NFL Tuesday slate",
-            "nextRunAt": "2026-10-06T09:00:00-05:00",
-            "scheduleLabel": "Tuesdays 9:00 AM CT",
+            "id": "cfb-saturday-board",
+            "title": "CFB Saturday slate",
+            "nextRunAt": "2026-10-10T08:00:00-05:00",
+            "scheduleLabel": "Saturdays 8:00 AM CT",
             "owner": "Holt wake \u00b7 Sloan triage"
           }
         ]
       }
     },
-    "generated_at_ct": "2026-10-04T08:07:37-05:00"
+    "generated_at_ct": "2026-10-07T07:33:22-05:00"
   }
 }

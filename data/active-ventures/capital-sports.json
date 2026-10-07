@@ -3,9 +3,9 @@
   "areaName": "Harbor Capital \u2014 Sports",
   "segment": "capital",
   "submarket": "sports",
-  "lastUpdated": "2026-10-03T11:45:00-05:00",
+  "lastUpdated": "2026-10-06T09:15:00-05:00",
   "empty": true,
-  "emptyReason": "Active Bets: 0 \u2014 Sun 2026-10-04 CT. 15 NFL SHADOW forecasts frozen 7:46 AM CT (walkforward-v1) are on Today's Forecasts \u2014 not LIVE. No Harbor money at risk. Path A / LIVE stays closed. Shadows \u2260 Active Ventures.",
+  "emptyReason": "Active Bets: 0; 15 Week 5 SHADOW forecasts frozen (not bets). Tue 2026-10-06 ~9:15 AM CT. No Harbor LIVE. Ledger open shadows: 0 (aggregate 18\u201320\u20130 hyp \u2212$6.36, n=38; unchanged). Pike freeze: data/nfl-history/out/shadow-v1-2026-10-06-week5.csv (walkforward-v1-2026-10-06 \u00b7 frozen 2026-10-06 09:10:52 CDT \u00b7 class SHADOW). Annotations on BAL@ATL and NYG@WAS (QB notes; margins not hand-adjusted). WATCH board still docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md \u2014 no SHADOW tickets, no LIVE_PROBE. Oct 4 frozen CSV untouched. Shadows \u2260 Active Ventures.",
   "items": [],
-  "updatedAt": "2026-10-04T07:55:00-05:00"
+  "updatedAt": "2026-10-06T09:15:00-05:00"
 }

@@ -1,8 +1,52 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-10-03T11:45:00-05:00",
+  "lastUpdated": "2026-10-06T09:15:00-05:00",
   "entries": [
+    {
+      "id": "sess-sports-nfl-week5-shadow-ingest-20261006",
+      "ts": "2026-10-06T09:15:00-05:00",
+      "ts_ct": "2026-10-06 09:15:00 CT",
+      "area": "sports",
+      "title": "Week 5 NFL SHADOW forecasts ingested (15 \u00b7 not bets)",
+      "summary": "Ingested Pike frozen Week 5 SHADOW forecasts into Capital Operating Desk. Source data/nfl-history/out/shadow-v1-2026-10-06-week5.csv (immutable; frozen 2026-10-06 09:10:52 CDT; model walkforward-v1-2026-10-06; 15 games; class SHADOW; annotations on BAL@ATL and NYG@WAS). dashboard_snapshot._load_todays_nfl_forecasts now points at week5 CSV (was Oct 4); annotation field passed through into forecast dict / notes. Active Bets: 0. No LIVE invented. Oct 4 CSV untouched. No Pages-push.",
+      "deskChanges": "tools/dashboard_snapshot.py loader \u2192 shadow-v1-2026-10-06-week5.csv + annotation; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+      "humanActions": []
+    },
+    {
+      "id": "sess-sports-nfl-week5-watch-deep-20261006",
+      "ts": "2026-10-06T09:12:00-05:00",
+      "ts_ct": "2026-10-06 09:12:00 CT",
+      "area": "sports",
+      "title": "NFL Week 5 deep look \u00b7 WATCH board \u00b7 no SHADOW \u00b7 no LIVE",
+      "summary": "Sloan deeper look docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md off Holt Tue screen: BAL @ ATL WATCH hold \u2014 Lamar left-ankle sprain (boot/MRI; Rapoport 'outside chance'); Huntley next; Humphrey/Vorhees/Smythe out-of-game Wk 4; public line ranges BAL \u22122.5 \u2194 ATL \u22122.5 (ESPN-DK ATL \u22122.5; DK open BAL \u22124.5); FPI drifted to 51.8% BAL \u2014 no band from FPI; hold for Thu injury report. NYG @ WAS WATCH hold \u2014 WAS \u22123 \u2212115 (books \u22123 to \u22124.5); Daniels planned start pending Wed/Thu practice; FPI WAS by 6.7 noted as disagreement, not edge. CIN @ MIA total 42.5 WATCH soft \u2014 Chase protocol / Higgins adductor; most of drop happened pre-open (BetMGM opened 43.5), so overshoot not shown yet. TB @ DAL TNF PASS likely \u2014 DAL \u22129.5, rookie Jalon Daniels starts. No SHADOW tickets; no new ledger or calibration rows. None LIVE_PROBE (Path A unarmed; blank prob_range). Public prices only \u2014 DK in-app unconfirmed. Forecast coordination: Pike freezes Week 5 before TNF 7:15 PM CT / London 8:30 AM CT; annotate Lamar/Daniels rows, no hand-adjust; desk builder still pointed at Oct 4 CSV (untouched). AV emptyReason refreshed.",
+      "deskChanges": "docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+      "humanActions": []
+    },
+    {
+      "id": "sess-sports-shadow-settle-20261005",
+      "ts": "2026-10-05T10:55:00-05:00",
+      "ts_ct": "2026-10-05 10:55:00 CT",
+      "area": "sports",
+      "title": "NFL Sun Learning Probe shadow settle \u00b7 3\u20131 \u00b7 ledger n=38",
+      "summary": "Settled 4 NFL Sun 10-04 Learning Probe SHADOWs ($5 hyp, no money bet) that lived in calibration/memo: SP-SH-20261004-NFL-01 Dallas +3 \u2212112 W DAL 34\u201330 HOU (+$4.46; price CLV +0.66pp vs DK close \u2212115); NFL-02 Jacksonville +2.5 \u2212105 W JAX 22\u201317 CIN (+$4.76; \u22120.72pp vs \u2212102); NFL-03 Washington +4.5 \u2212115 L IND 30\u201313 WSH (\u2212$5.00; \u22122.99pp vs \u2212102); NFL-04 San Francisco \u22123 +100 W SF 24\u201314 DEN (+$5.00; +1.22pp vs \u2212105). All four closed on the screened number (juice-only moves). Net hyp +$9.22. Aggregate 18\u201320\u20130 hyp \u2212$6.36 (n=38); CLV scored 31 (11 beat / 11 miss / 9 flat). Ledger open=0. No LIVE. No process falsifier filed; WAS miss logged as watch item (FPI vs QB-change steam), not a lesson. Summary journal/sports-shadow/shadow-results-summary-2026-10-05.md."
+    },
+    {
+      "id": "sess-sports-cfb-week6-deep-process-20261005",
+      "ts": "2026-10-05T10:40:00-05:00",
+      "ts_ct": "2026-10-05 10:40:00 CT",
+      "area": "sports",
+      "title": "CFB W6 deep look WATCH \u00b7 two-empty process review \u00b7 no LIVE",
+      "summary": "Sloan deeper look docs/sports-memos/cfb-week6-watch-deep-2026-10-05.md: KENN +3 Wed WATCH (FPI dog vs steam; CLEATZ Week 6 SP+ JXST \u22127 conflict); MOST +2.5 Thu WATCH/lean PASS (FPI dog; SP+ \u2248 WKU \u22122). FSU/IOWA/MIZ WATCH. Soft stay soft. None LIVE_PROBE. No place card. No Quinn send. Process review docs/sports-memos/sports-process-review-two-empty-2026-10-05.md: two empties = honest blank-band / Path A unarmed (Pike verbatim: still unarmed; no cover% from gaps; interval blocked on data). Sat Learning Probe settle already done 10-04 \u2014 not re-settled. AV emptyReason refreshed same-day. Frozen NFL forecast CSV untouched."
+    },
+    {
+      "id": "sess-sports-shadow-settle-20261004",
+      "ts": "2026-10-04T10:50:00-05:00",
+      "ts_ct": "2026-10-04 10:50:00 CT",
+      "area": "sports",
+      "title": "CFB Learning Probe shadow settle \u00b7 BAY W / CIN L \u00b7 ledger n=34",
+      "summary": "Settled 2 Sat-night CFB Learning Probe SHADOWs that were in calibration/memo but missing from clv-ledger-v2: SP-SH-20261003-CFB-01 Baylor +3.5 \u2212110 ($5) W BAY 55\u201319 ASU (hyp +$4.55; juice CLV \u22121.16pp vs SportsLine close \u2212105); SP-SH-20261003-CFB-02 Cincinnati +7 \u2212115 ($5) L ARIZ 34\u20137 CIN (hyp \u2212$5.00; number CLV +0.5pt vs SportsLine late +6.5). Net hyp this run \u2212$0.45. Aggregate now 15\u201319\u20130 hyp \u2212$15.58 (n=34); ledger open=0. NFL Sun/Mon SHADOWs not settled. No LIVE. No process falsifier filed (blank-band abstain held). Summary journal/sports-shadow/shadow-results-summary-2026-10-04.md."
+    },
     {
       "id": "sess-sports-cfb-sat-20261003",
       "ts": "2026-10-03T11:45:00-05:00",
@@ -956,5 +1000,5 @@
       "deskChanges": "Next Up on overview and markets; alert policy doc; cadence notes."
     }
   ],
-  "updated_ct": "2026-10-03 11:45:00 CT"
+  "updated_ct": "2026-10-06 09:12 CT"
 }

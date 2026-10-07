@@ -1,8 +1,15 @@
 {
   "areaId": "capital-crypto",
   "areaName": "Capital \u2014 Crypto",
-  "lastUpdated": "2026-09-24T16:30:21-05:00",
+  "lastUpdated": "2026-10-07T07:26:41-05:00",
   "entries": [
+    {
+      "at": "2026-10-07T07:26:41-05:00",
+      "actor": "Cole (Harbor Capital - Crypto Spot)",
+      "summary": "AM regime Wed: BTC ~83.5k at bottom of 83.4\u201387.6k band (~\u22122.4% overnight) on Hormuz/oil/yields + liq wipe; ETH harder. Thesis unchanged (directional_beta). Keep IBIT+$10 staged for Gateway clear; no transmit. Watch hold ~83.4k vs break under ~83k.",
+      "deskChanges": "docs/crypto-intel/regime-note-2026-10-07-am.md; sleeve still empty LIVE; packet staged not transmitted.",
+      "lessonId": null
+    },
     {
       "at": "2026-09-24T16:30:21-05:00",
       "actor": "Cole (Harbor Capital - Crypto Spot)",
