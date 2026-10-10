@@ -2230,6 +2230,9 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const area = areaMap[id];
     if (!area || html.includes("data-next-up=")) return html;
     // Sports: keep Today's Forecasts above Next Up and Active Ventures.
+    if (id === "sports") {
+      html = `<div class="callout info"><strong>Sports Predictions</strong> — current slate, recommendations, bets and history in one place. <a href="#sports-predictions">Open Sports Predictions →</a></div>` + html;
+    }
     if (id === "sports" && html.includes("<!-- sports-after-forecast -->")) {
       return html.replace(
         "<!-- sports-after-forecast -->",
@@ -2245,6 +2248,701 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     );
   }
 
+  // ---------------------------------------------------------------------------
+  // Sports Predictions (2026-10-10, Wells) — route #sports-predictions.
+  // Data: SNAP.market_details.sports.sports_predictions (Sloan's store). Read-only.
+  // Rules: null → "—" (never 0) · SHADOW = paper forecast, not a bet · recommendations are not bets ·
+  // this page never sends email (preview only; real send runs through the Harbor agent after Thomas + Hayes).
+  // ---------------------------------------------------------------------------
+  const SP_STATE = { filter: "all", sort: "kickoff", q: "", histPage: 0, hist: { sport: "", model: "", cls: "", ats: "", rec: "", date: "" } };
+  const SP_EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+  const SP_FROM = "elephantharbor@mail.grokbot.com";
+
+  function spSec() {
+    return ((SNAP && SNAP.market_details && SNAP.market_details.sports) || {}).sports_predictions || null;
+  }
+  function spDash(v) {
+    return v === null || v === undefined || v === "" ? "—" : String(v);
+  }
+  function spNum(v, digits) {
+    if (v === null || v === undefined || v === "" || !Number.isFinite(Number(v))) return "—";
+    return Number(v).toFixed(digits == null ? 1 : digits);
+  }
+  function spShortCls(c) {
+    const s = String(c || "").trim();
+    if (!s) return "—";
+    return s.split(/\s+-\s+|\s+—\s+/)[0].trim();
+  }
+  function spMainText(s) {
+    const t = String(s || "").trim();
+    const i = t.indexOf(" (");
+    return i > 0 ? t.slice(0, i) : t;
+  }
+  function spBreakeven(odds) {
+    const n = Number(String(odds || "").replace(/[^\d+-]/g, ""));
+    if (!Number.isFinite(n) || n === 0) return null;
+    const p = n < 0 ? -n / (-n + 100) : 100 / (n + 100);
+    return (p * 100).toFixed(1) + "%";
+  }
+  function spIsShadow(p) {
+    return /SHADOW/i.test(String(p.classification || "") + " " + String(p.recommendation_state || ""));
+  }
+  function spIsPersonal(p) {
+    return /PERSONAL/i.test(String(p.classification || "") + " " + String(p.recommendation_state || ""));
+  }
+  function spIsEhAction(p) {
+    return /LIVE_PROBE|BET[_ ]APPROVED|BET[_ ]PLACED/i.test(String(p.recommendation_state || ""));
+  }
+  /** Lifecycle chip — plain-language meaning, never claims a bet unless placed. */
+  function spLifecycle(p) {
+    const st = String(p.recommendation_state || p.classification || "").toUpperCase();
+    if (p.result || p.ats_result) return { key: "FINAL", label: "Final · reconciled", cls: "badge-na" };
+    if (/BET[_ ]PLACED/.test(st)) return { key: "BET_PLACED", label: "Bet placed", cls: "badge-live" };
+    if (/BET[_ ]APPROVED/.test(st)) return { key: "BET_APPROVED", label: "Bet approved — not placed", cls: "badge-open" };
+    if (/LIVE_PROBE/.test(st)) return { key: "LIVE_PROBE", label: "Live probe recommended — not placed", cls: "badge-open" };
+    if (/PERSONAL/.test(st)) return { key: "PERSONAL", label: "Personal recommendation — not a bet", cls: "badge-open" };
+    if (/SHADOW/.test(st)) return { key: "SHADOW", label: "SHADOW — paper forecast, no money", cls: "badge-shadow" };
+    if (/WATCH/.test(st)) return { key: "WATCH", label: "Watch / wait", cls: "badge-paused" };
+    if (/PASS/.test(st)) return { key: "PASS", label: "Pass — no action", cls: "badge-na" };
+    if (/SCREENED/.test(st)) return { key: "SCREENED", label: "Screened — not deep-researched", cls: "badge-na" };
+    return { key: "UPCOMING", label: "Upcoming", cls: "badge-na" };
+  }
+  function spChip(lc) {
+    return `<span class="badge ${lc.cls}">${esc(lc.label)}</span>`;
+  }
+  function spFair(p) {
+    if (p.harbor_fair_plain) return String(p.harbor_fair_plain);
+    if (p.harbor_fair) {
+      const main = spMainText(p.harbor_fair);
+      const ext = /external model|SP\+|FPI/i.test(String(p.harbor_fair)) ? " (external SP+, not a Harbor model)" : "";
+      return "Fair line: " + main + ext;
+    }
+    return "Fair line: —";
+  }
+  function spMarket(p) {
+    return p.market_line_display || p.dk_spread || null;
+  }
+  function spOdds(p) {
+    if (p.market_odds) return String(p.market_odds);
+    const o = p.dk_odds;
+    if (o && (o.away || o.home)) return `away ${spDash(o.away)} · home ${spDash(o.home)}`;
+    return null;
+  }
+  function spBreakevenText(p) {
+    const o = p.dk_odds;
+    if (o && (o.away || o.home)) {
+      const a = spBreakeven(o.away), h = spBreakeven(o.home);
+      if (a || h) return `away ${spDash(a)} · home ${spDash(h)}`;
+    }
+    const b = spBreakeven(p.market_odds);
+    return b;
+  }
+  function spDiff(p) {
+    if (p.harbor_minus_market_pts != null && Number.isFinite(Number(p.harbor_minus_market_pts))) {
+      return `${spNum(Math.abs(p.harbor_minus_market_pts), 1)} pts ${Number(p.harbor_minus_market_pts) < 0 ? "toward " + (p.away || "away") : "toward " + (p.home || "home")}`;
+    }
+    if (p.diff_vs_market && !/^see /i.test(String(p.diff_vs_market))) return String(p.diff_vs_market);
+    return null;
+  }
+  function spWinProb(p) {
+    if (p.win_probability != null) return spNum(Number(p.win_probability) * (Number(p.win_probability) <= 1 ? 100 : 1), 1) + "%";
+    if (p.fpi_home_win_pct != null && p.fpi_home_win_pct !== "") {
+      const home = String(p.matchup || "").split("@").pop().trim() || "home";
+      return `${home} ${spDash(p.fpi_home_win_pct)}% (ESPN FPI)`;
+    }
+    return null;
+  }
+  function spKick(p) {
+    return p.kickoff_ct || p.kickoff || null;
+  }
+  function spRow(k, v) {
+    return `<div class="sp-kv"><span class="k">${esc(k)}</span><span class="v">${esc(spDash(v))}</span></div>`;
+  }
+  function spEventHistory(sec, p) {
+    const prior = (sec.history || []).filter((h) => h.event_id === p.event_id && h.prediction_id !== p.prediction_id);
+    if (!prior.length) return `<p class="muted sp-small">No earlier snapshots for this game.</p>`;
+    return `<ul class="sp-list">${prior
+      .map((h) => `<li>${esc(spDash(h.generated_at))} · ${esc(spDash(h.model_version))} · ${esc(spDash(h.harbor_fair_plain || h.market_line_display))} · ${esc(spShortCls(h.classification))}</li>`)
+      .join("")}</ul>`;
+  }
+
+  function spSlateCard(sec, p) {
+    const lc = spLifecycle(p);
+    const sport = p.sport || p.league || "";
+    const narrative = p.narrative
+      ? `<p>${esc(p.narrative)}</p>`
+      : `<p class="muted">No narrative yet — this game was screened, not deep-researched.</p>`;
+    const sources = p.source ? `<div class="sp-kv"><span class="k">Source</span><span class="v"><code>${esc(p.source)}</code></span></div>` : "";
+    const fullCls = String(p.classification || "");
+    return `<details class="card sp-card" data-sp-card data-sport="${esc(sport)}" data-shadow="${spIsShadow(p) ? 1 : 0}" data-personal="${spIsPersonal(p) ? 1 : 0}" data-eh="${spIsEhAction(p) ? 1 : 0}" data-final="${lc.key === "FINAL" ? 1 : 0}" data-matchup="${esc(String(p.matchup || "").toLowerCase())}">
+      <summary>
+        <div class="sp-card-head"><strong>${esc(spDash(p.matchup))}</strong> <span class="badge badge-mkt-sports">${esc(sport)}</span> ${spChip(lc)}</div>
+        <div class="sp-card-sub muted">${esc(spDash(spKick(p)))} · ${esc(spDash(p.model_version))}</div>
+        <div class="sp-card-fair">${esc(spFair(p))}</div>
+        <div class="sp-grid">
+          ${spRow("Market spread", spMarket(p))}
+          ${spRow("Market odds", spOdds(p))}
+          ${spRow("Model vs market", spDiff(p))}
+          ${spRow("Total (market)", p.dk_total != null ? p.dk_total : null)}
+          ${spRow("Expected total (Harbor)", p.expected_total)}
+          ${spRow("Win probability", spWinProb(p))}
+          ${spRow("Cover probability", p.cover_probability != null ? spNum(p.cover_probability * 100, 1) + "%" : "Not modeled")}
+          ${spRow("Break-even (from odds)", spBreakevenText(p))}
+          ${spRow("Confidence", p.confidence)}
+        </div>
+        <div class="sp-small muted">Tap for why Harbor sees it this way</div>
+      </summary>
+      <div class="sp-detail">
+        <h3>Why Harbor sees it this way</h3>
+        ${narrative}
+        <h3>Biggest risk</h3>
+        <p>${esc(p.biggest_risk || "—")}</p>
+        <div class="sp-grid">
+          ${spRow("Classification", fullCls)}
+          ${spRow("SP+ margin", p.sp_plus_margin)}
+          ${spRow("FPI home win %", p.fpi_home_win_pct)}
+          ${spRow("Line movement (open → now)", p.open_spread_home ? `home open ${p.open_spread_home} → ${spMarket(p) || "—"}` : null)}
+          ${spRow("Market read at", p.market_read_at || p.input_ts)}
+          ${spRow("Prediction made", p.generated_at)}
+          ${spRow("Prediction ID", p.prediction_id)}
+          ${sources}
+        </div>
+        ${p.harbor_fair && String(p.harbor_fair) !== spMainText(p.harbor_fair) ? `<p class="muted sp-small">Fair-line note: ${esc(p.harbor_fair)}</p>` : ""}
+        <h3>Earlier snapshots</h3>
+        ${spEventHistory(sec, p)}
+      </div>
+    </details>`;
+  }
+
+  function spLineAgeMin(lineTs) {
+    const m = String(lineTs || "").match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*CT/i);
+    if (!m) return null;
+    let h = Number(m[1]) % 12;
+    if (/PM/i.test(m[3])) h += 12;
+    const now = new Date();
+    const ct = new Date(now.toLocaleString("en-US", { timeZone: "America/Chicago" }));
+    const then = new Date(ct);
+    then.setHours(h, Number(m[2]), 0, 0);
+    const diff = Math.round((ct - then) / 60000);
+    return diff >= 0 ? diff : null;
+  }
+
+  function spActionCards(sec) {
+    const items = sec.action_required || [];
+    if (!items.length) return "";
+    return `<section class="card sp-action"><h2>Action required</h2>
+      <p class="muted sp-small">These are recommendations waiting on Thomas. Nothing here has been placed.</p>
+      ${items
+        .map((a) => {
+          const age = spLineAgeMin(a.line_ts);
+          const stale = age != null && age > 60
+            ? `<div class="callout warn sp-stale">Market line last refreshed ${esc(age)} min ago — refresh before placing.</div>`
+            : age == null
+              ? `<div class="callout warn sp-stale">Line refresh time not machine-readable — check the line before placing.</div>`
+              : "";
+          const missed = /PRICE MISSED/i.test(String(a.state || "")) ? `<div class="callout warn">PRICE MISSED / RE-EVALUATION REQUIRED</div>` : "";
+          return `<div class="sp-action-item">
+            <div><strong>${esc(spDash(a.headline))}</strong></div>
+            <div class="sp-grid">
+              ${spRow("Account", a.account === "personal" ? "Personal (Thomas)" : a.account === "elephant_harbor" ? "Elephant Harbor" : a.account)}
+              ${spRow("Rank", a.rank)}
+              ${spRow("Stake", a.stake)}
+              ${spRow("Worst acceptable line", a.max_line)}
+              ${spRow("Timing", a.action)}
+              ${spRow("Line checked", a.line_ts)}
+            </div>
+            <div><span class="badge badge-open">${esc(spDash(a.state))}</span></div>
+            ${stale}${missed}
+          </div>`;
+        })
+        .join("")}
+    </section>`;
+  }
+
+  function spRecommendations(sec) {
+    const rec = sec.recommendations || {};
+    const personal = rec.personal || [];
+    const eh = rec.elephant_harbor || [];
+    const pHtml = personal.length
+      ? personal
+          .map(
+            (r) => `<div class="sp-rec">
+          <div><strong>#${esc(spDash(r.rank))} ${esc(spDash(r.bet))}</strong> <span class="badge badge-open">${esc(spDash(r.action))}</span></div>
+          <div class="muted sp-small">${esc(spDash(r.game))} · ${esc(spDash(r.kickoff_ct))} · ${esc(spDash(r.sportsbook))}</div>
+          <div class="sp-grid">
+            ${spRow("Line", r.line)}
+            ${spRow("Stake", r.stake)}
+            ${spRow("Worst acceptable line", r.max_line)}
+            ${spRow("Fair line (external models)", r.harbor_fair)}
+            ${spRow("Break-even", r.breakeven)}
+            ${spRow("Edge", r.edge_pts)}
+            ${spRow("Cover probability", r.cover_prob)}
+            ${spRow("Line checked", r.line_ts)}
+          </div>
+          <details><summary class="sp-small">Why this is a bet · risks</summary>
+            <h3>Why this is a bet</h3><p>${esc(spDash(r.why))}</p>
+            <h3>Biggest risk</h3><p>${esc(spDash(r.counter))}</p>
+            ${spRow("Uncertainty", r.uncertainty)}
+            ${spRow("Line movement", r.movement)}
+            ${spRow("Model", r.model)}
+          </details>
+        </div>`
+          )
+          .join("")
+      : emptyState("No personal recommendations", "Nothing recommended for Thomas's personal account right now.");
+    const ehHtml = eh.length
+      ? eh
+          .map((r) => {
+            const sh = /SHADOW/i.test(String(r.classification || ""));
+            return `<div class="sp-rec">
+          <div><strong>${esc(spDash(r.bet))}</strong> <span class="badge ${sh ? "badge-shadow" : "badge-na"}">${esc(sh ? "SHADOW — paper only, no money" : spDash(r.classification))}</span></div>
+          <div class="muted sp-small">${esc(spDash(r.game))}</div>
+          <p class="sp-small">${esc(spDash(r.reason))}</p>
+        </div>`;
+          })
+          .join("")
+      : emptyState("No Elephant Harbor recommendations", "Nothing under Harbor risk rules right now.");
+    return `<section class="card"><h2>Recommendations</h2>
+      <div class="callout info">Recommendations are not bets. ${esc(rec.note && !/^Recommendations are not bets\.?$/i.test(rec.note) ? rec.note.replace(/^Recommendations are not bets\.\s*/i, "") : "")}</div>
+      <div class="sp-two">
+        <div><h3>Personal account (Thomas places)</h3>${pHtml}</div>
+        <div><h3>Elephant Harbor account</h3>${ehHtml}</div>
+      </div>
+    </section>`;
+  }
+
+  function spSlate(sec) {
+    const preds = (sec.predictions || []).slice();
+    const kickKey = (p) => String(spKick(p) || "");
+    const toMin = (s) => {
+      const m = String(s).match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+      if (m) return (Number(m[1]) % 12 + (/PM/i.test(m[3]) ? 12 : 0)) * 60 + Number(m[2]);
+      const d = String(s).match(/(\d{4}-\d{2}-\d{2})\s+(\d{2}):(\d{2})/);
+      if (d) return Date.parse(d[1]) / 60000 + Number(d[2]) * 60 + Number(d[3]);
+      return 1e12;
+    };
+    const absDiff = (p) => {
+      if (p.harbor_minus_market_pts != null) return Math.abs(Number(p.harbor_minus_market_pts)) || 0;
+      const m = String(p.diff_vs_market || "").match(/(\d+(?:\.\d+)?)/);
+      return m ? Number(m[1]) : -1;
+    };
+    const recRank = (p) => (spIsPersonal(p) || spIsEhAction(p) ? 0 : /WATCH/i.test(p.classification || "") ? 1 : 2);
+    if (SP_STATE.sort === "disagreement") preds.sort((a, b) => absDiff(b) - absDiff(a));
+    else if (SP_STATE.sort === "recommended") preds.sort((a, b) => recRank(a) - recRank(b) || toMin(kickKey(a)) - toMin(kickKey(b)));
+    else preds.sort((a, b) => String(a.sport).localeCompare(String(b.sport)) || toMin(kickKey(a)) - toMin(kickKey(b)));
+    const counts = {};
+    preds.forEach((p) => (counts[p.sport] = (counts[p.sport] || 0) + 1));
+    const countTxt = Object.keys(counts).map((k) => `${k} ${counts[k]}`).join(" · ");
+    const filters = [
+      ["all", "All"],
+      ["recommended", "Recommended"],
+      ["personal", "Personal"],
+      ["eh", "Elephant Harbor"],
+      ["shadow", "Shadow"],
+      ["live", "Live bets"],
+      ["final", "Final"],
+    ];
+    return `<section class="card"><h2>Current slate · ${esc(preds.length)} games</h2>
+      <p class="muted sp-small">${esc(countTxt)} · latest prediction per game, not yet reconciled. A forecast is not a bet.</p>
+      <div class="sp-controls">
+        <div class="sp-filters" role="group" aria-label="Slate filter">${filters
+          .map(([id, l]) => `<button type="button" class="mkt-filter${SP_STATE.filter === id ? " active" : ""}" data-sp-filter="${id}">${esc(l)}</button>`)
+          .join("")}</div>
+        <div class="sp-filters">
+          <label class="sp-small">Sort <select data-sp-sort>
+            <option value="kickoff"${SP_STATE.sort === "kickoff" ? " selected" : ""}>Kickoff</option>
+            <option value="disagreement"${SP_STATE.sort === "disagreement" ? " selected" : ""}>Biggest model-market gap</option>
+            <option value="recommended"${SP_STATE.sort === "recommended" ? " selected" : ""}>Recommended first</option>
+          </select></label>
+          <input type="search" data-sp-q placeholder="Search team" value="${esc(SP_STATE.q)}" aria-label="Search team" />
+        </div>
+      </div>
+      <div class="sp-empty-filter" hidden>${emptyState("Nothing matches", "No games in this filter.")}</div>
+      <div class="sp-cards">${preds.map((p) => spSlateCard(sec, p)).join("")}</div>
+    </section>`;
+  }
+
+  function spActiveBets(sec) {
+    const bets = sec.active_bets || [];
+    const pers = bets.filter((b) => b.account === "personal");
+    const eh = bets.filter((b) => b.account !== "personal");
+    const list = (rows) =>
+      rows.length
+        ? rows.map((b) => `<div class="sp-rec">${spRow("Wager", b.bet || b.headline)}${spRow("Line", b.line)}${spRow("Odds", b.odds)}${spRow("Book", b.sportsbook)}${spRow("Stake", b.stake)}${spRow("Placed", b.placed_at)}</div>`).join("")
+        : emptyState("No real wagers confirmed placed.", "");
+    return `<section class="card"><h2>Active bets (real money)</h2>
+      <p class="muted sp-small">${esc(sec.active_bets_note || "Real wagers only, after Thomas confirms placement.")}</p>
+      <div class="sp-two"><div><h3>Personal</h3>${list(pers)}</div><div><h3>Elephant Harbor</h3>${list(eh)}</div></div>
+    </section>`;
+  }
+
+  function spSettled(sec) {
+    const rows = sec.recently_settled || [];
+    const shadow = rows.filter((r) => spIsShadow(r) || !/real/i.test(String(r.account || "")));
+    const res = (r) => r.result || {};
+    const card = (r) => {
+      const x = res(r);
+      return `<div class="sp-rec">
+        <div><strong>${esc(spDash(r.side || r.bet || r.matchup))}</strong> <span class="badge badge-shadow">HYPOTHETICAL — shadow, no money</span></div>
+        <div class="muted sp-small">${esc(spDash(r.matchup))} · ${esc(spDash(r.model_version))}</div>
+        <div class="sp-grid">
+          ${spRow("Harbor view", r.harbor_fair_plain)}
+          ${spRow("Final score", x.final_score)}
+          ${spRow("Forecast miss (pts from real margin)", x.forecast_error != null ? spNum(Math.abs(x.forecast_error), 1) : null)}
+          ${spRow("Spread result", x.ats_result || r.ats_result)}
+          ${spRow("Hypothetical P&L", x.hypothetical_pnl_usd != null ? (x.hypothetical_pnl_usd < 0 ? "−$" : "$") + Math.abs(x.hypothetical_pnl_usd).toFixed(2) + " (not real)" : null)}
+          ${spRow("CLV (pp)", x.clv_pp)}
+        </div>
+        ${x.postgame_learning ? `<p class="sp-small">${esc(x.postgame_learning)}</p>` : ""}
+      </div>`;
+    };
+    return `<section class="card"><h2>Recently settled</h2>
+      <p class="muted sp-small">${esc(sec.recently_settled_note || "")}</p>
+      <h3>Shadow results (hypothetical)</h3>
+      ${shadow.length ? `<div class="sp-cards">${shadow.map(card).join("")}</div>` : emptyState("No settled shadow rows", "")}
+      <h3>Real-money results</h3>
+      ${emptyState("None yet", "No real-money wagers have settled.")}
+    </section>`;
+  }
+
+  function spHistory(sec) {
+    const all = sec.history || [];
+    const f = SP_STATE.hist;
+    const uniq = (k) => [...new Set(all.map((h) => h[k]).filter((v) => v != null && v !== ""))].sort();
+    const clsShort = (h) => spShortCls(h.classification);
+    const rows = all.filter((h) => {
+      if (f.sport && h.sport !== f.sport) return false;
+      if (f.model && h.model_version !== f.model) return false;
+      if (f.cls && clsShort(h) !== f.cls) return false;
+      if (f.ats && String(h.ats_result || "none") !== f.ats) return false;
+      if (f.rec === "recommended" && !/PERSONAL|LIVE_PROBE|BET/i.test(String(h.recommendation_state || h.classification))) return false;
+      if (f.rec === "shadow" && !/SHADOW/i.test(String(h.classification || ""))) return false;
+      if (f.rec === "bet" && !/BET[_ ]PLACED/i.test(String(h.recommendation_state || ""))) return false;
+      if (f.date && !String(h.generated_at || "").startsWith(f.date)) return false;
+      return true;
+    });
+    const per = 25;
+    const pages = Math.max(1, Math.ceil(rows.length / per));
+    if (SP_STATE.histPage >= pages) SP_STATE.histPage = pages - 1;
+    const slice = rows.slice(SP_STATE.histPage * per, SP_STATE.histPage * per + per);
+    const sel = (key, label, opts) => `<label class="sp-small">${esc(label)} <select data-sp-hist="${key}"><option value="">All</option>${opts
+      .map((o) => `<option value="${esc(o)}"${f[key] === o ? " selected" : ""}>${esc(o)}</option>`)
+      .join("")}</select></label>`;
+    const dates = [...new Set(all.map((h) => String(h.generated_at || "").slice(0, 10)).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d)))].sort().reverse();
+    return `<section class="card" id="sp-history"><h2>Prediction history · all ${esc(all.length)} predictions</h2>
+      <p class="muted sp-small">Every prediction Harbor made, bet or not. Old predictions are kept, never rewritten.</p>
+      <div class="sp-filters">
+        ${sel("sport", "Sport", uniq("sport"))}
+        ${sel("model", "Model", uniq("model_version"))}
+        ${sel("cls", "Class", [...new Set(all.map(clsShort))].sort())}
+        ${sel("ats", "Spread result", [...new Set(all.map((h) => String(h.ats_result || "none")))].sort())}
+        <label class="sp-small">Type <select data-sp-hist="rec"><option value="">All</option>
+          <option value="recommended"${f.rec === "recommended" ? " selected" : ""}>Recommended</option>
+          <option value="shadow"${f.rec === "shadow" ? " selected" : ""}>Shadow</option>
+          <option value="bet"${f.rec === "bet" ? " selected" : ""}>Real bet</option></select></label>
+        ${sel("date", "Date", dates)}
+      </div>
+      <p class="sp-small muted">${esc(rows.length)} match · page ${esc(SP_STATE.histPage + 1)} of ${esc(pages)}</p>
+      <div class="sp-hist">${slice
+        .map(
+          (h) => `<div class="sp-hist-row">
+          <div><strong>${esc(spDash(h.matchup))}</strong> <span class="badge badge-mkt-sports">${esc(spDash(h.sport))}</span> ${/SHADOW/i.test(String(h.classification)) ? '<span class="badge badge-shadow">SHADOW</span>' : ""}</div>
+          <div class="sp-small muted">${esc(spDash(h.generated_at))} · ${esc(spDash(h.model_version))} · ${esc(clsShort(h))}</div>
+          <div class="sp-small">${esc(spDash(h.harbor_fair_plain || h.bet || h.market_line_display))} · spread result ${esc(spDash(h.ats_result))}</div>
+        </div>`
+        )
+        .join("") || emptyState("No predictions match", "")}</div>
+      <div class="sp-filters"><button type="button" class="mkt-filter" data-sp-page="-1"${SP_STATE.histPage === 0 ? " disabled" : ""}>Previous</button>
+        <button type="button" class="mkt-filter" data-sp-page="1"${SP_STATE.histPage >= pages - 1 ? " disabled" : ""}>Next</button></div>
+    </section>`;
+  }
+
+  function spMetrics(sec) {
+    const m = sec.metrics || {};
+    const ats = m.ats || {};
+    const clv = m.clv || {};
+    const rp = m.real_pnl || {};
+    const realLine = (r, name) => {
+      const n = (Number(r && r.w) || 0) + (Number(r && r.l) || 0) + (Number(r && r.p) || 0);
+      if (!r || n === 0) return `${name}: no real wagers yet`;
+      const v = Number(r.pnl_usd);
+      return `${name}: ${r.w}-${r.l}-${r.p} · ${Number.isFinite(v) ? (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2) : "—"}`;
+    };
+    const buckets = m.by_disagreement_bucket || {};
+    const shadowPnl = m.shadow_hypothetical_pnl_usd;
+    return `<section class="card"><h2>How the predictions are doing (all predictions)</h2>
+      <div class="sp-grid">
+        ${spRow("Predictions stored", m.total_predictions)}
+        ${spRow("Reconciled", m.reconciled)}
+        ${spRow("By sport", Object.entries(m.by_sport || {}).map(([k, v]) => k + " " + v).join(" · "))}
+        ${spRow("By model", Object.entries(m.by_model_version || {}).map(([k, v]) => k + " " + v).join(" · "))}
+        ${spRow("Average forecast miss (pts)", m.mae != null ? spNum(m.mae, 2) : "needs final scores")}
+        ${spRow("Bias (pts)", m.bias != null ? spNum(m.bias, 2) : "needs final scores")}
+        ${spRow("Market's average miss (benchmark)", m.benchmark_mae != null ? spNum(m.benchmark_mae, 2) : "needs final scores")}
+        ${spRow("Picked the winner", m.su_pct != null ? spNum(m.su_pct, 1) + "%" : "needs final scores")}
+        ${spRow("Against the spread (W-L-P)", `${spDash(ats.w)}-${spDash(ats.l)}-${spDash(ats.p)}`)}
+        ${spRow("Closing-line value", clv.n ? `avg ${spNum(clv.avg_pp, 2)} pp · ${spNum(clv.positive_pct, 1)}% beat the close · n=${clv.n}` : null)}
+      </div>
+      <p class="sp-small muted">Forecast miss = how many points the predicted margin was from the real final margin. Losing to the benchmark means the market's forecast was closer; it is not money lost.</p>
+      <h3>By model-market gap</h3>
+      <div class="sp-grid">${Object.entries(buckets)
+        .map(([k, b]) => spRow(k === "unknown" ? "Gap not recorded" : k + " pts", `${b.count} predictions · ATS ${b.ats_w}-${b.ats_l}-${b.ats_p}`))
+        .join("")}</div>
+      <h3>Shadow (paper) results</h3>
+      <div class="callout warn"><strong>${esc(m.shadow_pnl_label || "HYPOTHETICAL — not real P&L")}</strong><br />Shadow total: ${esc(shadowPnl != null ? (shadowPnl < 0 ? "−$" : "$") + Math.abs(shadowPnl).toFixed(2) : "—")}</div>
+      <h3>Real-money P&L (kept separate from shadow)</h3>
+      <div class="sp-two"><div class="sp-rec">${esc(realLine(rp.personal, "Personal"))}</div><div class="sp-rec">${esc(realLine(rp.elephant_harbor, "Elephant Harbor"))}</div></div>
+      ${m.notes ? `<p class="sp-small muted">${esc(m.notes)}</p>` : ""}
+    </section>`;
+  }
+
+  function spModelHealth(sec) {
+    const mh = sec.model_health || {};
+    const nfl = mh.NFL || {};
+    const cfb = mh.CFB || {};
+    return `<section class="card"><h2>Model health</h2>
+      <div class="sp-two">
+        <div class="sp-rec"><h3>NFL · ${esc(spDash(nfl.model_version))} <span class="badge badge-shadow">${esc(spDash(nfl.state))}</span></h3>
+          ${spRow("Backtest average miss (pts)", nfl.backtest_mae != null ? `${spNum(nfl.backtest_mae, 2)} Harbor vs ${spNum(nfl.benchmark_mae, 2)} ${nfl.benchmark || "market"}` : null)}
+          ${spRow("Backtest sample", nfl.historical_sample)}
+          ${spRow("Week 4 forward (total only)", nfl.forward_mae != null ? `${spNum(nfl.forward_mae, 2)} Harbor vs ${spNum(nfl.forward_benchmark_mae, 2)} market · ${nfl.forward_sample || ""}` : null)}
+          <p class="sp-small"><span class="badge badge-paused">Missing detail</span> Week-4 per-game forecast file is not on disk; only this total is shown. ${esc(nfl.forward_source || "")}</p>
+          ${spRow("Calibration", nfl.calibration)}
+          ${spRow("Maturity", nfl.maturity)}
+          ${spRow("Last model update", nfl.last_model_update)}
+        </div>
+        <div class="sp-rec"><h3>CFB <span class="badge badge-na">${esc(spDash(cfb.state))}</span></h3>
+          ${spRow("Model", cfb.model_version)}
+          ${spRow("Calibration", cfb.calibration)}
+          ${spRow("Maturity", cfb.maturity)}
+        </div>
+      </div>
+      <p class="sp-small muted">Higher miss than the market means the market forecast was closer — it is not money lost.</p>
+    </section>`;
+  }
+
+  function spFreshness(sec) {
+    const fr = sec.freshness || {};
+    return `<section class="card"><h2>Data freshness</h2><div class="sp-grid">${Object.entries(fr)
+      .map(([k, v]) => spRow(k.replace(/_/g, " "), v === null || v === undefined ? "not tracked" : typeof v === "boolean" ? (v ? "yes" : "no") : v))
+      .join("")}</div></section>`;
+  }
+
+  function viewSportsPredictions() {
+    const sec = spSec();
+    if (!sec) return `<div class="stack">${emptyState("Sports Predictions not published yet", "The snapshot has no sports_predictions section. Sloan's store must run and the desk snapshot must be republished.")}</div>`;
+    if (sec.error) return `<div class="stack"><div class="card"><h2>Sports Predictions</h2><div class="callout warn">Store failed to build: ${esc(sec.error)}</div><p class="muted">No predictions shown rather than stale or invented ones. Active bets: none confirmed.</p></div></div>`;
+    const mh = sec.model_health || {};
+    const lifecycle = (sec.lifecycle || []).map((s) => `<span class="badge badge-na">${esc(String(s).replace(/_/g, " "))}</span>`).join(" → ");
+    return `<div class="stack sp-page">
+      <section class="card sp-header">
+        <div class="sp-head-row">
+          <div>
+            <h2>Sports Predictions</h2>
+            <div class="sp-badges">
+              <span class="badge badge-shadow">NFL ${esc(spDash(mh.NFL && mh.NFL.model_version))} — ${esc(spDash(mh.NFL && mh.NFL.state))}</span>
+              <span class="badge badge-na">CFB — no Harbor model (external FPI / SP+)</span>
+            </div>
+            <div class="sp-small muted">Snapshot ${esc(spDash(sec.snapshot_id))} · run ${esc(spDash(sec.generated_at))}</div>
+          </div>
+          <button type="button" class="mkt-filter sp-email-btn" data-sp-email>Email Current Predictions</button>
+        </div>
+        <div class="callout info">A forecast is not a bet. SHADOW = paper forecast with no money. Real wagers show only under Active bets, after Thomas confirms placement.</div>
+        <div class="sp-lifecycle sp-small">${lifecycle}</div>
+      </section>
+      ${spActionCards(sec)}
+      ${spRecommendations(sec)}
+      ${spSlate(sec)}
+      ${spActiveBets(sec)}
+      ${spSettled(sec)}
+      ${spHistory(sec)}
+      ${spMetrics(sec)}
+      ${spModelHealth(sec)}
+      ${spFreshness(sec)}
+    </div>`;
+  }
+
+  function spApplySlateFilter() {
+    const f = SP_STATE.filter;
+    const q = SP_STATE.q.trim().toLowerCase();
+    let shown = 0;
+    document.querySelectorAll("[data-sp-card]").forEach((c) => {
+      const d = c.dataset;
+      let ok = true;
+      if (f === "recommended") ok = d.personal === "1" || d.eh === "1";
+      else if (f === "personal") ok = d.personal === "1";
+      else if (f === "eh") ok = d.eh === "1";
+      else if (f === "shadow") ok = d.shadow === "1";
+      else if (f === "live") ok = false; // no real wagers in the slate; Active bets section lists them
+      else if (f === "final") ok = d.final === "1";
+      if (ok && q) ok = (d.matchup || "").includes(q);
+      c.style.display = ok ? "" : "none";
+      if (ok) shown++;
+    });
+    const empty = document.querySelector(".sp-empty-filter");
+    if (empty) empty.hidden = shown > 0;
+  }
+
+  // ---- Email preview (never sends) -------------------------------------------
+  function spSubject(sec) {
+    const sports = new Set((sec.predictions || []).map((p) => p.sport));
+    const d = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Chicago" }));
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const label = sports.has("CFB") && d.getDay() === 6 ? "CFB Saturday" : [...sports].filter(Boolean).sort().join(" / ") || "Slate";
+    return `Harbor Sports Predictions — ${label} — ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+  }
+  function spEmailText(sec) {
+    const rec = sec.recommendations || {};
+    const t = [
+      "HARBOR SPORTS — CURRENT PREDICTIONS",
+      `Snapshot: ${sec.snapshot_id}  Generated: ${sec.generated_at}`,
+      "",
+      "STATE: Recommendations are NOT bets. SHADOW rows are paper forecasts. Active real bets: " + (sec.active_bets || []).length + " confirmed placed.",
+      "",
+      "PERSONAL ACCOUNT — RECOMMENDED (Thomas places)",
+    ];
+    (rec.personal || []).forEach((r) => {
+      t.push(`#${r.rank} ${r.bet}  ${spDash(r.line)}  ${spDash(r.sportsbook)}  stake ${spDash(r.stake)}  [${spDash(r.action)}]`);
+      t.push(`   Game: ${spDash(r.game)} (${spDash(r.kickoff_ct)})  Worst acceptable: ${spDash(r.max_line)}`);
+      t.push(`   Why: ${spDash(r.why)}`);
+      t.push(`   Biggest risk: ${spDash(r.counter)}`, "");
+    });
+    t.push("ELEPHANT HARBOR ACCOUNT (separate from personal)");
+    (rec.elephant_harbor || []).forEach((r) => t.push(` - ${r.game}: ${r.bet} — ${r.classification}. ${r.reason || ""}`));
+    t.push("", "FULL SLATE");
+    (sec.predictions || []).forEach((p) => t.push(` ${p.matchup} | ${spDash(spKick(p))} | ${spDash(spMarket(p))} | ${spFair(p).slice(0, 80)} | ${spShortCls(p.classification)}`));
+    return t.join("\n");
+  }
+  function spEmailHtml(sec) {
+    const rec = sec.recommendations || {};
+    const e = esc;
+    const p = (rec.personal || [])
+      .map((r) => `<div style="border:1px solid #ddd;border-radius:6px;padding:10px;margin:8px 0"><b>#${e(r.rank)} ${e(r.bet)}</b> ${e(spDash(r.line))} · ${e(spDash(r.sportsbook))} · stake ${e(spDash(r.stake))} · <b>${e(spDash(r.action))}</b><br><span style="font-size:13px;color:#555">${e(spDash(r.game))} · ${e(spDash(r.kickoff_ct))} · worst acceptable ${e(spDash(r.max_line))}</span><p style="font-size:13px"><b>Why:</b> ${e(spDash(r.why))}</p><p style="font-size:13px"><b>Biggest risk:</b> ${e(spDash(r.counter))}</p></div>`)
+      .join("") || "<p>None.</p>";
+    const eh = (rec.elephant_harbor || []).map((r) => `<li><b>${e(r.bet)}</b> (${e(r.game)}) — ${e(r.classification)}. ${e(r.reason || "")}</li>`).join("");
+    const rows = (sec.predictions || [])
+      .map((x) => `<tr style="border-top:1px solid #eee"><td>${e(x.matchup)}</td><td>${e(spDash(spKick(x)))}</td><td>${e(spDash(spMarket(x)))}</td><td>${e(spFair(x).slice(0, 90))}</td><td>${e(spShortCls(x.classification))}</td></tr>`)
+      .join("");
+    return `<div style="font-family:-apple-system,Segoe UI,Arial,sans-serif;max-width:680px;color:#1a1a1a;background:#fff;padding:12px"><h1 style="font-size:20px">Harbor Sports — Current Predictions</h1><p style="color:#555;font-size:13px">Snapshot <b>${e(sec.snapshot_id)}</b> · generated ${e(sec.generated_at)}</p><p style="background:#fff4e5;padding:8px;font-size:13px"><b>State:</b> Recommendations are not bets. SHADOW rows are paper forecasts.</p><h2 style="font-size:16px">Personal account — recommended (Thomas places)</h2>${p}<h2 style="font-size:16px">Elephant Harbor account (separate)</h2><ul style="font-size:13px">${eh}</ul><h2 style="font-size:16px">Full slate</h2><table style="border-collapse:collapse;font-size:12px;width:100%"><tr style="background:#f2f2f2"><th align=left>Game</th><th align=left>Kick</th><th align=left>Market</th><th align=left>Fair line</th><th align=left>Class</th></tr>${rows}</table></div>`;
+  }
+  function spOpenEmail() {
+    const sec = spSec();
+    if (!sec) return;
+    let dlg = document.getElementById("sp-email-dialog");
+    if (dlg) dlg.remove();
+    dlg = document.createElement("div");
+    dlg.id = "sp-email-dialog";
+    dlg.className = "sp-modal";
+    dlg.setAttribute("role", "dialog");
+    dlg.setAttribute("aria-modal", "true");
+    dlg.setAttribute("aria-label", "Email Current Predictions — preview");
+    dlg.innerHTML = `<div class="sp-modal-box card">
+      <div class="sp-head-row"><h2>Email Current Predictions — preview only</h2><button type="button" class="mkt-filter" data-sp-close aria-label="Close">Close</button></div>
+      <div class="callout warn"><strong>This page does not send email.</strong> Sending runs through the Harbor agent: a real send happens only after Thomas says Send, and it goes through Hayes. Status: <strong>Not sent</strong> (this page cannot see the send log).</div>
+      ${spRow("From", SP_FROM + " (fixed)")}
+      <div class="sp-kv"><span class="k">To</span><span class="v"><span class="sp-chips" data-sp-chips></span>
+        <input type="email" data-sp-to placeholder="add address, press Enter" aria-label="Add recipient" />
+        <span class="sp-small muted" data-sp-to-msg>Default recipient: Thomas (address kept in the agent's recipients file, not published on this page).</span></span></div>
+      ${spRow("Subject", spSubject(sec))}
+      <iframe class="sp-preview" title="Email preview" sandbox="" srcdoc="${esc(spEmailHtml(sec))}"></iframe>
+      <div class="sp-filters">
+        <button type="button" class="mkt-filter" data-sp-request>Request send via Harbor agent</button>
+        <button type="button" class="mkt-filter" data-sp-copy>Copy email text</button>
+      </div>
+      <p class="sp-small" data-sp-req-msg hidden></p>
+    </div>`;
+    document.body.appendChild(dlg);
+    const chips = [];
+    const chipHost = dlg.querySelector("[data-sp-chips]");
+    const msg = dlg.querySelector("[data-sp-to-msg]");
+    const draw = () => {
+      chipHost.innerHTML = chips.map((c, i) => `<span class="sp-chip">${esc(c)} <button type="button" class="sp-x" data-sp-rm="${i}" aria-label="Remove">×</button></span>`).join(" ");
+    };
+    dlg.addEventListener("click", (ev) => {
+      if (ev.target === dlg || ev.target.closest("[data-sp-close]")) dlg.remove();
+      const rm = ev.target.closest("[data-sp-rm]");
+      if (rm) {
+        chips.splice(Number(rm.dataset.spRm), 1);
+        draw();
+      }
+      if (ev.target.closest("[data-sp-request]")) {
+        const b = ev.target.closest("[data-sp-request]");
+        b.disabled = true; // one click only; no network call
+        const m = dlg.querySelector("[data-sp-req-msg]");
+        m.hidden = false;
+        m.textContent = "Not sent. Ask the Harbor agent to send snapshot " + sec.snapshot_id + (chips.length ? " to " + chips.join(", ") : " to the default recipient") + ". Nothing was sent from this page.";
+      }
+      if (ev.target.closest("[data-sp-copy]")) {
+        const txt = spEmailText(sec);
+        try {
+          navigator.clipboard.writeText(txt);
+          ev.target.textContent = "Copied";
+        } catch (_) {
+          ev.target.textContent = "Copy failed";
+        }
+      }
+    });
+    const input = dlg.querySelector("[data-sp-to]");
+    input.addEventListener("keydown", (ev) => {
+      if (ev.key !== "Enter" && ev.key !== ",") return;
+      ev.preventDefault();
+      const v = input.value.trim().replace(/,$/, "");
+      if (!v) return;
+      if (!SP_EMAIL_RE.test(v)) {
+        msg.textContent = "Not a valid address: " + v;
+        return;
+      }
+      if (!chips.includes(v.toLowerCase())) chips.push(v.toLowerCase());
+      input.value = "";
+      msg.textContent = "Recipients are checked again by the agent before any send.";
+      draw();
+    });
+    dlg.querySelector("[data-sp-close]").focus();
+  }
+
+  function bindSportsPredictions() {
+    const root = document.querySelector(".sp-page");
+    if (!root) return;
+    spApplySlateFilter();
+    root.addEventListener("click", (ev) => {
+      const fb = ev.target.closest("[data-sp-filter]");
+      if (fb) {
+        SP_STATE.filter = fb.dataset.spFilter;
+        root.querySelectorAll("[data-sp-filter]").forEach((b) => b.classList.toggle("active", b === fb));
+        spApplySlateFilter();
+      }
+      const pg = ev.target.closest("[data-sp-page]");
+      if (pg && !pg.disabled) {
+        SP_STATE.histPage += Number(pg.dataset.spPage);
+        spRerenderHistory();
+      }
+      if (ev.target.closest("[data-sp-email]")) spOpenEmail();
+    });
+    root.addEventListener("change", (ev) => {
+      if (ev.target.matches("[data-sp-sort]")) {
+        SP_STATE.sort = ev.target.value;
+        show("sports-predictions");
+      }
+      const h = ev.target.closest("[data-sp-hist]");
+      if (h) {
+        SP_STATE.hist[h.dataset.spHist] = h.value;
+        SP_STATE.histPage = 0;
+        spRerenderHistory();
+      }
+    });
+    root.addEventListener("input", (ev) => {
+      if (ev.target.matches("[data-sp-q]")) {
+        SP_STATE.q = ev.target.value;
+        spApplySlateFilter();
+      }
+    });
+  }
+  function spRerenderHistory() {
+    const host = document.getElementById("sp-history");
+    const sec = spSec();
+    if (host && sec) host.outerHTML = spHistory(sec);
+  }
+
   const VIEWS = {
     overview: viewOverview,
     markets: viewMarketsIndex,
@@ -2253,6 +2951,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     "market-event": () => viewMarketPage("event"),
     "market-crypto": () => viewMarketPage("crypto"),
     "market-sports": () => viewMarketPage("sports"),
+    "sports-predictions": viewSportsPredictions,
     positions: viewPositions,
     history: viewHistory,
     strategies: viewStrategies,
@@ -2264,7 +2963,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   };
 
   function isMarketView(name) {
-    return name === "markets" || String(name || "").startsWith("market-");
+    return name === "markets" || name === "sports-predictions" || String(name || "").startsWith("market-");
   }
 
   function syncMarketsSubnav(name) {
@@ -2308,6 +3007,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       "market-event": "event",
       "market-crypto": "crypto",
       "market-sports": "sports",
+      "sports-predictions": "sports",
       "market-cash": "cash",
     };
     const key = map[viewName];
@@ -2331,6 +3031,7 @@ function show(name) {
     syncMarketsSubnav(key);
     if (key === "history") bindHistoryFilter();
     if (key === "strategies") bindStrategyMarketFilter();
+    if (key === "sports-predictions") bindSportsPredictions();
     bindMarketFilterBars(key);
     bindMarketsIndexCards();
     try {
