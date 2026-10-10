@@ -2369,8 +2369,11 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   function spSlateCard(sec, p) {
     const lc = spLifecycle(p);
     const sport = p.sport || p.league || "";
+    const checkNote = p.injury_check
+      ? `<p class="sp-small"><span class="badge badge-paused">No injury or QB check done</span> ${esc(p.injury_check)}</p>`
+      : "";
     const narrative = p.narrative
-      ? `<p>${esc(p.narrative)}</p>`
+      ? `<p>${esc(p.narrative)}</p>${checkNote}`
       : `<p class="muted">No narrative yet — this game was screened, not deep-researched.</p>`;
     const sources = p.source ? `<div class="sp-kv"><span class="k">Source</span><span class="v"><code>${esc(p.source)}</code></span></div>` : "";
     const fullCls = String(p.classification || "");
@@ -2386,7 +2389,8 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           ${spRow("Total (market)", p.dk_total != null ? p.dk_total : null)}
           ${spRow("Expected total (Harbor)", p.expected_total)}
           ${spRow("Win probability", spWinProb(p))}
-          ${spRow("Cover probability", p.cover_probability != null ? spNum(p.cover_probability * 100, 1) + "%" : "Not modeled")}
+          ${spRow("Cover probability", p.cover_probability != null ? spNum(p.cover_probability * 100, 1) + "%" : "Unavailable" + (p.cover_probability_null_reason ? " — " + p.cover_probability_null_reason : ""))}
+          ${p.sport === "CFB" || p.margin_win_probability !== undefined ? spRow("Margin win probability", p.margin_win_probability != null ? spNum(p.margin_win_probability * 100, 1) + "%" : "Unavailable" + (p.margin_win_probability_null_reason ? " — " + p.margin_win_probability_null_reason : "")) : ""}
           ${spRow("Break-even (from odds)", spBreakevenText(p))}
           ${spRow("Confidence", p.confidence)}
         </div>
@@ -2399,6 +2403,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
         <p>${esc(p.biggest_risk || "—")}</p>
         <div class="sp-grid">
           ${spRow("Classification", fullCls)}
+          ${p.reforecast_reason ? spRow("Snapshot note", p.reforecast_reason) : ""}
           ${spRow("SP+ margin", p.sp_plus_margin)}
           ${spRow("FPI home win %", p.fpi_home_win_pct)}
           ${spRow("Line movement (open → now)", p.open_spread_home ? `home open ${p.open_spread_home} → ${spMarket(p) || "—"}` : null)}
@@ -2414,7 +2419,15 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     </details>`;
   }
 
-  function spLineAgeMin(lineTs) {
+  function spLineAgeMin(lineTs, lineTsIso) {
+    // Prefer the machine-readable ISO timestamp; fall back to parsing "H:MM AM CT" free text.
+    if (lineTsIso) {
+      const t = Date.parse(lineTsIso);
+      if (Number.isFinite(t)) {
+        const d = Math.round((Date.now() - t) / 60000);
+        return d >= 0 ? d : 0;
+      }
+    }
     const m = String(lineTs || "").match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*CT/i);
     if (!m) return null;
     let h = Number(m[1]) % 12;
@@ -2434,7 +2447,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       <p class="muted sp-small">These are recommendations waiting on Thomas. Nothing here has been placed.</p>
       ${items
         .map((a) => {
-          const age = spLineAgeMin(a.line_ts);
+          const age = spLineAgeMin(a.line_ts, a.line_ts_iso);
           const stale = age != null && age > 60
             ? `<div class="callout warn sp-stale">Market line last refreshed ${esc(age)} min ago — refresh before placing.</div>`
             : age == null
@@ -2583,12 +2596,16 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const card = (r) => {
       const x = res(r);
       return `<div class="sp-rec">
-        <div><strong>${esc(spDash(r.side || r.bet || r.matchup))}</strong> <span class="badge badge-shadow">HYPOTHETICAL — shadow, no money</span></div>
+        <div><strong>${esc(spDash(r.side || r.bet || r.matchup))}</strong> <span class="badge badge-shadow">HYPOTHETICAL — shadow, no money</span>${r.regenerated ? ' <span class="badge badge-paused">REGENERATED — not the original file</span>' : ""}</div>
         <div class="muted sp-small">${esc(spDash(r.matchup))} · ${esc(spDash(r.model_version))}</div>
         <div class="sp-grid">
           ${spRow("Harbor view", r.harbor_fair_plain)}
           ${spRow("Final score", x.final_score)}
-          ${spRow("Forecast miss (pts from real margin)", x.forecast_error != null ? spNum(Math.abs(x.forecast_error), 1) : null)}
+          ${spRow("Harbor predicted margin (home)", x.predicted_margin)}
+          ${spRow("Actual margin (home)", x.actual_margin)}
+          ${spRow("Harbor missed by (pts)", x.forecast_error != null ? spNum(Math.abs(x.forecast_error), 1) : null)}
+          ${spRow("Line missed by (pts)", x.market_error != null ? spNum(Math.abs(x.market_error), 1) : null)}
+          ${spRow("Closer to the result", x.harbor_closer_than_line == null ? null : x.harbor_closer_than_line ? "Harbor" : "The line")}
           ${spRow("Spread result", x.ats_result || r.ats_result)}
           ${spRow("Hypothetical P&L", x.hypothetical_pnl_usd != null ? (x.hypothetical_pnl_usd < 0 ? "−$" : "$") + Math.abs(x.hypothetical_pnl_usd).toFixed(2) + " (not real)" : null)}
           ${spRow("CLV (pp)", x.clv_pp)}
@@ -2664,7 +2681,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const rp = m.real_pnl || {};
     const realLine = (r, name) => {
       const n = (Number(r && r.w) || 0) + (Number(r && r.l) || 0) + (Number(r && r.p) || 0);
-      if (!r || n === 0) return `${name}: no real wagers yet`;
+      if (!r || n === 0 || r.wagers === 0) return `${name}: no real wagers yet`;
       const v = Number(r.pnl_usd);
       return `${name}: ${r.w}-${r.l}-${r.p} · ${Number.isFinite(v) ? (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2) : "—"}`;
     };
@@ -2696,6 +2713,32 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     </section>`;
   }
 
+  /** Week-4 forward detail. Per-game rows come from the REGENERATED file (original lost); never shown as original. */
+  function spWeek4(sec, nfl) {
+    const rows = (sec.history || []).filter((h) => /-REGEN$/.test(String(h.prediction_id || "")) && /W4/.test(String(h.event_id || "")));
+    const settled = {};
+    (sec.recently_settled || []).forEach((r) => {
+      if (r.result) settled[r.prediction_id] = r.result;
+    });
+    const regenNote = ((sec.recently_settled || []).find((r) => r.regenerated_note) || {}).regenerated_note || "";
+    const closer = (regenNote.match(/closer\s+(\d+)\s*\/\s*(\d+)/i) || []);
+    if (!rows.length) {
+      return `<p class="sp-small"><span class="badge badge-paused">Missing detail</span> Week-4 per-game forecast file is not on disk; only the total is shown.</p>`;
+    }
+    return `<div class="sp-small"><span class="badge badge-paused">REGENERATED — not the original file</span> ${esc(regenNote)}</div>
+      ${closer[1] ? spRow("Harbor closer than the line", `${closer[1]} of ${closer[2]} games`) : ""}
+      <details><summary class="sp-small">Week 4 per-game detail (${esc(rows.length)} games, regenerated)</summary>
+        <div class="sp-hist">${rows
+          .map((h) => {
+            const x = settled[h.prediction_id] || {};
+            return `<div class="sp-hist-row"><div><strong>${esc(spDash(h.matchup))}</strong> <span class="badge badge-paused">REGENERATED</span></div>
+              <div class="sp-small">${esc(spDash(h.harbor_fair_plain))} · line ${esc(spDash(h.market_line_display))} · spread result ${esc(spDash(h.ats_result))}</div>
+              <div class="sp-small muted">${x.final_score ? `Final ${esc(x.final_score)} · Harbor missed by ${esc(spNum(Math.abs(x.forecast_error), 1))} · line missed by ${esc(spNum(Math.abs(x.market_error), 1))}` : "Per-game miss not in this snapshot"}</div></div>`;
+          })
+          .join("")}</div>
+      </details>`;
+  }
+
   function spModelHealth(sec) {
     const mh = sec.model_health || {};
     const nfl = mh.NFL || {};
@@ -2705,8 +2748,8 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
         <div class="sp-rec"><h3>NFL · ${esc(spDash(nfl.model_version))} <span class="badge badge-shadow">${esc(spDash(nfl.state))}</span></h3>
           ${spRow("Backtest average miss (pts)", nfl.backtest_mae != null ? `${spNum(nfl.backtest_mae, 2)} Harbor vs ${spNum(nfl.benchmark_mae, 2)} ${nfl.benchmark || "market"}` : null)}
           ${spRow("Backtest sample", nfl.historical_sample)}
-          ${spRow("Week 4 forward (total only)", nfl.forward_mae != null ? `${spNum(nfl.forward_mae, 2)} Harbor vs ${spNum(nfl.forward_benchmark_mae, 2)} market · ${nfl.forward_sample || ""}` : null)}
-          <p class="sp-small"><span class="badge badge-paused">Missing detail</span> Week-4 per-game forecast file is not on disk; only this total is shown. ${esc(nfl.forward_source || "")}</p>
+          ${spRow("Week 4 forward (all 15 games)", nfl.forward_mae != null ? `${spNum(nfl.forward_mae, 2)} Harbor vs ${spNum(nfl.forward_benchmark_mae, 2)} market · ${nfl.forward_sample || ""}` : null)}
+          ${spWeek4(sec, nfl)}
           ${spRow("Calibration", nfl.calibration)}
           ${spRow("Maturity", nfl.maturity)}
           ${spRow("Last model update", nfl.last_model_update)}
