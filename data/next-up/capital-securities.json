@@ -24,5 +24,26 @@
       "scheduleLabel": "Weekdays 4:00 PM CT",
       "owner": "Holt"
     }
-  ]
+  ],
+  "routinesPaused": {
+    "status": "PAUSED_FOR_WEEKLY_PRIORITIZATION",
+    "since_ct": "2026-10-10",
+    "note": "Routines intentionally paused for weekly prioritization (Thomas's Oct 10 reset). Paused: Cole crypto AM/PM, Vera securities AM/PM, Reed event markets AM, Capital Gateway health, Capital EOD reconcile, Capital weekly review, SGOV ops fill check. Sports routines remain on. Queues, journals, and experiment state are kept — nothing cleared. Not a failure or shutdown.",
+    "paused_routines": [
+      "Cole crypto AM",
+      "Cole crypto PM",
+      "Vera securities AM",
+      "Vera securities PM",
+      "Reed event markets AM",
+      "Capital Gateway health",
+      "Capital EOD reconcile",
+      "Capital weekly review",
+      "SGOV ops fill check"
+    ],
+    "still_on": [
+      "Sports routines"
+    ],
+    "state_kept": true
+  },
+  "notice": "Routines intentionally paused for weekly prioritization (Thomas's Oct 10 reset). Paused: Cole crypto AM/PM, Vera securities AM/PM, Reed event markets AM, Capital Gateway health, Capital EOD reconcile, Capital weekly review, SGOV ops fill check. Sports routines remain on. Queues, journals, and experiment state are kept — nothing cleared. Not a failure or shutdown."
 }

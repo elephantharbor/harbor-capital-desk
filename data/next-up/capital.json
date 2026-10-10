@@ -5,16 +5,16 @@
   "items": [
     {
       "id": "viability-evidence",
-      "title": "Viability evidence (Day 28 \u00b7 3d left)",
+      "title": "Viability evidence (Day 28 · 3d left)",
       "nextRunAt": "2026-10-07T09:30:00-05:00",
-      "scheduleLabel": "Weekdays \u2014 evidence checklist (banner SoT)",
+      "scheduleLabel": "Weekdays — evidence checklist (banner SoT)",
       "owner": "Holt"
     },
     {
       "id": "ibit-research",
       "title": "IBIT research (COREBETA live)",
       "nextRunAt": "2026-10-07T10:00:00-05:00",
-      "scheduleLabel": "Weekdays \u2014 next-dollar after COREBETA",
+      "scheduleLabel": "Weekdays — next-dollar after COREBETA",
       "owner": "Cole"
     },
     {
@@ -24,5 +24,26 @@
       "scheduleLabel": "Weekdays 4:00 PM CT",
       "owner": "Holt"
     }
-  ]
+  ],
+  "routinesPaused": {
+    "status": "PAUSED_FOR_WEEKLY_PRIORITIZATION",
+    "since_ct": "2026-10-10",
+    "note": "Routines intentionally paused for weekly prioritization (Thomas's Oct 10 reset). Paused: Cole crypto AM/PM, Vera securities AM/PM, Reed event markets AM, Capital Gateway health, Capital EOD reconcile, Capital weekly review, SGOV ops fill check. Sports routines remain on. Queues, journals, and experiment state are kept — nothing cleared. Not a failure or shutdown.",
+    "paused_routines": [
+      "Cole crypto AM",
+      "Cole crypto PM",
+      "Vera securities AM",
+      "Vera securities PM",
+      "Reed event markets AM",
+      "Capital Gateway health",
+      "Capital EOD reconcile",
+      "Capital weekly review",
+      "SGOV ops fill check"
+    ],
+    "still_on": [
+      "Sports routines"
+    ],
+    "state_kept": true
+  },
+  "notice": "Routines intentionally paused for weekly prioritization (Thomas's Oct 10 reset). Paused: Cole crypto AM/PM, Vera securities AM/PM, Reed event markets AM, Capital Gateway health, Capital EOD reconcile, Capital weekly review, SGOV ops fill check. Sports routines remain on. Queues, journals, and experiment state are kept — nothing cleared. Not a failure or shutdown."
 }

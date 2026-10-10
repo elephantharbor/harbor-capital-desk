@@ -1,16 +1,24 @@
 {
   "areaId": "capital",
   "areaName": "Harbor Capital",
-  "lastUpdated": "2026-10-06T09:15:00-05:00",
+  "lastUpdated": "2026-10-10T08:15:00-05:00",
   "entries": [
+    {
+      "id": "sess-capital-routines-paused-20261010",
+      "ts": "2026-10-10T08:15:00-05:00",
+      "ts_ct": "2026-10-10 08:15:00 CT",
+      "area": "capital",
+      "title": "Routines intentionally paused for weekly prioritization (Sports stays on)",
+      "summary": "Routines intentionally paused for weekly prioritization (Thomas's Oct 10 reset). Paused: Cole crypto AM/PM, Vera securities AM/PM, Reed event markets AM, Capital Gateway health, Capital EOD reconcile, Capital weekly review, SGOV ops fill check. Sports routines remain on. Queues, journals, and experiment state are kept — nothing cleared. Not a failure or shutdown."
+    },
     {
       "id": "sess-sports-nfl-week5-shadow-ingest-20261006",
       "ts": "2026-10-06T09:15:00-05:00",
       "ts_ct": "2026-10-06 09:15:00 CT",
       "area": "sports",
-      "title": "Week 5 NFL SHADOW forecasts ingested (15 \u00b7 not bets)",
+      "title": "Week 5 NFL SHADOW forecasts ingested (15 · not bets)",
       "summary": "Ingested Pike frozen Week 5 SHADOW forecasts into Capital Operating Desk. Source data/nfl-history/out/shadow-v1-2026-10-06-week5.csv (immutable; frozen 2026-10-06 09:10:52 CDT; model walkforward-v1-2026-10-06; 15 games; class SHADOW; annotations on BAL@ATL and NYG@WAS). dashboard_snapshot._load_todays_nfl_forecasts now points at week5 CSV (was Oct 4); annotation field passed through into forecast dict / notes. Active Bets: 0. No LIVE invented. Oct 4 CSV untouched. No Pages-push.",
-      "deskChanges": "tools/dashboard_snapshot.py loader \u2192 shadow-v1-2026-10-06-week5.csv + annotation; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
+      "deskChanges": "tools/dashboard_snapshot.py loader → shadow-v1-2026-10-06-week5.csv + annotation; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
       "humanActions": []
     },
     {
@@ -18,8 +26,8 @@
       "ts": "2026-10-06T09:12:00-05:00",
       "ts_ct": "2026-10-06 09:12:00 CT",
       "area": "sports",
-      "title": "NFL Week 5 deep look \u00b7 WATCH board \u00b7 no SHADOW \u00b7 no LIVE",
-      "summary": "Sloan deeper look docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md off Holt Tue screen: BAL @ ATL WATCH hold \u2014 Lamar left-ankle sprain (boot/MRI; Rapoport 'outside chance'); Huntley next; Humphrey/Vorhees/Smythe out-of-game Wk 4; public line ranges BAL \u22122.5 \u2194 ATL \u22122.5 (ESPN-DK ATL \u22122.5; DK open BAL \u22124.5); FPI drifted to 51.8% BAL \u2014 no band from FPI; hold for Thu injury report. NYG @ WAS WATCH hold \u2014 WAS \u22123 \u2212115 (books \u22123 to \u22124.5); Daniels planned start pending Wed/Thu practice; FPI WAS by 6.7 noted as disagreement, not edge. CIN @ MIA total 42.5 WATCH soft \u2014 Chase protocol / Higgins adductor; most of drop happened pre-open (BetMGM opened 43.5), so overshoot not shown yet. TB @ DAL TNF PASS likely \u2014 DAL \u22129.5, rookie Jalon Daniels starts. No SHADOW tickets; no new ledger or calibration rows. None LIVE_PROBE (Path A unarmed; blank prob_range). Public prices only \u2014 DK in-app unconfirmed. Forecast coordination: Pike freezes Week 5 before TNF 7:15 PM CT / London 8:30 AM CT; annotate Lamar/Daniels rows, no hand-adjust; desk builder still pointed at Oct 4 CSV (untouched). AV emptyReason refreshed.",
+      "title": "NFL Week 5 deep look · WATCH board · no SHADOW · no LIVE",
+      "summary": "Sloan deeper look docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md off Holt Tue screen: BAL @ ATL WATCH hold — Lamar left-ankle sprain (boot/MRI; Rapoport 'outside chance'); Huntley next; Humphrey/Vorhees/Smythe out-of-game Wk 4; public line ranges BAL −2.5 ↔ ATL −2.5 (ESPN-DK ATL −2.5; DK open BAL −4.5); FPI drifted to 51.8% BAL — no band from FPI; hold for Thu injury report. NYG @ WAS WATCH hold — WAS −3 −115 (books −3 to −4.5); Daniels planned start pending Wed/Thu practice; FPI WAS by 6.7 noted as disagreement, not edge. CIN @ MIA total 42.5 WATCH soft — Chase protocol / Higgins adductor; most of drop happened pre-open (BetMGM opened 43.5), so overshoot not shown yet. TB @ DAL TNF PASS likely — DAL −9.5, rookie Jalon Daniels starts. No SHADOW tickets; no new ledger or calibration rows. None LIVE_PROBE (Path A unarmed; blank prob_range). Public prices only — DK in-app unconfirmed. Forecast coordination: Pike freezes Week 5 before TNF 7:15 PM CT / London 8:30 AM CT; annotate Lamar/Daniels rows, no hand-adjust; desk builder still pointed at Oct 4 CSV (untouched). AV emptyReason refreshed.",
       "deskChanges": "docs/sports-memos/nfl-week5-watch-deep-2026-10-06.md; AV emptyReason refresh (4 copies); session-log capital.json (3); publish_dashboard_snapshot --public",
       "humanActions": []
     },
@@ -28,32 +36,32 @@
       "ts": "2026-10-05T10:55:00-05:00",
       "ts_ct": "2026-10-05 10:55:00 CT",
       "area": "sports",
-      "title": "NFL Sun Learning Probe shadow settle \u00b7 3\u20131 \u00b7 ledger n=38",
-      "summary": "Settled 4 NFL Sun 10-04 Learning Probe SHADOWs ($5 hyp, no money bet) that lived in calibration/memo: SP-SH-20261004-NFL-01 Dallas +3 \u2212112 W DAL 34\u201330 HOU (+$4.46; price CLV +0.66pp vs DK close \u2212115); NFL-02 Jacksonville +2.5 \u2212105 W JAX 22\u201317 CIN (+$4.76; \u22120.72pp vs \u2212102); NFL-03 Washington +4.5 \u2212115 L IND 30\u201313 WSH (\u2212$5.00; \u22122.99pp vs \u2212102); NFL-04 San Francisco \u22123 +100 W SF 24\u201314 DEN (+$5.00; +1.22pp vs \u2212105). All four closed on the screened number (juice-only moves). Net hyp +$9.22. Aggregate 18\u201320\u20130 hyp \u2212$6.36 (n=38); CLV scored 31 (11 beat / 11 miss / 9 flat). Ledger open=0. No LIVE. No process falsifier filed; WAS miss logged as watch item (FPI vs QB-change steam), not a lesson. Summary journal/sports-shadow/shadow-results-summary-2026-10-05.md."
+      "title": "NFL Sun Learning Probe shadow settle · 3–1 · ledger n=38",
+      "summary": "Settled 4 NFL Sun 10-04 Learning Probe SHADOWs ($5 hyp, no money bet) that lived in calibration/memo: SP-SH-20261004-NFL-01 Dallas +3 −112 W DAL 34–30 HOU (+$4.46; price CLV +0.66pp vs DK close −115); NFL-02 Jacksonville +2.5 −105 W JAX 22–17 CIN (+$4.76; −0.72pp vs −102); NFL-03 Washington +4.5 −115 L IND 30–13 WSH (−$5.00; −2.99pp vs −102); NFL-04 San Francisco −3 +100 W SF 24–14 DEN (+$5.00; +1.22pp vs −105). All four closed on the screened number (juice-only moves). Net hyp +$9.22. Aggregate 18–20–0 hyp −$6.36 (n=38); CLV scored 31 (11 beat / 11 miss / 9 flat). Ledger open=0. No LIVE. No process falsifier filed; WAS miss logged as watch item (FPI vs QB-change steam), not a lesson. Summary journal/sports-shadow/shadow-results-summary-2026-10-05.md."
     },
     {
       "id": "sess-sports-cfb-week6-deep-process-20261005",
       "ts": "2026-10-05T10:40:00-05:00",
       "ts_ct": "2026-10-05 10:40:00 CT",
       "area": "sports",
-      "title": "CFB W6 deep look WATCH \u00b7 two-empty process review \u00b7 no LIVE",
-      "summary": "Sloan deeper look docs/sports-memos/cfb-week6-watch-deep-2026-10-05.md: KENN +3 Wed WATCH (FPI dog vs steam; CLEATZ Week 6 SP+ JXST \u22127 conflict); MOST +2.5 Thu WATCH/lean PASS (FPI dog; SP+ \u2248 WKU \u22122). FSU/IOWA/MIZ WATCH. Soft stay soft. None LIVE_PROBE. No place card. No Quinn send. Process review docs/sports-memos/sports-process-review-two-empty-2026-10-05.md: two empties = honest blank-band / Path A unarmed (Pike verbatim: still unarmed; no cover% from gaps; interval blocked on data). Sat Learning Probe settle already done 10-04 \u2014 not re-settled. AV emptyReason refreshed same-day. Frozen NFL forecast CSV untouched."
+      "title": "CFB W6 deep look WATCH · two-empty process review · no LIVE",
+      "summary": "Sloan deeper look docs/sports-memos/cfb-week6-watch-deep-2026-10-05.md: KENN +3 Wed WATCH (FPI dog vs steam; CLEATZ Week 6 SP+ JXST −7 conflict); MOST +2.5 Thu WATCH/lean PASS (FPI dog; SP+ ≈ WKU −2). FSU/IOWA/MIZ WATCH. Soft stay soft. None LIVE_PROBE. No place card. No Quinn send. Process review docs/sports-memos/sports-process-review-two-empty-2026-10-05.md: two empties = honest blank-band / Path A unarmed (Pike verbatim: still unarmed; no cover% from gaps; interval blocked on data). Sat Learning Probe settle already done 10-04 — not re-settled. AV emptyReason refreshed same-day. Frozen NFL forecast CSV untouched."
     },
     {
       "id": "sess-sports-shadow-settle-20261004",
       "ts": "2026-10-04T10:50:00-05:00",
       "ts_ct": "2026-10-04 10:50:00 CT",
       "area": "sports",
-      "title": "CFB Learning Probe shadow settle \u00b7 BAY W / CIN L \u00b7 ledger n=34",
-      "summary": "Settled 2 Sat-night CFB Learning Probe SHADOWs that were in calibration/memo but missing from clv-ledger-v2: SP-SH-20261003-CFB-01 Baylor +3.5 \u2212110 ($5) W BAY 55\u201319 ASU (hyp +$4.55; juice CLV \u22121.16pp vs SportsLine close \u2212105); SP-SH-20261003-CFB-02 Cincinnati +7 \u2212115 ($5) L ARIZ 34\u20137 CIN (hyp \u2212$5.00; number CLV +0.5pt vs SportsLine late +6.5). Net hyp this run \u2212$0.45. Aggregate now 15\u201319\u20130 hyp \u2212$15.58 (n=34); ledger open=0. NFL Sun/Mon SHADOWs not settled. No LIVE. No process falsifier filed (blank-band abstain held). Summary journal/sports-shadow/shadow-results-summary-2026-10-04.md."
+      "title": "CFB Learning Probe shadow settle · BAY W / CIN L · ledger n=34",
+      "summary": "Settled 2 Sat-night CFB Learning Probe SHADOWs that were in calibration/memo but missing from clv-ledger-v2: SP-SH-20261003-CFB-01 Baylor +3.5 −110 ($5) W BAY 55–19 ASU (hyp +$4.55; juice CLV −1.16pp vs SportsLine close −105); SP-SH-20261003-CFB-02 Cincinnati +7 −115 ($5) L ARIZ 34–7 CIN (hyp −$5.00; number CLV +0.5pt vs SportsLine late +6.5). Net hyp this run −$0.45. Aggregate now 15–19–0 hyp −$15.58 (n=34); ledger open=0. NFL Sun/Mon SHADOWs not settled. No LIVE. No process falsifier filed (blank-band abstain held). Summary journal/sports-shadow/shadow-results-summary-2026-10-04.md."
     },
     {
       "id": "sess-sports-cfb-sat-20261003",
       "ts": "2026-10-03T11:45:00-05:00",
       "ts_ct": "2026-10-03 11:45:00 CT",
       "area": "sports",
-      "title": "CFB Week 5 Sat screen \u00b7 empty board \u00b7 0 shadows \u00b7 freeze lifted",
-      "summary": "CFB Sat Week 5 screen (Sloan, ~11:45 CT): first post-freeze SP-L07 pass, not a token-lock catch-up. Public Covers board + ESPN SP+/FPI (Connelly Oct 2) + DK Network spots. Noon ET already in progress (ALA 14\u20137 MSST, UCF 7\u20130 HOU, AFA/ISU/WIS live). No Harbor LIVE. ready_for_quinn []. No calibration shadow: Baylor +3.5 two-source gap but Lagway/VSiN haircut fails Mod+; Cincy +6.5/+7 gap but mid-EV @$5 under $0.40 at \u2212115 and revenge fade; Iowa +14.5 FPI only 1.0pt off; Florida models split; UMass chalk gap Low confidence (no invented my_p); UCF +11.5 was the clean two-source dog but kick already passed \u2014 no backfill. Open shadows=0; open LIVE=0; cum 14\u201318\u20130 (hyp \u2212$15.13). MLB still paused. Empty-streak count = 1 (token-lock weeks not counted). Memo cfb-saturday-gameday-2026-10-03.md. No Quinn / no iMessage / no place. Holt owns Pages push.",
+      "title": "CFB Week 5 Sat screen · empty board · 0 shadows · freeze lifted",
+      "summary": "CFB Sat Week 5 screen (Sloan, ~11:45 CT): first post-freeze SP-L07 pass, not a token-lock catch-up. Public Covers board + ESPN SP+/FPI (Connelly Oct 2) + DK Network spots. Noon ET already in progress (ALA 14–7 MSST, UCF 7–0 HOU, AFA/ISU/WIS live). No Harbor LIVE. ready_for_quinn []. No calibration shadow: Baylor +3.5 two-source gap but Lagway/VSiN haircut fails Mod+; Cincy +6.5/+7 gap but mid-EV @$5 under $0.40 at −115 and revenge fade; Iowa +14.5 FPI only 1.0pt off; Florida models split; UMass chalk gap Low confidence (no invented my_p); UCF +11.5 was the clean two-source dog but kick already passed — no backfill. Open shadows=0; open LIVE=0; cum 14–18–0 (hyp −$15.13). MLB still paused. Empty-streak count = 1 (token-lock weeks not counted). Memo cfb-saturday-gameday-2026-10-03.md. No Quinn / no iMessage / no place. Holt owns Pages push.",
       "tags": [
         "sports",
         "cfb",
@@ -69,8 +77,8 @@
       "ts": "2026-09-29T10:58:00-05:00",
       "ts_ct": "2026-09-29 10:58:00 CT",
       "area": "sports",
-      "title": "Shadow settle \u00b7 SP-SH-20260924-NFL-01 CHI +4.5 W \u00b7 open shadows=0",
-      "summary": "Daily shadow settle (Sloan): SP-SH-20260924-NFL-01 CHI +4.5 @ \u2212105 ($5 calib) \u2192 W. Final CHI 27\u20137 PHI (cover by 20). Close consensus CHI +3.5 (entry +4.5 = number CLV +1.0pt; juice ~flat \u2212105). Hyp P&L +$4.76. Cum shadows 14\u201318\u20130 (hyp \u2212$15.13); open shadows=0; open LIVE=0. Postmortem: injury_lag/Keenum thesis sound; below_mos_calibration abstain validated \u2014 no process falsifier. TOKEN CONSERVATION LOCK unchanged (stand down / settle-only thru ~Oct 4). Ledger + shadow-results-summary-2026-09-29.md updated. No invent Live / no iMessage / no Quinn.",
+      "title": "Shadow settle · SP-SH-20260924-NFL-01 CHI +4.5 W · open shadows=0",
+      "summary": "Daily shadow settle (Sloan): SP-SH-20260924-NFL-01 CHI +4.5 @ −105 ($5 calib) → W. Final CHI 27–7 PHI (cover by 20). Close consensus CHI +3.5 (entry +4.5 = number CLV +1.0pt; juice ~flat −105). Hyp P&L +$4.76. Cum shadows 14–18–0 (hyp −$15.13); open shadows=0; open LIVE=0. Postmortem: injury_lag/Keenum thesis sound; below_mos_calibration abstain validated — no process falsifier. TOKEN CONSERVATION LOCK unchanged (stand down / settle-only thru ~Oct 4). Ledger + shadow-results-summary-2026-09-29.md updated. No invent Live / no iMessage / no Quinn.",
       "tags": [
         "sports",
         "nfl",
@@ -85,8 +93,8 @@
       "ts": "2026-09-24T10:05:00-05:00",
       "ts_ct": "2026-09-24 10:05:00 CT",
       "area": "sports",
-      "title": "MLB Thu empty board (SP-L06 8th straight \u00b7 prefer-0)",
-      "summary": "MLB Thu Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 8th consecutive MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). Final Thu regular season (~12-game slate). ASAP KC ML (+108) vs CWS (\u2212126) PASS: SharpModels KC 55% / nF KC 51.25% lean against CWS chalk but honest mid hugs nF ~0.51 (Dobnak Sep 5.91 in 4 GS form risk \u2014 do not invent to Sharp 55); mid-EV @ +108 \u2248 $0.24 \u226a $0.40; Low conf; FP ~1:10 CT \u2192 pass; never CWS \u2212126 chalk. MIL ML (+100) @ PHI (\u2212118 FD / \u2212120 BetMGM) ABSTAIN: Wilson thin_SP_sample_kill (~15 G / ~34 IP) + IL return (back strain Aug 31; rehab Sep 15; leading contender to start \u2014 not confirmed multi-inning healthy); SharpModels 50/50; nF MIL 57.81% optimistic ceiling; BetMGM model PHI 51.6% against; honest mid ~0.50\u20130.52 \u2192 mid-EV ~$0.00\u20130.16 \u226a $0.40; never PHI \u2212118/\u2212120 chalk. Soft TB +128 Seymour confirmed (FD/BetMGM; earlier Peralta conflict resolved) vs Schlittler 1.94 ABSTAIN (SP against). Soft CLE/NYM/HOU ABSTAIN. Heavy chalk SKIP. Prefer-0 below_mos honored (calibration unused \u2014 no honest mid-EV \u2265$0.40). No SP-SH-20260924-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "MLB Thu empty board (SP-L06 8th straight · prefer-0)",
+      "summary": "MLB Thu Sloan deepen under SP-L06 → empty board (0 new MLB shadows; 8th consecutive MLB empty). Open ledger=0; cum 14–18–0 (−$16.08). Final Thu regular season (~12-game slate). ASAP KC ML (+108) vs CWS (−126) PASS: SharpModels KC 55% / nF KC 51.25% lean against CWS chalk but honest mid hugs nF ~0.51 (Dobnak Sep 5.91 in 4 GS form risk — do not invent to Sharp 55); mid-EV @ +108 ≈ $0.24 ≪ $0.40; Low conf; FP ~1:10 CT → pass; never CWS −126 chalk. MIL ML (+100) @ PHI (−118 FD / −120 BetMGM) ABSTAIN: Wilson thin_SP_sample_kill (~15 G / ~34 IP) + IL return (back strain Aug 31; rehab Sep 15; leading contender to start — not confirmed multi-inning healthy); SharpModels 50/50; nF MIL 57.81% optimistic ceiling; BetMGM model PHI 51.6% against; honest mid ~0.50–0.52 → mid-EV ~$0.00–0.16 ≪ $0.40; never PHI −118/−120 chalk. Soft TB +128 Seymour confirmed (FD/BetMGM; earlier Peralta conflict resolved) vs Schlittler 1.94 ABSTAIN (SP against). Soft CLE/NYM/HOU ABSTAIN. Heavy chalk SKIP. Prefer-0 below_mos honored (calibration unused — no honest mid-EV ≥$0.40). No SP-SH-20260924-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "mlb",
@@ -117,8 +125,8 @@
       "ts": "2026-09-23T10:30:00-05:00",
       "ts_ct": "2026-09-23 10:30:00 CT",
       "area": "sports",
-      "title": "MLB Wed empty board (SP-L06 7th straight \u00b7 prefer-0)",
-      "summary": "MLB Wed Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 7th consecutive MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). ASAP WSH ML (+134 DK / +140 FD) @ DET PASS: Lovelady 5 GS / WHIP 1.837 thin_SP_sample_kill + Cavalli season shut-down \u2192 BP game; SharpModels WSH 42% / nF DET 63.2%; VSIN EST DET \u2212145 \u2248 market; mid-EV \u226a $0.40 at honest 0.37\u20130.42; never DET \u2212163/\u2212166 chalk; FP ~12:10 CT \u2192 pass. MIL ML (\u2212131 VSIN/DK / \u2212136/\u2212138 FD) ABSTAIN: road chalk needs mid \u22650.624 for $0.40 EV; SharpModels ~50% / VSIN EST PHI +102 / nF MIL 58.14% \u2192 best mid-EV ~$0.10 @ \u2212131; never chalk without MoS; flip-from-Tue soft-dog thesis fails at chalk juice. CWS ML (\u2212116 FD / \u2212118 VSIN) ABSTAIN: Hudson 8 GS of 67 G thin_SP_sample_kill; Sharp 44% / nF ~49% lean against; mid-EV negative; confirm Hudson vs Fedde SP listing. Soft LAA \u2212131 (Sharp 45% against) / CLE +113 (Gray SP against) / TB +113 (YS wind 23 Under lean only) / TOR G1 Scherzer 6.07 PASS. Heavy chalk SKIP. Prefer-0 below_mos honored (calibration unused \u2014 no honest mid-EV \u2265$0.40). No SP-SH-20260923-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "MLB Wed empty board (SP-L06 7th straight · prefer-0)",
+      "summary": "MLB Wed Sloan deepen under SP-L06 → empty board (0 new MLB shadows; 7th consecutive MLB empty). Open ledger=0; cum 14–18–0 (−$16.08). ASAP WSH ML (+134 DK / +140 FD) @ DET PASS: Lovelady 5 GS / WHIP 1.837 thin_SP_sample_kill + Cavalli season shut-down → BP game; SharpModels WSH 42% / nF DET 63.2%; VSIN EST DET −145 ≈ market; mid-EV ≪ $0.40 at honest 0.37–0.42; never DET −163/−166 chalk; FP ~12:10 CT → pass. MIL ML (−131 VSIN/DK / −136/−138 FD) ABSTAIN: road chalk needs mid ≥0.624 for $0.40 EV; SharpModels ~50% / VSIN EST PHI +102 / nF MIL 58.14% → best mid-EV ~$0.10 @ −131; never chalk without MoS; flip-from-Tue soft-dog thesis fails at chalk juice. CWS ML (−116 FD / −118 VSIN) ABSTAIN: Hudson 8 GS of 67 G thin_SP_sample_kill; Sharp 44% / nF ~49% lean against; mid-EV negative; confirm Hudson vs Fedde SP listing. Soft LAA −131 (Sharp 45% against) / CLE +113 (Gray SP against) / TB +113 (YS wind 23 Under lean only) / TOR G1 Scherzer 6.07 PASS. Heavy chalk SKIP. Prefer-0 below_mos honored (calibration unused — no honest mid-EV ≥$0.40). No SP-SH-20260923-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "mlb",
@@ -148,8 +156,8 @@
       "ts": "2026-09-22T10:15:00-05:00",
       "ts_ct": "2026-09-22 10:15:00 CT",
       "area": "sports",
-      "title": "MLB Tue empty board (SP-L06 6th straight \u00b7 prefer-0)",
-      "summary": "MLB Tue Sloan deepen under SP-L06 \u2192 empty board (0 new MLB shadows; 6th consecutive MLB empty). Open ledger=0; cum 14\u201318\u20130 (\u2212$16.08). TB ML G1 (+105/+112) ASAP PASS: Martinez\u2248Rod\u00f3n SP wash; SharpModels TB 45% \u2248 de-vig; YS NE ~12\u201318 mph soft Under only; mid-EV \u226a $0.40; never NYY \u2212135 chalk; FP ~12:05 CT \u2192 pass. CLE ML (+105/+110) ABSTAIN: Messick 2.57 vs Tolle 3.02 narrative but Sharp/DRatings/nF/MGM lean BOS 54\u201358% \u2248 market; Chapman OUT priced (CLE steam +117\u2192+109); mid-EV <$0.40; never BOS \u2212130 chalk. MIL ML (+114/+120) ABSTAIN: closest \u2014 SharpModels 50/50 + nF MIL ~50.6% vs de-vig ~44% (fair disagrees) \u2192 mid-EV ~$0.40\u20130.45 @ +120 clears $0.40 gate but below_mos; prefer-0 + soft-dog-vs-ace (May 4.61 into Wheeler 2.99) leave calibration unused; never PHI \u2212137/\u2212142 chalk. Soft TB G2 / STL +142 / SD +109 ABSTAIN. Heavy chalk SKIP. Prefer-0 below_mos honored. No SP-SH-20260922-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "MLB Tue empty board (SP-L06 6th straight · prefer-0)",
+      "summary": "MLB Tue Sloan deepen under SP-L06 → empty board (0 new MLB shadows; 6th consecutive MLB empty). Open ledger=0; cum 14–18–0 (−$16.08). TB ML G1 (+105/+112) ASAP PASS: Martinez≈Rodón SP wash; SharpModels TB 45% ≈ de-vig; YS NE ~12–18 mph soft Under only; mid-EV ≪ $0.40; never NYY −135 chalk; FP ~12:05 CT → pass. CLE ML (+105/+110) ABSTAIN: Messick 2.57 vs Tolle 3.02 narrative but Sharp/DRatings/nF/MGM lean BOS 54–58% ≈ market; Chapman OUT priced (CLE steam +117→+109); mid-EV <$0.40; never BOS −130 chalk. MIL ML (+114/+120) ABSTAIN: closest — SharpModels 50/50 + nF MIL ~50.6% vs de-vig ~44% (fair disagrees) → mid-EV ~$0.40–0.45 @ +120 clears $0.40 gate but below_mos; prefer-0 + soft-dog-vs-ace (May 4.61 into Wheeler 2.99) leave calibration unused; never PHI −137/−142 chalk. Soft TB G2 / STL +142 / SD +109 ABSTAIN. Heavy chalk SKIP. Prefer-0 below_mos honored. No SP-SH-20260922-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "mlb",
@@ -171,7 +179,7 @@
       },
       "at": "2026-09-22T10:15:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "No new MLB ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: 6th MLB empty under SP-L06; TB G1 ASAP fair\u2248mkt pass; CLE SP edge not in models; MIL prefer-0 below_mos vs ace; calibration unused."
+      "deskChanges": "No new MLB ledger rows (empty board). AV emptyReason refresh (0 LIVE; open shadows=0). Overview republish. Session Log. process_delta: 6th MLB empty under SP-L06; TB G1 ASAP fair≈mkt pass; CLE SP edge not in models; MIL prefer-0 below_mos vs ace; calibration unused."
     },
     {
       "id": "sess-sports-nfl-tue-empty-20260922",
@@ -179,7 +187,7 @@
       "ts_ct": "2026-09-22 09:52:00 CT",
       "area": "sports",
       "title": "NFL Tue Week-3 empty board (SP-L06 prefer-0)",
-      "summary": "NFL Week-3 Tue early screen under SP-L06 \u2192 empty board (0 new NFL shadows; first NFL empty under locked gates). Open ledger entering wake=0 after Week-2 0\u20134 settle (cum 14\u201318\u20130 \u2212$16.08). WAS +6.5/+7 ABSTAIN/WATCH hold Wed: Daniels OUT / Mariota; Darnold hip Wed practice TBD; no timed confirmation; mid-EV ~$0.00\u20130.20 \u226a $0.40. CHI +3/+3.5 ABSTAIN: Caleb hamstring week-to-week; DK/VI ~PHI \u22123 (CBS early \u22124.5 already shortened); key-3 fragile; OUT not confirmed; mid-EV <$0.40. TEN +3/+3.5 ABSTAIN: Dart sprained MCL (MRI Tue); Winston likely; lag already captured (open NYG \u22125.5/\u22126 \u2192 DK/SI ~\u22123/\u22123.5); +6 gone; fair\u2248market; mid-EV \u226a $0.40. Soft ATL +6/+6.5 TNF ABSTAIN: Penix starts; +7 kill met at DK. Soft LAC+7 / PIT+3.5 / IND+1.5 watch only. Skip large chalks. Prefer-0 below_mos honored (W2 dog KEEP\u00d73 all L lesson). No SP-SH-20260922-NFL-* rows. ready_for_quinn NO. Confirm DK in-app (CBS DK + VI DK column + SI Dart move; live DK app 403 from box). No Live / no Quinn / no place / no iMessage / no cascade.",
+      "summary": "NFL Week-3 Tue early screen under SP-L06 → empty board (0 new NFL shadows; first NFL empty under locked gates). Open ledger entering wake=0 after Week-2 0–4 settle (cum 14–18–0 −$16.08). WAS +6.5/+7 ABSTAIN/WATCH hold Wed: Daniels OUT / Mariota; Darnold hip Wed practice TBD; no timed confirmation; mid-EV ~$0.00–0.20 ≪ $0.40. CHI +3/+3.5 ABSTAIN: Caleb hamstring week-to-week; DK/VI ~PHI −3 (CBS early −4.5 already shortened); key-3 fragile; OUT not confirmed; mid-EV <$0.40. TEN +3/+3.5 ABSTAIN: Dart sprained MCL (MRI Tue); Winston likely; lag already captured (open NYG −5.5/−6 → DK/SI ~−3/−3.5); +6 gone; fair≈market; mid-EV ≪ $0.40. Soft ATL +6/+6.5 TNF ABSTAIN: Penix starts; +7 kill met at DK. Soft LAC+7 / PIT+3.5 / IND+1.5 watch only. Skip large chalks. Prefer-0 below_mos honored (W2 dog KEEP×3 all L lesson). No SP-SH-20260922-NFL-* rows. ready_for_quinn NO. Confirm DK in-app (CBS DK + VI DK column + SI Dart move; live DK app 403 from box). No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "nfl",
@@ -210,7 +218,7 @@
       "ts_ct": "2026-09-21 11:00:00 CT",
       "area": "sports",
       "title": "CFB Mon Week-4 empty board (SP-L06 prefer-0)",
-      "summary": "CFB Week-4 Mon early-week screen (games Sep 24\u201326) under SP-L06 \u2192 empty board (0 new CFB shadows; first CFB empty under locked gates). Ole Miss +3.5 @ FLA ABSTAIN: DK FLA \u22123.5 / 60.5; VSiN FLA \u22121.5; hangover vs Sumrall; mid-EV ~$0.12\u20130.28 <$0.40; never FLA \u22123.5 chalk. USC +2.5/+3 vs ORE ABSTAIN: DK ORE \u22123 / 62.5 (Covers \u22122.5); VSiN wrong-side ORE (USC \u22121.5) noted but no invent full flip; mid-EV ~$0.20\u20130.35; never ORE chalk. Missouri +6.5 @ MSST ABSTAIN (closest): DK MSST \u22126.5 / 58.5; VSiN \u22122 vs mkt \u22126.5 + open\u2212steam; mid-EV ~$0.28\u20130.43 at honest band \u2014 prefer-0 leaves calibration unused; reopen only if DK \u2265+7. Soft Iowa +5.5 @ MICH fair\u2248VSiN \u22124.5 ABSTAIN. Soft Fri Clemson +1.5 @ CAL WATCH only. Skip OSU \u221227.5 / ND \u221227.5 / MIA \u221241.5 / TTU \u221235.5. No SP-SH-20260921-CFB-* rows. Open CFB=0. Cum 14\u201318\u20130 (\u2212$16.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "summary": "CFB Week-4 Mon early-week screen (games Sep 24–26) under SP-L06 → empty board (0 new CFB shadows; first CFB empty under locked gates). Ole Miss +3.5 @ FLA ABSTAIN: DK FLA −3.5 / 60.5; VSiN FLA −1.5; hangover vs Sumrall; mid-EV ~$0.12–0.28 <$0.40; never FLA −3.5 chalk. USC +2.5/+3 vs ORE ABSTAIN: DK ORE −3 / 62.5 (Covers −2.5); VSiN wrong-side ORE (USC −1.5) noted but no invent full flip; mid-EV ~$0.20–0.35; never ORE chalk. Missouri +6.5 @ MSST ABSTAIN (closest): DK MSST −6.5 / 58.5; VSiN −2 vs mkt −6.5 + open−steam; mid-EV ~$0.28–0.43 at honest band — prefer-0 leaves calibration unused; reopen only if DK ≥+7. Soft Iowa +5.5 @ MICH fair≈VSiN −4.5 ABSTAIN. Soft Fri Clemson +1.5 @ CAL WATCH only. Skip OSU −27.5 / ND −27.5 / MIA −41.5 / TTU −35.5. No SP-SH-20260921-CFB-* rows. Open CFB=0. Cum 14–18–0 (−$16.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "cfb",
@@ -239,8 +247,8 @@
       "ts": "2026-09-21T10:15:00-05:00",
       "ts_ct": "2026-09-21 10:15:00 CT",
       "area": "sports",
-      "title": "NFL Sun settle L\u00d73 + MLB Mon empty (SP-L06 5th)",
-      "summary": "Settled SP-SH-20260915-NFL-02 PIT +5.5: LOSS (NE 20\u20133 PIT; PIT by \u221217; hyp \u2212$4.00; CLV number_+0.5pt vs close +5; DEAD). Settled SP-SH-20260915-NFL-03 ARI +4.5: LOSS (SEA 31\u20137 ARI; ARI by \u221224; hyp \u2212$4.00; CLV~flat; DEAD). Settled SP-SH-20260915-NFL-04 ATL +1.5: LOSS (CAR 34\u20133 ATL; ATL by \u221231; hyp \u2212$4.00; CLV number_\u22121.0pt vs close +2.5; DEAD). Batch 0\u20133\u20130 (\u2212$12.00); cumulative shadows 14\u201318\u20130 (\u2212$16.08); open=0. MLB Mon 3-game screen under SP-L06 \u2192 empty board (0 new MLB shadows; 5th consecutive MLB empty). TOR ML @ BAL (\u2212104/\u2212112 near-even) ABSTAIN: Yesavage first start since Aug 4 meniscus (~50 pitches then Miles) vs Baz (owns TOR); nF BAL ~54\u201355% \u2248 market; mid-EV \u226a $0.40; Camden ~20% precip soft. Soft WSH +125/+132 @ DET \u2212155/\u2212156 ABSTAIN: opener chaos (Herz/Kent vs Ryan/Anderson/Montero); nF DET ~59% \u2248 market; mid-EV below_mos at honest band; skip DET chalk. Soft MIN \u2212118 @ SF ABSTAIN: soft road chalk; no SP edge (Matthews vs Tidwell/Roupp); nF MIN ~53% \u2248 market; mid-EV <$0.40. Prefer-0 below_mos honored. No SP-SH-20260921-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "NFL Sun settle L×3 + MLB Mon empty (SP-L06 5th)",
+      "summary": "Settled SP-SH-20260915-NFL-02 PIT +5.5: LOSS (NE 20–3 PIT; PIT by −17; hyp −$4.00; CLV number_+0.5pt vs close +5; DEAD). Settled SP-SH-20260915-NFL-03 ARI +4.5: LOSS (SEA 31–7 ARI; ARI by −24; hyp −$4.00; CLV~flat; DEAD). Settled SP-SH-20260915-NFL-04 ATL +1.5: LOSS (CAR 34–3 ATL; ATL by −31; hyp −$4.00; CLV number_−1.0pt vs close +2.5; DEAD). Batch 0–3–0 (−$12.00); cumulative shadows 14–18–0 (−$16.08); open=0. MLB Mon 3-game screen under SP-L06 → empty board (0 new MLB shadows; 5th consecutive MLB empty). TOR ML @ BAL (−104/−112 near-even) ABSTAIN: Yesavage first start since Aug 4 meniscus (~50 pitches then Miles) vs Baz (owns TOR); nF BAL ~54–55% ≈ market; mid-EV ≪ $0.40; Camden ~20% precip soft. Soft WSH +125/+132 @ DET −155/−156 ABSTAIN: opener chaos (Herz/Kent vs Ryan/Anderson/Montero); nF DET ~59% ≈ market; mid-EV below_mos at honest band; skip DET chalk. Soft MIN −118 @ SF ABSTAIN: soft road chalk; no SP edge (Matthews vs Tidwell/Roupp); nF MIN ~53% ≈ market; mid-EV <$0.40. Prefer-0 below_mos honored. No SP-SH-20260921-MLB-* rows. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "nfl",
@@ -271,8 +279,8 @@
       "ts": "2026-09-20T09:45:00-05:00",
       "ts_ct": "2026-09-20 09:45:00 CT",
       "area": "sports",
-      "title": "MLB Sun empty board (SP-L06) \u2014 4th straight",
-      "summary": "Sun MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 4th consecutive MLB empty). ATL ML @ HOU (+120/+124) ABSTAIN: P\u00e9rez (9-9, 3.07) vs Brown (6-3, 3.43) near-even SP; ATL 91-64 soft dog; nF HOU ~54.2% \u2248 market ~45% ATL; mild SP-dog/club sourcing de-priority; mid-EV ~$0.48\u20130.66 at 0.50\u20130.52 still below_mos ($0.80) + prefer-0 \u2192 no ticket_id. DET ML @ CWS (\u2212102) ABSTAIN/PASS: Melton (8-4, 2.52) vs Martin (9-7, 3.96) clear SP edge but Rate Field rain ~63\u201374% / windy; fair\u2248market; mid-EV \u226a $0.40. Soft BOS +126 / MIA +132 / NYY\u2013ARI research only. Skip CLE \u2212240 \u00b7 LAD \u2212275 \u00b7 MIL \u2212210 \u00b7 PHI \u2212161 \u00b7 SEA \u2212162 \u00b7 TEX \u2212163 \u00b7 CHC \u2212157. Roofs clean (Daikin, Trop, Chase). No SP-SH-20260920-MLB-* rows. Open leave pending: NFL-02/03/04 Sun. Cumulative 14\u201315\u20130 (\u2212$4.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "MLB Sun empty board (SP-L06) — 4th straight",
+      "summary": "Sun MLB daily screen under SP-L06 → empty board (0 new MLB shadows; 4th consecutive MLB empty). ATL ML @ HOU (+120/+124) ABSTAIN: Pérez (9-9, 3.07) vs Brown (6-3, 3.43) near-even SP; ATL 91-64 soft dog; nF HOU ~54.2% ≈ market ~45% ATL; mild SP-dog/club sourcing de-priority; mid-EV ~$0.48–0.66 at 0.50–0.52 still below_mos ($0.80) + prefer-0 → no ticket_id. DET ML @ CWS (−102) ABSTAIN/PASS: Melton (8-4, 2.52) vs Martin (9-7, 3.96) clear SP edge but Rate Field rain ~63–74% / windy; fair≈market; mid-EV ≪ $0.40. Soft BOS +126 / MIA +132 / NYY–ARI research only. Skip CLE −240 · LAD −275 · MIL −210 · PHI −161 · SEA −162 · TEX −163 · CHC −157. Roofs clean (Daikin, Trop, Chase). No SP-SH-20260920-MLB-* rows. Open leave pending: NFL-02/03/04 Sun. Cumulative 14–15–0 (−$4.08). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "mlb",
@@ -292,15 +300,15 @@
       },
       "at": "2026-09-20T09:45:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open NFL\u00d73 \u2260 AV). Overview republish. Session Log. process_delta: prefer-0 honored; ATL left off; DET weather kill."
+      "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open NFL×3 ≠ AV). Overview republish. Session Log. process_delta: prefer-0 honored; ATL left off; DET weather kill."
     },
     {
       "id": "sess-sports-cfb-settle-nfl-sun-gameday-20260920",
       "ts": "2026-09-20T09:15:00-05:00",
       "ts_ct": "2026-09-20 09:15:00 CT",
       "area": "sports",
-      "title": "CFB Sat settle L\u00d72 + NFL Sun KEEP\u00d73",
-      "summary": "Settled SP-SH-20260914-CFB-01 SMU +1.5: LOSS (LOU 41\u201331 SMU; SMU by \u221210; hyp \u2212$4.00; CLV~flat at +1.5; DEAD). Settled SP-SH-20260914-CFB-02 UNC +3: LOSS (CLEM 28\u201320 UNC; UNC by \u22128; hyp \u2212$4.00; CLV number_\u22120.5pt vs close +3.5; DEAD). Cumulative shadows 14\u201315\u20130 (\u2212$4.08). Absorbed Holt NFL Sun Week-2 gameday (confirm DK in-app). TNF-01 already SETTLED L. KEEP NFL-02 PIT +5.5 (public NE \u22125 / PIT +5; tot ~41.5; Brown IR; showers; kill inside +4 not met; prefer +5.5; never NE chalk; below_mos \u2192 no Live). KEEP NFL-03 ARI +4.5 (SEA \u22124.5; Darnold OUT / Lock; kill inside +3 not met; below_mos \u2192 no Live). KEEP NFL-04 ATL +1.5 prefer +2.5 (CAR \u22122.5; Rush starts; Penix not ready; Tua out; kill not met; below_mos \u2192 no Live). Soft CIN/WAS/JAC \u2014 no new ledger (SP-L06). Open remaining: NFL Sun \u00d73. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade / no 60\u201390m pre-kick.",
+      "title": "CFB Sat settle L×2 + NFL Sun KEEP×3",
+      "summary": "Settled SP-SH-20260914-CFB-01 SMU +1.5: LOSS (LOU 41–31 SMU; SMU by −10; hyp −$4.00; CLV~flat at +1.5; DEAD). Settled SP-SH-20260914-CFB-02 UNC +3: LOSS (CLEM 28–20 UNC; UNC by −8; hyp −$4.00; CLV number_−0.5pt vs close +3.5; DEAD). Cumulative shadows 14–15–0 (−$4.08). Absorbed Holt NFL Sun Week-2 gameday (confirm DK in-app). TNF-01 already SETTLED L. KEEP NFL-02 PIT +5.5 (public NE −5 / PIT +5; tot ~41.5; Brown IR; showers; kill inside +4 not met; prefer +5.5; never NE chalk; below_mos → no Live). KEEP NFL-03 ARI +4.5 (SEA −4.5; Darnold OUT / Lock; kill inside +3 not met; below_mos → no Live). KEEP NFL-04 ATL +1.5 prefer +2.5 (CAR −2.5; Rush starts; Penix not ready; Tua out; kill not met; below_mos → no Live). Soft CIN/WAS/JAC — no new ledger (SP-L06). Open remaining: NFL Sun ×3. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade / no 60–90m pre-kick.",
       "tags": [
         "sports",
         "cfb",
@@ -325,15 +333,15 @@
       },
       "at": "2026-09-20T09:15:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Ledger settle CFB-01/02 both L (\u2212$8.00; DEAD) + NFL-02/03/04 Sun KEEP notes (results pending); shadow-results-summary-2026-09-20; AV emptyReason refresh (0 LIVE; open NFL\u00d73 \u2260 AV); Overview republish; Session Log."
+      "deskChanges": "Ledger settle CFB-01/02 both L (−$8.00; DEAD) + NFL-02/03/04 Sun KEEP notes (results pending); shadow-results-summary-2026-09-20; AV emptyReason refresh (0 LIVE; open NFL×3 ≠ AV); Overview republish; Session Log."
     },
     {
       "id": "sess-capital-mlb-screen-empty-20260919",
       "ts": "2026-09-19T09:40:00-05:00",
       "ts_ct": "2026-09-19 09:40:00 CT",
       "area": "sports",
-      "title": "MLB Sat empty board (SP-L06) \u2014 3rd straight",
-      "summary": "Sat MLB daily screen under SP-L06 \u2192 empty board (0 new MLB shadows; 3rd consecutive MLB empty). BOS ML @ TB (+114/+126) ABSTAIN: Tolle vs Peralta SP edge real but Chapman lat (weekend unavailable) + Contreras HBP DTD flags; mid-EV <$0.40 at honest fair; mild SP-dog. TEX ML vs TOR (+116) ABSTAIN: closest \u2014 nF TEX ~54.6% vs market ~46.3% clears mid-EV ~$0.49\u20130.67 but below_mos ($0.80) and prefer-0 below_mos_calibration \u2192 no ticket_id. Soft PHI +102 / HOU \u2212102 / BAL +112 research only. Skip CLE/LAD/SD/MIL/NYY/SEA@COL/CHC chalk; PNC storms avoid. Roofs clean (Trop, Globe Life). No SP-SH-20260919-MLB-* rows. Open leave pending: CFB-01/02 Sat; NFL-02/03/04 Sun. Cumulative 14\u201313\u20130 (+$3.92). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "MLB Sat empty board (SP-L06) — 3rd straight",
+      "summary": "Sat MLB daily screen under SP-L06 → empty board (0 new MLB shadows; 3rd consecutive MLB empty). BOS ML @ TB (+114/+126) ABSTAIN: Tolle vs Peralta SP edge real but Chapman lat (weekend unavailable) + Contreras HBP DTD flags; mid-EV <$0.40 at honest fair; mild SP-dog. TEX ML vs TOR (+116) ABSTAIN: closest — nF TEX ~54.6% vs market ~46.3% clears mid-EV ~$0.49–0.67 but below_mos ($0.80) and prefer-0 below_mos_calibration → no ticket_id. Soft PHI +102 / HOU −102 / BAL +112 research only. Skip CLE/LAD/SD/MIL/NYY/SEA@COL/CHC chalk; PNC storms avoid. Roofs clean (Trop, Globe Life). No SP-SH-20260919-MLB-* rows. Open leave pending: CFB-01/02 Sat; NFL-02/03/04 Sun. Cumulative 14–13–0 (+$3.92). ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "mlb",
@@ -352,15 +360,15 @@
       },
       "at": "2026-09-19T09:40:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open CFB\u00d72 + NFL\u00d73 \u2260 AV). Overview republish. Session Log. process_delta: prefer-0 honored; TEX left off despite mid-EV clear."
+      "deskChanges": "No new ledger rows (empty board). AV emptyReason refresh (0 LIVE; open CFB×2 + NFL×3 ≠ AV). Overview republish. Session Log. process_delta: prefer-0 honored; TEX left off despite mid-EV clear."
     },
     {
       "id": "sess-sports-cfb-sat-gameday-hou-settle-20260919",
       "ts": "2026-09-19T08:15:00-05:00",
       "ts_ct": "2026-09-19 08:15:00 CT",
       "area": "sports",
-      "title": "CFB Sat gameday \u2014 SETTLED W HOU / KEEP UNC+SMU",
-      "summary": "Absorbed Holt CFB Sat Week-3 gameday. Settled SP-SH-20260914-CFB-03 HOU +8.5: WIN (TTU 28\u201326 HOU; HOU by \u22122; covers +7.5/+8.5; hyp +$3.64; CLV number_\u22121.0pt vs close +7.5; DEAD \u2014 do not reopen). Cumulative shadows 14\u201313\u20130 (+$3.92). CFB-02 UNC +3 KEEP (shop +3.5; CLEM \u22123.5; Reynolds starts; Vizzina Q/backup; never CLEM chalk; kill not met; below_mos \u2192 no Live). CFB-01 SMU +1.5 KEEP (LOU \u22121.5; shop +2/+2.5; ~95\u00b0F note; kill not met; below_mos \u2192 no Live). Soft KU abstain unless DK \u2265+6. SP-L06: no new thin shadows. Open remaining: UNC/SMU Sat + NFL Sun \u00d73. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade / no 60\u201390m pre-kick.",
+      "title": "CFB Sat gameday — SETTLED W HOU / KEEP UNC+SMU",
+      "summary": "Absorbed Holt CFB Sat Week-3 gameday. Settled SP-SH-20260914-CFB-03 HOU +8.5: WIN (TTU 28–26 HOU; HOU by −2; covers +7.5/+8.5; hyp +$3.64; CLV number_−1.0pt vs close +7.5; DEAD — do not reopen). Cumulative shadows 14–13–0 (+$3.92). CFB-02 UNC +3 KEEP (shop +3.5; CLEM −3.5; Reynolds starts; Vizzina Q/backup; never CLEM chalk; kill not met; below_mos → no Live). CFB-01 SMU +1.5 KEEP (LOU −1.5; shop +2/+2.5; ~95°F note; kill not met; below_mos → no Live). Soft KU abstain unless DK ≥+6. SP-L06: no new thin shadows. Open remaining: UNC/SMU Sat + NFL Sun ×3. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade / no 60–90m pre-kick.",
       "tags": [
         "sports",
         "cfb",
@@ -382,15 +390,15 @@
       },
       "at": "2026-09-19T08:15:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Ledger settle CFB-03 W (+$3.64; DEAD) + CFB-01/02 Sat KEEP notes; shadow-results-summary-2026-09-19; AV emptyReason refresh (0 LIVE; open CFB\u00d72 + NFL\u00d73 \u2260 AV); Overview republish; Session Log."
+      "deskChanges": "Ledger settle CFB-03 W (+$3.64; DEAD) + CFB-01/02 Sat KEEP notes; shadow-results-summary-2026-09-19; AV emptyReason refresh (0 LIVE; open CFB×2 + NFL×3 ≠ AV); Overview republish; Session Log."
     },
     {
       "id": "sess-sports-cfb-fri-refresh-20260918",
       "ts": "2026-09-18T10:29:00-05:00",
       "ts_ct": "2026-09-18 10:29:00 CT",
       "area": "sports",
-      "title": "CFB Fri Week-3 absorb \u2014 SOFTEN KEEP HOU / KEEP SMU+UNC",
-      "summary": "Absorbed Holt CFB Fri Week-3 refresh. SP-SH-20260914-CFB-03 HOU +8.5 \u2192 SOFTEN KEEP (market only +7.5; open \u221210 faded; soften rule hit; kill inside +7 not met; CLV settle only \u2014 do not chase gone +8.5/+9; no 60\u201390m unless re-widens +8.5+; Lubbock weather + injury notes). CFB-01 SMU +1.5 KEEP (shop +2/+2.5; kill worse than +0.5 / LOU past \u22123.5 not met). CFB-02 UNC +3 KEEP prefer +3.5 (Clemson QB Vizzina Out; Reynolds start; never CLEM chalk; kill inside +2 AND Vizzina returns not met). Soft KU abstain unless DK \u2265+6. SP-L06: no new thin shadows. Results still pending. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
+      "title": "CFB Fri Week-3 absorb — SOFTEN KEEP HOU / KEEP SMU+UNC",
+      "summary": "Absorbed Holt CFB Fri Week-3 refresh. SP-SH-20260914-CFB-03 HOU +8.5 → SOFTEN KEEP (market only +7.5; open −10 faded; soften rule hit; kill inside +7 not met; CLV settle only — do not chase gone +8.5/+9; no 60–90m unless re-widens +8.5+; Lubbock weather + injury notes). CFB-01 SMU +1.5 KEEP (shop +2/+2.5; kill worse than +0.5 / LOU past −3.5 not met). CFB-02 UNC +3 KEEP prefer +3.5 (Clemson QB Vizzina Out; Reynolds start; never CLEM chalk; kill inside +2 AND Vizzina returns not met). Soft KU abstain unless DK ≥+6. SP-L06: no new thin shadows. Results still pending. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage / no cascade.",
       "tags": [
         "sports",
         "cfb",
@@ -410,7 +418,7 @@
       },
       "at": "2026-09-18T10:29:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Ledger notes CFB-03 SOFTEN KEEP + CFB-01/02 KEEP Fri refresh (results still pending); AV emptyReason refresh (0 LIVE; open CFB\u00d73 + NFL\u00d73 \u2260 AV); Overview republish; Session Log."
+      "deskChanges": "Ledger notes CFB-03 SOFTEN KEEP + CFB-01/02 KEEP Fri refresh (results still pending); AV emptyReason refresh (0 LIVE; open CFB×3 + NFL×3 ≠ AV); Overview republish; Session Log."
     },
     {
       "id": "sess-sports-mlb-fri-tnf-settle-20260918",
@@ -418,7 +426,7 @@
       "ts_ct": "2026-09-18 10:10:00 CT",
       "area": "sports",
       "title": "TNF settle LOSS + MLB Fri empty board (SP-L06)",
-      "summary": "Settled SP-SH-20260915-NFL-01 Under 53.5 DET@BUF: LOSS (BUF 41\u201331 DET, tot 72; hyp \u2212$4.00; CLV number_\u22121.0pt vs close ~54.5). Cumulative shadows 13\u201313\u20130 (+$0.28). MLB Fri screen under SP-L06 \u2192 empty board (0 new MLB shadows): CIN+108 / ARI+105 / PHI even / BOS+112 all fail mid-EV<$0.40 and/or fair\u2248market / mild SP-dog / Luzardo IL SP-confirm / Chapman+Contreras flags. Open leave pending: CFB-01/02/03; NFL-02/03/04. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage.",
+      "summary": "Settled SP-SH-20260915-NFL-01 Under 53.5 DET@BUF: LOSS (BUF 41–31 DET, tot 72; hyp −$4.00; CLV number_−1.0pt vs close ~54.5). Cumulative shadows 13–13–0 (+$0.28). MLB Fri screen under SP-L06 → empty board (0 new MLB shadows): CIN+108 / ARI+105 / PHI even / BOS+112 all fail mid-EV<$0.40 and/or fair≈market / mild SP-dog / Luzardo IL SP-confirm / Chapman+Contreras flags. Open leave pending: CFB-01/02/03; NFL-02/03/04. ready_for_quinn NO. Confirm DK in-app. No Live / no Quinn / no place / no iMessage.",
       "tags": [
         "sports",
         "mlb",
@@ -445,8 +453,8 @@
       "ts": "2026-09-17T10:28:00-05:00",
       "ts_ct": "2026-09-17 10:28:00 CT",
       "area": "sports",
-      "title": "NFL Thu midweek W2 absorb \u2014 KEEP 4 / kills 0",
-      "summary": "Absorbed Holt NFL Thu midweek W2 refresh. Open keepers all KEEP: SP-SH-20260915-NFL-01 Under 53.5 DET@BUF KEEP soft (tot 53.5\u2192~54.5 not past kill 55; weather non-factor; DET Mahogany/Miller OUT; thesis softer still below_mos); NFL-02 PIT +5.5 KEEP (Brown IR unchanged; kill inside +4 not triggered); NFL-03 ARI +4.5 KEEP (Darnold OUT / Lock starts; kill inside +3 not triggered); NFL-04 ATL +1.5 KEEP (starter unnamed; Tua DNP; kill not triggered; shop +2.5). Kills 0. Soft CIN/WAS/JAC watches \u2014 no new ledger (SP-L06). ready_for_quinn NO. Confirm DK in-app noted. No Live / no Quinn / no place / no iMessage.",
+      "title": "NFL Thu midweek W2 absorb — KEEP 4 / kills 0",
+      "summary": "Absorbed Holt NFL Thu midweek W2 refresh. Open keepers all KEEP: SP-SH-20260915-NFL-01 Under 53.5 DET@BUF KEEP soft (tot 53.5→~54.5 not past kill 55; weather non-factor; DET Mahogany/Miller OUT; thesis softer still below_mos); NFL-02 PIT +5.5 KEEP (Brown IR unchanged; kill inside +4 not triggered); NFL-03 ARI +4.5 KEEP (Darnold OUT / Lock starts; kill inside +3 not triggered); NFL-04 ATL +1.5 KEEP (starter unnamed; Tua DNP; kill not triggered; shop +2.5). Kills 0. Soft CIN/WAS/JAC watches — no new ledger (SP-L06). ready_for_quinn NO. Confirm DK in-app noted. No Live / no Quinn / no place / no iMessage.",
       "tags": [
         "sports",
         "nfl",
@@ -464,7 +472,7 @@
       },
       "at": "2026-09-17T10:28:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Ledger notes NFL-01 soften + 02\u201304 Thu midweek KEEP (result still pending); AV emptyReason refresh (0 LIVE; open CFB\u00d73 + NFL\u00d74 \u2260 AV); Overview republish; Session Log.",
+      "deskChanges": "Ledger notes NFL-01 soften + 02–04 Thu midweek KEEP (result still pending); AV emptyReason refresh (0 LIVE; open CFB×3 + NFL×4 ≠ AV); Overview republish; Session Log.",
       "lessonId": "SP-L06",
       "originationDate": "2026-09-17"
     },
@@ -473,8 +481,8 @@
       "ts": "2026-09-17T10:05:00-05:00",
       "ts_ct": "2026-09-17 10:05:00 CT",
       "area": "sports",
-      "title": "MLB Thu screen \u2014 SP-L06 empty board (0 shadows)",
-      "summary": "Thu MLB daily screen under Shadow Pre-Log Gates v1 (SP-L06 LOCKED). Candidates LAA ML vs MIN (Ure\u00f1a/Bradley; Buxton priced) and DET ML @ CWS (Valdez/Fedde even; nF lean) both fail pre-log: mid-band EV <$0.40 and/or fair\u2248market (\u00b11\u20131.5\u00a2) and/or mild SP-dog sourcing. Soft holds KC@HOU / TEX vs BOS / CIN vs LAD research-only. Heavy chalk skipped. Empty board = success. No SP-SH-20260917-MLB-* ledger rows. ready_for_quinn NO. No Live / no DK / no iMessage. NFL-01 TNF Under leave pending until final.",
+      "title": "MLB Thu screen — SP-L06 empty board (0 shadows)",
+      "summary": "Thu MLB daily screen under Shadow Pre-Log Gates v1 (SP-L06 LOCKED). Candidates LAA ML vs MIN (Ureña/Bradley; Buxton priced) and DET ML @ CWS (Valdez/Fedde even; nF lean) both fail pre-log: mid-band EV <$0.40 and/or fair≈market (±1–1.5¢) and/or mild SP-dog sourcing. Soft holds KC@HOU / TEX vs BOS / CIN vs LAD research-only. Heavy chalk skipped. Empty board = success. No SP-SH-20260917-MLB-* ledger rows. ready_for_quinn NO. No Live / no DK / no iMessage. NFL-01 TNF Under leave pending until final.",
       "tags": [
         "sports",
         "mlb",
@@ -493,7 +501,7 @@
       },
       "at": "2026-09-17T10:05:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "MLB screen memo filed; 0 new shadows; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows \u2260 AV; NFL-01 TNF pending); Overview republish; Session Log.",
+      "deskChanges": "MLB screen memo filed; 0 new shadows; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows ≠ AV; NFL-01 TNF pending); Overview republish; Session Log.",
       "lessonId": "SP-L06",
       "originationDate": "2026-09-17"
     },
@@ -502,8 +510,8 @@
       "ts": "2026-09-16T17:20:00-05:00",
       "ts_ct": "2026-09-16 17:20:00 CT",
       "area": "sports",
-      "title": "OS v2 IMPLEMENT \u2014 Tue MLB settle 2-0 + below_mos process review",
-      "summary": "Settled finished Tue MLB Harbor shadows only: SP-SH-20260915-MLB-01 ATL ML W (+$4.76, CLV +0.85pp) ATL 6-3 CHC; SP-SH-20260915-MLB-02 BAL ML W (+$4.40, CLV \u22120.45pp) BAL 7-5 NYM/11. Batch 2-0-0 +$9.16; v2 cumulative 13-12-0 (+$4.28). Left pending (not started): CFB-01/02/03 Fri/Sat; NFL-01 TNF Under; NFL-02/03/04 Sun. LIVE qualifier: NONE clear MoS (all below_mos; ready_for_quinn NO). Mandatory process review filed \u2014 Shadow Pre-Log Gates v1 + lesson SP-L06 (abstain if mid-EV<$0.40; numeric EV before ticket_id; max 2 shadows/wake). No invent LIVE. No DK place. No iMessage.",
+      "title": "OS v2 IMPLEMENT — Tue MLB settle 2-0 + below_mos process review",
+      "summary": "Settled finished Tue MLB Harbor shadows only: SP-SH-20260915-MLB-01 ATL ML W (+$4.76, CLV +0.85pp) ATL 6-3 CHC; SP-SH-20260915-MLB-02 BAL ML W (+$4.40, CLV −0.45pp) BAL 7-5 NYM/11. Batch 2-0-0 +$9.16; v2 cumulative 13-12-0 (+$4.28). Left pending (not started): CFB-01/02/03 Fri/Sat; NFL-01 TNF Under; NFL-02/03/04 Sun. LIVE qualifier: NONE clear MoS (all below_mos; ready_for_quinn NO). Mandatory process review filed — Shadow Pre-Log Gates v1 + lesson SP-L06 (abstain if mid-EV<$0.40; numeric EV before ticket_id; max 2 shadows/wake). No invent LIVE. No DK place. No iMessage.",
       "tags": [
         "sports",
         "mlb",
@@ -523,7 +531,7 @@
       },
       "at": "2026-09-16T17:20:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Settled SP-SH-20260915-MLB-01/02; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows \u2260 AV); Overview republish; Session Log; SP-L06 + process review memo.",
+      "deskChanges": "Settled SP-SH-20260915-MLB-01/02; AV emptyReason refresh (0 LIVE; open CFB/NFL shadows ≠ AV); Overview republish; Session Log; SP-L06 + process review memo.",
       "lessonId": "SP-L06",
       "originationDate": "2026-09-16"
     },
@@ -532,8 +540,8 @@
       "ts": "2026-09-15T10:25:00-05:00",
       "ts_ct": "2026-09-15 10:25:00 CT",
       "area": "sports",
-      "title": "MLB Tue morning screen \u2014 2 shadows, 0 Live",
-      "summary": "Modeled Tue 2026-09-15 MLB morning small set. Keepers HARBOR_SHADOW: ATL ML @ CHC (Perez vs Gausman; SP + Swanson IL; ~+119), BAL ML @ NYM (Baz vs Manaea; mild SP + Mon win; BP leverage discount). Soft KC@HOU / DET@TOR research-only abstain. Skip heavy chalk MIL/LAD/PHI/TB; soft-pass Coors SD@COL. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Confirm DK in-app.",
+      "title": "MLB Tue morning screen — 2 shadows, 0 Live",
+      "summary": "Modeled Tue 2026-09-15 MLB morning small set. Keepers HARBOR_SHADOW: ATL ML @ CHC (Perez vs Gausman; SP + Swanson IL; ~+119), BAL ML @ NYM (Baz vs Manaea; mild SP + Mon win; BP leverage discount). Soft KC@HOU / DET@TOR research-only abstain. Skip heavy chalk MIL/LAD/PHI/TB; soft-pass Coors SD@COL. All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Confirm DK in-app.",
       "tags": [
         "sports",
         "mlb",
@@ -547,15 +555,15 @@
       },
       "at": "2026-09-15T10:25:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260915-MLB-01..02; soft abstains; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260915-MLB-01..02; soft abstains; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-nfl-tue-screen-20260915",
       "ts": "2026-09-15T09:40:00-05:00",
       "ts_ct": "2026-09-15 09:40:00 CT",
       "area": "sports",
-      "title": "NFL Week 2 Tuesday screen \u2014 4 shadows, 0 Live + Mon MLB settle 3-1-0",
-      "summary": "Job A: Settled Mon MLB SP-SH-20260914-MLB-01..04 \u2192 3-1-0 hyp +6.78 (LAD -1.5 W, Over 10.5 W, SD -1.5 L, DET ML W). CFB Week-3 left pending. Job B: NFL Week 2 cheap screen keepers HARBOR_SHADOW Under 53.5 DET@BUF (TNF fair-first), PIT +5.5 (Brown IR), ARI +4.5 (Darnold OUT number retreat), ATL +1.5 (flip/QB TBD). All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
+      "title": "NFL Week 2 Tuesday screen — 4 shadows, 0 Live + Mon MLB settle 3-1-0",
+      "summary": "Job A: Settled Mon MLB SP-SH-20260914-MLB-01..04 → 3-1-0 hyp +6.78 (LAD -1.5 W, Over 10.5 W, SD -1.5 L, DET ML W). CFB Week-3 left pending. Job B: NFL Week 2 cheap screen keepers HARBOR_SHADOW Under 53.5 DET@BUF (TNF fair-first), PIT +5.5 (Brown IR), ARI +4.5 (Darnold OUT number retreat), ATL +1.5 (flip/QB TBD). All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
       "tags": [
         "sports",
         "nfl",
@@ -573,15 +581,15 @@
       },
       "at": "2026-09-15T09:40:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Settled SP-SH-20260914-MLB-01..04; appended SP-SH-20260915-NFL-01..04; CFB W3 still open; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Settled SP-SH-20260914-MLB-01..04; appended SP-SH-20260915-NFL-01..04; CFB W3 still open; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-cfb-mon-screen-20260914",
       "ts": "2026-09-14T10:20:00-05:00",
       "ts_ct": "2026-09-14 10:20:00 CT",
       "area": "sports",
-      "title": "CFB Week 3 Monday screen \u2014 3 shadows, 0 Live",
-      "summary": "Modeled Mon 2026-09-14 CFB Week 3 early-week deepen (Thu\u2013Sat Sep 17\u201319). Keepers HARBOR_SHADOW: SMU +1.5 @ LOU (shop +2), UNC +3 @ CLEM (shop +3.5; perception collapse + key#3 dog), HOU +8.5 @ TTU Fri (open \u221210 lag; shop +9). Soft KU +5.5 vs ASU London ABSTAIN (gate \u2265+6). Watch LSU@MISS / FLA@AUB. Skip huge chalk. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Week 2 CFB shadows already settled W.",
+      "title": "CFB Week 3 Monday screen — 3 shadows, 0 Live",
+      "summary": "Modeled Mon 2026-09-14 CFB Week 3 early-week deepen (Thu–Sat Sep 17–19). Keepers HARBOR_SHADOW: SMU +1.5 @ LOU (shop +2), UNC +3 @ CLEM (shop +3.5; perception collapse + key#3 dog), HOU +8.5 @ TTU Fri (open −10 lag; shop +9). Soft KU +5.5 vs ASU London ABSTAIN (gate ≥+6). Watch LSU@MISS / FLA@AUB. Skip huge chalk. All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding. Week 2 CFB shadows already settled W.",
       "tags": [
         "sports",
         "cfb",
@@ -596,15 +604,15 @@
       },
       "at": "2026-09-14T10:20:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260914-CFB-01..03; KU abstain; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260914-CFB-01..03; KU abstain; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-mlb-mon-screen-20260914",
       "ts": "2026-09-14T09:48:54-05:00",
       "ts_ct": "2026-09-14 09:48:54 CT",
       "area": "sports",
-      "title": "MLB Mon morning screen \u2014 4 shadows, 0 Live",
-      "summary": "Modeled Mon 2026-09-14 MLB deepen slate. Keepers HARBOR_SHADOW: LAD \u22121.5 (Skubal/Lodolo; fade ML juice), Over 10.5 + SD \u22121.5 (Coors; fade SD ML), DET ML soft. ATL@CHC abstain (no_edge/wind). NYY@MIN rain watch \u2014 no ticket. All below_mos \u2192 no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
+      "title": "MLB Mon morning screen — 4 shadows, 0 Live",
+      "summary": "Modeled Mon 2026-09-14 MLB deepen slate. Keepers HARBOR_SHADOW: LAD −1.5 (Skubal/Lodolo; fade ML juice), Over 10.5 + SD −1.5 (Coors; fade SD ML), DET ML soft. ATL@CHC abstain (no_edge/wind). NYY@MIN rain watch — no ticket. All below_mos → no ready_for_quinn / no Live / no iMessage. MoS SoT binding.",
       "tags": [
         "sports",
         "mlb",
@@ -625,8 +633,8 @@
       "ts": "2026-09-14T09:47:54-05:00",
       "ts_ct": "2026-09-14 09:47:54 CT",
       "area": "sports",
-      "title": "Sun shadow settle \u2014 1\u20134\u20130 (\u2212$11.04)",
-      "summary": "Settled 5 open Sun 2026-09-13 HARBOR_SHADOW: HOU +1.5 L (BUF 36-31), TB +3.5 L (CIN 33-27), ATL +6.5 L (PIT 20-13), MIA ML W (MIA 6-4 LAD WO), BAL ML L (TOR 8-1). Hyp P&L \u2212$11.04. CLV mostly flat. No LIVE. Lessons: ace_fade_without_MoS; half_point_loss_on_steam_dog.",
+      "title": "Sun shadow settle — 1–4–0 (−$11.04)",
+      "summary": "Settled 5 open Sun 2026-09-13 HARBOR_SHADOW: HOU +1.5 L (BUF 36-31), TB +3.5 L (CIN 33-27), ATL +6.5 L (PIT 20-13), MIA ML W (MIA 6-4 LAD WO), BAL ML L (TOR 8-1). Hyp P&L −$11.04. CLV mostly flat. No LIVE. Lessons: ace_fade_without_MoS; half_point_loss_on_steam_dog.",
       "tags": [
         "sports",
         "settle",
@@ -647,8 +655,8 @@
       "ts": "2026-09-13T09:44:50-05:00",
       "ts_ct": "2026-09-13 09:44:50 CT",
       "area": "sports",
-      "title": "MLB Sun morning screen \u2014 2 shadows, 0 Live",
-      "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs P\u00e9rez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37\u201311:40 CT. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace\u2260full-game, no invent my_p.",
+      "title": "MLB Sun morning screen — 2 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 MLB morning slate. Keepers HARBOR_SHADOW: MIA ML (LAD@MIA, Sheehan vs Pérez), BAL ML (BAL@TOR, Rogers vs Cease). Soft CLE@MIN diluted (Ryan); SEA@ATH/HOU@TB/TEX@ARI/SD@SF/CWS@STL no new shadows. Early FP ~11:37–11:40 CT. No post-vig MoS → no Live / no Quinn / no iMessage. Lessons: thin SP kill, ace≠full-game, no invent my_p.",
       "tags": [
         "sports",
         "mlb",
@@ -662,15 +670,15 @@
       },
       "at": "2026-09-13T09:44:50-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows \u2260 AV); Overview republish."
+      "deskChanges": "Appended SP-SH-20260913-MLB-01..02; AV emptyReason refresh (shadows ≠ AV); Overview republish."
     },
     {
       "id": "sess-sports-nfl-sun-screen-20260913",
       "ts": "2026-09-13T09:34:23-05:00",
       "ts_ct": "2026-09-13 09:34:23 CT",
       "area": "sports",
-      "title": "NFL Week 1 Sunday screen \u2014 3 shadows, 0 Live",
-      "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and \u22123.5 favs without MoS. No post-vig MoS \u2192 no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
+      "title": "NFL Week 1 Sunday screen — 3 shadows, 0 Live",
+      "summary": "Modeled Sun 2026-09-13 NFL Week 1 mainlines (calendar Week 1; wake said Week 2). Keepers HARBOR_SHADOW: HOU +1.5, TB +3.5, ATL +6.5. Killed massive chalks and −3.5 favs without MoS. No post-vig MoS → no Live / no Quinn / no iMessage. Lessons applied: key-3 fragile, lagged dog number.",
       "tags": [
         "sports",
         "nfl",
@@ -691,8 +699,8 @@
       "ts": "2026-09-13T09:07:45-05:00",
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
-      "title": "Sports process lessons filed from shadow settle (SP-L01\u2013L05)",
-      "summary": "Five dated process/falsifier lessons from the 2026-09-13 shadow settle: thin SP sample kill (2026-09-12), ace\u2260full-game proxy (2026-09-12), bullpen leverage gate (2026-09-09), key-3 half-point fragile (2026-09-09), lagged dog number capture (2026-09-11). Behavior changes noted in lessons.csv.",
+      "title": "Sports process lessons filed from shadow settle (SP-L01–L05)",
+      "summary": "Five dated process/falsifier lessons from the 2026-09-13 shadow settle: thin SP sample kill (2026-09-12), ace≠full-game proxy (2026-09-12), bullpen leverage gate (2026-09-09), key-3 half-point fragile (2026-09-09), lagged dog number capture (2026-09-11). Behavior changes noted in lessons.csv.",
       "tags": [
         "sports",
         "lesson",
@@ -705,7 +713,7 @@
       },
       "at": "2026-09-13T09:07:45-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Appended SP-L01\u2013SP-L05 to lessons.csv; Session Log entries for each; Sports desk lessons feed on next publish.",
+      "deskChanges": "Appended SP-L01–SP-L05 to lessons.csv; Session Log entries for each; Sports desk lessons feed on next publish.",
       "lessonId": "SP-L01,SP-L02,SP-L03,SP-L04,SP-L05"
     },
     {
@@ -737,7 +745,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L04 (origination 2026-09-09)",
-      "summary": "Experience: SEA \u22123.5 lost on exact-3 margin (13-10). Evidence: Key number 3 is fragile for \u22123.5 chalk; dog +3.5 covered. Learning: Key-3 half-point favorite (\u22123.5) is fragile \u2014 prefer +3.5 dog side or require stronger MoS. Change: NFL key-number screen: \u22123.5 chalk needs extra MoS; default prefer buying +3.5 when near fair.",
+      "summary": "Experience: SEA −3.5 lost on exact-3 margin (13-10). Evidence: Key number 3 is fragile for −3.5 chalk; dog +3.5 covered. Learning: Key-3 half-point favorite (−3.5) is fragile — prefer +3.5 dog side or require stronger MoS. Change: NFL key-number screen: −3.5 chalk needs extra MoS; default prefer buying +3.5 when near fair.",
       "tags": [
         "sports",
         "lesson",
@@ -760,7 +768,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L03 (origination 2026-09-09)",
-      "summary": "Experience: STL ML led late; Giants 6-run 8th; SF 7-6. Evidence: Early edge erased by bullpen collapse; no leverage gate. Learning: Bullpen leverage gate was missing on MLB ML shadows. Change: Same as SP-L02 \u2014 ML keepers need bullpen/leverage check or move to runline/abstain.",
+      "summary": "Experience: STL ML led late; Giants 6-run 8th; SF 7-6. Evidence: Early edge erased by bullpen collapse; no leverage gate. Learning: Bullpen leverage gate was missing on MLB ML shadows. Change: Same as SP-L02 — ML keepers need bullpen/leverage check or move to runline/abstain.",
       "tags": [
         "sports",
         "lesson",
@@ -783,7 +791,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L02 (origination 2026-09-12)",
-      "summary": "Experience: PIT ML with Skenes: ace left ahead; Soto blew 8th; CHC 4-3. Evidence: SP thesis held early; bullpen/leverage decided ML. Learning: Ace start is not a full-game ML proxy \u2014 need bullpen/leverage gate for ML tickets. Change: ML shadows require explicit late-inning/bullpen note; else prefer RL/+1.5 or abstain.",
+      "summary": "Experience: PIT ML with Skenes: ace left ahead; Soto blew 8th; CHC 4-3. Evidence: SP thesis held early; bullpen/leverage decided ML. Learning: Ace start is not a full-game ML proxy — need bullpen/leverage gate for ML tickets. Change: ML shadows require explicit late-inning/bullpen note; else prefer RL/+1.5 or abstain.",
       "tags": [
         "sports",
         "lesson",
@@ -806,7 +814,7 @@
       "ts_ct": "2026-09-13 09:07:45 CT",
       "area": "sports",
       "title": "Sports lesson SP-L01 (origination 2026-09-12)",
-      "summary": "Experience: CLE ML shadowed despite Espino thin-sample flag; MIN won 4-3. Evidence: Thin SP n was already a named kill/concern and still logged as keeper; loss followed. Learning: Thin SP sample kill rule must fire \u2014 flag \u2192 abstain/shadow-only-kill, not keeper. Change: Pre-shadow checklist: if SP sample thin, default abstain unless independent build clears MoS without SP weight.",
+      "summary": "Experience: CLE ML shadowed despite Espino thin-sample flag; MIN won 4-3. Evidence: Thin SP n was already a named kill/concern and still logged as keeper; loss followed. Learning: Thin SP sample kill rule must fire — flag → abstain/shadow-only-kill, not keeper. Change: Pre-shadow checklist: if SP sample thin, default abstain unless independent build clears MoS without SP weight.",
       "tags": [
         "sports",
         "lesson",
@@ -828,7 +836,7 @@
       "ts": "2026-09-13T09:15:00-05:00",
       "ts_ct": "2026-09-13 09:15:00 CT",
       "area": "sports",
-      "title": "Shadow settle batch 2026-09-13 \u2014 15 finished, 0 open, no LIVE",
+      "title": "Shadow settle batch 2026-09-13 — 15 finished, 0 open, no LIVE",
       "summary": "Reconciled all finished Harbor shadows (14 v2 + 1 legacy SEA-3.5). Record 7-8-0 (v2 7-7-0); hyp P&L -$4.62 all-in / -$0.62 v2. CLV beat 4/7 where known. Spreads 5-0; MLB MLs 2-7. No Harbor LIVE invented.",
       "tags": [
         "sports",
@@ -853,7 +861,7 @@
       "ts": "2026-09-12T09:52:00.000000-05:00",
       "ts_ct": "2026-09-12 09:52:00 CT",
       "area": "sports",
-      "title": "Sat MLB morning \u2014 3 shadows (LAA/CLE/PIT), no LIVE",
+      "title": "Sat MLB morning — 3 shadows (LAA/CLE/PIT), no LIVE",
       "summary": "Sat MLB morning screen kept three shadows (LAA ML @ WSH, CLE ML @ MIN, PIT ML @ CHC), soft-noted BAL@TOR / CWS@STL, abstained HOU@TB and SEA@ATH heavy juice; no Harbor LIVE.",
       "tags": [
         "sports",
@@ -873,7 +881,7 @@
       },
       "at": "2026-09-12T09:52:00-05:00",
       "actor": "Sloan (Harbor Capital - Sports)",
-      "deskChanges": "Sports Overview/shadow board + AV emptyReason refreshed for Sat MLB shadows; Active Ventures still empty (shadows \u2260 AV).",
+      "deskChanges": "Sports Overview/shadow board + AV emptyReason refreshed for Sat MLB shadows; Active Ventures still empty (shadows ≠ AV).",
       "lessonId": null
     },
     {
@@ -881,7 +889,7 @@
       "ts": "2026-09-12T08:39:42.000000-05:00",
       "ts_ct": "2026-09-12 08:39:42 CT",
       "area": "sports",
-      "title": "Sat CFB game-day \u2014 3 shadows kept, MIZZ dead, no LIVE",
+      "title": "Sat CFB game-day — 3 shadows kept, MIZZ dead, no LIVE",
       "summary": "Sat CFB game-day kept three shadows (OSU +1.5, ISU +14, MICH +5.5), killed soft MIZZ@KU, no Harbor LIVE.",
       "tags": [
         "sports",
@@ -910,7 +918,7 @@
       "ts_ct": "2026-09-11 09:31:43 CT",
       "area": "securities",
       "title": "COREBETA VTI filled (~$10)",
-      "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation \u2014 not alpha.",
+      "summary": "COREBETA went live: BUY 0.0265 VTI MKT SMART filled via Client Portal Gateway. Avg cost ~380.50 (~$10.08 incl. commission drag); mark ~$9.98. Still hold 0.02 SGOV (~$2.01). First experimental risk-on after the SGOV ops fill under Capital activation — not alpha.",
       "tags": [
         "live",
         "VTI",
@@ -928,7 +936,7 @@
     {
       "at": "2026-09-10T15:00:00-05:00",
       "actor": "Holt (Harbor Capital - CEO)",
-      "summary": "Opened the 30-day live viability period (2026-09-10 \u2192 2026-10-10 CT) after the first live fill. Day 1 \u00b7 30 calendar days left. Not a profit quota; no-force-risk \u2014 abstention is valid evidence. Wells Overview trial-clock banner is display SoT for the clock.",
+      "summary": "Opened the 30-day live viability period (2026-09-10 → 2026-10-10 CT) after the first live fill. Day 1 · 30 calendar days left. Not a profit quota; no-force-risk — abstention is valid evidence. Wells Overview trial-clock banner is display SoT for the clock.",
       "deskChanges": "docs/viability-period-2026-09-10.md; session log + Next Up cite days-left; positions 0.02 SGOV on desk; trial-clock.json unchanged as banner SoT.",
       "lessonId": null
     },
@@ -942,41 +950,41 @@
     {
       "at": "2026-09-10T09:43:00-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
-      "summary": "Event Markets: scored claims F7\u2013F9 (206k \u2192 all NO). F7 beat lock mid on Brier; F8/F9 thin-at-lock outcome only. Aug CPI inside T-24. Still no live event capital.",
-      "deskChanges": "forecasts.csv F7\u2013F9 outcome/brier/status=resolved (my_p locked); journal/claims-resolve-2026-09-10.md; calibration_clean +3; decisions append.",
+      "summary": "Event Markets: scored claims F7–F9 (206k → all NO). F7 beat lock mid on Brier; F8/F9 thin-at-lock outcome only. Aug CPI inside T-24. Still no live event capital.",
+      "deskChanges": "forecasts.csv F7–F9 outcome/brier/status=resolved (my_p locked); journal/claims-resolve-2026-09-10.md; calibration_clean +3; decisions append.",
       "lessonId": null
     },
     {
       "at": "2026-09-09T17:07:03-05:00",
       "actor": "Pike (Harbor Capital - Quant)",
-      "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated \u2014 no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
+      "summary": "Quant/Exec aligned to Session Log & Lessons: opened capital-quant log; L10 (Pro SMART, no Lite/ZERO) already dated — no invented lesson. INTENT_ca55 still Holt-approved / held for RTH; no transmit from Pike.",
       "deskChanges": "docs/session-log/capital-quant.json (+ dashboard mirror). Desk truth unchanged.",
       "lessonId": "L10"
     },
     {
       "at": "2026-09-09T17:05:00-05:00",
       "actor": "Holt (Harbor Capital - CEO)",
-      "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open \u2014 no transmit while auth is stale or the market is closed.",
+      "summary": "Adopted the Hayes Session Log & Lessons standard on Capital truth: every lesson now carries an origination date, added lesson L10 for the cancelled SGOV Lite/ZERO route, and filled this Session Log for recent material runs. Client Portal Gateway still needs daily re-auth. The Pro SMART SGOV intent stays held for the next regular-hours open — no transmit while auth is stale or the market is closed.",
       "deskChanges": "lessons.csv origination_date + L10; snapshot lessons emit originationDate; Capital Session Log entries appended; desk republished.",
       "lessonId": "L10"
     },
     {
       "at": "2026-09-09T17:02:31-05:00",
       "actor": "Vera (Harbor Capital - Securities & Options)",
-      "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn \u2264$4 gate). No LIVE securities/options positions \u2014 desk empty/researching unchanged.",
+      "summary": "Securities & Options aligned to Session Log & Lessons standard: market log opened; L06/L07 already dated; added L12 (NANOS size fit + Quinn ≤$4 gate). No LIVE securities/options positions — desk empty/researching unchanged.",
       "deskChanges": "docs/session-log/capital-securities-options.json (+ dashboard mirror); lessons.csv L12.",
       "lessonId": "L12"
     },
     {
       "at": "2026-09-09T17:00:00-05:00",
       "actor": "Wells (Portfolio - Systems)",
-      "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas\u2019s standard. Holt owns ongoing entries after material runs.",
+      "summary": "Opened Capital Session Log tab and shared eh-console Log pattern for Thomas’s standard. Holt owns ongoing entries after material runs.",
       "deskChanges": "New Log tab; data/session-log/capital.json; lesson cards label origination from date_ct."
     },
     {
       "at": "2026-09-09T16:59:34-05:00",
       "actor": "Reed (Harbor Capital - Event Markets)",
-      "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags \u2260 live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
+      "summary": "Event Markets: Session Log opened for capital-event; lesson L11 (lock-time book tags ≠ live mid-promote eligibility). Claims T-24 tape already filed; no live event capital.",
       "deskChanges": "lessons.csv L11; data/session-log/capital-event.json; Event Markets researching empty unchanged.",
       "lessonId": "L11"
     },
