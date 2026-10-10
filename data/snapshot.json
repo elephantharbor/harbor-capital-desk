@@ -8780,8 +8780,8 @@
       },
       "sports_predictions": {
         "schema": "sports_predictions.v1",
-        "snapshot_id": "SP-20261010T101231",
-        "generated_at": "2026-10-10 10:12:31 CDT",
+        "snapshot_id": "SP-20261010T102545",
+        "generated_at": "2026-10-10 10:25:45 CDT",
         "lifecycle": [
           "UPCOMING",
           "WATCH",
@@ -8794,30 +8794,7 @@
           "RECONCILED",
           "HISTORY"
         ],
-        "action_required": [
-          {
-            "account": "personal",
-            "rank": 1,
-            "headline": "Vanderbilt +9.5 (line +9.5 -108) — DraftKings",
-            "stake": "1u",
-            "max_line": "+8.5 (-110); pass at +8 or worse",
-            "action": "BET NOW",
-            "state": "AWAITING THOMAS PLACEMENT (personal account)",
-            "line_ts": "9:47 AM CT ESPN API (DK); CLEATZ DK cache 9:32 AM CT",
-            "line_ts_iso": "2026-10-10T09:47:00-05:00"
-          },
-          {
-            "account": "personal",
-            "rank": 2,
-            "headline": "UCF +10.5 (line +10.5 -108) — DraftKings",
-            "stake": "0.5u",
-            "max_line": "+10 (-110); pass at +9.5",
-            "action": "BET NOW (kicks 11:00 CT)",
-            "state": "AWAITING THOMAS PLACEMENT (personal account)",
-            "line_ts": "9:47 AM CT ESPN API (DK); CLEATZ DK 9:32 AM CT",
-            "line_ts_iso": "2026-10-10T09:47:00-05:00"
-          }
-        ],
+        "action_required": [],
         "recommendations": {
           "personal": [
             {
@@ -8950,7 +8927,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "IU @ NEB",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has IU -8.5 (total 48.5). SP+ (IU -7.7) is within 0.8 pts of the market, so the external models see no edge; ESPN FPI gives IU 69.9% to win outright. The NEB line moved from +9.5 at open to +8.5 now, 1 pt toward NEB.",
@@ -8997,7 +8974,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -9033,7 +9010,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -9069,7 +9046,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -9101,7 +9078,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "ARIZ @ WVU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ARIZ -3.5 (total 60.5). SP+ makes ARIZ a 9.9-pt favorite, 6.4 pts more than DraftKings; ESPN FPI gives ARIZ 60.9% to win outright. The WVU line moved from +3 at open to +3.5 now, 0.5 pt toward ARIZ.",
@@ -9144,7 +9121,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "WAKE @ NCSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has WAKE -3.5 (total 56.5). SP+ makes WAKE a 5.1-pt favorite, 1.6 pts more than DraftKings; ESPN FPI gives WAKE 67.4% to win outright. The NCSU line moved from +2.5 at open to +3.5 now, 1 pt toward WAKE.",
@@ -9187,7 +9164,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "TULN @ ARMY",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ARMY -4 (total 48.5). SP+ makes ARMY a 7.8-pt favorite, 3.8 pts more than DraftKings; ESPN FPI gives ARMY 55.4% to win outright. The ARMY line moved from -6.5 at open to -4 now, 2.5 pts toward TULN.",
@@ -9230,7 +9207,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "SAC @ BGSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has BGSU -8.5 (total 43.5). SP+ makes BGSU only a 2.1-pt favorite, 6.4 pts short of DraftKings; ESPN FPI gives BGSU 79.3% to win outright. The BGSU line moved from -6.5 at open to -8.5 now, 2 pts toward BGSU.",
@@ -9273,7 +9250,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "BALL @ NU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has NU -34.5 (total 53.5). SP+ makes NU a 37.5-pt favorite, 3 pts more than DraftKings; ESPN FPI gives NU 99.1% to win outright. The line has not moved off the open (-34.5 NU).",
@@ -9316,7 +9293,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "SC @ FLA",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has FLA -10.5 (total 59.5). SP+ makes FLA only a 8.4-pt favorite, 2.1 pts short of DraftKings; ESPN FPI gives FLA 73.1% to win outright. The FLA line moved from -14.5 at open to -10.5 now, 4 pts toward SC.",
@@ -9359,7 +9336,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "RICE @ ECU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ECU -10 (total 46.5). SP+ makes ECU a 13.3-pt favorite, 3.3 pts more than DraftKings; ESPN FPI gives ECU 82.6% to win outright. The ECU line moved from -9.5 at open to -10 now, 0.5 pt toward ECU.",
@@ -9402,7 +9379,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "ODU @ APP",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has APP -10 (total 46.5). SP+ (APP -10.4) is within 0.4 pts of the market, so the external models see no edge; ESPN FPI gives APP 78.3% to win outright. The APP line moved from -5.5 at open to -10 now, 4.5 pts toward APP.",
@@ -9449,7 +9426,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -10013,7 +9990,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "TEX VS OU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has TEX -7.5 (total 40.5) at a neutral site. SP+ makes TEX a 9.9-pt favorite, 2.4 pts more than DraftKings; ESPN FPI gives TEX 84.9% to win outright. The OU line moved from +6 at open to +7.5 now, 1.5 pts toward TEX.",
@@ -10056,7 +10033,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "STAN @ ND",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ND -39.5 (total 55.5). SP+ makes ND a 42.8-pt favorite, 3.3 pts more than DraftKings; ESPN FPI gives ND 99.5% to win outright. The ND line moved from -35.5 at open to -39.5 now, 4 pts toward ND.",
@@ -10103,7 +10080,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -10135,7 +10112,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "UCLA @ ORE",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ORE -10.5 (total 57.5). SP+ (ORE -10) is within 0.5 pt of the market, so the external models see no edge; ESPN FPI gives ORE 84.7% to win outright. The ORE line moved from -12.5 at open to -10.5 now, 2 pts toward UCLA.",
@@ -10178,7 +10155,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "HOU @ KSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has KSU -2.5 (total 55.5). SP+ (KSU -1.2) is within 1.3 pts of the market, so the external models see no edge; ESPN FPI gives KSU 51.1% to win outright. The line has not moved off the open (-2.5 KSU).",
@@ -10221,7 +10198,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "DUKE @ GT",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has DUKE -5.5 (total 45.5). SP+ makes DUKE a 8.1-pt favorite, 2.6 pts more than DraftKings; ESPN FPI gives DUKE 72.7% to win outright. The GT line moved from +6.5 at open to +5.5 now, 1 pt toward GT.",
@@ -10264,7 +10241,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "VT @ CAL",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has VT -10 (total 53.5). SP+ makes VT a 13.7-pt favorite, 3.7 pts more than DraftKings; ESPN FPI gives VT 71.9% to win outright. The CAL line moved from +10.5 at open to +10 now, 0.5 pt toward CAL.",
@@ -10307,7 +10284,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "ILL @ MSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ILL -2.5 (total 48.5). SP+ makes ILL a 5.8-pt favorite, 3.3 pts more than DraftKings; ESPN FPI gives ILL 53.7% to win outright. The MSU line moved from +3 at open to +2.5 now, 0.5 pt toward MSU.",
@@ -10350,7 +10327,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "CLT @ UNT",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has UNT -29.5 (total 58.5). SP+ (UNT -28.5) is within 1 pt of the market, so the external models see no edge; ESPN FPI gives UNT 96.5% to win outright. The UNT line moved from -23.5 at open to -29.5 now, 6 pts toward UNT.",
@@ -10393,7 +10370,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "TLSA @ NAVY",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has NAVY -1.5 (total 47.5). SP+ makes NAVY a 4.9-pt favorite, 3.4 pts more than DraftKings; ESPN FPI gives NAVY 49.8% to win outright, so FPI disagrees with the market on who wins. The NAVY line moved from -3 at open to -1.5 now, 1.5 pts toward TLSA.",
@@ -10436,7 +10413,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "EMU @ AKR",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has EMU -5.5 (total 51.5). SP+ makes EMU a 10.8-pt favorite, 5.3 pts more than DraftKings; ESPN FPI gives EMU 63.4% to win outright. The AKR line moved from +3.5 at open to +5.5 now, 2 pts toward EMU.",
@@ -10479,7 +10456,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "BUFF @ TOL",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has TOL -18.5 (total 55.5). SP+ makes TOL a 22.6-pt favorite, 4.1 pts more than DraftKings; ESPN FPI gives TOL 91.1% to win outright. The TOL line moved from -19.5 at open to -18.5 now, 1 pt toward BUFF.",
@@ -10522,7 +10499,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "CMU @ OHIO",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has OHIO -2.5 (total 45.5). SP+ makes OHIO a 7-pt favorite, 4.5 pts more than DraftKings; ESPN FPI gives OHIO 62.5% to win outright. The OHIO line moved from -3.5 at open to -2.5 now, 1 pt toward CMU.",
@@ -10565,7 +10542,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "KENT @ WMU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has WMU -14 (total 43.5). SP+ makes WMU a 17.4-pt favorite, 3.4 pts more than DraftKings; ESPN FPI gives WMU 90.6% to win outright. The WMU line moved from -15.5 at open to -14 now, 1.5 pts toward KENT.",
@@ -10608,7 +10585,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "CONN @ TEM",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has TEM -3.5 (total 54.5). SP+ makes TEM only a 1.4-pt favorite, 2.1 pts short of DraftKings; ESPN FPI gives TEM 64.6% to win outright. The TEM line moved from -3 at open to -3.5 now, 0.5 pt toward TEM.",
@@ -10651,7 +10628,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "MD @ OSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has OSU -33.5 (total 56.5). SP+ makes OSU only a 30.5-pt favorite, 3 pts short of DraftKings; ESPN FPI gives OSU 98.5% to win outright. The OSU line moved from -37.5 at open to -33.5 now, 4 pts toward MD.",
@@ -10694,7 +10671,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "TENN @ ARK",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has TENN -13.5 (total 51.5). SP+ makes TENN a 18.9-pt favorite, 5.4 pts more than DraftKings; ESPN FPI gives TENN 86.9% to win outright. The ARK line moved from +14 at open to +13.5 now, 0.5 pt toward ARK.",
@@ -10737,7 +10714,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "SDSU @ ORST",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ORST -16.5 (total 52.5). SP+ (ORST -15.1) is within 1.4 pts of the market, so the external models see no edge; ESPN FPI gives ORST 78.7% to win outright. The ORST line moved from -13.5 at open to -16.5 now, 3 pts toward ORST.",
@@ -10780,7 +10757,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "LSU @ UK",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has LSU -8.5 (total 50.5). SP+ makes LSU a 13-pt favorite, 4.5 pts more than DraftKings; ESPN FPI gives LSU 75.0% to win outright. The UK line moved from +10.5 at open to +8.5 now, 2 pts toward UK.",
@@ -10823,7 +10800,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "UAB @ MEM",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has MEM -14.5 (total 54.5). SP+ makes MEM a 20.3-pt favorite, 5.8 pts more than DraftKings; ESPN FPI gives MEM 91.7% to win outright. The MEM line moved from -14 at open to -14.5 now, 0.5 pt toward MEM.",
@@ -10866,7 +10843,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "NEV @ UTEP",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has NEV -10 (total 47.5). SP+ makes NEV a 17-pt favorite, 7 pts more than DraftKings; ESPN FPI gives NEV 82.8% to win outright. The UTEP line moved from +9.5 at open to +10 now, 0.5 pt toward NEV.",
@@ -10909,7 +10886,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "NDSU @ UNLV",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has NDSU -2.5 (total 47.5). SP+ makes NDSU a 10.3-pt favorite, 7.8 pts more than DraftKings; ESPN FPI gives NDSU 48.0% to win outright, so FPI disagrees with the market on who wins. The UNLV line moved from +4 at open to +2.5 now, 1.5 pts toward UNLV.",
@@ -10956,7 +10933,7 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           },
@@ -10988,7 +10965,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "UGA @ ALA",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has ALA -2.5 (total 51.5). SP+ actually favors UGA by 2.5, against the market favorite ALA; ESPN FPI gives ALA 51.4% to win outright. The ALA line moved from +3 at open to -2.5 now, 5.5 pts toward ALA. The favorite flipped since open.",
@@ -11031,7 +11008,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "USC @ PSU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has PSU -2.5 (total 54.5). SP+ actually favors USC by 0.6, against the market favorite PSU; ESPN FPI gives PSU 62.8% to win outright. The PSU line moved from +1.5 at open to -2.5 now, 4 pts toward PSU. The favorite flipped since open.",
@@ -11074,7 +11051,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "SYR @ UVA",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has UVA -11.5 (total 49.5). SP+ (UVA -11) is within 0.5 pt of the market, so the external models see no edge; ESPN FPI gives UVA 74.9% to win outright. The UVA line moved from -8.5 at open to -11.5 now, 3 pts toward UVA.",
@@ -11117,7 +11094,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "AFA @ NIU",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has AF -7 (total 48.5). SP+ makes AF a 20.8-pt favorite, 13.8 pts more than DraftKings; ESPN FPI gives AF 72.4% to win outright. The NIU line moved from +12.5 at open to +7 now, 5.5 pts toward NIU.",
@@ -11160,7 +11137,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "JMU @ GASO",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has JMU -7.5 (total 51.5). SP+ makes JMU a 15-pt favorite, 7.5 pts more than DraftKings; ESPN FPI gives JMU 79.4% to win outright. The GASO line moved from +10 at open to +7.5 now, 2.5 pts toward GASO.",
@@ -11203,7 +11180,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "UL @ LT",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has LT -3 (total 48.5). SP+ actually favors UL by 4.5, against the market favorite LT; ESPN FPI gives LT 53.3% to win outright. The LT line moved from -2.5 at open to -3 now, 0.5 pt toward LT.",
@@ -11246,7 +11223,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "KU @ UTAH",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has UTAH -15.5 (total 49.5). SP+ (UTAH -16.7) is within 1.2 pts of the market, so the external models see no edge; ESPN FPI gives UTAH 88.8% to win outright. The UTAH line moved from -16.5 at open to -15.5 now, 1 pt toward KU.",
@@ -11289,7 +11266,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "MINN @ PUR",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has MINN -2.5 (total 50.5). SP+ makes MINN a 6.6-pt favorite, 4.1 pts more than DraftKings; ESPN FPI gives MINN 52.7% to win outright. The PUR line moved from +4.5 at open to +2.5 now, 2 pts toward PUR.",
@@ -11332,7 +11309,7 @@
             "line_ts": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "matchup": "BOIS @ FRES",
             "model_version": "external-FPI-SP+-blend",
             "narrative": "DraftKings has BOIS -7 (total 48.5). SP+ makes BOIS only a 5.4-pt favorite, 1.6 pts short of DraftKings; ESPN FPI gives BOIS 73.1% to win outright. The FRES line moved from +7.5 at open to +7 now, 0.5 pt toward FRES.",
@@ -11379,13 +11356,133 @@
             "cover_probability": null,
             "cover_probability_null_reason": "no calibrated cover source (Path A unarmed)",
             "margin_win_probability": null,
-            "margin_win_probability_null_reason": "no calibrated cover source (Path A unarmed)",
+            "margin_win_probability_null_reason": "no Harbor CFB model; FPI gives only an outright win %, shown separately",
             "line_ts_iso": "2026-10-10T09:47:00-05:00",
             "generated_at_iso": "2026-10-10T09:47:00-05:00"
           }
         ],
-        "active_bets": [],
-        "active_bets_note": "Real wagers only, after Thomas confirms placement. None confirmed.",
+        "active_bets": [
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-01",
+            "account": "personal",
+            "state": "BET PLACED",
+            "lifecycle_state": "BET_PLACED",
+            "placed_at": "2026-10-10T10:15:00-05:00",
+            "sportsbook": "DraftKings",
+            "sport": "CFB",
+            "espn_event_id": "401856718",
+            "event_id": "MISS @ VAN",
+            "matchup": "Ole Miss @ Vanderbilt",
+            "kickoff_ct": "2:30 PM CT",
+            "bet": "Vanderbilt +9.5",
+            "odds_american": 139,
+            "odds_american_pre_boost": -108,
+            "boost": "+50% profit boost ( -108 -> +139 )",
+            "stake_usd": 10.0,
+            "to_win_usd": 13.9,
+            "payout_usd": 23.9,
+            "max_loss_usd": 10.0,
+            "fair_line": "Ole Miss -3.5",
+            "fair_line_source": "SP+ (outside model); FPI same direction",
+            "model": "external SP+/FPI, not a Harbor model",
+            "personal_rec_rank": 1,
+            "prediction_id": "CFB-MISS @ VAN-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false,
+            "note": "Thomas confirmed placement in chat at 10:15 AM CT Sat Oct 10, 2026. PERSONAL DraftKings account — NOT an Elephant Harbor bet; never counts toward Harbor / Elephant Harbor P&L."
+          },
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-02",
+            "account": "personal",
+            "state": "BET PLACED",
+            "lifecycle_state": "BET_PLACED",
+            "placed_at": "2026-10-10T10:15:00-05:00",
+            "sportsbook": "DraftKings",
+            "sport": "CFB",
+            "espn_event_id": "401856824",
+            "event_id": "UCF @ OKST",
+            "matchup": "UCF @ Oklahoma State",
+            "kickoff_ct": "11:00 AM CT",
+            "bet": "UCF +10.5",
+            "odds_american": -108,
+            "odds_american_pre_boost": -108,
+            "boost": null,
+            "stake_usd": 10.0,
+            "to_win_usd": 9.26,
+            "payout_usd": 19.26,
+            "max_loss_usd": 10.0,
+            "fair_line": "Oklahoma State -4.5",
+            "fair_line_source": "SP+ (outside model); FPI same direction",
+            "model": "external SP+/FPI, not a Harbor model",
+            "personal_rec_rank": 2,
+            "prediction_id": "CFB-UCF @ OKST-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false,
+            "note": "Thomas confirmed placement in chat at 10:15 AM CT Sat Oct 10, 2026. PERSONAL DraftKings account — NOT an Elephant Harbor bet; never counts toward Harbor / Elephant Harbor P&L."
+          }
+        ],
+        "active_bets_note": "2 personal DraftKings wager(s) confirmed placed. NOT Elephant Harbor — excluded from Harbor/EH P&L. Harbor/EH active bets: 0.",
+        "active_bets_personal": [
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-01",
+            "account": "personal",
+            "state": "BET PLACED",
+            "lifecycle_state": "BET_PLACED",
+            "placed_at": "2026-10-10T10:15:00-05:00",
+            "sportsbook": "DraftKings",
+            "sport": "CFB",
+            "espn_event_id": "401856718",
+            "event_id": "MISS @ VAN",
+            "matchup": "Ole Miss @ Vanderbilt",
+            "kickoff_ct": "2:30 PM CT",
+            "bet": "Vanderbilt +9.5",
+            "odds_american": 139,
+            "odds_american_pre_boost": -108,
+            "boost": "+50% profit boost ( -108 -> +139 )",
+            "stake_usd": 10.0,
+            "to_win_usd": 13.9,
+            "payout_usd": 23.9,
+            "max_loss_usd": 10.0,
+            "fair_line": "Ole Miss -3.5",
+            "fair_line_source": "SP+ (outside model); FPI same direction",
+            "model": "external SP+/FPI, not a Harbor model",
+            "personal_rec_rank": 1,
+            "prediction_id": "CFB-MISS @ VAN-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false,
+            "note": "Thomas confirmed placement in chat at 10:15 AM CT Sat Oct 10, 2026. PERSONAL DraftKings account — NOT an Elephant Harbor bet; never counts toward Harbor / Elephant Harbor P&L."
+          },
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-02",
+            "account": "personal",
+            "state": "BET PLACED",
+            "lifecycle_state": "BET_PLACED",
+            "placed_at": "2026-10-10T10:15:00-05:00",
+            "sportsbook": "DraftKings",
+            "sport": "CFB",
+            "espn_event_id": "401856824",
+            "event_id": "UCF @ OKST",
+            "matchup": "UCF @ Oklahoma State",
+            "kickoff_ct": "11:00 AM CT",
+            "bet": "UCF +10.5",
+            "odds_american": -108,
+            "odds_american_pre_boost": -108,
+            "boost": null,
+            "stake_usd": 10.0,
+            "to_win_usd": 9.26,
+            "payout_usd": 19.26,
+            "max_loss_usd": 10.0,
+            "fair_line": "Oklahoma State -4.5",
+            "fair_line_source": "SP+ (outside model); FPI same direction",
+            "model": "external SP+/FPI, not a Harbor model",
+            "personal_rec_rank": 2,
+            "prediction_id": "CFB-UCF @ OKST-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false,
+            "note": "Thomas confirmed placement in chat at 10:15 AM CT Sat Oct 10, 2026. PERSONAL DraftKings account — NOT an Elephant Harbor bet; never counts toward Harbor / Elephant Harbor P&L."
+          }
+        ],
+        "active_bets_elephant_harbor": [],
         "recently_settled": [
           {
             "account": "none",
@@ -12296,9 +12393,583 @@
               "su_result": "win"
             },
             "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "away": "KC",
+            "biggest_risk": "v1 misses the final margin by ~0.5 pt more than the schedule number historically; early-season 2026 EPA samples are small.",
+            "classification": "SHADOW",
+            "confidence": "Low",
+            "cover_probability": null,
+            "event_id": "NFL-2026-W4-KC@LV",
+            "expected_home_margin": -2.8,
+            "expected_total": null,
+            "generated_at": "2026-10-04 07:46:54 CDT",
+            "generated_at_iso": "2026-10-04T07:46:54-05:00",
+            "harbor_fair_plain": "Harbor fair: KC -2.8 (Harbor predicts KC by 2.8)",
+            "harbor_minus_market_pts": 1.7,
+            "home": "LV",
+            "input_ts": "2026-10-04 07:46:54 CDT",
+            "kickoff": "2026-10-04 16:25",
+            "league": "NFL",
+            "market_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+            "market_home_margin": -4.5,
+            "market_line_display": "KC -4.5",
+            "market_odds": null,
+            "market_read_at": "2026-10-04 07:46:54 CDT",
+            "market_read_at_iso": "2026-10-04T07:46:54-05:00",
+            "matchup": "KC @ LV",
+            "model_version": "walkforward-v1-2026-10-04",
+            "narrative": "Harbor NFL walk-forward v1 compares each team's prior offensive EPA and defensive EPA allowed, adds a home-field term and rest difference. It lands 1.7 pts more on LV than DraftKings. Backtest it is less accurate than the market spread, so this is a paper forecast only.",
+            "predicted_winner": "KC",
+            "prediction_id": "NFL-2026-W4-KC@LV-walkforward-v1-2026-10-04-REGEN",
+            "provenance": "regenerated_csv",
+            "recommendation_state": "SHADOW",
+            "regenerated": true,
+            "regenerated_note": "REGENERATED 2026-10-10 from tools/nfl_shadow_freeze_v1.py with 2026-10-04 data copies; original file lost. Reproduces Pike's aggregates (MAE 7.67 vs 7.43, closer 9/15). See data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED-verification.json",
+            "season": 2026,
+            "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 10:09:33 CDT",
+            "week": 4,
+            "win_probability": null,
+            "result": {
+              "actual_margin": -3.0,
+              "actual_winner": "KC",
+              "ats_basis": "Harbor side vs line stored at prediction time (paper; no bet)",
+              "ats_result": "win",
+              "away_score": 30.0,
+              "close_line_display": "KC -3.5",
+              "close_line_home_margin": -3.5,
+              "close_line_source": "ESPN summary pickcenter (Draft Kings), last line shown after final: https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872976",
+              "close_odds": null,
+              "clv_pp": null,
+              "event_id": "NFL-2026-W4-KC@LV",
+              "final_score": "KC 30 @ LV 27",
+              "forecast_error": 0.2,
+              "harbor_closer_than_line": true,
+              "home_score": 27.0,
+              "hypothetical_pnl_usd": null,
+              "lifecycle_path": [
+                "FINAL",
+                "RECONCILED"
+              ],
+              "lifecycle_state": "RECONCILED",
+              "market_error": 1.5,
+              "market_line_at_prediction_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+              "market_line_at_prediction_home_margin": -4.5,
+              "postgame_learning": null,
+              "predicted_margin": -2.8,
+              "prediction_id": "NFL-2026-W4-KC@LV-walkforward-v1-2026-10-04-REGEN",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 10:09:37 CDT",
+              "reconciled_at_iso": "2026-10-10T10:09:37-05:00",
+              "signed_error": 0.2,
+              "source": "ESPN scoreboard final, event 401872976: https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=4",
+              "su_result": "win"
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "away": "LAC",
+            "biggest_risk": "v1 misses the final margin by ~0.5 pt more than the schedule number historically; early-season 2026 EPA samples are small.",
+            "classification": "SHADOW",
+            "confidence": "Low",
+            "cover_probability": null,
+            "event_id": "NFL-2026-W4-LAC@SEA",
+            "expected_home_margin": 13.76,
+            "expected_total": null,
+            "generated_at": "2026-10-04 07:46:54 CDT",
+            "generated_at_iso": "2026-10-04T07:46:54-05:00",
+            "harbor_fair_plain": "Harbor fair: SEA -13.8 (Harbor predicts SEA by 13.8)",
+            "harbor_minus_market_pts": 6.76,
+            "home": "SEA",
+            "input_ts": "2026-10-04 07:46:54 CDT",
+            "kickoff": "2026-10-04 16:25",
+            "league": "NFL",
+            "market_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+            "market_home_margin": 7.0,
+            "market_line_display": "SEA -7",
+            "market_odds": null,
+            "market_read_at": "2026-10-04 07:46:54 CDT",
+            "market_read_at_iso": "2026-10-04T07:46:54-05:00",
+            "matchup": "LAC @ SEA",
+            "model_version": "walkforward-v1-2026-10-04",
+            "narrative": "Harbor NFL walk-forward v1 compares each team's prior offensive EPA and defensive EPA allowed, adds a home-field term and rest difference. It lands 6.8 pts more on SEA than DraftKings. Backtest it is less accurate than the market spread, so this is a paper forecast only.",
+            "predicted_winner": "SEA",
+            "prediction_id": "NFL-2026-W4-LAC@SEA-walkforward-v1-2026-10-04-REGEN",
+            "provenance": "regenerated_csv",
+            "recommendation_state": "SHADOW",
+            "regenerated": true,
+            "regenerated_note": "REGENERATED 2026-10-10 from tools/nfl_shadow_freeze_v1.py with 2026-10-04 data copies; original file lost. Reproduces Pike's aggregates (MAE 7.67 vs 7.43, closer 9/15). See data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED-verification.json",
+            "season": 2026,
+            "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 10:09:33 CDT",
+            "week": 4,
+            "win_probability": null,
+            "result": {
+              "actual_margin": 7.0,
+              "actual_winner": "SEA",
+              "ats_basis": "Harbor side vs line stored at prediction time (paper; no bet)",
+              "ats_result": "push",
+              "away_score": 23.0,
+              "close_line_display": "SEA -7",
+              "close_line_home_margin": 7.0,
+              "close_line_source": "ESPN summary pickcenter (Draft Kings), last line shown after final: https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872977",
+              "close_odds": null,
+              "clv_pp": null,
+              "event_id": "NFL-2026-W4-LAC@SEA",
+              "final_score": "LAC 23 @ SEA 30",
+              "forecast_error": 6.76,
+              "harbor_closer_than_line": false,
+              "home_score": 30.0,
+              "hypothetical_pnl_usd": null,
+              "lifecycle_path": [
+                "FINAL",
+                "RECONCILED"
+              ],
+              "lifecycle_state": "RECONCILED",
+              "market_error": 0.0,
+              "market_line_at_prediction_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+              "market_line_at_prediction_home_margin": 7.0,
+              "postgame_learning": null,
+              "predicted_margin": 13.76,
+              "prediction_id": "NFL-2026-W4-LAC@SEA-walkforward-v1-2026-10-04-REGEN",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 10:09:37 CDT",
+              "reconciled_at_iso": "2026-10-10T10:09:37-05:00",
+              "signed_error": 6.76,
+              "source": "ESPN scoreboard final, event 401872977: https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=4",
+              "su_result": "win"
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "away": "DET",
+            "biggest_risk": "v1 misses the final margin by ~0.5 pt more than the schedule number historically; early-season 2026 EPA samples are small.",
+            "classification": "SHADOW",
+            "confidence": "Low",
+            "cover_probability": null,
+            "event_id": "NFL-2026-W4-DET@CAR",
+            "expected_home_margin": 2.07,
+            "expected_total": null,
+            "generated_at": "2026-10-04 07:46:54 CDT",
+            "generated_at_iso": "2026-10-04T07:46:54-05:00",
+            "harbor_fair_plain": "Harbor fair: CAR -2.1 (Harbor predicts CAR by 2.1)",
+            "harbor_minus_market_pts": 5.57,
+            "home": "CAR",
+            "input_ts": "2026-10-04 07:46:54 CDT",
+            "kickoff": "2026-10-04 20:20",
+            "league": "NFL",
+            "market_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+            "market_home_margin": -3.5,
+            "market_line_display": "DET -3.5",
+            "market_odds": null,
+            "market_read_at": "2026-10-04 07:46:54 CDT",
+            "market_read_at_iso": "2026-10-04T07:46:54-05:00",
+            "matchup": "DET @ CAR",
+            "model_version": "walkforward-v1-2026-10-04",
+            "narrative": "Harbor NFL walk-forward v1 compares each team's prior offensive EPA and defensive EPA allowed, adds a home-field term and rest difference. It lands 5.6 pts more on CAR than DraftKings. Backtest it is less accurate than the market spread, so this is a paper forecast only.",
+            "predicted_winner": "CAR",
+            "prediction_id": "NFL-2026-W4-DET@CAR-walkforward-v1-2026-10-04-REGEN",
+            "provenance": "regenerated_csv",
+            "recommendation_state": "SHADOW",
+            "regenerated": true,
+            "regenerated_note": "REGENERATED 2026-10-10 from tools/nfl_shadow_freeze_v1.py with 2026-10-04 data copies; original file lost. Reproduces Pike's aggregates (MAE 7.67 vs 7.43, closer 9/15). See data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED-verification.json",
+            "season": 2026,
+            "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 10:09:33 CDT",
+            "week": 4,
+            "win_probability": null,
+            "result": {
+              "actual_margin": 6.0,
+              "actual_winner": "CAR",
+              "ats_basis": "Harbor side vs line stored at prediction time (paper; no bet)",
+              "ats_result": "win",
+              "away_score": 26.0,
+              "close_line_display": "DET -3.5",
+              "close_line_home_margin": -3.5,
+              "close_line_source": "ESPN summary pickcenter (Draft Kings), last line shown after final: https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872978",
+              "close_odds": null,
+              "clv_pp": null,
+              "event_id": "NFL-2026-W4-DET@CAR",
+              "final_score": "DET 26 @ CAR 32",
+              "forecast_error": 3.93,
+              "harbor_closer_than_line": true,
+              "home_score": 32.0,
+              "hypothetical_pnl_usd": null,
+              "lifecycle_path": [
+                "FINAL",
+                "RECONCILED"
+              ],
+              "lifecycle_state": "RECONCILED",
+              "market_error": 9.5,
+              "market_line_at_prediction_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+              "market_line_at_prediction_home_margin": -3.5,
+              "postgame_learning": null,
+              "predicted_margin": 2.07,
+              "prediction_id": "NFL-2026-W4-DET@CAR-walkforward-v1-2026-10-04-REGEN",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 10:09:38 CDT",
+              "reconciled_at_iso": "2026-10-10T10:09:38-05:00",
+              "signed_error": -3.93,
+              "source": "ESPN scoreboard final, event 401872978: https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=4",
+              "su_result": "win"
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "away": "ATL",
+            "biggest_risk": "v1 misses the final margin by ~0.5 pt more than the schedule number historically; early-season 2026 EPA samples are small.",
+            "classification": "SHADOW",
+            "confidence": "Low",
+            "cover_probability": null,
+            "event_id": "NFL-2026-W4-ATL@NO",
+            "expected_home_margin": 4.97,
+            "expected_total": null,
+            "generated_at": "2026-10-04 07:46:54 CDT",
+            "generated_at_iso": "2026-10-04T07:46:54-05:00",
+            "harbor_fair_plain": "Harbor fair: NO -5.0 (Harbor predicts NO by 5.0)",
+            "harbor_minus_market_pts": 3.47,
+            "home": "NO",
+            "input_ts": "2026-10-04 07:46:54 CDT",
+            "kickoff": "2026-10-05 20:15",
+            "league": "NFL",
+            "market_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+            "market_home_margin": 1.5,
+            "market_line_display": "NO -1.5",
+            "market_odds": null,
+            "market_read_at": "2026-10-04 07:46:54 CDT",
+            "market_read_at_iso": "2026-10-04T07:46:54-05:00",
+            "matchup": "ATL @ NO",
+            "model_version": "walkforward-v1-2026-10-04",
+            "narrative": "Harbor NFL walk-forward v1 compares each team's prior offensive EPA and defensive EPA allowed, adds a home-field term and rest difference. It lands 3.5 pts more on NO than DraftKings. Backtest it is less accurate than the market spread, so this is a paper forecast only.",
+            "predicted_winner": "NO",
+            "prediction_id": "NFL-2026-W4-ATL@NO-walkforward-v1-2026-10-04-REGEN",
+            "provenance": "regenerated_csv",
+            "recommendation_state": "SHADOW",
+            "regenerated": true,
+            "regenerated_note": "REGENERATED 2026-10-10 from tools/nfl_shadow_freeze_v1.py with 2026-10-04 data copies; original file lost. Reproduces Pike's aggregates (MAE 7.67 vs 7.43, closer 9/15). See data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED-verification.json",
+            "season": 2026,
+            "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 10:09:33 CDT",
+            "week": 4,
+            "win_probability": null,
+            "result": {
+              "actual_margin": -21.0,
+              "actual_winner": "ATL",
+              "ats_basis": "Harbor side vs line stored at prediction time (paper; no bet)",
+              "ats_result": "loss",
+              "away_score": 45.0,
+              "close_line_display": "NO -1.5",
+              "close_line_home_margin": 1.5,
+              "close_line_source": "ESPN summary pickcenter (Draft Kings), last line shown after final: https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401872979",
+              "close_odds": null,
+              "clv_pp": null,
+              "event_id": "NFL-2026-W4-ATL@NO",
+              "final_score": "ATL 45 @ NO 24",
+              "forecast_error": 25.97,
+              "harbor_closer_than_line": false,
+              "home_score": 24.0,
+              "hypothetical_pnl_usd": null,
+              "lifecycle_path": [
+                "FINAL",
+                "RECONCILED"
+              ],
+              "lifecycle_state": "RECONCILED",
+              "market_error": 22.5,
+              "market_line_at_prediction_book": "nflverse schedule spread_line (games-2026-10-04.csv; not a DK read)",
+              "market_line_at_prediction_home_margin": 1.5,
+              "postgame_learning": null,
+              "predicted_margin": 4.97,
+              "prediction_id": "NFL-2026-W4-ATL@NO-walkforward-v1-2026-10-04-REGEN",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 10:09:38 CDT",
+              "reconciled_at_iso": "2026-10-10T10:09:38-05:00",
+              "signed_error": 25.97,
+              "source": "ESPN scoreboard final, event 401872979: https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=2026&seasontype=2&week=4",
+              "su_result": "loss"
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "model_disagreement",
+            "event_id": "NFL-2026-W5-DAL@HOU-2026-10-04",
+            "generated_at": "2026-10-03 16:18 CT",
+            "harbor_fair_plain": "Harbor fair: HOU -3 mkt (open -2.5); FPI DAL by 1.3",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:18 CT",
+            "kickoff": null,
+            "league": "NFL",
+            "market": "spread_DAL+3",
+            "market_odds": "-112",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "NFL-2026-W5-DAL@HOU-2026-10-04",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872967. Calibration-only until settle; appended settled 2026-10-05. SETTLED W DAL 34-30 HOU (DAL by 4 outright; +3 covers); postmortem 2026-10-05: FPI-flip dog thesis held on cover (outright W); falsifier (no cover + Collins/Stroud explosives) not met; number flat at +3, juice CLV beat (close -115 vs entry -112); blank-band SHADOW class correctly blocked LIVE; one calibration point not proof; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+            "prediction_id": "LEDGER-SP-SH-20261004-NFL-01",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "Dallas +3",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "win",
+              "close_odds": "-115",
+              "clv_pp": 0.66,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": 4.46,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261004-NFL-01",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "model_disagreement",
+            "event_id": "NFL-2026-W5-JAX@CIN-2026-10-04",
+            "generated_at": "2026-10-03 16:18 CT",
+            "harbor_fair_plain": "Harbor fair: CIN -2.5 mkt (flat); FPI JAX by 1.1",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:18 CT",
+            "kickoff": null,
+            "league": "NFL",
+            "market": "spread_JAX+2.5",
+            "market_odds": "-105",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "NFL-2026-W5-JAX@CIN-2026-10-04",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872969. Calibration-only until settle; appended settled 2026-10-05. SETTLED W JAX 22-17 CIN (JAX by 5 outright; +2.5 covers); postmortem 2026-10-05: FPI-flip dog thesis held on cover (outright W); falsifier not met; number flat at +2.5, juice CLV mild miss (close -102 vs entry -105); blank-band SHADOW class correctly blocked LIVE; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+            "prediction_id": "LEDGER-SP-SH-20261004-NFL-02",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "Jacksonville +2.5",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "win",
+              "close_odds": "-102",
+              "clv_pp": -0.72,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": 4.76,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261004-NFL-02",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "model_disagreement",
+            "event_id": "NFL-2026-W5-IND@WSH-2026-10-04-London",
+            "generated_at": "2026-10-03 16:18 CT",
+            "harbor_fair_plain": "Harbor fair: IND -4.5 mkt (open WSH -1.5; Daniels OUT steam); FPI IND by 1.3",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:18 CT",
+            "kickoff": null,
+            "league": "NFL",
+            "market": "spread_WSH+4.5",
+            "market_odds": "-115",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "NFL-2026-W5-IND@WSH-2026-10-04-London",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872965. Calibration-only until settle; appended settled 2026-10-05. SETTLED L IND 30-13 WSH (WSH by -17; +4.5 fails); postmortem 2026-10-05: dog-gap-vs-FPI thesis missed hard; pre-registered falsifier MET (no cover; Daniels-out steam was right direction, FPI looks under-updated for QB change) — forecast miss vs real result, not money lost and not a MoS falsifier; number flat at +4.5, juice CLV miss (close -102 vs entry -115 = we paid heavy juice); blank-band SHADOW class corr",
+            "prediction_id": "LEDGER-SP-SH-20261004-NFL-03",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "Washington +4.5",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "loss",
+              "close_odds": "-102",
+              "clv_pp": -2.99,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": -5.0,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261004-NFL-03",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "model_disagreement",
+            "event_id": "NFL-2026-W5-DEN@SF-2026-10-04",
+            "generated_at": "2026-10-03 16:18 CT",
+            "harbor_fair_plain": "Harbor fair: SF -3 mkt (open -2.5); FPI SF by 7.9",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:18 CT",
+            "kickoff": null,
+            "league": "NFL",
+            "market": "spread_SF-3",
+            "market_odds": "+100",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "NFL-2026-W5-DEN@SF-2026-10-04",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range (FPI margin only; Harbor bin closed). ESPN event_id 401872975. Calibration-only until settle; appended settled 2026-10-05. SETTLED W SF 24-14 DEN (SF by 10; -3 covers); postmortem 2026-10-05: FPI-chalk-vs-short-number thesis held on cover; falsifier (no cover / close shortens through -2.5) not met; number flat at -3, juice CLV beat (close -105 vs entry +100); blank-band SHADOW class correctly blocked LIVE; lesson_tag=none_no_process_falsifier; tag=learning_probe_shadow_settled",
+            "prediction_id": "LEDGER-SP-SH-20261004-NFL-04",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "San Francisco -3",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "NFL",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "win",
+              "close_odds": "-105",
+              "clv_pp": 1.22,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": 5.0,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261004-NFL-04",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "model_disagreement",
+            "event_id": "CFB-2026-10-03-BAY@ASU",
+            "generated_at": "2026-10-03 16:05 CT",
+            "harbor_fair_plain": "Harbor fair: ASU -3.5 mkt; SP+ Baylor by 2.7 / FPI by 0.8",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:05 CT",
+            "kickoff": null,
+            "league": "CFB",
+            "market": "spread_BAY+3.5",
+            "market_odds": "-110",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "CFB-2026-10-03-BAY@ASU",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03; not historical $4). Blank prob_range — Oct 2 SP+/FPI stale / Lagway sample. Thesis: two-model dog vs ASU -3.5. ESPN event_id 401856817. SETTLED W BAY 55-19 ASU (BAY by 36; +3.5 covers easily); postmortem 2026-10-04: model-side thesis held on cover; blank-band abstain validated (no LIVE invented); close SportsLine ASU -3.5 -105 (number flat; juice CLV mild miss vs entry -110); lesson_tag=none_no_falsifier_blank_band_abstain_validated; tag=learning_probe_shadow_settled",
+            "prediction_id": "LEDGER-SP-SH-20261003-CFB-01",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "Baylor +3.5",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "CFB",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "win",
+              "close_odds": "-105",
+              "clv_pp": -1.16,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": 4.55,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261003-CFB-01",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
+          },
+          {
+            "account": "none",
+            "biggest_risk": null,
+            "classification": "SHADOW",
+            "confidence": "Low-Moderate",
+            "cover_probability_text": "blank_prob_range",
+            "edge_type": "number_key",
+            "event_id": "CFB-2026-10-03-CIN@ARIZ",
+            "generated_at": "2026-10-03 16:05 CT",
+            "harbor_fair_plain": "Harbor fair: ARIZ -7 mkt (open -8.5); SP+ ARIZ by 4.0 / FPI by 2.1",
+            "harbor_minus_market_pts": null,
+            "input_ts": "2026-10-03 16:05 CT",
+            "kickoff": null,
+            "league": "CFB",
+            "market": "spread_CIN+7",
+            "market_odds": "-115",
+            "market_source": "DK_LearningProbe_screen_2026-10-03",
+            "matchup": "CFB-2026-10-03-CIN@ARIZ",
+            "model_version": "market_informed",
+            "narrative": "Learning Probe SHADOW $5 (two-mode 2026-10-03). Blank prob_range — Richardson return + -115 blocked one-sided band. Thesis: models ARIZ by <TD; key 7; open -8.5 shortened. ESPN event_id 401856820. SETTLED L ARIZ 34-7 CIN (CIN by -27; +7 fails); postmortem 2026-10-04: model-gap dog thesis missed hard (forecast margin vs real ~27pt gap — not a MoS falsifier); blank-band / SHADOW class correctly blocked LIVE; CLV number +0.5pt vs SportsLine late -6.5 (game-log ATS still +7); juice close messy; lesson_tag=none_no_falsifier_blank_band_abstain_validated; tag=learning_probe_shadow_settled",
+            "prediction_id": "LEDGER-SP-SH-20261003-CFB-02",
+            "provenance": "shadow_ledger",
+            "recommendation_state": "SHADOW",
+            "shadow_stake_usd": 5.0,
+            "side": "Cincinnati +7",
+            "source": "journal/sports-shadow/clv-ledger-v2.csv",
+            "sport": "CFB",
+            "stored_at": "2026-10-10 09:49:30 CDT",
+            "result": {
+              "actual_margin": null,
+              "ats_result": "loss",
+              "close_odds": "-110",
+              "clv_pp": null,
+              "final_score": null,
+              "forecast_error": null,
+              "hypothetical_pnl_usd": -5.0,
+              "postgame_learning": null,
+              "prediction_id": "LEDGER-SP-SH-20261003-CFB-02",
+              "real_pnl_usd": null,
+              "reconciled_at": "2026-10-10 09:49:30 CDT",
+              "source": "journal/sports-shadow/clv-ledger-v2.csv",
+              "su_result": null
+            },
+            "lifecycle_state": "RECONCILED"
           }
         ],
-        "recently_settled_note": "Shadow rows show HYPOTHETICAL outcomes; no real-money wagers settled.",
+        "recently_settled_note": "Shadow rows show HYPOTHETICAL outcomes; no real-money wagers settled. Includes all reconciliations from the last 10 days (cap raised so Week 4/5 NFL per-game miss stays visible).",
         "history": [
           {
             "prediction_id": "NFL-2026-W5-TB@DAL-walkforward-v1-2026-10-06",
@@ -12316,6 +12987,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": "win",
+            "forecast_error": 14.82,
+            "actual_margin": -8.0,
+            "final_score": "TB 24 @ DAL 16",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:39 CDT",
             "bet": false
           },
           {
@@ -12334,6 +13010,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12352,6 +13033,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12370,6 +13056,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12388,6 +13079,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12406,6 +13102,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12424,6 +13125,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12442,6 +13148,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12460,6 +13171,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12478,6 +13194,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12496,6 +13217,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12514,6 +13240,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12532,6 +13263,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12550,6 +13286,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12568,6 +13309,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -12586,6 +13332,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12604,6 +13355,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12622,6 +13378,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12640,6 +13401,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12658,6 +13424,11 @@
             "confidence": "Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12676,6 +13447,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12694,6 +13470,11 @@
             "confidence": "Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12712,6 +13493,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12730,6 +13516,11 @@
             "confidence": "Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12748,6 +13539,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12766,6 +13562,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12784,6 +13585,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12802,6 +13608,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12820,6 +13631,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12838,6 +13654,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12856,6 +13677,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12874,6 +13700,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12892,6 +13723,11 @@
             "confidence": "Low",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12910,6 +13746,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12928,6 +13769,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12946,6 +13792,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12964,6 +13815,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -12982,6 +13838,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13000,6 +13861,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13018,6 +13884,11 @@
             "confidence": "Low",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13036,6 +13907,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13054,6 +13930,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13072,6 +13953,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13090,6 +13976,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13108,6 +13999,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13126,6 +14022,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13144,6 +14045,11 @@
             "confidence": "Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13162,6 +14068,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13180,6 +14091,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13198,6 +14114,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13216,6 +14137,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13234,6 +14160,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "loss",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13252,6 +14183,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": "win",
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": "2026-10-10 09:49:30 CDT",
             "bet": false
           },
           {
@@ -13270,6 +14206,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13288,6 +14229,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13306,6 +14252,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13324,6 +14275,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13342,6 +14298,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13360,6 +14321,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13378,6 +14344,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13396,6 +14367,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13414,6 +14390,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13432,6 +14413,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13450,6 +14436,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13468,6 +14459,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13486,6 +14482,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13504,6 +14505,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13522,6 +14528,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13540,6 +14551,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13558,6 +14574,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13576,6 +14597,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13594,6 +14620,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13612,6 +14643,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13630,6 +14666,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13648,6 +14689,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13666,6 +14712,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13684,6 +14735,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13702,6 +14758,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13720,6 +14781,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13738,6 +14804,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13756,6 +14827,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13774,6 +14850,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13792,6 +14873,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13810,6 +14896,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13828,6 +14919,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13846,6 +14942,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13864,6 +14965,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13882,6 +14988,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13900,6 +15011,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13918,6 +15034,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13936,6 +15057,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13954,6 +15080,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13972,6 +15103,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -13990,6 +15126,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14008,6 +15149,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14026,6 +15172,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14044,6 +15195,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14062,6 +15218,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14080,6 +15241,11 @@
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14098,6 +15264,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14116,6 +15287,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14134,6 +15310,11 @@
             "confidence": "Low-Moderate",
             "source": "journal/sports-shadow/clv-ledger-v2.csv",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14152,6 +15333,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "loss",
+            "forecast_error": 22.57,
+            "actual_margin": -17.0,
+            "final_score": "IND 30 @ WAS 13",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:33 CDT",
             "bet": false
           },
           {
@@ -14170,6 +15356,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 12.61,
+            "actual_margin": 12.0,
+            "final_score": "ARI 24 @ NYG 36",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:34 CDT",
             "bet": false
           },
           {
@@ -14188,6 +15379,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 0.31,
+            "actual_margin": -4.0,
+            "final_score": "DAL 34 @ HOU 30",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:34 CDT",
             "bet": false
           },
           {
@@ -14206,6 +15402,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "push",
+            "forecast_error": 6.47,
+            "actual_margin": -3.0,
+            "final_score": "GB 17 @ TB 14",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:35 CDT",
             "bet": false
           },
           {
@@ -14224,6 +15425,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 4.1,
+            "actual_margin": -5.0,
+            "final_score": "JAX 22 @ CIN 17",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:36 CDT",
             "bet": false
           },
           {
@@ -14242,6 +15448,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "loss",
+            "forecast_error": 2.03,
+            "actual_margin": -4.0,
+            "final_score": "LA 24 @ PHI 20",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:36 CDT",
             "bet": false
           },
           {
@@ -14260,6 +15471,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "loss",
+            "forecast_error": 13.42,
+            "actual_margin": -3.0,
+            "final_score": "NE 29 @ BUF 26",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:36 CDT",
             "bet": false
           },
           {
@@ -14278,6 +15494,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 5.96,
+            "actual_margin": 11.0,
+            "final_score": "NYJ 12 @ CHI 23",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:36 CDT",
             "bet": false
           },
           {
@@ -14296,6 +15517,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 2.09,
+            "actual_margin": 6.0,
+            "final_score": "TEN 18 @ BAL 24",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:37 CDT",
             "bet": false
           },
           {
@@ -14314,6 +15540,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 3.88,
+            "actual_margin": 5.0,
+            "final_score": "MIA 10 @ MIN 15",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:37 CDT",
             "bet": false
           },
           {
@@ -14332,6 +15563,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 4.7,
+            "actual_margin": 10.0,
+            "final_score": "DEN 14 @ SF 24",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:37 CDT",
             "bet": false
           },
           {
@@ -14350,6 +15586,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 0.2,
+            "actual_margin": -3.0,
+            "final_score": "KC 30 @ LV 27",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:37 CDT",
             "bet": false
           },
           {
@@ -14368,6 +15609,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "push",
+            "forecast_error": 6.76,
+            "actual_margin": 7.0,
+            "final_score": "LAC 23 @ SEA 30",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:37 CDT",
             "bet": false
           },
           {
@@ -14386,6 +15632,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "win",
+            "forecast_error": 3.93,
+            "actual_margin": 6.0,
+            "final_score": "DET 26 @ CAR 32",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-10 10:09:38 CDT",
             "bet": false
           },
           {
@@ -14404,6 +15655,11 @@
             "confidence": "Low",
             "source": "data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv",
             "ats_result": "loss",
+            "forecast_error": 25.97,
+            "actual_margin": -21.0,
+            "final_score": "ATL 45 @ NO 24",
+            "harbor_closer_than_line": false,
+            "reconciled_at": "2026-10-10 10:09:38 CDT",
             "bet": false
           },
           {
@@ -14422,6 +15678,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14440,6 +15701,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14458,6 +15724,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14476,6 +15747,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14494,6 +15770,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14512,6 +15793,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14530,6 +15816,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14548,6 +15839,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14566,6 +15862,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14584,6 +15885,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14602,6 +15908,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14620,6 +15931,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14638,6 +15954,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14656,6 +15977,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14674,6 +16000,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14692,6 +16023,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14710,6 +16046,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14728,6 +16069,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14746,6 +16092,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14764,6 +16115,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14782,6 +16138,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14800,6 +16161,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14818,6 +16184,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14836,6 +16207,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14854,6 +16230,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14872,6 +16253,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14890,6 +16276,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14908,6 +16299,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14926,6 +16322,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14944,6 +16345,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14962,6 +16368,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14980,6 +16391,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -14998,6 +16414,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15016,6 +16437,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15034,6 +16460,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15052,6 +16483,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15070,6 +16506,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15088,6 +16529,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           },
           {
@@ -15106,6 +16552,11 @@
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
             "ats_result": null,
+            "forecast_error": null,
+            "actual_margin": null,
+            "final_score": null,
+            "harbor_closer_than_line": null,
+            "reconciled_at": null,
             "bet": false
           }
         ],
@@ -15175,12 +16626,15 @@
           "shadow_pnl_label": "HYPOTHETICAL — shadow paper results, NOT real P&L",
           "real_pnl": {
             "personal": {
-              "wagers": 0,
+              "wagers": 2,
               "w": 0,
               "l": 0,
               "p": 0,
               "pnl_usd": null,
-              "pnl_null_reason": "no real wagers placed"
+              "pnl_null_reason": "open wagers not yet settled",
+              "open_wagers": 2,
+              "settled_wagers": 0,
+              "note": "PERSONAL DraftKings — never counts toward Harbor / Elephant Harbor P&L"
             },
             "elephant_harbor": {
               "wagers": 0,
@@ -15206,7 +16660,7 @@
             "forward_sample": "Week 4 2026: 15 games",
             "forward_mae": 7.67,
             "forward_benchmark_mae": 7.43,
-            "forward_source": "Pike week-4 scoring (per-game scored CSV not on disk; aggregate only)",
+            "forward_source": "REGENERATED per-game CSV data/nfl-history/out/shadow-v1-2026-10-04-REGENERATED.csv (labeled regenerated; verified match to Pike: MAE 7.67, closer on 9 of 15) + Week 5 file data/nfl-history/out/shadow-v1-2026-10-06-week5.csv",
             "calibration": "No cover-probability model; not calibrated",
             "maturity": "SHADOW — worse than market baseline; no bets",
             "last_model_update": "2026-10-06 09:10:52 CDT (week-5 freeze, same coefficients as 2026-10-04)"
@@ -15221,6 +16675,7 @@
         "freshness": {
           "store_predictions": "data/sports-predictions/predictions.jsonl",
           "store_results": "data/sports-predictions/results.jsonl",
+          "store_wagers": "data/sports-predictions/wagers.jsonl",
           "cfb_run_timestamp": "2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
           "cfb_run_timestamp_iso": "2026-10-10T09:47:00-05:00",
           "nfl_frozen_at_iso": "2026-10-06T09:10:52-05:00",
@@ -15229,7 +16684,7 @@
           "nfl_frozen_at": "2026-10-06 09:10:52 CDT",
           "nfl_lines_read_at": "2026-10-07 07:32 AM CT",
           "results_reconciled_at": "2026-10-10 10:09:39 CDT",
-          "wager_reconciliation": "no real wagers",
+          "wager_reconciliation": "2 personal open; 0 elephant_harbor",
           "injury_data": null,
           "weather_data": null
         }

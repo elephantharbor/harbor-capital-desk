@@ -2367,7 +2367,9 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   }
 
   function spSlateCard(sec, p) {
-    const lc = spLifecycle(p);
+    let lc = spLifecycle(p);
+    const bet = (sec.active_bets || []).find((b) => b.prediction_id === p.prediction_id || (b.event_id && b.event_id === p.event_id));
+    if (bet) lc = { key: "BET_PLACED", label: bet.account === "personal" ? "Personal bet placed (Thomas)" : "Elephant Harbor bet placed", cls: bet.account === "personal" ? "badge-open" : "badge-live" };
     const sport = p.sport || p.league || "";
     const checkNote = p.injury_check
       ? `<p class="sp-small"><span class="badge badge-paused">No injury or QB check done</span> ${esc(p.injury_check)}</p>`
@@ -2442,7 +2444,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
 
   function spActionCards(sec) {
     const items = sec.action_required || [];
-    if (!items.length) return "";
+    if (!items.length) return `<section class="card sp-action"><h2>Action required</h2>${emptyState("Nothing waiting on Thomas", "No open recommendations need a placement decision right now.")}</section>`;
     return `<section class="card sp-action"><h2>Action required</h2>
       <p class="muted sp-small">These are recommendations waiting on Thomas. Nothing here has been placed.</p>
       ${items
@@ -2579,13 +2581,35 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const bets = sec.active_bets || [];
     const pers = bets.filter((b) => b.account === "personal");
     const eh = bets.filter((b) => b.account !== "personal");
-    const list = (rows) =>
-      rows.length
-        ? rows.map((b) => `<div class="sp-rec">${spRow("Wager", b.bet || b.headline)}${spRow("Line", b.line)}${spRow("Odds", b.odds)}${spRow("Book", b.sportsbook)}${spRow("Stake", b.stake)}${spRow("Placed", b.placed_at)}</div>`).join("")
-        : emptyState("No real wagers confirmed placed.", "");
+    const usd = (v) => (v === null || v === undefined || !Number.isFinite(Number(v)) ? null : "$" + Number(v).toFixed(2));
+    const odds = (v) => (v === null || v === undefined || !Number.isFinite(Number(v)) ? null : (Number(v) > 0 ? "+" : "") + Number(v));
+    const placed = (iso) => {
+      const t = Date.parse(iso || "");
+      if (!Number.isFinite(t)) return iso || null;
+      return new Date(t).toLocaleString("en-US", { timeZone: "America/Chicago", weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) + " CT";
+    };
+    const card = (b, personal) => `<div class="sp-rec sp-bet${personal ? " sp-bet-personal" : ""}">
+          <div><strong>${esc(spDash(b.bet || b.headline))}</strong> ${personal ? '<span class="badge badge-open">PERSONAL — Thomas\'s own account</span>' : '<span class="badge badge-live">ELEPHANT HARBOR</span>'} <span class="badge badge-na">${esc(spDash(b.state))}</span></div>
+          <div class="muted sp-small">${esc(spDash(b.matchup))} · ${esc(spDash(b.kickoff_ct))} · ${esc(spDash(b.sportsbook))}</div>
+          <div class="sp-grid">
+            ${spRow("Odds", b.odds_american != null ? odds(b.odds_american) + (b.odds_american_pre_boost != null && b.odds_american_pre_boost !== b.odds_american ? ` (boosted from ${odds(b.odds_american_pre_boost)})` : "") : b.odds)}
+            ${spRow("Stake", usd(b.stake_usd) || b.stake)}
+            ${spRow("To win", usd(b.to_win_usd))}
+            ${spRow("Total payout if it wins", usd(b.payout_usd))}
+            ${spRow("Most it can lose", usd(b.max_loss_usd))}
+            ${spRow("Placed", placed(b.placed_at))}
+            ${spRow("Fair line (outside models)", b.fair_line)}
+            ${spRow("Boost", b.boost)}
+          </div>
+          ${b.note ? `<p class="sp-small muted">${esc(b.note)}</p>` : ""}
+        </div>`;
+    const list = (rows, personal) => (rows.length ? rows.map((b) => card(b, personal)).join("") : emptyState("No real wagers confirmed placed.", ""));
     return `<section class="card"><h2>Active bets (real money)</h2>
       <p class="muted sp-small">${esc(sec.active_bets_note || "Real wagers only, after Thomas confirms placement.")}</p>
-      <div class="sp-two"><div><h3>Personal</h3>${list(pers)}</div><div><h3>Elephant Harbor</h3>${list(eh)}</div></div>
+      <div class="sp-two">
+        <div><h3>Personal (Thomas's DraftKings — never counts toward Elephant Harbor)</h3>${list(pers, true)}</div>
+        <div><h3>Elephant Harbor</h3>${list(eh, false)}</div>
+      </div>
     </section>`;
   }
 
@@ -2665,7 +2689,8 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           (h) => `<div class="sp-hist-row">
           <div><strong>${esc(spDash(h.matchup))}</strong> <span class="badge badge-mkt-sports">${esc(spDash(h.sport))}</span> ${/SHADOW/i.test(String(h.classification)) ? '<span class="badge badge-shadow">SHADOW</span>' : ""}</div>
           <div class="sp-small muted">${esc(spDash(h.generated_at))} · ${esc(spDash(h.model_version))} · ${esc(clsShort(h))}</div>
-          <div class="sp-small">${esc(spDash(h.harbor_fair_plain || h.bet || h.market_line_display))} · spread result ${esc(spDash(h.ats_result))}</div>
+          <div class="sp-small">${esc(spDash(h.harbor_fair_plain || h.market_line_display))} · spread result ${esc(spDash(h.ats_result))}</div>
+          ${h.final_score ? `<div class="sp-small">Final ${esc(h.final_score)} · actual margin (home) ${esc(spDash(h.actual_margin))} · Harbor missed by ${esc(h.forecast_error != null ? spNum(Math.abs(h.forecast_error), 1) : "—")}</div>` : ""}
         </div>`
         )
         .join("") || emptyState("No predictions match", "")}</div>
@@ -2681,7 +2706,11 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const rp = m.real_pnl || {};
     const realLine = (r, name) => {
       const n = (Number(r && r.w) || 0) + (Number(r && r.l) || 0) + (Number(r && r.p) || 0);
-      if (!r || n === 0 || r.wagers === 0) return `${name}: no real wagers yet`;
+      if (!r || !r.wagers) return `${name}: no real wagers yet`;
+      if (r.pnl_usd === null || r.pnl_usd === undefined) {
+        const open = r.open_wagers != null ? r.open_wagers : r.wagers;
+        return `${name}: ${open} open wager${open === 1 ? "" : "s"} · pending, not settled${r.pnl_null_reason ? " (" + r.pnl_null_reason + ")" : ""}`;
+      }
       const v = Number(r.pnl_usd);
       return `${name}: ${r.w}-${r.l}-${r.p} · ${Number.isFinite(v) ? (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2) : "—"}`;
     };
@@ -2730,10 +2759,10 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       <details><summary class="sp-small">Week 4 per-game detail (${esc(rows.length)} games, regenerated)</summary>
         <div class="sp-hist">${rows
           .map((h) => {
-            const x = settled[h.prediction_id] || {};
+            const x = settled[h.prediction_id] || (h.final_score ? { final_score: h.final_score, forecast_error: h.forecast_error, market_error: null } : {});
             return `<div class="sp-hist-row"><div><strong>${esc(spDash(h.matchup))}</strong> <span class="badge badge-paused">REGENERATED</span></div>
               <div class="sp-small">${esc(spDash(h.harbor_fair_plain))} · line ${esc(spDash(h.market_line_display))} · spread result ${esc(spDash(h.ats_result))}</div>
-              <div class="sp-small muted">${x.final_score ? `Final ${esc(x.final_score)} · Harbor missed by ${esc(spNum(Math.abs(x.forecast_error), 1))} · line missed by ${esc(spNum(Math.abs(x.market_error), 1))}` : "Per-game miss not in this snapshot"}</div></div>`;
+              <div class="sp-small muted">${x.final_score ? `Final ${esc(x.final_score)} · Harbor missed by ${esc(x.forecast_error != null ? spNum(Math.abs(x.forecast_error), 1) : "—")} · line missed by ${esc(x.market_error != null ? spNum(Math.abs(x.market_error), 1) : "—")}` : "Per-game miss not in this snapshot"}</div></div>`;
           })
           .join("")}</div>
       </details>`;
@@ -2750,6 +2779,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           ${spRow("Backtest sample", nfl.historical_sample)}
           ${spRow("Week 4 forward (all 15 games)", nfl.forward_mae != null ? `${spNum(nfl.forward_mae, 2)} Harbor vs ${spNum(nfl.forward_benchmark_mae, 2)} market · ${nfl.forward_sample || ""}` : null)}
           ${spWeek4(sec, nfl)}
+          ${spRow("Forward source", nfl.forward_source)}
           ${spRow("Calibration", nfl.calibration)}
           ${spRow("Maturity", nfl.maturity)}
           ${spRow("Last model update", nfl.last_model_update)}
