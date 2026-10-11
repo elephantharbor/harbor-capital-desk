@@ -2658,21 +2658,35 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     const p = ((sec.metrics || {}).real_pnl || {}).personal || {};
     return p.pnl_usd !== null && p.pnl_usd !== undefined && Number(p.wagers) > 0 ? p : null;
   }
-  function spSettledNote(sec) {
-    const n = sec.recently_settled_note || "";
-    return spPersonalSettled(sec) ? n.replace(/;\s*no real-money wagers settled\.?/i, ". Real-money results are listed separately below.") : n;
-  }
   function spRealResults(sec) {
     const rp = (sec.metrics || {}).real_pnl || {};
     const p = spPersonalSettled(sec);
     const eh = rp.elephant_harbor || {};
     const money = (v) => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
+    const pBets = (sec.recently_settled_bets || []).filter((w) => w.account === "personal");
     const personal = p
       ? `<div class="sp-rec sp-bet-personal"><div><strong>Personal: ${esc(p.w)}-${esc(p.l)}${p.p ? "-" + esc(p.p) : ""} · ${esc(money(Number(p.pnl_usd)))}</strong> <span class="badge badge-open">PERSONAL — Thomas's own DraftKings account</span></div>
           <p class="sp-small muted">${esc(p.note || "Never counts toward Elephant Harbor P&L.")}</p>
-          ${(sec.settled_bets_personal || []).length
-            ? sec.settled_bets_personal.map((w) => `<div class="sp-small"><strong>${esc(spDash(w.bet))}</strong> · ${esc(spDash(w.matchup))} · Final ${esc(spDash(w.final_score))} · ${esc(spDash(w.result))}${w.real_pnl_usd != null ? " · " + esc(money(Number(w.real_pnl_usd))) : ""}</div>`).join("")
-            : `<p class="sp-small muted">Per-bet detail is not in the published snapshot yet; the record above comes from the store's settled wagers.</p>`}
+          ${pBets.length
+            ? pBets.map((w) => {
+                const o = Number(w.odds_american != null ? w.odds_american : w.odds);
+                const oTxt = Number.isFinite(o) ? (o > 0 ? "+" : "") + o + (w.odds_american_pre_boost != null && Number(w.odds_american_pre_boost) !== o ? ` (boosted from ${Number(w.odds_american_pre_boost) > 0 ? "+" : ""}${w.odds_american_pre_boost})` : "") : null;
+                const st = Number(w.stake_usd != null ? w.stake_usd : w.stake);
+                const pl = w.real_pnl_usd != null ? Number(w.real_pnl_usd) : w.pnl != null ? Number(w.pnl) : null;
+                const resCls = w.result === "win" ? "badge-live" : w.result === "loss" ? "badge-paused" : "badge-na";
+                return `<div class="sp-rec sp-bet sp-bet-personal">
+                  <div><strong>${esc(spDash(w.bet))}</strong> <span class="badge badge-open">PERSONAL — Thomas's own account</span> <span class="badge ${resCls}">${esc(String(w.result || "—").toUpperCase())}</span></div>
+                  <div class="muted sp-small">${esc(spDash(w.matchup))} · ${esc(spDash(w.sportsbook))}</div>
+                  <div class="sp-grid">
+                    ${spRow("Stake", Number.isFinite(st) ? money(st) : null)}
+                    ${spRow("Odds", oTxt)}
+                    ${spRow("Result", w.result ? w.result.charAt(0).toUpperCase() + w.result.slice(1) : null)}
+                    ${spRow("P&L", pl != null && Number.isFinite(pl) ? money(pl) : null)}
+                    ${spRow("Final score", w.final_score)}
+                  </div>
+                </div>`;
+              }).join("")
+            : ""}
         </div>`
       : emptyState("Personal: none settled", "");
     const ehHtml = eh.wagers ? emptyState("Elephant Harbor wagers recorded", "See P&L below.") : emptyState("Elephant Harbor: no real wagers", "No Elephant Harbor money has been placed.");
@@ -2704,7 +2718,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       </div>`;
     };
     return `<section class="card"><h2>Recently settled</h2>
-      <p class="muted sp-small">${esc(spSettledNote(sec))}</p>
+      <p class="muted sp-small">${esc(sec.recently_settled_note || "")}</p>
       <h3>Shadow results (hypothetical)</h3>
       ${shadow0.length ? `<div class="sp-cards">${shadow0.map(card).join("")}</div>` : emptyState("No settled shadow rows", "")}
       <h3>Real-money results</h3>

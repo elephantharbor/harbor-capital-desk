@@ -8780,8 +8780,8 @@
       },
       "sports_predictions": {
         "schema": "sports_predictions.v1",
-        "snapshot_id": "SP-20261011T092028",
-        "generated_at": "2026-10-11 09:20:28 CDT",
+        "snapshot_id": "SP-20261011T105618",
+        "generated_at": "2026-10-11 10:56:18 CDT",
         "lifecycle": [
           "UPCOMING",
           "WATCH",
@@ -8794,30 +8794,7 @@
           "RECONCILED",
           "HISTORY"
         ],
-        "action_required": [
-          {
-            "account": "personal",
-            "rank": 1,
-            "headline": "Vanderbilt +9.5 (line +9.5 -108) — DraftKings",
-            "stake": "1u",
-            "max_line": "+8.5 (-110); pass at +8 or worse",
-            "action": "BET NOW",
-            "state": "AWAITING THOMAS PLACEMENT (personal account)",
-            "line_ts": "9:47 AM CT ESPN API (DK); CLEATZ DK cache 9:32 AM CT",
-            "line_ts_iso": "2026-10-10T09:47:00-05:00"
-          },
-          {
-            "account": "personal",
-            "rank": 2,
-            "headline": "UCF +10.5 (line +10.5 -108) — DraftKings",
-            "stake": "0.5u",
-            "max_line": "+10 (-110); pass at +9.5",
-            "action": "BET NOW (kicks 11:00 CT)",
-            "state": "AWAITING THOMAS PLACEMENT (personal account)",
-            "line_ts": "9:47 AM CT ESPN API (DK); CLEATZ DK 9:32 AM CT",
-            "line_ts_iso": "2026-10-10T09:47:00-05:00"
-          }
-        ],
+        "action_required": [],
         "recommendations": {
           "personal": [
             {
@@ -9456,7 +9433,7 @@
           }
         ],
         "active_bets": [],
-        "active_bets_note": "Real wagers only, after Thomas confirms placement. None confirmed.",
+        "active_bets_note": "No open real wagers. 2 personal settled; 0 elephant_harbor settled. Personal never counts in Elephant Harbor P&L.",
         "active_bets_personal": [],
         "active_bets_elephant_harbor": [],
         "recently_settled": [
@@ -11980,14 +11957,15 @@
             "result": {
               "actual_margin": -21.0,
               "ats_basis": "SP+ fair side vs stored DK line at prediction time (paper; external model; no bet)",
-              "ats_result": null,
+              "ats_result": "win",
               "away_score": 28.0,
               "close_odds": null,
               "clv_pp": null,
+              "correction_note": "Correction: prior reconcile left predicted_margin/market_line null because picks JSON used abbreviation AF while event_id uses AFA; AF mapped to neither AFA nor NIU. Final was already present from ESPN (AFA 28 @ NIU 7). Alias AF→AFA applied; home margins from AF -20.8 (SP+) and AF -7 (DK).",
               "event_id": "AFA @ NIU",
               "final_score": "AFA 28 @ NIU 7",
-              "forecast_error": null,
-              "harbor_closer_than_line": null,
+              "forecast_error": 0.2,
+              "harbor_closer_than_line": true,
               "home_score": 7.0,
               "hypothetical_pnl_usd": null,
               "lifecycle_path": [
@@ -11995,17 +11973,18 @@
                 "RECONCILED"
               ],
               "lifecycle_state": "RECONCILED",
-              "market_error": null,
+              "market_error": 14.0,
               "market_line_at_prediction_book": "DraftKings (ESPN API, 2026-10-10 ~9:47 AM CT)",
-              "market_line_at_prediction_home_margin": null,
+              "market_line_at_prediction_home_margin": -7.0,
+              "null_miss_reason_was": "missing_line_parse: AF abbr unmatched to event AFA@NIU (final was present)",
               "postgame_learning": null,
-              "predicted_margin": null,
-              "predicted_margin_source": "SP+ (external) home margin from picks JSON",
+              "predicted_margin": -20.8,
+              "predicted_margin_source": "SP+ (external) home margin from picks JSON (AF→AFA alias)",
               "prediction_id": "CFB-AFA @ NIU-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)-ANNOT-20261010-SCREENED-v1",
               "real_pnl_usd": null,
-              "reconciled_at": "2026-10-11 09:06:26 CDT",
-              "reconciled_at_iso": "2026-10-11T09:06:26-05:00",
-              "signed_error": null,
+              "reconciled_at": "2026-10-11 10:54:46 CDT",
+              "reconciled_at_iso": "2026-10-11T10:54:46-05:00",
+              "signed_error": 0.2,
               "source": "ESPN college-football scoreboard final, event 401864516: https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261010&groups=80&limit=300"
             },
             "lifecycle_state": "RECONCILED"
@@ -15075,14 +15054,15 @@
             "result": {
               "actual_margin": -21.0,
               "ats_basis": "SP+ fair side vs stored DK line at prediction time (paper; external model; no bet)",
-              "ats_result": null,
+              "ats_result": "win",
               "away_score": 28.0,
               "close_odds": null,
               "clv_pp": null,
+              "correction_note": "Correction: prior reconcile left predicted_margin/market_line null because picks JSON used abbreviation AF while event_id uses AFA; AF mapped to neither AFA nor NIU. Final was already present from ESPN (AFA 28 @ NIU 7). Alias AF→AFA applied; home margins from AF -20.8 (SP+) and AF -7 (DK).",
               "event_id": "AFA @ NIU",
               "final_score": "AFA 28 @ NIU 7",
-              "forecast_error": null,
-              "harbor_closer_than_line": null,
+              "forecast_error": 0.2,
+              "harbor_closer_than_line": true,
               "home_score": 7.0,
               "hypothetical_pnl_usd": null,
               "lifecycle_path": [
@@ -15090,17 +15070,18 @@
                 "RECONCILED"
               ],
               "lifecycle_state": "RECONCILED",
-              "market_error": null,
+              "market_error": 14.0,
               "market_line_at_prediction_book": "DraftKings (ESPN API, 2026-10-10 ~9:47 AM CT)",
-              "market_line_at_prediction_home_margin": null,
+              "market_line_at_prediction_home_margin": -7.0,
+              "null_miss_reason_was": "missing_line_parse: AF abbr unmatched to event AFA@NIU (final was present)",
               "postgame_learning": null,
-              "predicted_margin": null,
-              "predicted_margin_source": "SP+ (external) home margin from picks JSON",
+              "predicted_margin": -20.8,
+              "predicted_margin_source": "SP+ (external) home margin from picks JSON (AF→AFA alias)",
               "prediction_id": "CFB-AFA @ NIU-2026-10-10T09:47-05:00 (data pulls 9:32-10:05 AM CT)",
               "real_pnl_usd": null,
-              "reconciled_at": "2026-10-11 09:06:26 CDT",
-              "reconciled_at_iso": "2026-10-11T09:06:26-05:00",
-              "signed_error": null,
+              "reconciled_at": "2026-10-11 10:54:46 CDT",
+              "reconciled_at_iso": "2026-10-11T10:54:46-05:00",
+              "signed_error": 0.2,
               "source": "ESPN college-football scoreboard final, event 401864516: https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20261010&groups=80&limit=300"
             },
             "lifecycle_state": "RECONCILED"
@@ -17133,7 +17114,59 @@
             "lifecycle_state": "RECONCILED"
           }
         ],
-        "recently_settled_note": "Shadow rows show HYPOTHETICAL outcomes; no real-money wagers settled. Includes all reconciliations from the last 10 days (cap raised so Week 4/5 NFL per-game miss stays visible).",
+        "recently_settled_bets": [
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-01",
+            "account": "personal",
+            "bet": "Vanderbilt +9.5",
+            "line": 9.5,
+            "odds": 139,
+            "odds_american": 139,
+            "odds_american_pre_boost": -108,
+            "boost": "+50% profit boost ( -108 -> +139 )",
+            "stake": 10.0,
+            "stake_usd": 10.0,
+            "to_win_usd": 13.9,
+            "result": "loss",
+            "pnl": -10.0,
+            "real_pnl_usd": -10.0,
+            "final_score": "Ole Miss Rebels 52 @ Vanderbilt Commodores 17",
+            "settled_at": "2026-10-11T09:04:26-05:00",
+            "settled_at_iso": "2026-10-11T09:04:26-05:00",
+            "matchup": "Ole Miss @ Vanderbilt",
+            "event_id": "MISS @ VAN",
+            "sport": "CFB",
+            "sportsbook": "DraftKings",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false
+          },
+          {
+            "wager_id": "WAGER-DK-PERSONAL-20261010-02",
+            "account": "personal",
+            "bet": "UCF +10.5",
+            "line": 10.5,
+            "odds": -108,
+            "odds_american": -108,
+            "odds_american_pre_boost": -108,
+            "boost": null,
+            "stake": 10.0,
+            "stake_usd": 10.0,
+            "to_win_usd": 9.26,
+            "result": "loss",
+            "pnl": -10.0,
+            "real_pnl_usd": -10.0,
+            "final_score": "UCF Knights 28 @ Oklahoma State Cowboys 42",
+            "settled_at": "2026-10-11T09:04:26-05:00",
+            "settled_at_iso": "2026-10-11T09:04:26-05:00",
+            "matchup": "UCF @ Oklahoma State",
+            "event_id": "UCF @ OKST",
+            "sport": "CFB",
+            "sportsbook": "DraftKings",
+            "counts_toward_elephant_harbor": false,
+            "counts_toward_harbor": false
+          }
+        ],
+        "recently_settled_note": "Shadow/prediction rows in recently_settled stay HYPOTHETICAL. Real-money: 2 personal DraftKings bet(s) settled (0-2, -20.00 USD P&L) on Thomas's account — NOT Harbor / Elephant Harbor. Elephant Harbor settled: 0. See recently_settled_bets for per-ticket records. Includes all prediction reconciliations from the last 10 days (cap raised so Week 4/5 NFL per-game miss stays visible).",
         "history": [
           {
             "prediction_id": "NFL-2026-W5-TB@DAL-walkforward-v1-2026-10-06",
@@ -19266,12 +19299,12 @@
             "harbor_minus_market_pts": null,
             "confidence": null,
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
-            "ats_result": null,
-            "forecast_error": null,
+            "ats_result": "win",
+            "forecast_error": 0.2,
             "actual_margin": -21.0,
             "final_score": "AFA 28 @ NIU 7",
-            "harbor_closer_than_line": null,
-            "reconciled_at": "2026-10-11 09:06:26 CDT",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-11 10:54:46 CDT",
             "bet": false
           },
           {
@@ -20600,12 +20633,12 @@
             "harbor_minus_market_pts": null,
             "confidence": "Low",
             "source": "docs/sports-memos/cfb-saturday-2026-10-10-picks.json",
-            "ats_result": null,
-            "forecast_error": null,
+            "ats_result": "win",
+            "forecast_error": 0.2,
             "actual_margin": -21.0,
             "final_score": "AFA 28 @ NIU 7",
-            "harbor_closer_than_line": null,
-            "reconciled_at": "2026-10-11 09:06:26 CDT",
+            "harbor_closer_than_line": true,
+            "reconciled_at": "2026-10-11 10:54:46 CDT",
             "bet": false
           },
           {
@@ -20739,13 +20772,13 @@
             "external-FPI-SP+-blend": 46,
             "walkforward-v1-2026-10-04": 15
           },
-          "mae": 11.04,
+          "mae": 10.86,
           "bias": 0.6,
           "bias_label": "mean(predicted - actual home margin); positive = too high on home team",
-          "margin_sample": 61,
+          "margin_sample": 62,
           "su_pct": 62.5,
           "ats": {
-            "w": 53,
+            "w": 54,
             "l": 46,
             "p": 3
           },
@@ -20776,7 +20809,7 @@
             },
             "unknown": {
               "count": 87,
-              "ats_w": 43,
+              "ats_w": 44,
               "ats_l": 42,
               "ats_p": 1
             }
@@ -20806,7 +20839,7 @@
               "pnl_null_reason": "no real wagers placed"
             }
           },
-          "benchmark_mae": 10.63,
+          "benchmark_mae": 10.69,
           "benchmark_label": "MAE of the market/schedule home line stored at prediction time, same games as mae",
           "notes": "Margin MAE/SU need final scores in results.jsonl; ledger rows carry ATS only. NFL week-4 rows are REGENERATED (original lost). Counts/MAE/bias/SU/ATS drop a row only when another row explicitly supersedes it (supersedes_prediction_id); distinct ledger tickets on the same event are never collapsed. Annotation/reforecast history stays in the store and history[]."
         },
@@ -20844,8 +20877,8 @@
           "cfb_picks_present": true,
           "nfl_frozen_at": "2026-10-06 09:10:52 CDT",
           "nfl_lines_read_at": "2026-10-07 07:32 AM CT",
-          "results_reconciled_at": "2026-10-11 09:06:26 CDT",
-          "wager_reconciliation": "no real wagers",
+          "results_reconciled_at": "2026-10-11 10:54:46 CDT",
+          "wager_reconciliation": "0 personal open; 2 personal settled; 0 elephant_harbor open; 0 elephant_harbor settled",
           "injury_data": null,
           "weather_data": null
         }
