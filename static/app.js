@@ -2295,7 +2295,9 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     sec._cfbUniqueReconciled = new Set(cfbRec.map(gameId)).size;
     sec._cfbSatReconciled = new Set(cfbRec.map(gameId).filter((k) => k.startsWith("2026-10-10"))).size;
     const n = Number(((raw.metrics || {}).by_sport || {}).CFB);
-    sec._cfbMasked = !Number.isFinite(n) || n !== sec._cfbUniqueReconciled;
+    // Guard: CFB n must equal one row per prediction (annotation rows that supersede an original are dropped).
+    sec._cfbPredRows = history.filter((h) => h.sport === "CFB").length;
+    sec._cfbMasked = !Number.isFinite(n) || n !== sec._cfbPredRows;
     SP_CACHE = { raw, sec };
     return sec;
   }
@@ -2787,7 +2789,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       <div class="sp-grid">
         ${spRow("Predictions stored", mk(m.total_predictions))}
         ${spRow("Reconciled", mk(m.reconciled))}
-        ${spRow("By sport", Object.entries(m.by_sport || {}).map(([k, v]) => k + " " + (k === "CFB" ? mk(v) : v)).join(" · "))}
+        ${spRow("By sport", Object.entries(m.by_sport || {}).map(([k, v]) => k + " " + (k === "CFB" ? (sec._cfbMasked ? mk(v) : `${v} (all CFB predictions, incl. older shadow-ledger rows — not the ${sec._cfbSatReconciled}-game Saturday slate)`) : v)).join(" · "))}
         ${spRow("By model", Object.entries(m.by_model_version || {}).map(([k, v]) => k + " " + (/FPI|SP\+/.test(k) ? mk(v) : v)).join(" · "))}
         ${spRow("Average forecast miss (pts)", mk(m.mae != null ? spNum(m.mae, 2) : "needs final scores"))}
         ${spRow("Bias (pts)", mk(m.bias != null ? spNum(m.bias, 2) : "needs final scores"))}
@@ -2796,7 +2798,7 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
         ${spRow("Against the spread (W-L-P)", mk(`${spDash(ats.w)}-${spDash(ats.l)}-${spDash(ats.p)}`))}
         ${spRow("Closing-line value", clv.n ? `avg ${spNum(clv.avg_pp, 2)} pp · ${spNum(clv.positive_pct, 1)}% beat the close · n=${clv.n}` : null)}
       </div>
-      ${sec._cfbMasked ? `<p class="sp-small">${mkTxt()} CFB games were double-counted (original + annotation row). These all-sport totals include CFB, so they are held until the store fixes the count. Unique reconciled CFB games: ${esc(sec._cfbSatReconciled)} from Saturday 10/10 (${esc(sec._cfbUniqueReconciled)} including earlier shadow-ledger games).</p>` : ""}
+      ${sec._cfbMasked ? `<p class="sp-small">${mkTxt()} CFB games were double-counted (original + annotation row). These all-sport totals include CFB, so they are held until the store fixes the count. Published CFB n ${esc(((sec.metrics || {}).by_sport || {}).CFB)} vs ${esc(sec._cfbPredRows)} unique CFB predictions; Saturday 10/10 slate: ${esc(sec._cfbSatReconciled)} games.</p>` : ""}
       <p class="sp-small muted">Forecast miss = how many points the predicted margin was from the real final margin. Losing to the benchmark means the market's forecast was closer; it is not money lost.</p>
       <h3>By model-market gap</h3>
       <div class="sp-grid">${Object.entries(buckets)

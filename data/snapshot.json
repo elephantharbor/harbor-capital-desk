@@ -8780,8 +8780,8 @@
       },
       "sports_predictions": {
         "schema": "sports_predictions.v1",
-        "snapshot_id": "SP-20261011T091525",
-        "generated_at": "2026-10-11 09:15:25 CDT",
+        "snapshot_id": "SP-20261011T092028",
+        "generated_at": "2026-10-11 09:20:28 CDT",
         "lifecycle": [
           "UPCOMING",
           "WATCH",
@@ -20725,10 +20725,10 @@
           }
         ],
         "metrics": {
-          "total_predictions": 156,
-          "reconciled": 142,
+          "total_predictions": 117,
+          "reconciled": 103,
           "by_sport": {
-            "CFB": 93,
+            "CFB": 54,
             "MLB": 17,
             "NCAAF": 3,
             "NFL": 43
@@ -20736,18 +20736,18 @@
           "by_model_version": {
             "walkforward-v1-2026-10-06": 15,
             "market_informed": 41,
-            "external-FPI-SP+-blend": 85,
+            "external-FPI-SP+-blend": 46,
             "walkforward-v1-2026-10-04": 15
           },
-          "mae": 11.47,
-          "bias": -0.46,
+          "mae": 11.04,
+          "bias": 0.6,
           "bias_label": "mean(predicted - actual home margin); positive = too high on home team",
-          "margin_sample": 99,
+          "margin_sample": 61,
           "su_pct": 62.5,
           "ats": {
-            "w": 73,
-            "l": 63,
-            "p": 4
+            "w": 53,
+            "l": 46,
+            "p": 3
           },
           "by_disagreement_bucket": {
             "1.5-3": {
@@ -20775,10 +20775,10 @@
               "ats_p": 2
             },
             "unknown": {
-              "count": 126,
-              "ats_w": 63,
-              "ats_l": 59,
-              "ats_p": 2
+              "count": 87,
+              "ats_w": 43,
+              "ats_l": 42,
+              "ats_p": 1
             }
           },
           "clv": {
@@ -20806,9 +20806,9 @@
               "pnl_null_reason": "no real wagers placed"
             }
           },
-          "benchmark_mae": 11.09,
+          "benchmark_mae": 10.63,
           "benchmark_label": "MAE of the market/schedule home line stored at prediction time, same games as mae",
-          "notes": "Margin MAE/SU need final scores in results.jsonl; ledger rows carry ATS only. NFL week-4 rows are REGENERATED (original lost)."
+          "notes": "Margin MAE/SU need final scores in results.jsonl; ledger rows carry ATS only. NFL week-4 rows are REGENERATED (original lost). Counts/MAE/bias/SU/ATS drop a row only when another row explicitly supersedes it (supersedes_prediction_id); distinct ledger tickets on the same event are never collapsed. Annotation/reforecast history stays in the store and history[]."
         },
         "model_health": {
           "NFL": {
