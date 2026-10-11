@@ -2258,8 +2258,46 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
   const SP_EMAIL_RE = /^[A-Za-z0-9._%+'-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const SP_FROM = "elephantharbor@mail.grokbot.com";
 
+  /** CFB rows can appear twice (original + its annotation row). Dedupe by game, prefer the annotated row. NFL/other sports untouched. */
+  function spGameKey(r) {
+    const base = String(r.supersedes_prediction_id || r.prediction_id || "").replace(/-ANNOT-.*$/, "");
+    return (r.sport || "") + "|" + (base || r.event_id || "");
+  }
+  function spIsAnnot(r) {
+    return !!(r.annotation_author || /-ANNOT-/.test(String(r.prediction_id || "")));
+  }
+  function spDedupeCfb(rows) {
+    const out = [];
+    const at = {};
+    (rows || []).forEach((r) => {
+      if (r.sport !== "CFB") return out.push(r);
+      const k = spGameKey(r);
+      if (at[k] === undefined) {
+        at[k] = out.length;
+        out.push(r);
+      } else if (spIsAnnot(r) && !spIsAnnot(out[at[k]])) out[at[k]] = r;
+    });
+    return out;
+  }
+  let SP_CACHE = null;
   function spSec() {
-    return ((SNAP && SNAP.market_details && SNAP.market_details.sports) || {}).sports_predictions || null;
+    const raw = ((SNAP && SNAP.market_details && SNAP.market_details.sports) || {}).sports_predictions || null;
+    if (!raw) return null;
+    if (SP_CACHE && SP_CACHE.raw === raw) return SP_CACHE.sec;
+    const history = spDedupeCfb(raw.history);
+    const sec = Object.assign({}, raw, { recently_settled: spDedupeCfb(raw.recently_settled), history });
+    const gameId = (h) => {
+      const e = String(h.event_id || "");
+      const d = (e.match(/\d{4}-\d{2}-\d{2}/) || [String(h.generated_at_iso || h.generated_at || h.reconciled_at || "").slice(0, 10)])[0];
+      return d + "|" + e.replace(/CFB-|\d{4}-\d{2}-\d{2}|W\d+/g, "").replace(/[\s-]/g, "").toUpperCase();
+    };
+    const cfbRec = history.filter((h) => h.sport === "CFB" && (h.final_score || h.reconciled_at));
+    sec._cfbUniqueReconciled = new Set(cfbRec.map(gameId)).size;
+    sec._cfbSatReconciled = new Set(cfbRec.map(gameId).filter((k) => k.startsWith("2026-10-10"))).size;
+    const n = Number(((raw.metrics || {}).by_sport || {}).CFB);
+    sec._cfbMasked = !Number.isFinite(n) || n !== sec._cfbUniqueReconciled;
+    SP_CACHE = { raw, sec };
+    return sec;
   }
   function spDash(v) {
     return v === null || v === undefined || v === "" ? "—" : String(v);
@@ -2603,7 +2641,8 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
           </div>
           ${b.note ? `<p class="sp-small muted">${esc(b.note)}</p>` : ""}
         </div>`;
-    const list = (rows, personal) => (rows.length ? rows.map((b) => card(b, personal)).join("") : emptyState("No real wagers confirmed placed.", ""));
+    const settledP = spPersonalSettled(sec);
+    const list = (rows, personal) => (rows.length ? rows.map((b) => card(b, personal)).join("") : personal && settledP ? emptyState("No open personal bets", `${settledP.wagers} personal bet${settledP.wagers === 1 ? "" : "s"} settled — see Real-money results under Recently settled.`) : emptyState("No real wagers confirmed placed.", ""));
     return `<section class="card"><h2>Active bets (real money)</h2>
       <p class="muted sp-small">${esc(sec.active_bets_note || "Real wagers only, after Thomas confirms placement.")}</p>
       <div class="sp-two">
@@ -2613,9 +2652,34 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
     </section>`;
   }
 
+  function spPersonalSettled(sec) {
+    const p = ((sec.metrics || {}).real_pnl || {}).personal || {};
+    return p.pnl_usd !== null && p.pnl_usd !== undefined && Number(p.wagers) > 0 ? p : null;
+  }
+  function spSettledNote(sec) {
+    const n = sec.recently_settled_note || "";
+    return spPersonalSettled(sec) ? n.replace(/;\s*no real-money wagers settled\.?/i, ". Real-money results are listed separately below.") : n;
+  }
+  function spRealResults(sec) {
+    const rp = (sec.metrics || {}).real_pnl || {};
+    const p = spPersonalSettled(sec);
+    const eh = rp.elephant_harbor || {};
+    const money = (v) => (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2);
+    const personal = p
+      ? `<div class="sp-rec sp-bet-personal"><div><strong>Personal: ${esc(p.w)}-${esc(p.l)}${p.p ? "-" + esc(p.p) : ""} · ${esc(money(Number(p.pnl_usd)))}</strong> <span class="badge badge-open">PERSONAL — Thomas's own DraftKings account</span></div>
+          <p class="sp-small muted">${esc(p.note || "Never counts toward Elephant Harbor P&L.")}</p>
+          ${(sec.settled_bets_personal || []).length
+            ? sec.settled_bets_personal.map((w) => `<div class="sp-small"><strong>${esc(spDash(w.bet))}</strong> · ${esc(spDash(w.matchup))} · Final ${esc(spDash(w.final_score))} · ${esc(spDash(w.result))}${w.real_pnl_usd != null ? " · " + esc(money(Number(w.real_pnl_usd))) : ""}</div>`).join("")
+            : `<p class="sp-small muted">Per-bet detail is not in the published snapshot yet; the record above comes from the store's settled wagers.</p>`}
+        </div>`
+      : emptyState("Personal: none settled", "");
+    const ehHtml = eh.wagers ? emptyState("Elephant Harbor wagers recorded", "See P&L below.") : emptyState("Elephant Harbor: no real wagers", "No Elephant Harbor money has been placed.");
+    return `<div class="sp-two"><div>${personal}</div><div>${ehHtml}</div></div>`;
+  }
+
   function spSettled(sec) {
     const rows = sec.recently_settled || [];
-    const shadow = rows.filter((r) => spIsShadow(r) || !/real/i.test(String(r.account || "")));
+    const shadow0 = rows.filter((r) => spIsShadow(r) || !/real/i.test(String(r.account || "")));
     const res = (r) => r.result || {};
     const card = (r) => {
       const x = res(r);
@@ -2638,11 +2702,11 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       </div>`;
     };
     return `<section class="card"><h2>Recently settled</h2>
-      <p class="muted sp-small">${esc(sec.recently_settled_note || "")}</p>
+      <p class="muted sp-small">${esc(spSettledNote(sec))}</p>
       <h3>Shadow results (hypothetical)</h3>
-      ${shadow.length ? `<div class="sp-cards">${shadow.map(card).join("")}</div>` : emptyState("No settled shadow rows", "")}
+      ${shadow0.length ? `<div class="sp-cards">${shadow0.map(card).join("")}</div>` : emptyState("No settled shadow rows", "")}
       <h3>Real-money results</h3>
-      ${emptyState("None yet", "No real-money wagers have settled.")}
+      ${spRealResults(sec)}
     </section>`;
   }
 
@@ -2715,24 +2779,28 @@ mtime: ${esc(d.mtime_ct || "—")}</pre>
       return `${name}: ${r.w}-${r.l}-${r.p} · ${Number.isFinite(v) ? (v < 0 ? "−$" : "$") + Math.abs(v).toFixed(2) : "—"}`;
     };
     const buckets = m.by_disagreement_bucket || {};
+    const MASK = "Reconciling — count being corrected";
+    const mk = (v) => (sec._cfbMasked ? MASK : v);
+    const mkTxt = (v) => (sec._cfbMasked ? `<span class="badge badge-paused">${MASK}</span>` : esc(v));
     const shadowPnl = m.shadow_hypothetical_pnl_usd;
     return `<section class="card"><h2>How the predictions are doing (all predictions)</h2>
       <div class="sp-grid">
-        ${spRow("Predictions stored", m.total_predictions)}
-        ${spRow("Reconciled", m.reconciled)}
-        ${spRow("By sport", Object.entries(m.by_sport || {}).map(([k, v]) => k + " " + v).join(" · "))}
-        ${spRow("By model", Object.entries(m.by_model_version || {}).map(([k, v]) => k + " " + v).join(" · "))}
-        ${spRow("Average forecast miss (pts)", m.mae != null ? spNum(m.mae, 2) : "needs final scores")}
-        ${spRow("Bias (pts)", m.bias != null ? spNum(m.bias, 2) : "needs final scores")}
-        ${spRow("Market's average miss (benchmark)", m.benchmark_mae != null ? spNum(m.benchmark_mae, 2) : "needs final scores")}
-        ${spRow("Picked the winner", m.su_pct != null ? spNum(m.su_pct, 1) + "%" : "needs final scores")}
-        ${spRow("Against the spread (W-L-P)", `${spDash(ats.w)}-${spDash(ats.l)}-${spDash(ats.p)}`)}
+        ${spRow("Predictions stored", mk(m.total_predictions))}
+        ${spRow("Reconciled", mk(m.reconciled))}
+        ${spRow("By sport", Object.entries(m.by_sport || {}).map(([k, v]) => k + " " + (k === "CFB" ? mk(v) : v)).join(" · "))}
+        ${spRow("By model", Object.entries(m.by_model_version || {}).map(([k, v]) => k + " " + (/FPI|SP\+/.test(k) ? mk(v) : v)).join(" · "))}
+        ${spRow("Average forecast miss (pts)", mk(m.mae != null ? spNum(m.mae, 2) : "needs final scores"))}
+        ${spRow("Bias (pts)", mk(m.bias != null ? spNum(m.bias, 2) : "needs final scores"))}
+        ${spRow("Market's average miss (benchmark)", mk(m.benchmark_mae != null ? spNum(m.benchmark_mae, 2) : "needs final scores"))}
+        ${spRow("Picked the winner", mk(m.su_pct != null ? spNum(m.su_pct, 1) + "%" : "needs final scores"))}
+        ${spRow("Against the spread (W-L-P)", mk(`${spDash(ats.w)}-${spDash(ats.l)}-${spDash(ats.p)}`))}
         ${spRow("Closing-line value", clv.n ? `avg ${spNum(clv.avg_pp, 2)} pp · ${spNum(clv.positive_pct, 1)}% beat the close · n=${clv.n}` : null)}
       </div>
+      ${sec._cfbMasked ? `<p class="sp-small">${mkTxt()} CFB games were double-counted (original + annotation row). These all-sport totals include CFB, so they are held until the store fixes the count. Unique reconciled CFB games: ${esc(sec._cfbSatReconciled)} from Saturday 10/10 (${esc(sec._cfbUniqueReconciled)} including earlier shadow-ledger games).</p>` : ""}
       <p class="sp-small muted">Forecast miss = how many points the predicted margin was from the real final margin. Losing to the benchmark means the market's forecast was closer; it is not money lost.</p>
       <h3>By model-market gap</h3>
       <div class="sp-grid">${Object.entries(buckets)
-        .map(([k, b]) => spRow(k === "unknown" ? "Gap not recorded" : k + " pts", `${b.count} predictions · ATS ${b.ats_w}-${b.ats_l}-${b.ats_p}`))
+        .map(([k, b]) => spRow(k === "unknown" ? "Gap not recorded" : k + " pts", mk(`${b.count} predictions · ATS ${b.ats_w}-${b.ats_l}-${b.ats_p}`)))
         .join("")}</div>
       <h3>Shadow (paper) results</h3>
       <div class="callout warn"><strong>${esc(m.shadow_pnl_label || "HYPOTHETICAL — not real P&L")}</strong><br />Shadow total: ${esc(shadowPnl != null ? (shadowPnl < 0 ? "−$" : "$") + Math.abs(shadowPnl).toFixed(2) : "—")}</div>
